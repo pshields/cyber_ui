@@ -1,28 +1,27 @@
 import {TestBed, inject} from '@angular/core/testing';
 
-import {TaskEngineSettings} from '../interfaces/task_engine_settings';
-import {TaskProvider} from '../interfaces/task_provider';
+import {TaskProvider, TaskProviderGetTasksOptions} from './interfaces/task_provider';
 
-import {TaskProviderRegistry} from './task_provider_registry.service';
+import {TaskProviderRegistryService} from './task_provider_registry.service';
 import {Observable, of} from 'rxjs';
 
 
 const TASK_PROVIDER_A: TaskProvider = {
-  getTasks(settings: TaskEngineSettings) { return of([]); }
+  getTasks(options: TaskProviderGetTasksOptions) { return of([]); }
 };
 
 
 describe('TaskProviderRegistry', () => {
-  let registry: TaskProviderRegistry;
+  let registry: TaskProviderRegistryService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TaskProviderRegistry]
+      providers: [TaskProviderRegistryService]
     });
   });
 
   beforeEach(() => {
-    registry = TestBed.get(TaskProviderRegistry);
+    registry = TestBed.get(TaskProviderRegistryService);
   });
 
   it('starts with an empty list of providers', () => {

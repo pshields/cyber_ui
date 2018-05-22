@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 
 import {Observable, merge} from 'rxjs';
 
-import {Task} from '../interfaces/task';
-import {TaskEngineSettings} from '../interfaces/task_engine_settings';
-import {TaskProvider} from '../interfaces/task_provider';
+import {Task} from './interfaces/task';
+import {TaskProvider, TaskProviderGetTasksOptions} from './interfaces/task_provider';
+import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 
 
 // A highly experimental register for collecting tasks from multiple providers
@@ -22,7 +22,7 @@ import {TaskProvider} from '../interfaces/task_provider';
 // By using a task provider registry, downstream consumers such as task suggestion engines don't need to
 // worry about where the tasks come from. They can just work with the tasks that they are given.
 @Injectable()
-export class TaskProviderRegistry {
+export class TaskProviderRegistryService implements TaskProviderRegistry {
   // The list of task providers registered in the registry
   private providers: TaskProvider[] = [];
 
@@ -38,10 +38,10 @@ export class TaskProviderRegistry {
 
   // Returns an observable emitting the current list of tasks (live-updating after each task provider returns)
   // To get an observable emitting only the final complete list of tasks, call `.last()` on the returned observable
-  getTasks(settings: TaskEngineSettings): Observable<Task[]> {
+  getTasks(options: TaskProviderGetTasksOptions): Observable<Task[]> {
     const tasks: Task[] = [];
     return Observable.create(subscriber => {
-      merge(...this.providers.map(provider => provider.getTasks(settings)))
+      merge(...this.providers.map(provider => provider.getTasks(options)))
         .subscribe((tasksFromProvider: Task[]) => {
           tasks.push(...tasksFromProvider);
           // Emit the list of tasks accrued so far. This occurs every time a task provider returns.
