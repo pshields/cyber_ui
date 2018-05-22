@@ -1,0 +1,71 @@
+<!-- Fields may either be passed in via the 'fields' input, or defined on the model instance, or defined statically on the model's constructor -->
+<ng-container *ngFor="let field of (fields || model.fields || model.constructor.fields)">
+  <mat-form-field *ngIf="field.config.useMatFormField">
+    <!-- TextField template -->
+    <textarea
+      *ngIf="field.config.element === elements.TEXTAREA"
+      matInput
+      matTextareaAutosize
+      [placeholder]="field.config.label"
+      [required]="field.config.required"
+      [cyberUiAutofocus]="field.config.autofocus"
+      [ngModel]="field.getNgModelBoundValue(model)"
+      (ngModelChange)="field.boundValueChangeHandler(model, $event)"
+      (ngModelChange)="change.emit()"
+      (keyup.enter)="field.config.saveOnEnter ? save.emit() : null"></textarea>
+    <!-- ChoiceField template -->
+    <mat-select
+        *ngIf="field.config.element === elements.SELECT"
+        [placeholder]="field.config.label"
+        [required]="field.config.required"
+        [name]="field.config.propertyName"
+        [(ngModel)]="model[field.config.propertyName]"
+        (ngModelChange)="change.emit()"
+        [cyberUiAutofocus]="field.autofocus">
+      <mat-option *ngFor="let option of field.config.options" [value]="option.value">
+       {{option.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- BooleanField template -->
+  <div class="checkbox-container" *ngIf="field.config.element === elements.MAT_CHECKBOX">
+    <mat-checkbox
+        color="primary"
+        [required]="field.config.required"
+        [name]="field.config.propertyName"
+        [(ngModel)]="model[field.config.propertyName]"
+        (ngModelChange)="change.emit()"
+        [cyberUiAutofocus]="field.config.autofocus">
+    </mat-checkbox>
+    <span>&nbsp;{{field.config.label}}</span>
+  </div>
+  <div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
+    <span>{{field.config.label}}&nbsp;</span>
+    <mat-slide-toggle
+        color="primary"
+        [required]="field.config.required"
+        [name]="field.config.propertyName"
+        [(ngModel)]="model[field.config.propertyName]"
+        (ngModelChange)="change.emit()"
+        [cyberUiAutofocus]="field.config.autofocus">
+    </mat-slide-toggle>
+  </div>
+  <!-- ValueInNumericRangeField template -->
+  <div class="slider-container" *ngIf="field.config.element === elements.MAT_SLIDER">
+    <span>{{field.config.label}}&nbsp;</span>
+    <mat-slider
+        color="primary"
+        [required]="field.config.required"
+        [name]="field.config.propertyName"
+        [(ngModel)]="model[field.config.propertyName]"
+        (ngModelChange)="change.emit()"
+        [max]="field.config.maxValue"
+        [min]="field.config.minValue"
+        [step]="field.config.step"
+        [cyberUiAutofocus]="field.autofocus">
+    </mat-slider>
+    <span>{{model[field.config.propertyName]|number:field.config.digitinfo}}</span>
+    <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
+  </div>
+</ng-container>
