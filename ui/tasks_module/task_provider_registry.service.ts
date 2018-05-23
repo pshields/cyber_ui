@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable, merge} from 'rxjs';
 
 import {Task} from './interfaces/task';
-import {TaskProvider, TaskProviderGetTasksOptions} from './interfaces/task_provider';
+import {TaskProvider, TaskProviderGetTasksOptions, TaskProviderGetTasksResponse, ProviderId} from './interfaces/task_provider';
 import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 
 
@@ -39,14 +39,26 @@ export class TaskProviderRegistryService implements TaskProviderRegistry {
   // Returns an observable emitting the current list of tasks (live-updating after each task provider returns)
   // To get an observable emitting only the final complete list of tasks, call `.last()` on the returned observable
   getTasks(options: TaskProviderGetTasksOptions): Observable<Task[]> {
-    const tasks: Task[] = [];
+    // Maintain a mapping from providers to the latest tasks they've returned
+    // Note that a given provider may emit multiple responses over time
+    // In that case, we need to replace the old set of tasks with the new
+    // As a result, just keeping a flat list of tasks returned so far is insufficient
+    // We need to know which provider each task came from in order to do the replacement
+    const tasksByProvider = new Map<ProviderId, Task[]>();
     return Observable.create(subscriber => {
-      merge(...this.providers.map(provider => provider.getTasks(options)))
-        .subscribe((tasksFromProvider: Task[]) => {
-          tasks.push(...tasksFromProvider);
-          // Emit the list of tasks accrued so far. This occurs every time a task provider returns.
-          // By the time the final task provider returns, `tasks` will be the complete list of tasks.
-          subscriber.next(tasks);
+      merge(...this.providers
+        .map(provider => provider.getTasks(options)))
+        .subscribe((response: TaskProviderGetTasksResponse) => {
+          // Update the tasks associated with this provider
+          // Either they were previously undefined (in the case of the initial provider response),
+          // or they were previously defined but have become outdated due to the newer response,
+          // which might reflect updates to the provider's data store (new tasks, canceled tasks, etc.)
+          tasksByProvider.set(response.providerId, response.tasks);
+          let result: Task[] = [];
+          // Collect the full list of tasks from the map
+          // It would be nice to use flatMap here, but it's not supported by browsers yet
+          tasksByProvider.forEach(tasks => result = result.concat(tasks));
+          subscriber.next(result);
         },
         error => console.error(error),
         () => subscriber.complete()
