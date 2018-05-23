@@ -10,7 +10,6 @@ import {TaskProviderRegistryService} from './task_provider_registry.service';
 
 
 const TASK_PROVIDER_A_RESPONSE_ONE: TaskProviderGetTasksResponse = {
-  providerId: 'TASK_PROVIDER_A',
   tasks: [
     {
       label: '111'
@@ -23,7 +22,6 @@ const TASK_PROVIDER_A_RESPONSE_ONE: TaskProviderGetTasksResponse = {
 
 // An updated version of the previous response where the task labeled '111' has been removed
 const TASK_PROVIDER_A_RESPONSE_TWO: TaskProviderGetTasksResponse = {
-  providerId: 'TASK_PROVIDER_A',
   tasks: [
     {
       label: '111'
@@ -34,7 +32,6 @@ const TASK_PROVIDER_A_RESPONSE_TWO: TaskProviderGetTasksResponse = {
 
 
 const TASK_PROVIDER_A: TaskProvider = {
-  id: 'TASK_PROVIDER_A',
   getTasks(options: TaskProviderGetTasksOptions) {
     return from([
       TASK_PROVIDER_A_RESPONSE_ONE,
@@ -44,11 +41,9 @@ const TASK_PROVIDER_A: TaskProvider = {
 };
 
 const TASK_PROVIDER_B: TaskProvider = {
-  id: 'TASK_PROVIDER_B',
   getTasks(options: TaskProviderGetTasksOptions) {
     return from([
       {
-        providerId: 'TASK_PROVIDER_B',
         tasks: [{
           label: '333',
         }]
@@ -93,8 +88,8 @@ describe('TaskProviderRegistry', () => {
     let latestTaskLabels: string[];
 
     beforeEach(async(() => {
-      registry.registerProvider(TASK_PROVIDER_A);
-      registry.registerProvider(TASK_PROVIDER_B);
+      registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
+      registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
       registry.getTasks({}).subscribe(tasks => latestTaskLabels = tasks.map(task => task.label));
     }));
 
