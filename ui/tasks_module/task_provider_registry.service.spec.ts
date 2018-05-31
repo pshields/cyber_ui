@@ -1,8 +1,7 @@
-import {TestBed, async, inject} from '@angular/core/testing';
+import {TestBed, async} from '@angular/core/testing';
 
-import {Observable, from} from 'rxjs';
+import {from} from 'rxjs';
 
-import {Task} from './interfaces/task';
 import {TaskProvider, TaskProviderGetTasksOptions, TaskProviderGetTasksResponse} from './interfaces/task_provider';
 
 import {TaskProviderRegistryService} from './task_provider_registry.service';

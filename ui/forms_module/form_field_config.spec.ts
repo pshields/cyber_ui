@@ -1,4 +1,4 @@
-import {FormFieldOptions, FormFieldConfig} from './form_field_config';
+import {FormFieldConfig} from './form_field_config';
 import {FormFieldElement} from './form_field_element.enum';
 
 

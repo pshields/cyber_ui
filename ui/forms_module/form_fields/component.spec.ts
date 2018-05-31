@@ -1,87 +1,55 @@
 import {Component} from '@angular/core';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {FormsModule} from '@angular/forms';
+import {fakeAsync, tick, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {CyberUiFormsModule} from '../module';
 import {FormField} from '../form_field';
 import {FormFieldConfig, FormFieldOptions} from '../form_field_config';
-import {ValueInNumericRangeField} from '../fields/value_in_numeric_range';
 
 import {CyberUiFormFieldsComponent} from './component';
 
 
-describe('CyberUiFormFieldsComponent', () => {
-  let component: CyberUiFormFieldsComponent<{}>;
-  let harnessComponent: FormFieldsTestHarnessComponent;
-  let fixture: ComponentFixture<FormFieldsTestHarnessComponent>;
+// Shared code used in each field template spec
+export interface TestContext {
+  component?: CyberUiFormFieldsComponent<{}>;
+  harnessComponent?: FormFieldsTestHarnessComponent;
+  fixture?: ComponentFixture<FormFieldsTestHarnessComponent>;
+}
 
-  beforeEach(async(() => {
+export function configureTestingModuleAndSetupContext(ctx: TestContext) {
+  beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [CyberUiFormsModule],
+      imports: [
+        NoopAnimationsModule,
+        FormsModule,
+        CyberUiFormsModule
+      ],
       declarations: [FormFieldsTestHarnessComponent],
     }).compileComponents();
-  }));
+    tick();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FormFieldsTestHarnessComponent);
-    harnessComponent = fixture.componentInstance;
-    component = fixture.debugElement.query(By.directive(CyberUiFormFieldsComponent)).componentInstance;
-  });
+    ctx.fixture = TestBed.createComponent(FormFieldsTestHarnessComponent);
+    ctx.harnessComponent = ctx.fixture.componentInstance;
+    ctx.component = ctx.fixture
+                      .debugElement
+                      .query(By.directive(CyberUiFormFieldsComponent))
+                      .componentInstance;
+
+  }));
+}
+
+
+describe('CyberUiFormFieldsComponent', () => {
+  const ctx: TestContext = {};
+  configureTestingModuleAndSetupContext(ctx);
 
   it('initializes', () => {
-    expect(component instanceof CyberUiFormFieldsComponent).toBe(true);
+    expect(ctx.component instanceof CyberUiFormFieldsComponent).toBe(true);
   });
 
-  describe('ValueInNumericRangeField template', () => {
-    // TODO Add helpDialog test for the remaining element types / templates
-
-    const defaultOptions = {
-      label: 'Test',
-      propertyName: 'test',
-      minValue: 0,
-      maxValue: 10,
-      step: 1,
-      helpDialog: TestDialogComponent
-    };
-
-    describe('when not configured to show a help dialog', () => {
-
-      beforeEach(async(() => {
-        harnessComponent.fields = [
-          new ValueInNumericRangeField(defaultOptions)
-        ];
-        fixture.detectChanges();
-      }));
-
-      it('does not show a help dialog', () => {
-        const iconNamesPresentInComponent = Array
-          .from(fixture.debugElement.nativeElement.querySelectorAll('mat-icon'))
-          .map((el: HTMLElement) => el.innerText);
-        expect(iconNamesPresentInComponent).not.toContain('help');
-      });
-    });
-
-    describe('when configured to show a help dialog', () => {
-      // This behavior is activated by the presence of `helpDialog` in the provided ValueInNumericRangeFieldOptions
-
-      beforeEach(async(() => {
-        harnessComponent.fields = [
-          new ValueInNumericRangeField(
-            Object.assign({}, defaultOptions, {helpDialog: TestDialogComponent})
-          )
-        ];
-        fixture.detectChanges();
-      }));
-
-      it('shows a help button that brings up the help dialog', () => {
-        const iconNamesPresentInComponent = Array
-          .from(fixture.debugElement.nativeElement.querySelectorAll('mat-icon'))
-          .map((el: HTMLElement) => el.innerText);
-        expect(iconNamesPresentInComponent).toContain('help');
-        // TODO Expect clicking on the button to open a dialog containing TestDialogComponent
-      });
-    });
-  });
+  // Each field template is tested separately in a template_specs/<field_name>.spec.ts file
 });
 
 
@@ -96,5 +64,7 @@ export class TestDialogComponent {}
 })
 export class FormFieldsTestHarnessComponent {
   fields: FormField<{}, FormFieldOptions, FormFieldConfig>[] = [];
-  model = {};
+  model = {
+    test: 0,
+  };
 }

@@ -1,6 +1,4 @@
-import {Injectable} from '@angular/core';
-
-import {Observable, merge} from 'rxjs';
+import {Observable} from 'rxjs';
 
 import {Task} from './task';
 import {TaskProvider, TaskProviderId, TaskProviderGetTasksOptions} from './task_provider';

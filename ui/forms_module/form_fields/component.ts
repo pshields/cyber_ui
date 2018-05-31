@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgForm} from '@angular/forms';
 
 import {MatDialog} from '@angular/material';
 

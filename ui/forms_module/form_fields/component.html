@@ -27,6 +27,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <!-- Help dialog placement when mat-form-field is used. Needs better styling / layout -->
+  <button type="button" *ngIf="field.config.useMatFormField && field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   <!-- BooleanField template -->
   <div class="checkbox-container" *ngIf="field.config.element === elements.MAT_CHECKBOX">
     <mat-checkbox
@@ -38,6 +40,7 @@
         [cyberUiAutofocus]="field.config.autofocus">
     </mat-checkbox>
     <span>&nbsp;{{field.config.label}}</span>
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
     <span>{{field.config.label}}&nbsp;</span>
@@ -49,6 +52,7 @@
         (ngModelChange)="change.emit()"
         [cyberUiAutofocus]="field.config.autofocus">
     </mat-slide-toggle>
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <!-- ValueInNumericRangeField template -->
   <div class="slider-container" *ngIf="field.config.element === elements.MAT_SLIDER">

@@ -3,8 +3,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CyberUiFormsModule} from '../module';
 
-import {CyberUiAutofocusDirective} from './directive';
-
 
 describe('CyberUiAutofocusDirective', () => {
 
@@ -59,12 +57,10 @@ describe('CyberUiAutofocusDirective', () => {
 
   describe('when no data is bound to the directive', () => {
     let fixture: ComponentFixture<UnboundDirectiveTestComponent>;
-    let component: UnboundDirectiveTestComponent;
     let inputEl: HTMLInputElement;
 
     beforeEach(async(() => {
       fixture = TestBed.createComponent(UnboundDirectiveTestComponent);
-      component = fixture.componentInstance;
       inputEl = fixture.elementRef.nativeElement.querySelector('input');
       spyOn(inputEl, 'focus');
       fixture.detectChanges();
