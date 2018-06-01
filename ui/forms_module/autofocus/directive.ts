@@ -20,7 +20,7 @@ export class CyberUiAutofocusDirective implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.cyberUiAutofocus === true || this.cyberUiAutofocus === '') {
-      // Call focus() asynchronously to avoid 'Expression was changed after it was checked' errors.
+      // Call focus() asynchronously to avoid 'Expression was changed after it was checked' errors
       setTimeout(() => this.el.nativeElement.focus(), 0);
     }
   }

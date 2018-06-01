@@ -2,7 +2,7 @@ import {FormFieldConfig} from './form_field_config';
 import {FormFieldElement} from './form_field_element.enum';
 
 
-// Utility function to create a FormFieldCinfug with defaults for all required options
+// Utility function to create a FormFieldConfig with defaults for all required options
 function createConfig(options: any): FormFieldConfig {
   if (options.label === undefined) {
     options.label = 'Bogus label';

@@ -2,7 +2,7 @@
 
 Cyber UI provides Angular components and services for task management and related topics. `Cyber` (short for cybernetics), as used in this project's title, refers to the capability of humans to augment their abilities using technology.
 
-Support the ongoing development of this project at https://patreon.com/pshields.
+This software is currently pre-alpha and under active development. Most of the v1 features are not yet implemented. Support the ongoing development of this project at https://patreon.com/pshields.
 
 ## Development
 
