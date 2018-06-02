@@ -7,7 +7,7 @@ import {TaskProvider, TaskProviderId, TaskProviderGetTasksOptions, TaskProviderG
 import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 
 
-// A highly experimental register for collecting tasks from multiple providers
+// A highly experimental registry for collecting tasks from multiple providers
 //
 // I've found attempting to collect all tasks into a single canonical source to be less intuitive
 // than one might initially expect. In practice, tasks naturally arise from multiple sources.
