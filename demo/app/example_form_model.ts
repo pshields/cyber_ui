@@ -2,19 +2,17 @@ import {BooleanField} from 'ui/forms_module/fields/boolean';
 import {CommaSeparatedListField} from 'ui/forms_module/fields/comma_separated_list';
 import {ValueInNumericRangeField} from 'ui/forms_module/fields/value_in_numeric_range';
 import {TextField} from 'ui/forms_module/fields/text';
-import {RATIONALE_FIELD} from 'ui/forms_module/fields/common/rationale';
 import {FormFieldElement} from 'ui/forms_module/form_field_element.enum';
 import {ChoiceField, Option} from 'ui/forms_module/fields/choice';
 
 
 export class DemoAppExampleFormModel {
 
-  // Field list for this model
+  // Fields for this model
   static readonly fields = [
-    // Example of using TextField
     new TextField({
-      label: 'Some text field label',
-      propertyName: 'text',
+      label: 'Name',
+      propertyName: 'name',
       autofocus: true,
     }),
     new BooleanField({
@@ -22,11 +20,10 @@ export class DemoAppExampleFormModel {
       propertyName: 'sayHi'
     }),
     new BooleanField({
-      label: 'Example of a slide toggle',
+      label: 'Active?',
       propertyName: 'slideToggleExample',
       element: FormFieldElement.MAT_SLIDE_TOGGLE,
     }),
-    // Example of using CommaSeparatedListField
     new CommaSeparatedListField({
       label: 'Tags',
       propertyName: 'tags',
@@ -48,13 +45,10 @@ export class DemoAppExampleFormModel {
         new Option('D', 'd')
       ]
     }),
-    // Examples of reusable / common fields
-    RATIONALE_FIELD,
   ];
 
-  // Properties and their initial values
-  text = `Hi! I'm a text field.`;
-  rationale = 'This is an example rationale.';
+  // Properties' initial values
+  // Note that most fields do not need to be initialized - doing so is optional
   tags = ['tag 1', 'tag 2'];
   slideToggleExample = true;
 }

@@ -4,6 +4,10 @@ Cyber UI provides Angular components and services for task management and relate
 
 This software is currently pre-alpha and under active development. Most of the v1 features are not yet implemented. Support the ongoing development of this project at https://patreon.com/pshields.
 
+## Demo
+
+A demo of the working components is currently hosted [here](https://cyberui-demo.firebaseapp.com/). `cyber-ui-form-fields` is the only component ready to be demonstrated right now.
+
 ## Development
 
 Run `ng serve` and navigate to `http://localhost:4200/`.
