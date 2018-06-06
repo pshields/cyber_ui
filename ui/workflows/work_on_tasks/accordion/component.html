@@ -1,0 +1,6 @@
+<mat-accordion>
+  <cyber-ui-minimal-task-expansion-panel
+    *ngFor="let task of tasks | async"
+    [task]="task">
+  </cyber-ui-minimal-task-expansion-panel>
+</mat-accordion>
