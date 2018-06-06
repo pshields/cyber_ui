@@ -14,6 +14,15 @@ export interface DemoTaskActionsContext {
 export function getDemoTasks(context: DemoTaskActionsContext) {
   return [
     {
+      label: 'Support development of Cyber UI on Patreon',
+      actions: [
+        {
+          label: 'BECOME A PATRON',
+          handler: () => window.location.href = 'https://www.patreon.com/pshields/overview'
+        }
+      ]
+    },
+    {
       label: 'Check out the cyber-ui-minimal-task-display component',
       actions: [
         {

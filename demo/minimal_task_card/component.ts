@@ -10,6 +10,7 @@ import {getDemoTasks} from '../data';
 
 @Component({
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class MinimalTaskCardDemoComponent {
   tasks: Task[];

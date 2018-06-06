@@ -8,6 +8,7 @@ import {Task} from 'ui/tasks_module/interfaces/task';
 @Component({
   selector: 'cyber-ui-minimal-task-card',
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class CyberUiMinimalTaskCardComponent<TASK_T extends Task> {
   @Input() task: TASK_T;
