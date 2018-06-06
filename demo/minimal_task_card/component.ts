@@ -11,7 +11,7 @@ import {getDemoTasks} from '../data';
 @Component({
   templateUrl: './component.html',
 })
-export class MinimalTaskDisplayDemoComponent {
+export class MinimalTaskCardDemoComponent {
   tasks: Task[];
 
   constructor(
@@ -23,5 +23,4 @@ export class MinimalTaskDisplayDemoComponent {
       snackBar: snackBar,
     });
   }
-
 }

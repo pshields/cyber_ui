@@ -1,4 +1,4 @@
-<h1>{{task.label}}</h1>
+<div class="cyber-ui-minimal-task-display-label">{{task.label}}</div>
 
 <ul *ngIf="task.actions">
   <li *ngFor="let action of task.actions" (click)="action.handler()">
