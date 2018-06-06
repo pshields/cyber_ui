@@ -4,7 +4,8 @@
 // FORMS MODULE
 // ============
 
-export {CyberUiFormsModule} from './forms_module/module';
+export {CyberUiAutofocusModule} from './forms_module/autofocus/module';
+export {CyberUiFormFieldsModule} from './forms_module/form_fields/module';
 
 // Although abstract, it's import to at least export the type since consumers may want to use it
 export {FormField} from './forms_module/form_field';
