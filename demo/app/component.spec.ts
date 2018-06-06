@@ -1,7 +1,8 @@
+import {APP_BASE_HREF} from '@angular/common';
 import {TestBed, async} from '@angular/core/testing';
 
-import {AppComponent} from './app.component';
-import {AppModule} from './app.module';
+import {AppComponent} from './component';
+import {AppModule} from './module';
 
 
 describe('AppComponent', () => {
@@ -10,6 +11,7 @@ describe('AppComponent', () => {
       imports: [
         AppModule
       ],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
     }).compileComponents();
   }));
   it('creates the app', async(() => {

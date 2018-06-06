@@ -4,9 +4,8 @@ import {DemoAppExampleFormModel} from './example_form_model';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './component.html',
 })
-export class AppComponent {
+export class FormFieldsDemoComponent {
   exampleFormModel = new DemoAppExampleFormModel();
 }

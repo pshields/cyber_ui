@@ -1,0 +1,7 @@
+<h1>{{task.label}}</h1>
+
+<ul *ngIf="task.actions">
+  <li *ngFor="let action of task.actions" (click)="action.handler()">
+    {{action.label}}
+  </li>
+</ul>

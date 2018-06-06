@@ -4,7 +4,7 @@ import {fakeAsync, tick, ComponentFixture, TestBed} from '@angular/core/testing'
 import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
-import {CyberUiFormsModule} from '../module';
+import {CyberUiFormFieldsModule} from './module';
 import {FormField} from '../form_field';
 import {FormFieldConfig, FormFieldOptions} from '../form_field_config';
 
@@ -24,7 +24,7 @@ export function configureTestingModuleAndSetupContext(ctx: TestContext) {
       imports: [
         NoopAnimationsModule,
         FormsModule,
-        CyberUiFormsModule
+        CyberUiFormFieldsModule
       ],
       declarations: [FormFieldsTestHarnessComponent],
     }).compileComponents();

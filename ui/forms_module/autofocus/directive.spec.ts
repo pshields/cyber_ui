@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {CyberUiFormsModule} from '../module';
+import {CyberUiAutofocusModule} from './module';
 
 
 describe('CyberUiAutofocusDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CyberUiFormsModule],
+      imports: [CyberUiAutofocusModule],
       declarations: [
         BoundDirectiveTestComponent,
         UnboundDirectiveTestComponent,
