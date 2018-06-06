@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 
-import {Task} from 'ui/tasks_module/interfaces/task';
+import {Task} from '../../interfaces/task';
 
 
 // A relatively minimal display component for a Task as a Material expansion panel

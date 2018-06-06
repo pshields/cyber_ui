@@ -2,10 +2,10 @@ import {Component, Inject} from '@angular/core';
 
 import {Observable} from 'rxjs';
 
-import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_suggestion_service';
+import {TASK_SUGGESTION_SERVICE} from '../../../tasks_module/injection_tokens/task_suggestion_service';
 
-import {Task} from 'ui/tasks_module/interfaces/task';
-import {TaskSuggestionEngine} from 'ui/tasks_module/interfaces/task_suggestion_engine';
+import {Task} from '../../../tasks_module/interfaces/task';
+import {TaskSuggestionEngine} from '../../../tasks_module/interfaces/task_suggestion_engine';
 
 
 // A work-on-tasks workflow powered by an Angular Material expansion panel

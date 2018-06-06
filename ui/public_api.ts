@@ -22,15 +22,24 @@ export {CommaSeparatedListField} from './forms_module/fields/comma_separated_lis
 export {TextField} from './forms_module/fields/text';
 export {ValueInNumericRangeField} from './forms_module/fields/value_in_numeric_range';
 
-// ============
-// TASKS MODULE
-// ============
+// =====
+// TASKS
+// =====
 
 export {TaskProvider, TaskProviderGetTasksOptions} from './tasks_module/interfaces/task_provider';
 export {Task} from './tasks_module/interfaces/task';
 export {TaskSuggestion} from './tasks_module/interfaces/task_suggestion';
 export {TaskSuggestionEngine, TaskSuggestionEngineGetSuggestionsOptions} from './tasks_module/interfaces/task_suggestion_engine';
 
+export {TASK_SUGGESTION_SERVICE} from './tasks_module/injection_tokens/task_suggestion_service';
+
 export {TaskProviderRegistryService} from './tasks_module/task_provider_registry.service';
 
 export {CyberUiTasksModule} from './tasks_module/module';
+
+// =========
+// Workflows
+// =========
+
+export {CyberUiWorkOnTasksAccordionWorkflowComponent} from './workflows/work_on_tasks/accordion/component';
+export {CyberUiWorkOnTasksAccordionWorkflowModule} from './workflows/work_on_tasks/accordion/module';
