@@ -2,6 +2,9 @@
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
+import {Task} from 'ui/tasks_module/interfaces/task';
+import {TaskSuggestion} from 'ui/tasks_module/interfaces/task_suggestion';
+
 
 // Context needed to define the actions for the demo tasks
 export interface DemoTaskActionsContext {
@@ -11,7 +14,7 @@ export interface DemoTaskActionsContext {
 
 
 // Some tasks that can be used to demo the various task displays
-export function getDemoTasks(context: DemoTaskActionsContext) {
+export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
   return [
     {
       label: 'Support development of Cyber UI on Patreon',
@@ -49,4 +52,13 @@ export function getDemoTasks(context: DemoTaskActionsContext) {
       ]
     }
   ];
+}
+
+// Similar to getDemoTasks but returns a TaskSuggestion[]
+export function getDemoTaskSuggestions(context: DemoTaskActionsContext): TaskSuggestion[] {
+  return getDemoTasks(context).map(task => {
+    return {
+      task: task
+    };
+  });
 }

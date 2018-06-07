@@ -5,20 +5,28 @@ import {MatSnackBar} from '@angular/material';
 
 import {of} from 'rxjs';
 
-import {TaskSuggestionEngine} from 'ui/tasks_module/interfaces/task_suggestion_engine';
-import {getDemoTasks} from '../data';
+import {getDemoTaskSuggestions} from '../data';
+
+import {TaskSuggestionService} from 'ui/tasks_module/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'ui/tasks_module/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'ui/tasks_module/interfaces/task_suggestion_service';
 
 
 // A TaskSuggestionService for use on the demo site
 @Injectable()
-export class DemoTaskSuggestionService implements TaskSuggestionEngine {
+export class DemoTaskSuggestionService implements TaskSuggestionService<
+    TaskSuggestionServiceGetSuggestionsBaseOptions,
+    TaskSuggestionServiceGetSuggestionsBaseResponse
+  > {
   constructor(
     readonly router: Router,
     readonly snackBar: MatSnackBar,
   ) {
 
   }
-  getSuggestions() {
-    return of(getDemoTasks({router: this.router, snackBar: this.snackBar}));
+  getSuggestions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {
+    return of({
+      suggestions: getDemoTaskSuggestions({router: this.router, snackBar: this.snackBar})
+    });
   }
 }

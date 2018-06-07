@@ -19,7 +19,7 @@ import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 //     could be instantiated into three separate tasks)
 // 3) "TODO" annotations in project files
 //
-// By using a task provider registry, downstream consumers such as task suggestion engines don't need to
+// By using a task provider registry, downstream consumers such as task suggestion services don't need to
 // worry about where the tasks come from. They can just work with the tasks that they are given.
 @Injectable()
 export class TaskProviderRegistryService implements TaskProviderRegistry {

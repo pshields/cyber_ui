@@ -28,9 +28,11 @@ export {ValueInNumericRangeField} from './forms_module/fields/value_in_numeric_r
 
 export {TaskProvider, TaskProviderGetTasksOptions} from './tasks_module/interfaces/task_provider';
 export {Task} from './tasks_module/interfaces/task';
-export {TaskSuggestion} from './tasks_module/interfaces/task_suggestion';
-export {TaskSuggestionEngine, TaskSuggestionEngineGetSuggestionsOptions} from './tasks_module/interfaces/task_suggestion_engine';
 
+export {TaskSuggestion} from './tasks_module/interfaces/task_suggestion';
+export {TaskSuggestionService} from './tasks_module/interfaces/task_suggestion_service';
+export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './tasks_module/interfaces/task_suggestion_service';
+export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './tasks_module/interfaces/task_suggestion_service';
 export {TASK_SUGGESTION_SERVICE} from './tasks_module/injection_tokens/task_suggestion_service';
 
 export {TaskProviderRegistryService} from './tasks_module/task_provider_registry.service';

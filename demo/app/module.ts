@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_suggestion_service';
+import {WORKFLOW_SETTINGS_SERVICE} from 'ui/workflows/injection_tokens/workflow_settings_service';
 import {CyberUiWorkOnTasksAccordionWorkflowComponent} from 'ui/workflows/work_on_tasks/accordion/component';
 import {CyberUiWorkOnTasksAccordionWorkflowModule} from 'ui/workflows/work_on_tasks/accordion/module';
 
@@ -18,6 +19,7 @@ import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 
 import {AppComponent} from './component';
 import {ComponentListComponent} from './component_list.component';
+import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
 
 
 export const routes: Routes = [
@@ -49,6 +51,7 @@ export const routes: Routes = [
   ],
   providers: [
     {provide: TASK_SUGGESTION_SERVICE, useClass: DemoTaskSuggestionService},
+    {provide: WORKFLOW_SETTINGS_SERVICE, useClass: DemoWorkflowSettingsService},
   ],
   bootstrap: [AppComponent]
 })
