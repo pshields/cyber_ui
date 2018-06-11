@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 
 import {TASK_SUGGESTION_SERVICE} from '../../../tasks_module/injection_tokens/task_suggestion_service';
 
+import {Task} from '../../../tasks_module/interfaces/task';
 import {TaskSuggestionService} from '../../../tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../../tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../../tasks_module/interfaces/task_suggestion_service';
@@ -16,18 +17,20 @@ import {WorkflowSettingsService} from '../../interfaces/workflow_settings_servic
   templateUrl: './component.html',
 })
 export class CyberUiWorkOnTasksAccordionWorkflowComponent<
+    TASK_T extends Task,
     GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions,
-    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse
+    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>
   > {
 
   options: GET_SUGGESTIONS_OPTIONS_T;
   suggestionsResponse: GET_SUGGESTIONS_RESPONSE_T;
 
-
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE)
     readonly taskSuggestionService: TaskSuggestionService<
-      GET_SUGGESTIONS_OPTIONS_T, GET_SUGGESTIONS_RESPONSE_T
+      TASK_T,
+      GET_SUGGESTIONS_OPTIONS_T,
+      GET_SUGGESTIONS_RESPONSE_T
     >,
     @Inject(WORKFLOW_SETTINGS_SERVICE)
     readonly workflowSettingsService: WorkflowSettingsService<

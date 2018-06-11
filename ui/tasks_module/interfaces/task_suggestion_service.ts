@@ -1,5 +1,6 @@
 import {Observable} from 'rxjs';
 
+import {Task} from './task';
 import {TaskSuggestion} from './task_suggestion';
 
 
@@ -13,15 +14,18 @@ export interface TaskSuggestionServiceGetSuggestionsBaseOptions {
 
 
 // Base response that any custom response interface must extend
-export interface TaskSuggestionServiceGetSuggestionsBaseResponse {
+export interface TaskSuggestionServiceGetSuggestionsBaseResponse<
+    TASK_T extends Task
+  > {
   // The suggestions comprising this response
-  suggestions: TaskSuggestion[];
+  suggestions: TaskSuggestion<TASK_T>[];
 }
 
 
 export interface TaskSuggestionService<
+    TASK_T extends Task,
     GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions,
-    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse,
+    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>,
 > {
 
   // Returns a stream of suggestion responses
