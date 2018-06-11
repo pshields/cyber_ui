@@ -43,5 +43,8 @@ export {CyberUiTasksModule} from './tasks_module/module';
 // Workflows
 // =========
 
+export {WorkflowSettingsService} from './workflows/interfaces/workflow_settings_service';
+export {WORKFLOW_SETTINGS_SERVICE} from './workflows/injection_tokens/workflow_settings_service';
+
 export {CyberUiWorkOnTasksAccordionWorkflowComponent} from './workflows/work_on_tasks/accordion/component';
 export {CyberUiWorkOnTasksAccordionWorkflowModule} from './workflows/work_on_tasks/accordion/module';
