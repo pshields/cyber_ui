@@ -9,7 +9,7 @@ export interface Task {
   label?: string;
 
   // Actions that the user can take in response to being shown this task
-  actions?: Action<{}, {}>[];
+  actions?: Action<any, any>[];
 
   // The ID of the task provider who provided this task
   // This should be specified whenever possible

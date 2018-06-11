@@ -12,14 +12,14 @@ export interface TaskProviderGetTasksOptions {
 }
 
 
-export interface TaskProviderGetTasksResponse {
-  tasks: Task[];
+export interface TaskProviderGetTasksResponse<TASK_T extends Task> {
+  tasks: TASK_T[];
 }
 
 
-export interface TaskProvider {
+export interface TaskProvider<TASK_T extends Task> {
   // Some providers may emit a single snapshot and complete, while others may expose
   // a realtime view of their data store, and emit a response after each change of state
   // It's not guaranteed that only a single response will be emitted
-  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderGetTasksResponse>;
+  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderGetTasksResponse<TASK_T>>;
 }

@@ -7,6 +7,7 @@ import {of} from 'rxjs';
 
 import {getDemoTaskSuggestions} from '../data';
 
+import {Task} from 'ui/tasks_module/interfaces/task';
 import {TaskSuggestionService} from 'ui/tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'ui/tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'ui/tasks_module/interfaces/task_suggestion_service';
@@ -15,8 +16,9 @@ import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'ui/tasks_module/i
 // A TaskSuggestionService for use on the demo site
 @Injectable()
 export class DemoTaskSuggestionService implements TaskSuggestionService<
+    Task,
     TaskSuggestionServiceGetSuggestionsBaseOptions,
-    TaskSuggestionServiceGetSuggestionsBaseResponse
+    TaskSuggestionServiceGetSuggestionsBaseResponse<Task>
   > {
   constructor(
     readonly router: Router,

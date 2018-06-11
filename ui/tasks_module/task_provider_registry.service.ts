@@ -22,12 +22,12 @@ import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 // By using a task provider registry, downstream consumers such as task suggestion services don't need to
 // worry about where the tasks come from. They can just work with the tasks that they are given.
 @Injectable()
-export class TaskProviderRegistryService implements TaskProviderRegistry {
+export class TaskProviderRegistryService<TASK_T extends Task> implements TaskProviderRegistry<TASK_T> {
   // The list of task providers registered in the registry
-  private providers = new Map<TaskProviderId, TaskProvider>();
+  private providers = new Map<TaskProviderId, TaskProvider<TASK_T>>();
 
   // Registers the given task provider into the registry
-  registerProvider(id: TaskProviderId, provider: TaskProvider): void {
+  registerProvider(id: TaskProviderId, provider: TaskProvider<TASK_T>): void {
     if (this.providers.has(id)) {
       console.error(`Refusing to register provider with duplicated id '${id}'`);
     } else {
@@ -36,20 +36,20 @@ export class TaskProviderRegistryService implements TaskProviderRegistry {
   }
 
   // Returns a copy of the list of current providers
-  getProviders(): TaskProvider[] {
+  getProviders(): TaskProvider<TASK_T>[] {
     return Array.from(this.providers.values());
   }
 
   // Returns an observable emitting the current list of tasks (live-updating after each task provider returns)
   // To get an observable emitting only the final complete list of tasks, call `.last()` on the returned observable
-  getTasks(options: TaskProviderGetTasksOptions): Observable<Task[]> {
+  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderGetTasksResponse<TASK_T>> {
     // Maintain a mapping from providers to the latest tasks they've returned
     // Note that a given provider may emit multiple responses over time
     // In that case, we need to replace the old set of tasks with the new
     // As a result, just keeping a flat list of tasks returned so far is insufficient
     // We need to know which provider each task came from in order to do the replacement
     const tasksByProvider = new Map<TaskProviderId, Task[]>();
-    const providerResponses: {providerId: TaskProviderId, responseObservable: Observable<TaskProviderGetTasksResponse>}[] = [];
+    const providerResponses: {providerId: TaskProviderId, responseObservable: Observable<TaskProviderGetTasksResponse<TASK_T>>}[] = [];
     this.providers.forEach((provider, providerId) => {
       providerResponses.push({
         providerId: providerId,
@@ -61,7 +61,7 @@ export class TaskProviderRegistryService implements TaskProviderRegistry {
       merge(
           providerResponses
           .map(providerResponse => {
-            return providerResponse.responseObservable.subscribe((response: TaskProviderGetTasksResponse) => {
+            return providerResponse.responseObservable.subscribe((response: TaskProviderGetTasksResponse<TASK_T>) => {
               // Update the tasks associated with this provider
               // Either they were previously undefined (in the case of the initial provider response),
               // or they were previously defined but have become outdated due to the newer response,
@@ -71,7 +71,9 @@ export class TaskProviderRegistryService implements TaskProviderRegistry {
               // Collect the full list of tasks from the map
               // It would be nice to use flatMap here, but it's not supported by browsers yet
               tasksByProvider.forEach(tasks => result = result.concat(tasks));
-              subscriber.next(result);
+              subscriber.next({
+                tasks: result
+              });
             },
             error => console.error(error),
             () => {

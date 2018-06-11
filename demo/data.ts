@@ -55,7 +55,7 @@ export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
 }
 
 // Similar to getDemoTasks but returns a TaskSuggestion[]
-export function getDemoTaskSuggestions(context: DemoTaskActionsContext): TaskSuggestion[] {
+export function getDemoTaskSuggestions(context: DemoTaskActionsContext): TaskSuggestion<Task>[] {
   return getDemoTasks(context).map(task => {
     return {
       task: task
