@@ -4279,9 +4279,9 @@ next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
-ng-packagr@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-3.0.1.tgz#16f8c108d06f8dfcfb6c90c250c7b8a46889468c"
+ng-packagr@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-3.0.2.tgz#f54b00bb64d246a7ecaede172329464229f6aa45"
   dependencies:
     "@ngtools/json-schema" "^1.1.0"
     autoprefixer "^8.0.0"
