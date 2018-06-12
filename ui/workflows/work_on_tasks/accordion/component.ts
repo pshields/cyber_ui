@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, QueryList, ViewChildren} from '@angular/core';
 
 import {TASK_SUGGESTION_SERVICE} from '../../../tasks_module/injection_tokens/task_suggestion_service';
 
@@ -6,9 +6,11 @@ import {Task} from '../../../tasks_module/interfaces/task';
 import {TaskSuggestionService} from '../../../tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../../tasks_module/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../../tasks_module/interfaces/task_suggestion_service';
+import {CyberUiMinimalTaskExpansionPanelComponent} from '../../../tasks_module/displays/minimal_expansion_panel/component';
 
 import {WORKFLOW_SETTINGS_SERVICE} from '../../injection_tokens/workflow_settings_service';
 import {WorkflowSettingsService} from '../../interfaces/workflow_settings_service';
+
 
 
 // A work-on-tasks workflow powered by an Angular Material expansion panel
@@ -21,8 +23,9 @@ export class CyberUiWorkOnTasksAccordionWorkflowComponent<
     GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions,
     GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>
   > {
+  @ViewChildren(CyberUiMinimalTaskExpansionPanelComponent) suggestionPanels: QueryList<CyberUiMinimalTaskExpansionPanelComponent<TASK_T>>;
 
-  options: GET_SUGGESTIONS_OPTIONS_T;
+  getSuggestionsOptions: GET_SUGGESTIONS_OPTIONS_T;
   suggestionsResponse: GET_SUGGESTIONS_RESPONSE_T;
 
   constructor(
@@ -38,12 +41,25 @@ export class CyberUiWorkOnTasksAccordionWorkflowComponent<
     >
   ) {
     // Get options to use during the initial request
-    this.options = workflowSettingsService.getGetSuggestionsOptions();
-    taskSuggestionService.getSuggestions(this.options).subscribe((response: GET_SUGGESTIONS_RESPONSE_T) => {
+    this.getSuggestionsOptions = workflowSettingsService.getGetSuggestionsOptions();
+    taskSuggestionService.getSuggestions(this.getSuggestionsOptions).subscribe((response: GET_SUGGESTIONS_RESPONSE_T) => {
+      // Replace the old response (or initial undefined value) with the new response
       this.suggestionsResponse = response;
+      // Draw attention to the new top suggestion
+      // Needs to be done asynchronously to wait for the view to be updated
+      // TODO Allow consumers to disable this functionality via a workflow setting
+      setTimeout(() => this.openFirstExpansionPanelIfExists(), 0);
     });
     // TODO subscribe to workflow settings options updates and
     // 1) terminate the old suggestions observable, and
     // 2) resubscribe to the task suggestions service with the new options
+  }
+
+  // Opens the first expansion panel in the accordion, if it exists
+  // The idea is to draw attention to the top suggestion whenever the suggestions change
+  openFirstExpansionPanelIfExists() {
+    if (this.suggestionPanels !== undefined && this.suggestionPanels.length > 0) {
+      this.suggestionPanels.first.panel.open();
+    }
   }
 }

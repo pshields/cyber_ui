@@ -2,13 +2,14 @@ import {TestBed, async} from '@angular/core/testing';
 
 import {from} from 'rxjs';
 
+import {Task} from './interfaces/task';
 import {TaskProvider, TaskProviderGetTasksOptions, TaskProviderGetTasksResponse} from './interfaces/task_provider';
 
 import {TaskProviderRegistryService} from './task_provider_registry.service';
 
 
 
-const TASK_PROVIDER_A_RESPONSE_ONE: TaskProviderGetTasksResponse = {
+const TASK_PROVIDER_A_RESPONSE_ONE: TaskProviderGetTasksResponse<Task> = {
   tasks: [
     {
       label: '111'
@@ -20,7 +21,7 @@ const TASK_PROVIDER_A_RESPONSE_ONE: TaskProviderGetTasksResponse = {
 };
 
 // An updated version of the previous response where the task labeled '111' has been removed
-const TASK_PROVIDER_A_RESPONSE_TWO: TaskProviderGetTasksResponse = {
+const TASK_PROVIDER_A_RESPONSE_TWO: TaskProviderGetTasksResponse<Task> = {
   tasks: [
     {
       label: '111'
@@ -30,7 +31,7 @@ const TASK_PROVIDER_A_RESPONSE_TWO: TaskProviderGetTasksResponse = {
 
 
 
-const TASK_PROVIDER_A: TaskProvider = {
+const TASK_PROVIDER_A: TaskProvider<Task> = {
   getTasks(options: TaskProviderGetTasksOptions) {
     return from([
       TASK_PROVIDER_A_RESPONSE_ONE,
@@ -39,7 +40,7 @@ const TASK_PROVIDER_A: TaskProvider = {
   }
 };
 
-const TASK_PROVIDER_B: TaskProvider = {
+const TASK_PROVIDER_B: TaskProvider<Task> = {
   getTasks(options: TaskProviderGetTasksOptions) {
     return from([
       {
@@ -53,7 +54,7 @@ const TASK_PROVIDER_B: TaskProvider = {
 
 
 describe('TaskProviderRegistry', () => {
-  let registry: TaskProviderRegistryService;
+  let registry: TaskProviderRegistryService<Task>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -70,7 +71,7 @@ describe('TaskProviderRegistry', () => {
   });
 
   describe('getProviders()', () => {
-    let returnedProviders: TaskProvider[];
+    let returnedProviders: TaskProvider<Task>[];
 
     beforeEach(() => {
       returnedProviders = registry.getProviders();
@@ -89,7 +90,7 @@ describe('TaskProviderRegistry', () => {
     beforeEach(async(() => {
       registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
       registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
-      registry.getTasks({}).subscribe(tasks => latestTaskLabels = tasks.map(task => task.label));
+      registry.getTasks({}).subscribe(response => latestTaskLabels = response.tasks.map(task => task.label));
     }));
 
     it('returns only the latest set of tasks from each provider', () => {
