@@ -15,11 +15,14 @@ export class Option<VALUE_T> {
 export interface ChoiceFieldOptions<OPTION_VALUE_T> extends FormFieldOptions {
     // The list of options to show to the user
     options: Option<OPTION_VALUE_T>[];
+    // Whether this field is a multiple-select field (default: false)
+    multiple?: boolean;
 }
 
 
 export class ChoiceFieldConfig<OPTION_VALUE_T> extends FormFieldConfig {
   options: Option<OPTION_VALUE_T>[];
+  multiple: boolean;
 
   constructor(options: ChoiceFieldOptions<OPTION_VALUE_T>) {
     super(
@@ -30,6 +33,15 @@ export class ChoiceFieldConfig<OPTION_VALUE_T> extends FormFieldConfig {
       FormFieldElement.SELECT
     );
     this.options = options.options;
+    this.multiple = this.getMultiple(options.multiple);
+  }
+
+  getMultiple(multiple: boolean | undefined): boolean {
+    if (multiple !== undefined) {
+      return multiple;
+    } else {
+      return false;
+    }
   }
 }
 

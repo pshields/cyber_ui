@@ -21,7 +21,8 @@
         [name]="field.config.propertyName"
         [(ngModel)]="model[field.config.propertyName]"
         (ngModelChange)="change.emit()"
-        [cyberUiAutofocus]="field.autofocus">
+        [cyberUiAutofocus]="field.autofocus"
+        [multiple]="field.config.multiple">
       <mat-option *ngFor="let option of field.config.options" [value]="option.value">
        {{option.label}}
       </mat-option>
