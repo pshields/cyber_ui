@@ -12,6 +12,8 @@ export interface TaskSuggestionServiceGetSuggestionsBaseOptions {
   deadline?: number;
   // Whether to reload the suggestions after workflow settings changes
   reloadSuggestionsAfterWorkflowSettingsChange?: boolean;
+  // The IDs of the providers to get tasks from (default: all providers)
+  taskProviders?: string[];
 }
 
 

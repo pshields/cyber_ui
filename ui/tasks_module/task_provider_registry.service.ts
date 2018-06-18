@@ -3,7 +3,8 @@ import {Injectable} from '@angular/core';
 import {Observable, merge} from 'rxjs';
 
 import {Task} from './interfaces/task';
-import {TaskProvider, TaskProviderId, TaskProviderGetTasksOptions, TaskProviderGetTasksResponse} from './interfaces/task_provider';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from './interfaces/task_suggestion_service';
+import {TaskProvider, TaskProviderId, TaskProviderGetTasksResponse} from './interfaces/task_provider';
 import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 
 
@@ -42,7 +43,7 @@ export class TaskProviderRegistryService<TASK_T extends Task> implements TaskPro
 
   // Returns an observable emitting the current list of tasks (live-updating after each task provider returns)
   // To get an observable emitting only the final complete list of tasks, call `.last()` on the returned observable
-  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderGetTasksResponse<TASK_T>> {
+  getTasks(options: TaskSuggestionServiceGetSuggestionsBaseOptions): Observable<TaskProviderGetTasksResponse<TASK_T>> {
     // Maintain a mapping from providers to the latest tasks they've returned
     // Note that a given provider may emit multiple responses over time
     // In that case, we need to replace the old set of tasks with the new
@@ -51,10 +52,13 @@ export class TaskProviderRegistryService<TASK_T extends Task> implements TaskPro
     const tasksByProvider = new Map<TaskProviderId, Task[]>();
     const providerResponses: {providerId: TaskProviderId, responseObservable: Observable<TaskProviderGetTasksResponse<TASK_T>>}[] = [];
     this.providers.forEach((provider, providerId) => {
-      providerResponses.push({
-        providerId: providerId,
-        responseObservable: provider.getTasks(options)
-      });
+      // Only get the tasks from the providers indicated in the request (or all, if no providers were specified)
+      if (options.taskProviders === undefined || options.taskProviders.indexOf(providerId) > -1) {
+        providerResponses.push({
+          providerId: providerId,
+          responseObservable: provider.getTasks(options)
+        });
+      }
     });
     let numProviderCompletions = 0;
     return Observable.create(subscriber => {
