@@ -23,6 +23,7 @@ describe('CyberUiWorkOnTasksAccordionWorkflowComponent', () => {
       >
   >;
   let suggestionService: FakeTaskSuggestionService;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -35,15 +36,18 @@ describe('CyberUiWorkOnTasksAccordionWorkflowComponent', () => {
       ]
     }).compileComponents();
   }));
+
   beforeEach(() => {
     fixture = TestBed.createComponent(CyberUiWorkOnTasksAccordionWorkflowComponent);
     suggestionService = TestBed.get(TASK_SUGGESTION_SERVICE);
   });
+
   describe('before the first suggestionsResponse is received', () => {
     it('does not display anything', () => {
       expect(fixture.nativeElement.children.length).toEqual(0);
     });
   });
+
   describe('when a new suggestionsResponse is received', () => {
     beforeEach(fakeAsync(() => {
      suggestionService.emitSuggestions();
@@ -62,5 +66,15 @@ describe('CyberUiWorkOnTasksAccordionWorkflowComponent', () => {
       // The first action's label will be present if the mat-action-row is visible
       expect(firstExpansionPanel.innerText).toContain('Action 1');
     }));
+  });
+
+  describe('when the workflow settings change', () => {
+    describe('when the settings say to reload the suggestions on workflow settings changes', () => {
+      // TODO Test that the TaskSuggestionService#getSuggestions is called with the new settings
+      // TODO Test that the old subscription is unsubscribed and torn down
+    });
+    describe('when the settings say not to reload the suggestions on workflow settings changes', () => {
+      // TODO Test that TaskSuggestionService#getSuggestions is not called again
+    });
   });
 });

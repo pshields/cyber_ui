@@ -1,5 +1,7 @@
 import {Component, Inject, QueryList, ViewChildren} from '@angular/core';
 
+import {Subscription} from 'rxjs';
+
 import {TASK_SUGGESTION_SERVICE} from '../../../tasks_module/injection_tokens/task_suggestion_service';
 
 import {Task} from '../../../tasks_module/interfaces/task';
@@ -28,6 +30,10 @@ export class CyberUiWorkOnTasksAccordionWorkflowComponent<
   getSuggestionsOptions: GET_SUGGESTIONS_OPTIONS_T;
   suggestionsResponse: GET_SUGGESTIONS_RESPONSE_T;
 
+  // A reference to the current TaskSuggestionService#getSuggestions subscription
+  // (needed for record-keeping in order to unsubscribe from stale subscriptions)
+  getSuggestionsSubscription: Subscription;
+
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE)
     readonly taskSuggestionService: TaskSuggestionService<
@@ -42,17 +48,33 @@ export class CyberUiWorkOnTasksAccordionWorkflowComponent<
   ) {
     // Get options to use during the initial request
     this.getSuggestionsOptions = workflowSettingsService.getGetSuggestionsOptions();
-    taskSuggestionService.getSuggestions(this.getSuggestionsOptions).subscribe((response: GET_SUGGESTIONS_RESPONSE_T) => {
-      // Replace the old response (or initial undefined value) with the new response
-      this.suggestionsResponse = response;
-      // Draw attention to the new top suggestion
-      // Needs to be done asynchronously to wait for the view to be updated
-      // TODO Allow consumers to disable this functionality via a workflow setting
-      setTimeout(() => this.openFirstExpansionPanelIfExists(), 0);
+    // Set up the suggestions subscription, given the initial options
+    this.loadSuggestions();
+    // Handle workflow settings changes
+    this.workflowSettingsService.changes.subscribe((settings: GET_SUGGESTIONS_OPTIONS_T) => {
+      this.getSuggestionsOptions = settings;
+      if (settings.reloadSuggestionsAfterWorkflowSettingsChange) {
+        this.loadSuggestions();
+      }
     });
-    // TODO subscribe to workflow settings options updates and
-    // 1) terminate the old suggestions observable, and
-    // 2) resubscribe to the task suggestions service with the new options
+  }
+
+  // Subscribes to the suggestion service using the latest workflow settings
+  loadSuggestions() {
+    // Unsubscribe from the previous subscription, if it exists
+    if (this.getSuggestionsSubscription !== undefined) {
+      this.getSuggestionsSubscription.unsubscribe();
+    }
+    this.getSuggestionsSubscription = this.taskSuggestionService
+      .getSuggestions(this.getSuggestionsOptions)
+      .subscribe((response: GET_SUGGESTIONS_RESPONSE_T) => {
+        // Replace the old response (or initial undefined value) with the new response
+        this.suggestionsResponse = response;
+        // Draw attention to the new top suggestion
+        // Needs to be done asynchronously to wait for the view to be updated
+        // TODO Allow consumers to disable this functionality via a workflow setting
+        setTimeout(() => this.openFirstExpansionPanelIfExists(), 0);
+    });
   }
 
   // Opens the first expansion panel in the accordion, if it exists

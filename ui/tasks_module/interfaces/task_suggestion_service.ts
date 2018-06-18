@@ -10,6 +10,8 @@ export interface TaskSuggestionServiceGetSuggestionsBaseOptions {
   limit?: number;
   // The maximum duration in ms to return an initial result by, even if processing is incomplete
   deadline?: number;
+  // Whether to reload the suggestions after workflow settings changes
+  reloadSuggestionsAfterWorkflowSettingsChange?: boolean;
 }
 
 
