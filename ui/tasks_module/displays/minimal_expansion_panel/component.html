@@ -1,7 +1,7 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>{{task.label}}</mat-expansion-panel-header>
   <ng-content></ng-content>
-  <mat-action-row *ngIf="task.actions">
+  <mat-action-row *ngIf="task.actions !== undefined && task.actions.length > 0">
     <button
       mat-button
       *ngFor="let action of task.actions"
