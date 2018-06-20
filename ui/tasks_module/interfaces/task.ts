@@ -18,5 +18,5 @@ export interface Task {
   // A component to render the body of a task (such as notes or a description)
   // TODO Figure out a better type here, or document why 'any' is necessary
   // I'd like to use TaskBodyComponent<Task> here, but ran into issues
-  bodyComponent: any;
+  bodyComponent?: any;
 }
