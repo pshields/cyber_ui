@@ -14,11 +14,11 @@ import {WORKFLOW_SETTINGS_SERVICE} from '../../injection_tokens/workflow_setting
 import {WorkflowSettingsService} from '../../interfaces/workflow_settings_service';
 
 
-
 // A work-on-tasks workflow powered by an Angular Material expansion panel
 @Component({
   selector: 'cyber-ui-work-on-tasks-accordion-workflow',
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class CyberUiWorkOnTasksAccordionWorkflowComponent<
     TASK_T extends Task,

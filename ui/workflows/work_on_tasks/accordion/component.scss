@@ -1,0 +1,5 @@
+:host {
+  // Don't allow this workflow component's width to exceed that of its parent
+  // Otherwise, the accordion and expansion panels can overflow horizontally
+  max-width: 100%;
+}
