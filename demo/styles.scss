@@ -3,4 +3,17 @@
 
 html {
   background-color: map_get($mat-grey, 200);
+  // Needed so the mat-sidenav can occupy the full screen height
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  // Needed so the mat-sidenav can occupy the full screen height
+  height: 100%;
+}
+
+mat-sidenav-content.mat-drawer-content {
+  // Remove default background color
+  background: none;
 }

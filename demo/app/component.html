@@ -1,5 +1,13 @@
-<h1>Cyber UI demo app</h1>
+<mat-toolbar color="primary">
+  <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
+  <span>Cyber UI demo app</span>
+</mat-toolbar>
 
-<a routerLink="/components">Component list</a>
-
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav opened #sidenav mode="side">
+    <component-list></component-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

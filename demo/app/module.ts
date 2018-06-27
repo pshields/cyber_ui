@@ -4,6 +4,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+import {MatIconModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+
 import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_suggestion_service';
 import {WORKFLOW_SETTINGS_SERVICE} from 'ui/workflows/injection_tokens/workflow_settings_service';
 import {CyberUiWorkOnTasksAccordionWorkflowComponent} from 'ui/workflows/work_on_tasks/accordion/component';
@@ -26,9 +30,7 @@ export const routes: Routes = [
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
-  {path: 'components', component: ComponentListComponent},
   {path: 'workflows/work-on-tasks-accordion', component: CyberUiWorkOnTasksAccordionWorkflowComponent},
-  {path: '', component: ComponentListComponent},
 ];
 
 
@@ -38,8 +40,13 @@ export const routes: Routes = [
     ComponentListComponent,
   ],
   imports: [
+    // Angular core modules
     BrowserModule,
     BrowserAnimationsModule,
+    // Angular Material modules used only in the demo app
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
     // Routing
     RouterModule.forRoot(routes),
     // Demo modules
