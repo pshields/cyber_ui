@@ -4,7 +4,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+import {MatButtonModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
+import {MatListModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
 
@@ -31,6 +33,7 @@ export const routes: Routes = [
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
   {path: 'workflows/work-on-tasks-accordion', component: CyberUiWorkOnTasksAccordionWorkflowComponent},
+  {path: '', component: ComponentListComponent},
 ];
 
 
@@ -44,7 +47,9 @@ export const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     // Angular Material modules used only in the demo app
+    MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatSidenavModule,
     MatToolbarModule,
     // Routing

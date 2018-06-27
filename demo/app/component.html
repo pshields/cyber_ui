@@ -1,10 +1,12 @@
 <mat-toolbar color="primary">
-  <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
-  <span>Cyber UI demo app</span>
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon class="menu">menu</mat-icon>
+  </button>
+  <span routerLink="/">Cyber UI demo app</span>
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened #sidenav mode="side">
+  <mat-sidenav #sidenav>
     <component-list></component-list>
   </mat-sidenav>
   <mat-sidenav-content>

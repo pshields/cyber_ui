@@ -5,20 +5,11 @@
   height: 100%;
 }
 
-mat-toolbar {
-  // Undo the Material padding since it will be on the menu icon instead
-  padding-left: 0;
-}
-
 mat-sidenav-container {
   // Needed so the mat-sidenav can occupy the full screen height
   flex: 1;
 }
 
 mat-sidenav-content {
-  padding: 16px;
-}
-
-mat-icon.menu {
   padding: 16px;
 }
