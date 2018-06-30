@@ -1,0 +1,6 @@
+<mat-accordion *ngIf="(_tasks | async) !== null">
+  <cyber-ui-minimal-task-expansion-panel
+    *ngFor="let task of (_tasks | async)"
+    [task]="task">
+  </cyber-ui-minimal-task-expansion-panel>
+</mat-accordion>

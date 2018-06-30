@@ -20,7 +20,7 @@ export class CyberUiMinimalTaskExpansionPanelComponent<TASK_T extends Task> impl
   @Input() task: TASK_T;
 
   constructor(
-    private resolver: ComponentFactoryResolver,
+    private readonly resolver: ComponentFactoryResolver,
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {

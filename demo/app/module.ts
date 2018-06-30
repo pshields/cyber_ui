@@ -12,8 +12,7 @@ import {MatToolbarModule} from '@angular/material';
 
 import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_suggestion_service';
 import {WORKFLOW_SETTINGS_SERVICE} from 'ui/workflows/injection_tokens/workflow_settings_service';
-import {CyberUiWorkOnTasksAccordionWorkflowComponent} from 'ui/workflows/work_on_tasks/accordion/component';
-import {CyberUiWorkOnTasksAccordionWorkflowModule} from 'ui/workflows/work_on_tasks/accordion/module';
+import {CyberUiWorkOnTasksWorkflowModule} from 'ui/workflows/work_on_tasks/module';
 
 import {FormFieldsDemoComponent} from '../form_fields/component';
 import {FormFieldsDemoModule} from '../form_fields/module';
@@ -22,17 +21,18 @@ import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalTaskDisplayDemoModule} from '../minimal_task_display/module';
 import {MinimalTaskDisplayDemoComponent} from '../minimal_task_display/component';
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
+import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
+import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/component';
+import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {ComponentListComponent} from './component_list.component';
-import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
-
 
 export const routes: Routes = [
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
-  {path: 'workflows/work-on-tasks-accordion', component: CyberUiWorkOnTasksAccordionWorkflowComponent},
+  {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
   {path: '', component: ComponentListComponent},
 ];
 
@@ -58,8 +58,9 @@ export const routes: Routes = [
     FormFieldsDemoModule,
     MinimalTaskCardDemoModule,
     MinimalTaskDisplayDemoModule,
+    WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
-    CyberUiWorkOnTasksAccordionWorkflowModule,
+    CyberUiWorkOnTasksWorkflowModule,
   ],
   providers: [
     {provide: TASK_SUGGESTION_SERVICE, useClass: DemoTaskSuggestionService},
