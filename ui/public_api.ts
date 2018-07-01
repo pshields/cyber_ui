@@ -32,6 +32,7 @@ export {TaskProviderGetTasksResponse} from './tasks_module/interfaces/task_provi
 
 export {Task} from './tasks_module/interfaces/task';
 export {Action} from './tasks_module/interfaces/action';
+export {CyberUiActionContext} from './tasks_module/interfaces/action_context';
 
 export {TaskSuggestion} from './tasks_module/interfaces/task_suggestion';
 export {TaskSuggestionService} from './tasks_module/interfaces/task_suggestion_service';
@@ -42,6 +43,8 @@ export {TASK_SUGGESTION_SERVICE} from './tasks_module/injection_tokens/task_sugg
 export {TaskProviderRegistryService} from './tasks_module/task_provider_registry.service';
 
 export {CyberUiTasksModule} from './tasks_module/module';
+export {CyberUiTaskAccordionComponent} from './tasks_module/displays/accordion/component';
+export {CyberUiTaskAccordionModule} from './tasks_module/displays/accordion/module';
 
 // =========
 // Workflows
