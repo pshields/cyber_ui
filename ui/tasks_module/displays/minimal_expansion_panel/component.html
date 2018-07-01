@@ -1,5 +1,5 @@
 <mat-expansion-panel>
-  <mat-expansion-panel-header>{{task.label}}</mat-expansion-panel-header>
+  <mat-expansion-panel-header expandedHeight="*" collapsedHeight="*">{{task.label}}</mat-expansion-panel-header>
   <ng-template #body></ng-template>
   <mat-action-row *ngIf="task.actions !== undefined && task.actions.length > 0">
     <button
