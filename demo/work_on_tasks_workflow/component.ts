@@ -5,7 +5,9 @@ import {ChoiceField, Option} from 'ui/forms_module/fields/choice';
 
 
 @Component({
+  selector: 'work-on-tasks-workflow-demo',
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class WorkOnTasksWorkflowDemoComponent {
   self = this;  // allow for referencing the host class from the template

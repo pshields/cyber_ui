@@ -13,7 +13,24 @@ body {
   height: 100%;
 }
 
+mat-expansion-panel-header.mat-expansion-panel-header {
+  // Because Cyber UI does not hard-code fixed expansion panel header heights,
+  // this padding is added to provide a reasonable default.
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+// TODO Fix this upstream in Angular Material
+.mat-expansion-panel-body:empty {
+  padding-bottom: 0;
+}
+
 mat-sidenav-content.mat-drawer-content {
   // Remove default background color
   background: none;
+
+  > * {
+    // Set a reasonable max with for content
+    max-width: 70em;
+  }
 }

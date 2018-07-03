@@ -1,4 +1,16 @@
-<p>The <i>cyber-ui-work-on-tasks-workflow</i> handles retrieving and displaying a list of task suggestions using an arbitrary display component. This example uses the <i>cyber-ui-task-accordion</i> component as the display component, but you could provide your own custom display component.</p>
+<h2>cyber-ui-work-on-tasks-workflow</h2>
+
+<p><i>cyber-ui-work-on-tasks-workflow</i> handles retrieving and displaying a list of task suggestions using an arbitrary display component.</p>
+
+<h3>Inputs</h3>
+
+<ul>
+  <li><b>displayComponent</b>: the Angular component to use to display the tasks. Tasks will be passed to the display component's <i>tasks</i> input as an <code>Observable&lt;TASK_T[]&gt;</code>.</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>This example uses the <i>cyber-ui-task-accordion</i> component as the display component (but you could provide your own custom display component.)</p>
 
 <cyber-ui-form-fields [model]="self" [fields]="demoSettingsFields"></cyber-ui-form-fields>
 
