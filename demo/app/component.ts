@@ -1,9 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 
-import {Router, NavigationEnd} from '@angular/router';
-
-import {filter} from 'rxjs/operators';
-import {MatSidenav} from '@angular/material';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,13 +9,5 @@ import {MatSidenav} from '@angular/material';
   templateUrl: './component.html',
 })
 export class AppComponent {
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
-
-  constructor(readonly router: Router) {
-    // Close the sidenav after navigation events
-    this.router.events.pipe(
-      filter(e => e instanceof NavigationEnd)
-    ).subscribe(e => this.sidenav.close());
-  }
-
+  constructor(readonly router: Router) {}
 }

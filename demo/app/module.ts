@@ -14,26 +14,31 @@ import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_sug
 import {WORKFLOW_SETTINGS_SERVICE} from 'ui/workflows/injection_tokens/workflow_settings_service';
 import {CyberUiWorkOnTasksWorkflowModule} from 'ui/workflows/work_on_tasks/module';
 
+import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
+import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
 import {FormFieldsDemoComponent} from '../form_fields/component';
 import {FormFieldsDemoModule} from '../form_fields/module';
+import {InterfacesDocumentationComponent} from '../interfaces/component';
+import {InterfacesDocumentationModule} from '../interfaces/module';
 import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalTaskDisplayDemoModule} from '../minimal_task_display/module';
 import {MinimalTaskDisplayDemoComponent} from '../minimal_task_display/component';
-import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
-import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
+
 import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/component';
 import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {ComponentListComponent} from './component_list.component';
 
+
 export const routes: Routes = [
+  {path: 'interfaces/task', component: InterfacesDocumentationComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
-  {path: '', component: ComponentListComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'interfaces/task'},
 ];
 
 
@@ -56,6 +61,7 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     // Demo modules
     FormFieldsDemoModule,
+    InterfacesDocumentationModule,
     MinimalTaskCardDemoModule,
     MinimalTaskDisplayDemoModule,
     WorkOnTasksWorkflowDemoModule,

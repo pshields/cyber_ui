@@ -25,12 +25,16 @@ mat-expansion-panel-header.mat-expansion-panel-header {
   padding-bottom: 0;
 }
 
+mat-sidenav.mat-drawer {
+  background: none;
+}
+
 mat-sidenav-content.mat-drawer-content {
   // Remove default background color
   background: none;
 
   > * {
     // Set a reasonable max with for content
-    max-width: 70em;
+    max-width: 60em;
   }
 }

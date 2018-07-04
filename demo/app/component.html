@@ -2,11 +2,11 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon class="menu">menu</mat-icon>
   </button>
-  <span routerLink="/">Cyber UI demo app</span>
+  <span routerLink="/">Cyber UI Demo</span>
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav>
+  <mat-sidenav #sidenav opened mode="side">
     <component-list></component-list>
   </mat-sidenav>
   <mat-sidenav-content>
