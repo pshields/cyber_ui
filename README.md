@@ -2,9 +2,11 @@
 
 Cyber UI provides Angular components and services for task management and related topics. `Cyber` (short for cybernetics), as used in this project's title, refers to the capability of humans to augment their abilities using technology.
 
-This software is currently pre-alpha and under active development. Most of the v1 features are not yet implemented. Support the ongoing development of this project at https://patreon.com/pshields.
-
 A demo is available at https://cyberui-demo.firebaseapp.com/.
+
+Cyber UI follows [semantic versioning](https://semver.org/) and is currently pre-v1. Breaking changes are likely up until the v1 release. A v1 release is expected by the end of 2019.
+
+You can have a say in the future of this library and its API! Fund your desired features or support ongoing development by becoming a sponsor at https://patreon.com/pshields. At higher levels, sponsorships come with development time allocated according to your priorities.
 
 ## Development
 
