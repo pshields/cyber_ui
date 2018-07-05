@@ -17,40 +17,66 @@ export interface DemoTaskActionsContext {
 export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
   return [
     {
-      label: 'Support development of Cyber UI on Patreon',
+      label: 'Support development of Cyber UI',
       actions: [
         {
           label: 'BECOME A PATRON',
-          handler: () => window.location.href = 'https://www.patreon.com/pshields/overview'
+          handler: () => window.open('https://www.patreon.com/pshields/overview', '_blank')
+        },
+        {
+          label: 'STAR ON GITHUB',
+          handler: () => window.open('https://www.github.com/pshields/cyber_ui')
         }
       ]
     },
     {
-      label: 'Check out the cyber-ui-minimal-task-display component',
+      label: 'Learn more about the interfaces used in Cyber UI',
       actions: [
         {
-          label: 'MARK COMPLETE',
+          label: 'LEARN ABOUT TASK INTERFACE',
+          handler: () => context.router.navigateByUrl('/interfaces/task'),
+        }
+      ]
+    },
+    {
+      label: 'Example task ABC123',
+      actions: [
+        {
+          label: 'MARK COMPLETE (ACTIVATES SNACK BAR)',
           handler: () => context.snackBar.open('Marked complete'),
         },
         {
-          label: 'SNOOZE',
+          label: 'SNOOZE (ACTIVATES SNACK BAR)',
           handler: () => context.snackBar.open('Snoozed'),
         }
       ]
     },
     {
-      label: 'Check out some of the other demo components',
+      label: 'Example task DEF456',
       actions: [
         {
-          label: 'cyber-ui-form-fields',
-          handler: () => context.router.navigateByUrl('/components/form-fields'),
+          label: 'MARK COMPLETE (ACTIVATES SNACK BAR)',
+          handler: () => context.snackBar.open('Marked complete'),
         },
         {
-          label: 'SEE COMPONENT LIST',
-          handler: () => context.router.navigateByUrl('/components'),
+          label: 'SNOOZE (ACTIVATES SNACK BAR)',
+          handler: () => context.snackBar.open('Snoozed'),
         }
       ]
-    }
+    },
+    {
+      label: 'Example task GHI789',
+      actions: [
+        {
+          label: 'MARK COMPLETE (ACTIVATES SNACK BAR)',
+          handler: () => context.snackBar.open('Marked complete'),
+        },
+        {
+          label: 'SNOOZE (ACTIVATES SNACK BAR)',
+          handler: () => context.snackBar.open('Snoozed'),
+        }
+      ]
+    },
   ];
 }
 
