@@ -12,7 +12,7 @@
       [ngModel]="field.getNgModelBoundValue(model)"
       (ngModelChange)="field.boundValueChangeHandler(model, $event)"
       (ngModelChange)="change.emit()"
-      (keyup.enter)="field.config.saveOnEnter ? save.emit() : null"></textarea>
+      (keydown.enter)="field.config.saveOnEnter ? save.emit() || false : null"></textarea>
     <!-- ChoiceField template -->
     <mat-select
         *ngIf="field.config.element === elements.SELECT"

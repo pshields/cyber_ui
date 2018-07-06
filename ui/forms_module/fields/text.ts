@@ -9,6 +9,10 @@ export interface TextFieldOptions extends FormFieldOptions {
 
 export class TextFieldConfig extends FormFieldConfig {
   // Whether an Enter keypress on this field should emit a form save event
+  // If true, the Enter keypress will be intercepted, so the newline will
+  // *not* be included in the text field's value
+  // Users can still achieve newlines in textareas in this scenario with
+  // Shift+Enter
   saveOnEnter: boolean;
 
   constructor(options: TextFieldOptions) {
