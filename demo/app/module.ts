@@ -33,7 +33,7 @@ import {ComponentListComponent} from './component_list.component';
 
 
 export const routes: Routes = [
-  {path: 'interfaces/task', component: InterfacesDocumentationComponent},
+  {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},

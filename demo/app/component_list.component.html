@@ -1,6 +1,8 @@
 <mat-list>
   <mat-list-item>INTERFACES</mat-list-item>
-  <mat-list-item><a routerLink="/interfaces/task">Task</a></mat-list-item>
+  <mat-list-item *ngFor="let interface of INTERFACES">
+    <a routerLink="/interfaces/{{interface.id}}">{{interface.label}}</a>
+  </mat-list-item>
   <mat-list-item>MISC COMPONENTS</mat-list-item>
   <mat-list-item><a routerLink="/components/form-fields">cyber-ui-form-fields</a></mat-list-item>
   <mat-list-item>TASK DISPLAY COMPONENTS</mat-list-item>

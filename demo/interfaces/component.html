@@ -1,5 +1,15 @@
-<h2><code>Task</code> interface</h2>
+<h2 *ngIf="interface"><code>{{interface.label}}</code> interface</h2>
+
+<ng-container *ngIf="interfaceId === 'task'">
 
 <p>The <code>Task</code> interface defines the properties (and types) that Cyber UI cares about with regard regard to any given task. Most of the fields are optional. Consumers are encouraged to provide their own task interface which extends <code>Task</code>.</p>
 
-<p>See the <a href="https://github.com/pshields/cyber_ui/blob/master/ui/tasks_module/interfaces/task.ts">interface definition on GitHub</a>.</p>
+</ng-container>
+
+<ng-container *ngIf="interfaceId === 'cyber-ui-action-context'">
+
+<p>The <code>CyberUiActionContext</code> interface defines properties available for use by task action handlers. The initial use case is to expose a view container ref to action handlers, to allow, for example, attaching a menu next to the action button when the action button is clicked.</p>
+
+</ng-container>
+
+<p *ngIf="interface">See the <a href="https://github.com/pshields/cyber_ui/blob/master/{{interface.definedIn}}">interface definition on GitHub</a>.</p>
