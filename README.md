@@ -1,8 +1,8 @@
 # Cyber UI
 
-Cyber UI provides Angular components and services for task management and related topics. `Cyber` (short for cybernetics), as used in this project's title, refers to the capability of humans to augment their abilities using technology.
+Cyber UI provides Angular components and services for task management, prediction management, decision support, and related topics. `Cyber` (short for cybernetics), as used in this project's title, refers to the capability of humans to augment their abilities using technology.
 
-A demo is available at https://cyberui-demo.firebaseapp.com/.
+A demo is available at https://cyberui.org/.
 
 Cyber UI follows [semantic versioning](https://semver.org/) and is currently pre-v1. Breaking changes are likely up until the v1 release. A v1 release is expected by the end of 2019.
 
