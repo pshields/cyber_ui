@@ -17,12 +17,12 @@ export const INTERFACES = [
   {
     id: 'task',
     label: 'Task',
-    definedIn: 'ui/tasks_module/interfaces/task.ts'
+    definedIn: 'lib/tasks_module/interfaces/task.ts'
   },
   {
     id: 'cyber-ui-action-context',
     label: 'CyberUiActionContext',
-    definedIn: 'ui/tasks_module/interfaces/action_context.ts'
+    definedIn: 'lib/tasks_module/interfaces/action_context.ts'
   }
 ];
 

@@ -10,9 +10,9 @@ import {MatListModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
 
-import {TASK_SUGGESTION_SERVICE} from 'ui/tasks_module/injection_tokens/task_suggestion_service';
-import {WORKFLOW_SETTINGS_SERVICE} from 'ui/workflows/injection_tokens/workflow_settings_service';
-import {CyberUiWorkOnTasksWorkflowModule} from 'ui/workflows/work_on_tasks/module';
+import {TASK_SUGGESTION_SERVICE} from 'lib/tasks_module/injection_tokens/task_suggestion_service';
+import {WORKFLOW_SETTINGS_SERVICE} from 'lib/workflows/injection_tokens/workflow_settings_service';
+import {CyberUiWorkOnTasksWorkflowModule} from 'lib/workflows/work_on_tasks/module';
 
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';

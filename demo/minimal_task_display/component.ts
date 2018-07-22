@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material';
 
-import {Task} from 'ui/tasks_module/interfaces/task';
+import {Task} from 'lib/tasks_module/interfaces/task';
 
 import {getDemoTasks} from '../data';
 

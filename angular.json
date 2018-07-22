@@ -93,37 +93,37 @@
       }
     },
     "cyber_ui": {
-      "root": "ui",
-      "sourceRoot": "ui",
+      "root": "lib",
+      "sourceRoot": "lib",
       "projectType": "library",
       "prefix": "cyber-ui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "ui/tsconfig.lib.json",
-            "project": "ui/ng-package.json"
+            "tsConfig": "lib/tsconfig.lib.json",
+            "project": "lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "ui/ng-package.prod.json"
+              "project": "lib/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "ui/test.ts",
-            "tsConfig": "ui/tsconfig.spec.json",
-            "karmaConfig": "ui/karma.conf.js"
+            "main": "lib/test.ts",
+            "tsConfig": "lib/tsconfig.spec.json",
+            "karmaConfig": "lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "ui/tsconfig.lib.json",
-              "ui/tsconfig.spec.json"
+              "lib/tsconfig.lib.json",
+              "lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
