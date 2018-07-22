@@ -1,4 +1,4 @@
-import {Outcome} from '../probability/interfaces/outcome';
+import {Outcome} from '../../probability/interfaces/outcome';
 
 
 // A thing to be predicted

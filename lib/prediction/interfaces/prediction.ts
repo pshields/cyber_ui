@@ -1,4 +1,4 @@
-import {DiscreteProbabilityDistribution} from '../probability/interfaces/discrete_probability_distribution';
+import {DiscreteProbabilityDistribution} from '../../probability/interfaces/discrete_probability_distribution';
 
 
 export interface Prediction {
