@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatSnackBarModule} from '@angular/material';
 
-import {CyberUiMinimalTaskCardModule} from 'lib/tasks_module/displays/minimal_card/module';
+import {CyberUiMinimalTaskCardModule} from 'lib/task/displays/minimal_card/module';
 
 import {MinimalTaskCardDemoComponent} from './component';
 

@@ -2,12 +2,12 @@ import {Component, Inject, ComponentFactory, ComponentFactoryResolver, Input, On
 
 import {Subscription, Subject, ReplaySubject} from 'rxjs';
 
-import {TASK_SUGGESTION_SERVICE} from '../../tasks_module/injection_tokens/task_suggestion_service';
+import {TASK_SUGGESTION_SERVICE} from '../../task/injection_tokens/task_suggestion_service';
 
-import {Task} from '../../tasks_module/interfaces/task';
-import {TaskSuggestionService} from '../../tasks_module/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../tasks_module/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../tasks_module/interfaces/task_suggestion_service';
+import {Task} from '../../task/interfaces/task';
+import {TaskSuggestionService} from '../../task/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../task/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../task/interfaces/task_suggestion_service';
 
 import {WORKFLOW_SETTINGS_SERVICE} from '../injection_tokens/workflow_settings_service';
 import {WorkflowSettingsService} from '../interfaces/workflow_settings_service';

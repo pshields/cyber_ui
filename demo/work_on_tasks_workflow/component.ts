@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {CyberUiTaskAccordionComponent} from 'lib/tasks_module/displays/accordion/component';
+import {CyberUiTaskAccordionComponent} from 'lib/task/displays/accordion/component';
 import {ChoiceField, Option} from 'lib/forms_module/fields/choice';
 
 

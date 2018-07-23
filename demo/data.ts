@@ -2,8 +2,8 @@
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
-import {Task} from 'lib/tasks_module/interfaces/task';
-import {TaskSuggestion} from 'lib/tasks_module/interfaces/task_suggestion';
+import {Task} from 'lib/task/interfaces/task';
+import {TaskSuggestion} from 'lib/task/interfaces/task_suggestion';
 
 
 // Context needed to define the actions for the demo tasks

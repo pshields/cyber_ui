@@ -7,10 +7,10 @@ import {of} from 'rxjs';
 
 import {getDemoTaskSuggestions} from '../data';
 
-import {Task} from 'lib/tasks_module/interfaces/task';
-import {TaskSuggestionService} from 'lib/tasks_module/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/tasks_module/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'lib/tasks_module/interfaces/task_suggestion_service';
+import {Task} from 'lib/task/interfaces/task';
+import {TaskSuggestionService} from 'lib/task/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/task/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'lib/task/interfaces/task_suggestion_service';
 
 
 // A TaskSuggestionService for use on the demo site

@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs';
 
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../tasks_module/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../task/interfaces/task_suggestion_service';
 
 
 export interface WorkflowSettingsService<

@@ -2,12 +2,12 @@ import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
-import {Task} from '../../tasks_module/interfaces/task';
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../tasks_module/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../tasks_module/interfaces/task_suggestion_service';
-import {TASK_SUGGESTION_SERVICE} from '../../tasks_module/injection_tokens/task_suggestion_service';
-import {FakeTaskSuggestionService} from '../../tasks_module/testing/task_suggestion_service.fake';
-import {CyberUiTaskAccordionComponent} from '../../tasks_module/displays/accordion/component';
+import {Task} from '../../task/interfaces/task';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../task/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../task/interfaces/task_suggestion_service';
+import {TASK_SUGGESTION_SERVICE} from '../../task/injection_tokens/task_suggestion_service';
+import {FakeTaskSuggestionService} from '../../task/testing/task_suggestion_service.fake';
+import {CyberUiTaskAccordionComponent} from '../../task/displays/accordion/component';
 
 import {WORKFLOW_SETTINGS_SERVICE} from '../injection_tokens/workflow_settings_service';
 import {FakeWorkflowSettingsService} from '../testing/workflow_settings_service.fake';

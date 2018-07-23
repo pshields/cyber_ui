@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/tasks_module/interfaces/task_suggestion_service';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/task/interfaces/task_suggestion_service';
 import {WorkflowSettingsService} from 'lib/workflows/interfaces/workflow_settings_service';
 
 
