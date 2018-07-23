@@ -1,4 +1,4 @@
-# cyber_ui forms_module design doc and usage guide
+# cyber_ui form design doc and usage guide
 
 Status: very early stage; breaking changes likely; still not sure how opinionated versus flexible the finished product should be.
 

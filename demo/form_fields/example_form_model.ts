@@ -1,9 +1,9 @@
-import {BooleanField} from 'lib/forms_module/fields/boolean';
-import {CommaSeparatedListField} from 'lib/forms_module/fields/comma_separated_list';
-import {ValueInNumericRangeField} from 'lib/forms_module/fields/value_in_numeric_range';
-import {TextField} from 'lib/forms_module/fields/text';
-import {FormFieldElement} from 'lib/forms_module/form_field_element.enum';
-import {ChoiceField, Option} from 'lib/forms_module/fields/choice';
+import {BooleanField} from 'lib/form/fields/boolean';
+import {CommaSeparatedListField} from 'lib/form/fields/comma_separated_list';
+import {ValueInNumericRangeField} from 'lib/form/fields/value_in_numeric_range';
+import {TextField} from 'lib/form/fields/text';
+import {FormFieldElement} from 'lib/form/form_field_element.enum';
+import {ChoiceField, Option} from 'lib/form/fields/choice';
 
 
 export class DemoAppExampleFormModel {
