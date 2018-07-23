@@ -9,4 +9,7 @@ export interface Prediction {
 
   // the assignment from outcomes to probabilities
   distribution: DiscreteProbabilityDistribution[];
+
+  // unix timestamp in ms when this prediction comes due for evaluation
+  due: number;
 }
