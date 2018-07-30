@@ -69,13 +69,12 @@
   optionalDependencies:
     node-sass "^4.9.1"
 
-"@angular-devkit/build-ng-packagr@0.6.8":
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.6.8.tgz#27a902ac58b4b6a17a458b81b04d6c6f0211cd16"
+"@angular-devkit/build-ng-packagr@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.7.1.tgz#c820aa80a4076495253f3ac88979f00ff6a8c7c0"
   dependencies:
-    "@angular-devkit/architect" "0.6.8"
-    "@angular-devkit/core" "0.6.8"
-    resolve "^1.5.0"
+    "@angular-devkit/architect" "0.7.1"
+    "@angular-devkit/core" "0.7.1"
     rxjs "^6.0.0"
 
 "@angular-devkit/build-optimizer@0.7.1":
