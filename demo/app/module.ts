@@ -24,7 +24,9 @@ import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalTaskDisplayDemoModule} from '../minimal_task_display/module';
 import {MinimalTaskDisplayDemoComponent} from '../minimal_task_display/component';
+import {SplashPageComponent} from '../splash_page/component';
 
+import {SplashPageModule} from '../splash_page/module';
 import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/component';
 import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
@@ -38,7 +40,7 @@ export const routes: Routes = [
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'interfaces/task'},
+  {path: '', component: SplashPageComponent},
 ];
 
 
@@ -64,6 +66,7 @@ export const routes: Routes = [
     InterfacesDocumentationModule,
     MinimalTaskCardDemoModule,
     MinimalTaskDisplayDemoModule,
+    SplashPageModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
     CyberUiWorkOnTasksWorkflowModule,
