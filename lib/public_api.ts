@@ -46,6 +46,22 @@ export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
 
+// ===========
+// PROBABILITY
+// ===========
+
+export {Outcome} from './probability/interfaces/outcome';
+export {Probability} from './probability/interfaces/probability';
+export {OutcomeProbabilityAssignment} from './probability/interfaces/outcome_probability_assignment';
+export {DiscreteProbabilityDistribution} from './probability/interfaces/discrete_probability_distribution';
+
+// =====================
+// PREDICTION MANAGEMENT
+// =====================
+
+export {PredictableThing} from './prediction/interfaces/predictable_thing';
+export {Prediction} from './prediction/interfaces/prediction';
+
 // =========
 // Workflows
 // =========
