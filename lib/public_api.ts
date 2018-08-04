@@ -62,6 +62,12 @@ export {DiscreteProbabilityDistribution} from './probability/interfaces/discrete
 export {PredictableThing} from './prediction/interfaces/predictable_thing';
 export {Prediction} from './prediction/interfaces/prediction';
 
+// ==========
+// DELEGATION
+// ==========
+
+export {DelegationTarget} from './delegation/interfaces/delegation_target';
+
 // =========
 // Workflows
 // =========
