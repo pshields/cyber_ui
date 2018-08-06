@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, ComponentFactoryResolver} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material';
@@ -21,6 +21,7 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
     TaskSuggestionServiceGetSuggestionsBaseResponse<Task>
   > {
   constructor(
+    readonly componentFactoryResolver: ComponentFactoryResolver,
     readonly router: Router,
     readonly snackBar: MatSnackBar,
   ) {
@@ -28,7 +29,11 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
   }
   getSuggestions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {
     return of({
-      suggestions: getDemoTaskSuggestions({router: this.router, snackBar: this.snackBar})
+      suggestions: getDemoTaskSuggestions({
+        componentFactoryResolver: this.componentFactoryResolver,
+        router: this.router,
+        snackBar: this.snackBar,
+      })
     });
   }
 }

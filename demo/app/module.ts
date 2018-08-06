@@ -10,9 +10,10 @@ import {MatListModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
 
-import {TASK_SUGGESTION_SERVICE} from 'lib/task/injection_tokens/task_suggestion_service';
-import {WORKFLOW_SETTINGS_SERVICE} from 'lib/workflows/injection_tokens/workflow_settings_service';
-import {CyberUiWorkOnTasksWorkflowModule} from 'lib/workflows/work_on_tasks/module';
+import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
+import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
+import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
+import {CyberUiDelegationMenuModule} from 'lib/public_api';
 
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
@@ -32,6 +33,7 @@ import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {ComponentListComponent} from './component_list.component';
+
 
 
 export const routes: Routes = [
@@ -69,6 +71,7 @@ export const routes: Routes = [
     SplashPageModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
+    CyberUiDelegationMenuModule,
     CyberUiWorkOnTasksWorkflowModule,
   ],
   providers: [

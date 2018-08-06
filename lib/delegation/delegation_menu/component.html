@@ -1,0 +1,9 @@
+<span #trigger [matMenuTriggerFor]="menu"></span>
+<mat-menu #menu="matMenu">
+  <div mat-menu-item *ngIf="state.delegationTargets.length === 0" disabled="true">No delegation targets registered</div>
+  <button
+      *ngFor="let delegationTarget of state.delegationTargets"
+      mat-menu-item
+      cyber-ui-action-context
+      (click)="delegationTarget.handler()">{{delegationTarget.label}}</button>
+</mat-menu>

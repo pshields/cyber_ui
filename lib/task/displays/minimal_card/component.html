@@ -4,8 +4,10 @@
   <mat-card-actions *ngIf="task.actions">
     <button
       mat-button
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
       *ngFor="let action of task.actions"
-      (click)="action.handler()"
+      (click)="action.handler(actionContext.getContext())"
       >{{action.label}}</button>
   </mat-card-actions>
 </mat-card>
