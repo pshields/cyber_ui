@@ -72,6 +72,8 @@ export {CyberUiDelegationMenuModule} from './delegation/delegation_menu/module';
 export {DelegationMenuService} from './delegation/delegation_menu/service';
 export {DelegationMenuState} from './delegation/delegation_menu/state';
 
+export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';
+
 // =========
 // Workflows
 // =========

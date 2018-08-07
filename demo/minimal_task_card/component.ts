@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material';
@@ -16,12 +16,10 @@ export class MinimalTaskCardDemoComponent {
   tasks: Task[];
 
   constructor(
-    readonly componentFactoryResolver: ComponentFactoryResolver,
     readonly router: Router,
     readonly snackBar: MatSnackBar,
   ) {
     this.tasks = getDemoTasks({
-      componentFactoryResolver: componentFactoryResolver,
       router: router,
       snackBar: snackBar,
     });

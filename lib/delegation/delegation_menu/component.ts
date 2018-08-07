@@ -6,7 +6,6 @@ import {DelegationMenuService} from './service';
 import {DelegationMenuState} from './state';
 
 
-
 @Component({
   selector: 'cyber-ui-delegation-menu',
   templateUrl: './component.html'
