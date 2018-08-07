@@ -8,6 +8,6 @@ import {Outcome} from '../../probability/interfaces/outcome';
 export interface PredictableThing {
   // The thing being predicted (for example, '# of Dem senate seats after 2020 elections')
   label: string;
-  // A curated list of preset outcomes for this topic
-  presetOutcomes: Outcome[];
+  // A curated list of preset outcomes for this topic (optional)
+  presetOutcomes?: Outcome[];
 }
