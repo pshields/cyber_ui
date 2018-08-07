@@ -21,7 +21,7 @@ export class AppComponent {
       delegationMenuService.registerDelegationTarget({
         label: 'The void',
         handler: () => {
-          this.snackbar.open('This task has been delegated to the void');
+          this.snackbar.open('Delegated to the void');
         },
       });
     }
