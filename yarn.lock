@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/architect@0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.7.2.tgz#b630f201f338c2b145c360b2b816185e1994b2c0"
-  dependencies:
-    "@angular-devkit/core" "0.7.2"
-    rxjs "^6.0.0"
-
 "@angular-devkit/architect@0.7.3":
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.7.3.tgz#d51f1c58c53f51be4a9789f11dfccdbbc4a56f25"
@@ -69,12 +62,12 @@
   optionalDependencies:
     node-sass "^4.9.1"
 
-"@angular-devkit/build-ng-packagr@0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.7.2.tgz#29fd711349fddd9553bcb0fb8e7cf948e83f1c6a"
+"@angular-devkit/build-ng-packagr@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.7.3.tgz#056a91879953a5d8f2eb8d97359043da6b411100"
   dependencies:
-    "@angular-devkit/architect" "0.7.2"
-    "@angular-devkit/core" "0.7.2"
+    "@angular-devkit/architect" "0.7.3"
+    "@angular-devkit/core" "0.7.3"
     rxjs "^6.0.0"
 
 "@angular-devkit/build-optimizer@0.7.3":
@@ -93,15 +86,6 @@
     "@angular-devkit/architect" "0.7.3"
     "@angular-devkit/core" "0.7.3"
     rxjs "^6.0.0"
-
-"@angular-devkit/core@0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-0.7.2.tgz#f86c65c70daa8fccf67f4f5767a4ade7a5975caf"
-  dependencies:
-    ajv "~6.4.0"
-    chokidar "^2.0.3"
-    rxjs "^6.0.0"
-    source-map "^0.5.6"
 
 "@angular-devkit/core@0.7.3":
   version "0.7.3"
