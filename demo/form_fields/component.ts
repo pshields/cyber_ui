@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import {MatDialog} from '@angular/material';
+
+import {CyberUiEditDialogComponent} from 'lib/public_api';
 
 import {DemoAppExampleFormModel} from './example_form_model';
 
@@ -10,4 +13,15 @@ import {DemoAppExampleFormModel} from './example_form_model';
 })
 export class FormFieldsDemoComponent {
   exampleFormModel = new DemoAppExampleFormModel();
+
+  constructor(readonly dialog: MatDialog) {}
+
+  showEditDialog() {
+    this.dialog.open(CyberUiEditDialogComponent, {
+      data: {
+        contentTypeLabel: 'model form',
+        model: this.exampleFormModel,
+      }
+    });
+  }
 }

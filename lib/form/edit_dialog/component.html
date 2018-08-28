@@ -1,0 +1,11 @@
+<div mat-dialog-title>{{title}}</div>
+<mat-dialog-content>
+  <cyber-ui-form-fields
+      [model]="params.model"
+      [fields]="params.fields"
+      (save)="close()">
+  </cyber-ui-form-fields>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>DONE</button>
+</mat-dialog-actions>

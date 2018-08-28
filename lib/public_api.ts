@@ -1,8 +1,8 @@
 // Public API surface of cyber_ui
 
-// ============
-// FORMS MODULE
-// ============
+// =====
+// FORMS
+// =====
 
 export {CyberUiAutofocusModule} from './form/autofocus/module';
 export {CyberUiFormFieldsModule} from './form/form_fields/module';
@@ -21,6 +21,13 @@ export {ChoiceField, Option} from './form/fields/choice';
 export {CommaSeparatedListField} from './form/fields/comma_separated_list';
 export {TextField} from './form/fields/text';
 export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
+
+// ------------------
+// Edit dialog module
+// ------------------
+export {CyberUiEditDialogComponent} from './form/edit_dialog/component';
+export {CyberUiEditDialogModule} from './form/edit_dialog/module';
+export {CyberUiEditDialogParams} from './form/edit_dialog/params';
 
 // =====
 // TASKS

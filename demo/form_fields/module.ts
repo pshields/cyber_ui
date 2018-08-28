@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material';
 
-import {CyberUiFormFieldsModule} from 'lib/form/form_fields/module';
+import {CyberUiEditDialogModule} from 'lib/public_api';
+import {CyberUiFormFieldsModule} from 'lib/public_api';
 
 import {FormFieldsDemoComponent} from './component';
 
@@ -9,7 +11,9 @@ import {FormFieldsDemoComponent} from './component';
 @NgModule({
   imports: [
     CommonModule,
+    CyberUiEditDialogModule,
     CyberUiFormFieldsModule,
+    MatButtonModule
   ],
   declarations: [
     FormFieldsDemoComponent,
