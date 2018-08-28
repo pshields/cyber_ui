@@ -1,5 +1,9 @@
 import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
 import {MatButtonModule, MatDialogModule} from '@angular/material';
+
+import {CyberUiActionContextModule} from '../../task/action_context/module';
 
 import {CyberUiFormFieldsModule} from '../form_fields/module';
 
@@ -11,6 +15,8 @@ import {CyberUiEditDialogComponent} from './component';
     CyberUiEditDialogComponent,
   ],
   imports: [
+    CommonModule,
+    CyberUiActionContextModule,
     CyberUiFormFieldsModule,
     MatButtonModule,
     MatDialogModule,

@@ -7,5 +7,11 @@
   </cyber-ui-form-fields>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>DONE</button>
+  <button
+      mat-button
+      *ngFor="let action of params.actions"
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
+      (click)="action.handler(actionContext)"
+    >{{action.label}}</button>
 </mat-dialog-actions>
