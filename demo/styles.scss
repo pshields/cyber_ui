@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import './variables';
 
 @include mat-core();
 
@@ -10,7 +11,7 @@ $cyber-ui-demo-theme: mat-light-theme($cyber-ui-primary, $cyber-ui-accent);
 @include angular-material-theme($cyber-ui-demo-theme);
 
 html {
-  background-color: map_get($mat-grey, 200);
+  background-color: $cyber-ui-demo-viewport-background;
   // Needed so the mat-sidenav can occupy the full screen height
   height: 100%;
 }

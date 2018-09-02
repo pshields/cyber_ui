@@ -1,8 +1,21 @@
+@import '../variables';
+
+
 :host {
   display: flex;
   flex-direction: column;
   // Needed so the mat-sidenav can occupy the full screen height
   height: 100%;
+}
+
+mat-sidenav,
+mat-sidenav-container {
+  background: $cyber-ui-demo-viewport-background;
+}
+
+// When the sidenav is in 'over' mode, use a white background instead
+mat-sidenav:not(.mat-drawer-side) {
+  background: white;
 }
 
 mat-sidenav-container {
