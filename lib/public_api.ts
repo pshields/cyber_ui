@@ -53,6 +53,10 @@ export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
 
+// Task actions panel
+export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';
+export {CyberUiActionsPanelModule} from './task/displays/action_panel/module';
+
 // ===========
 // PROBABILITY
 // ===========

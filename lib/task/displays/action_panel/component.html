@@ -1,0 +1,37 @@
+<ng-container *ngIf="actions !== undefined && actions.length > 0">
+  <button
+    mat-flat-button
+    cyberUiActionContext
+    #actionContext="cyberUiActionContext"
+    *ngFor="let action of actions | slice:0:3"
+    (click)="action.handler(actionContext.getContext())"
+    [style.backgroundColor]="action.color"
+    [style.flexGrow]="action.prominence || 1"
+  >
+    <mat-icon *ngFor="let iconName of action.iconNames">{{iconName}}</mat-icon>
+    {{action.label}}
+  </button>
+  <ng-container *ngIf="actions.length > 3">
+    <button
+      mat-button
+      [matMenuTriggerFor]="moreActionsMenu"
+      aria-label="More actions button"
+      class="more-actions-button"
+    >
+      MORE
+      <mat-icon >more_vert</mat-icon>
+    </button>
+    <mat-menu #moreActionsMenu="matMenu">
+      <button
+          mat-menu-item
+          *ngFor="let action of actions | slice:3"
+          cyberUiActionContext
+          #actionContext="cyberUiActionContext"
+          (click)="action.handler(actionContext.getContext())">
+        <mat-icon *ngFor="let iconName of action.iconNames">{{iconName}}</mat-icon>
+        <span>{{action.label}}</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+
+</ng-container>

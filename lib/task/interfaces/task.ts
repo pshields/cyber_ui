@@ -19,4 +19,8 @@ export interface Task {
   // TODO Figure out a better type here, or document why 'any' is necessary
   // I'd like to use TaskBodyComponent<Task> here, but ran into issues
   bodyComponent?: any;
+
+  // The component to use to render the task's actions
+  // If omitted, a reasonable default will be used
+  actionsDisplayComponent?: any;
 }

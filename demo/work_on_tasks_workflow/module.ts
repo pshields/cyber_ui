@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {CyberUiFormFieldsModule} from 'lib/form/form_fields/module';
 import {CyberUiTaskAccordionModule} from 'lib/task/displays/accordion/module';
+import {CyberUiActionsPanelModule} from 'lib/task/displays/action_panel/module';
 import {CyberUiWorkOnTasksWorkflowModule} from 'lib/workflows/work_on_tasks/module';
 
 import {WorkOnTasksWorkflowDemoComponent} from './component';
@@ -13,6 +14,7 @@ import {WorkOnTasksWorkflowDemoComponent} from './component';
     CommonModule,
     CyberUiFormFieldsModule,
     CyberUiTaskAccordionModule,
+    CyberUiActionsPanelModule,
     CyberUiWorkOnTasksWorkflowModule,
   ],
   declarations: [

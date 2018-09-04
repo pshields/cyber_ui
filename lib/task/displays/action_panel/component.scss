@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+
+  button {
+    // Ideally, all actions would have equal basis
+    // But we also want to force wrapping if the action label would be truncated
+    // So we use 'auto' basis, acknowledging that it won't look as nice as
+    // equal basis on larger screens
+    flex-basis: auto;
+    // Don't allow action label to be truncated; wrap instead
+    flex-shrink: 0;
+    // By default, each action should have a flex-grow weight of 1
+    // This can be overridden per-action via the `flexGrow` property
+    flex-grow: 1;
+    // Add a reasonable amount of padding to increase the click target area
+    padding: 8px 16px;
+    // Remove the rounded borders that Angular Material applies
+    border-radius: 0;
+
+    // Never grow the more actions button; it should always take up minimal space
+    &.more-actions-button {
+      // Undo the min-width put in place by Angular Material
+      min-width: auto;
+    }
+  }
+
+  @media($mat-xsmall) {
+    // On sxmall screens, show the actions as a vertical stack
+    flex-direction: column;
+    // Prohibit shrinking when the elements are vertically stacked
+    flex-shrink: 0;
+
+    button {
+      // On xsmall screens, use each button's height as its basis
+      // Since each button is expected to be the same height, this still looks good
+      flex-basis: auto;
+    }
+  }
+}

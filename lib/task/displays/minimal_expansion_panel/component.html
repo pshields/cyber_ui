@@ -1,7 +1,11 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header expandedHeight="*" collapsedHeight="*">{{task.label}}</mat-expansion-panel-header>
   <ng-template #body></ng-template>
-  <mat-action-row *ngIf="task.actions !== undefined && task.actions.length > 0">
+  <div class="cyber-ui-actions-display-component-container">
+    <ng-template #actions></ng-template>
+  </div>
+  <mat-action-row
+      *ngIf="!task.actionsDisplayComponent && task.actions !== undefined && task.actions.length > 0">
     <button
       mat-button
       cyberUiActionContext

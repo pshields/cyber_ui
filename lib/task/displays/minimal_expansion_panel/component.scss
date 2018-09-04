@@ -1,0 +1,7 @@
+$mat-expansion-panel-side-padding: 24px;
+$mat-expansion-panel-bottom-padding: 16px;
+
+.cyber-ui-actions-display-component-container:not(:empty) {
+  // Negate .mat-expansion-panel-body padding
+  margin: 0 (-$mat-expansion-panel-side-padding) (-$mat-expansion-panel-bottom-padding);
+}

@@ -12,6 +12,12 @@
 
 <p>This example uses the <i>cyber-ui-task-accordion</i> component as the display component (but you could provide your own custom display component.)</p>
 
-<cyber-ui-form-fields [model]="self" [fields]="demoSettingsFields"></cyber-ui-form-fields>
+<cyber-ui-form-fields
+    [model]="self"
+    [fields]="demoSettingsFields"
+    (change)="onDemoSettingsChange()"
+></cyber-ui-form-fields>
 
-<cyber-ui-work-on-tasks-workflow [displayComponent]="displayComponent"></cyber-ui-work-on-tasks-workflow>
+<cyber-ui-work-on-tasks-workflow
+    [displayComponent]="displayComponent">
+</cyber-ui-work-on-tasks-workflow>

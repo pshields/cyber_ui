@@ -1,11 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material';
 
-import {Task} from 'lib/task/interfaces/task';
+import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
+import {Task} from 'lib/public_api';
 
 import {getDemoTasks} from '../data';
+import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 
 
 @Component({
@@ -16,11 +18,13 @@ export class MinimalTaskDisplayDemoComponent {
 
   constructor(
     readonly router: Router,
-    readonly snackBar: MatSnackBar
+    readonly snackBar: MatSnackBar,
+    @Inject(TASK_SUGGESTION_SERVICE) readonly taskSuggestionService: DemoTaskSuggestionService,
   ) {
     this.tasks = getDemoTasks({
       router: router,
       snackBar: snackBar,
+      taskSuggestionService: taskSuggestionService,
     });
   }
 
