@@ -39,7 +39,7 @@ export class AppComponent {
       });
       // Listen for viewport size changes, and set the sidenav mode accordingly
       breakpointObserver.observe([
-        Breakpoints.Handset,
+        Breakpoints.XSmall,
       ]).subscribe(result => this.setSidenavMode(result.matches));
       // On handset screen sizes, close the sidenav after navigation events
       this.router.events.pipe(
