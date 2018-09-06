@@ -1,0 +1,6 @@
+<div mat-dialog-title>{{title}}</div>
+<mat-dialog-content>
+  <mat-nav-list role="list">
+    <a mat-list-item *ngFor="let reason of reasons" (click)="dialogRef.close(reason)">{{reason}}</a>
+  </mat-nav-list>
+</mat-dialog-content>

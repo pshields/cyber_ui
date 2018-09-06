@@ -6,16 +6,19 @@ import {Task} from 'lib/task/interfaces/task';
 import {TaskSuggestion} from 'lib/task/interfaces/task_suggestion';
 
 import {Action} from 'lib/public_api';
+import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
 import {delegationMenuActivationHandler} from 'lib/public_api';
 
 import * as colors from './defs/colors';
 import {DemoTaskSuggestionService} from './task_suggestion_service/service';
+import {} from 'lib/snooze/reason_collection_dialog/service';
 
 
 // Context needed to define the actions for the demo tasks
 export interface DemoTaskActionsContext {
   router: Router;
   snackBar: MatSnackBar;
+  snoozeReasonCollectionDialogService: CyberUiSnoozeReasonCollectionDialogService;
   taskSuggestionService: DemoTaskSuggestionService;
 }
 
@@ -49,7 +52,15 @@ export class DemoTask {
       },
       {
         label: 'SNOOZE',
-        handler: () => context.snackBar.open('Snoozed'),
+        handler: () => {
+          context.snoozeReasonCollectionDialogService.open().then(reason => {
+            if (!reason) {
+              context.snackBar.open('Snoozed');
+            } else {
+              context.snackBar.open('Snoozed with reason: ' + reason);
+            }
+          });
+        },
         color: colors.SNOOZE_YELLOW,
         iconNames: ['history'],
       },

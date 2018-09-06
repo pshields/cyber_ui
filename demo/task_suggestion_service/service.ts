@@ -8,11 +8,12 @@ import {first, map} from 'rxjs/operators';
 
 import {getDemoTaskSuggestions} from '../data';
 
-import {Task} from 'lib/task/interfaces/task';
-import {TaskSuggestionService} from 'lib/task/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/task/interfaces/task_suggestion_service';
-import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'lib/task/interfaces/task_suggestion_service';
+import {Task} from 'lib/public_api';
+import {TaskSuggestionService} from 'lib/public_api';
+import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/public_api';
+import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'lib/public_api';
 import {TaskSuggestion} from 'lib/public_api';
+import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
 
 
 // A TaskSuggestionService for use on the demo site
@@ -27,10 +28,12 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
   constructor(
     readonly router: Router,
     readonly snackBar: MatSnackBar,
+    readonly snoozeReasonCollectionDialogService: CyberUiSnoozeReasonCollectionDialogService
   ) {
     this.suggestions.next(getDemoTaskSuggestions({
         router: this.router,
         snackBar: this.snackBar,
+        snoozeReasonCollectionDialogService: this.snoozeReasonCollectionDialogService,
         taskSuggestionService: this,
     }));
   }

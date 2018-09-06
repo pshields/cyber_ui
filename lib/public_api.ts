@@ -52,6 +52,7 @@ export {TaskProviderRegistryService} from './task/task_provider_registry.service
 export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
+export {CyberUiMinimalTaskDisplayModule} from './task/displays/minimal/module';
 
 // Task actions panel
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';
@@ -84,6 +85,16 @@ export {DelegationMenuService} from './delegation/delegation_menu/service';
 export {DelegationMenuState} from './delegation/delegation_menu/state';
 
 export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';
+
+// ======
+// SNOOZE
+// ======
+
+// Snooze reason collection dialog
+export {CyberUiSnoozeReasonCollectionDialogComponent} from './snooze/reason_collection_dialog/component';
+export {CyberUiSnoozeReasonCollectionDialogModule} from './snooze/reason_collection_dialog/module';
+export {CyberUiSnoozeReasonCollectionDialogService} from './snooze/reason_collection_dialog/service';
+
 
 // =========
 // Workflows

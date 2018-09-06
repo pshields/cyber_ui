@@ -3,7 +3,9 @@ import {CommonModule} from '@angular/common';
 
 import {MatSnackBarModule} from '@angular/material';
 
-import {CyberUiMinimalTaskDisplayModule} from 'lib/task/displays/minimal/module';
+import {CyberUiMinimalTaskDisplayModule} from 'lib/public_api';
+import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
+
 
 import {MinimalTaskDisplayDemoComponent} from './component';
 
@@ -13,6 +15,7 @@ import {MinimalTaskDisplayDemoComponent} from './component';
     CommonModule,
     MatSnackBarModule,
     CyberUiMinimalTaskDisplayModule,
+    CyberUiSnoozeReasonCollectionDialogModule,
   ],
   declarations: [
     MinimalTaskDisplayDemoComponent,
