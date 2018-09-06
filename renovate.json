@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@angular\-devkit/build\-"],
+      "groupName": "@angular-devkit/build-* packages",
+      "schedule": "on monday"
+    }
   ]
 }
