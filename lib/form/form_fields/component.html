@@ -1,5 +1,5 @@
 <!-- Fields may either be passed in via the 'fields' input, or defined on the model instance, or defined statically on the model's constructor -->
-<ng-container *ngFor="let field of (fields || model.fields || model.constructor.fields)">
+<ng-container *ngFor="let field of getFields()">
   <mat-form-field *ngIf="field.config.useMatFormField">
     <!-- TextField template -->
     <textarea
@@ -72,5 +72,34 @@
     <span>{{model[field.config.propertyName]|number:field.config.digitinfo}}</span>
     <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
     <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
+  </div>
+  <!-- DiscreteProbabilityDistributionField template -->
+  <!-- TODO Move this to a cyber-ui-discrete-probability-distribution-field component -->
+  <div
+      *ngIf="field.config.element === elements.DISCRETE_PROBABILITY_DISTRIBUTION"
+      class="discrete-probability-distribution-field">
+    <p>{{field.config.label}}</p>
+    <div class="outcome-probability-assignment"
+         *ngFor="let assignment of model[field.config.propertyName]">
+      <mat-form-field [class.outcome]="true">
+        <textarea
+            matInput
+            matTextareaAutosize
+            placeholder="Outcome"
+            [(ngModel)]="assignment.outcome.label"></textarea>
+      </mat-form-field>
+      <mat-form-field [class.probability]="true">
+        <textarea
+            matInput
+            matTextareaAutosize
+            placeholder="Probability"
+            [(ngModel)]="assignment.probability.value"></textarea>
+      </mat-form-field>
+    </div>
+    <button
+        type="button"
+        color="primary"
+        mat-stroked-button
+        (click)="(model[field.config.propertyName] === undefined && (model[field.config.propertyName] = []) && false) || model[field.config.propertyName].push({outcome: {label: ''}, probability: {value: ''}})">ADD ANOTHER OUTCOME</button>
   </div>
 </ng-container>

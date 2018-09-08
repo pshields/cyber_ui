@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 
 import {MatDialog} from '@angular/material';
 
 import {FormField} from '../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../form_field_config';
 import {FormFieldElement} from '../form_field_element.enum';
+import {DiscreteProbabilityDistributionFieldConfig} from '../fields/discrete_probability_distribution';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {FormFieldElement} from '../form_field_element.enum';
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiFormFieldsComponent<MODEL_T> {
+export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
   constructor(public dialog: MatDialog) {}
 
   // The model object to render the form fields for
@@ -30,6 +31,24 @@ export class CyberUiFormFieldsComponent<MODEL_T> {
 
   // Expose the FormFieldElement enum to the template for use in comparisons
   readonly elements = FormFieldElement;
+
+  getFields() {
+    return (this.fields || (this.model as any).fields || (this.model.constructor as any).fields);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ((changes.model && this.getFields() !== undefined) || changes.fields !== undefined) {
+      // Initialize undefined model fields where necessary
+      this.getFields().forEach(field => {
+        // Initialize discrete probabiliy distributions
+        if (field.config.element === FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION) {
+          if (this.model[field.config.propertyName] === undefined) {
+            this.model[field.config.propertyName] = (field.config as DiscreteProbabilityDistributionFieldConfig).outcomePresets.map(outcome => ({outcome: outcome, probability: {value: ''}}));
+          }
+        }
+      });
+    }
+  }
 
   openHelpDialog(cmp: any) {
     this.dialog.open(cmp);

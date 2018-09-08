@@ -1,9 +1,10 @@
-import {BooleanField} from 'lib/form/fields/boolean';
-import {CommaSeparatedListField} from 'lib/form/fields/comma_separated_list';
-import {ValueInNumericRangeField} from 'lib/form/fields/value_in_numeric_range';
-import {TextField} from 'lib/form/fields/text';
-import {FormFieldElement} from 'lib/form/form_field_element.enum';
-import {ChoiceField, Option} from 'lib/form/fields/choice';
+import {BooleanField} from 'lib/public_api';
+import {ChoiceField, Option} from 'lib/public_api';
+import {CommaSeparatedListField} from 'lib/public_api';
+import {DiscreteProbabilityDistributionField} from 'lib/public_api';
+import {FormFieldElement} from 'lib/public_api';
+import {TextField} from 'lib/public_api';
+import {ValueInNumericRangeField} from 'lib/public_api';
 
 
 export class DemoAppExampleFormModel {
@@ -43,6 +44,15 @@ export class DemoAppExampleFormModel {
         new Option('B', 'b'),
         new Option('C', 'c'),
         new Option('D', 'd')
+      ]
+    }),
+    new DiscreteProbabilityDistributionField({
+      label: 'Which S&P 500 company will become the first to achieve a market capitalization of ≥ $2T?',
+      propertyName: 'sp500MarketCapPrediction',
+      outcomePresets: [
+        {label: 'Alphabet'},
+        {label: 'Amazon'},
+        {label: 'Apple'},
       ]
     }),
   ];
