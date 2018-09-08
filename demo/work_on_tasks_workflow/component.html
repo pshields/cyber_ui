@@ -8,6 +8,12 @@
   <li><b>displayComponent</b>: the Angular component to use to display the tasks. Tasks will be passed to the display component's <i>tasks</i> input as an <code>Observable&lt;TASK_T[]&gt;</code>.</li>
 </ul>
 
+<h3>Usage notes</h3>
+
+<ul>
+  <li>You'll probably want to constrain the width of this workflow, to maintain aesthetically reasonable aspect ratios of the interior items such as expansion panels (unless those items have their own max widths.) For example, you could give this workflow <code>max-width: 50em;</code></li>
+</ul>
+
 <h3>Example</h3>
 
 <p>This example uses the <i>cyber-ui-task-accordion</i> component as the display component (but you could provide your own custom display component.)</p>
