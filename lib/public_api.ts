@@ -1,5 +1,13 @@
 // Public API surface of cyber_ui
 
+// ========
+// BACKENDS
+// ========
+
+export {CyberUiFirestoreBackend} from './backends/firestore/backend';
+export {CyberUiFirestoreBackedModel} from './backends/firestore/model';
+export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
+
 // =====
 // FORMS
 // =====
