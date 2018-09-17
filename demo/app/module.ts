@@ -10,6 +10,8 @@ import {MatListModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
 
+import {MarkdownModule} from 'ngx-markdown';
+
 import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
@@ -22,6 +24,8 @@ import {FormFieldsDemoComponent} from '../form_fields/component';
 import {FormFieldsDemoModule} from '../form_fields/module';
 import {InterfacesDocumentationComponent} from '../interfaces/component';
 import {InterfacesDocumentationModule} from '../interfaces/module';
+import {GuidesComponent} from '../guides/component';
+import {GuidesModule} from '../guides/module';
 import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalTaskDisplayDemoModule} from '../minimal_task_display/module';
@@ -38,6 +42,7 @@ import {ComponentListComponent} from './component_list.component';
 
 
 export const routes: Routes = [
+  {path: 'guides/:id', component: GuidesComponent},
   {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
@@ -62,10 +67,13 @@ export const routes: Routes = [
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
+    // Support for rending Markdown
+    MarkdownModule.forRoot(),
     // Routing
     RouterModule.forRoot(routes),
     // Demo modules
     FormFieldsDemoModule,
+    GuidesModule,
     InterfacesDocumentationModule,
     MinimalTaskCardDemoModule,
     MinimalTaskDisplayDemoModule,

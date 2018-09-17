@@ -36,6 +36,16 @@ mat-expansion-panel-header.mat-expansion-panel-header {
 
 mat-sidenav.mat-drawer {
   background: none;
+
+  // Custom scrollbar appearance
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: map_get($mat-grey, 300);
+  }
+
 }
 
 mat-sidenav-content.mat-drawer-content {

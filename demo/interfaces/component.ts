@@ -33,7 +33,7 @@ export const INTERFACES = [
   styleUrls: ['./component.scss'],
 })
 export class InterfacesDocumentationComponent {
-  // The ID if the interface to show documentation about (taken from the route)
+  // The ID of the interface to show documentation about (taken from the route)
   interfaceId: string;
   // The interface object
   interface: Interface;

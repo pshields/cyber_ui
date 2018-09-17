@@ -1,0 +1,7 @@
+<ng-container *ngIf="!guide">
+  <h1>Guides</h1>
+  <p>This section of the site contains guides to the various functionality of Cyber UI.</p>
+</ng-container>
+<ng-container *ngIf="guide">
+  <markdown [data]="guide.data"></markdown>
+</ng-container>

@@ -1,5 +1,7 @@
 <mat-nav-list>
   <a mat-list-item routerLink="/">Home</a>
+  <div matSubheader>GUIDES</div>
+  <a *ngFor="let guide of GUIDES" mat-list-item routerLink="/guides/{{guide.id}}">{{guide.label}}</a>
   <div matSubheader>INTERFACES</div>
   <a *ngFor="let interface of INTERFACES" mat-list-item routerLink="/interfaces/{{interface.id}}">{{interface.label}}</a>
   <div matSubheader>MISC COMPONENTS</div>

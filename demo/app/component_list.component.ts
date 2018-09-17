@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+import {GUIDES} from '../guides/component';
 import {INTERFACES} from '../interfaces/component';
 
 
@@ -9,5 +10,6 @@ import {INTERFACES} from '../interfaces/component';
 })
 export class ComponentListComponent {
   // Expose for use in the template
+  readonly GUIDES = GUIDES;
   readonly INTERFACES = INTERFACES;
 }
