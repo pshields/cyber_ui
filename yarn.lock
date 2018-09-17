@@ -4287,7 +4287,7 @@ ng-packagr@4.1.1:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-markdown@^6.2.0:
+ngx-markdown@6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-6.2.0.tgz#18902dd4075df52744ded68147c20e5aa483f99e"
   dependencies:
