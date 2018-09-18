@@ -7,6 +7,7 @@
 export {CyberUiFirestoreBackend} from './backends/firestore/backend';
 export {CyberUiFirestoreBackedModel} from './backends/firestore/model';
 export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
+export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 
 // =====
 // FORMS
