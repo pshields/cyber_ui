@@ -12,3 +12,6 @@ While consuming applications may customize how they implement uncertainty reduct
 2. Solicit from the user a ranked list of high-leverage uncertainty reductions to pursue
 3. Occasionally prompt the user to take action on the highest-leverage uncertainty reductions
 
+## Uncertainty in the system
+
+The user is not the only uncertain agent of interest. Systems can also benefit from modeling uncertainty. For example, a task management system could reduce its certainty about a task's priority over time. Eventually, when the system is uncertain enough about the task's priority that it deems it useful to collect fresh data , it could prompt the user to confirm or update the task's priority. This could prevent task priorities from becoming overly stale.
