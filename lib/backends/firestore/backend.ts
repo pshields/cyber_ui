@@ -21,8 +21,12 @@ export class CyberUiFirestoreBackend {
   deleteModel(
     model: CyberUiFirestoreBackedModel,
     options: CyberUiFirestoreBackedModelDeleteOptions = {},
-  ) {
-    const doc = this.firestore.doc(model.getFirestoreDocumentPath());
+  ): Promise<void> {
+    // Refuse to delete a model missing a collection or document ID
+    if (!model.collectionId || !model.id) {
+      return Promise.reject('Backend refuses to delete a model that is missing a collection or a document ID');
+    }
+    const doc = this.firestore.doc(`${model.collectionId}/${model.id}`);
     return doc.delete();
   }
 
@@ -30,9 +34,17 @@ export class CyberUiFirestoreBackend {
   saveModel(
     model: CyberUiFirestoreBackedModel,
     options: CyberUiFirestoreBackedModelSaveOptions = {},
-  ) {
+  ): Promise<void> {
+    // Determine the collection in which to save the model
+    const collectionId = options.collectionId || model.collectionId;
+    // Refuse to save if the collection in which to save the model has not been specified
+    if (!collectionId) {
+      return Promise.reject('The collection in which to save this model must be specified before it can be saved');
+    }
+    // Assign the model a document id if it doesn't already have one
+    model.id = model.id || this.firestore.createId();
     // Get a reference to the Firestore document
-    const doc = this.firestore.doc(model.getFirestoreDocumentPath());
+    const doc = this.firestore.doc(`${collectionId}/${model.id}`);
     return doc.set(model.toDataObject());
   }
 
