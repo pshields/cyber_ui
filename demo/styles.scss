@@ -42,7 +42,7 @@ mat-sidenav.mat-drawer {
     width: 8px;
   }
 
-  &::-webkit-scrollbar-thumb {
+  &:hover::-webkit-scrollbar-thumb {
     background: map_get($mat-grey, 300);
   }
 
