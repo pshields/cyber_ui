@@ -9,7 +9,14 @@ export class CommaSeparatedListField<MODEL_T> extends TextField<MODEL_T> {
   // Since this field is stored on the model as a string[], we need to provide a custom
   // getNgModelBoundValue implementation which serializes the field value to a string
   getNgModelBoundValue(model: MODEL_T): string {
-    return model[this.config.propertyName].join(', ');
+    // If the bound value is undefined, serialize the result to an empty string
+    // This avoid the error of calling .join(...) on undefined
+    // TODO Write a test that this field initializes correctly when the property is initially undefined
+    if (model[this.config.propertyName] === undefined) {
+      return '';
+    } else {
+      return model[this.config.propertyName].join(', ');
+    }
   }
 
   // ngModel change handler to save the corresponding string[] onto the data model
