@@ -8,6 +8,16 @@
   height: 100%;
 }
 
+
+mat-toolbar {
+  display: flex;
+
+  .external-links {
+    flex-grow: 1;
+    text-align: right;
+  }
+}
+
 mat-sidenav,
 mat-sidenav-container {
   background: $cyber-ui-demo-viewport-background;
