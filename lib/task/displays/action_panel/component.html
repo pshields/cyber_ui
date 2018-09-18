@@ -22,15 +22,20 @@
       <mat-icon >more_vert</mat-icon>
     </button>
     <mat-menu #moreActionsMenu="matMenu">
-      <button
-          mat-menu-item
-          *ngFor="let action of actions | slice:3"
-          cyberUiActionContext
-          #actionContext="cyberUiActionContext"
-          (click)="action.handler(actionContext.getContext())">
-        <mat-icon *ngFor="let iconName of action.iconNames">{{iconName}}</mat-icon>
-        <span>{{action.label}}</span>
-      </button>
+        <button
+            mat-menu-item
+            *ngFor="let action of actions | slice:3"
+            cyberUiActionContext
+            #actionContext="cyberUiActionContext"
+            (click)="action.handler(actionContext.getContext())"
+            [ngStyle]="action._tmpNgStyle"
+            (mouseover)="action._tmpNgStyle = getHoverStyle(action)"
+            (mouseout)="action._tmpNgStyle = undefined">
+          <mat-icon
+              *ngFor="let iconName of action.iconNames"
+              [ngStyle]="action._tmpNgStyle">{{iconName}}</mat-icon>
+          <span>{{action.label}}</span>
+        </button>
     </mat-menu>
   </ng-container>
 

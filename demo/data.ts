@@ -68,6 +68,13 @@ export class DemoTask {
         label: 'DELEGATE TO...',
         handler: delegationMenuActivationHandler,
         iconNames: ['supervisor_account'],
+        color: colors.DELEGATION_MAGENTA,
+      },
+      {
+        label: 'SNOOZE TO...',
+        handler: () => context.snackBar.open('Not yet implemented'),
+        color: colors.SNOOZE_YELLOW,
+        iconNames: ['history'],
       }
     ];
   }
