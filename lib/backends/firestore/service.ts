@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {CyberUiFirestoreBackend} from './backend';
 import {CyberUiFirestoreBackedModel} from './model';
-import {CyberUiFirestoreBackedModelDeleteOptions} from './options';
+import {CyberUiFirestoreBackedModelDeleteOptions, CyberUiFirestoreBackedModelSaveOptions} from './options';
 
 
 // Since models are frequently constructed in Cyber UI,
@@ -29,7 +29,14 @@ export class CyberUiFirestoreBackedModelService {
  
     }
     // TODO For now we are just always deleting the model. This needs to be fixed.
-    return this.backend.deleteModel(model);
+    return this.backend.deleteModel(model, options);
+  }
+
+  saveModel(
+    model: CyberUiFirestoreBackedModel,
+    options: CyberUiFirestoreBackedModelSaveOptions,
+  ) {
+    return this.backend.saveModel(model, options);
   }
 
 }

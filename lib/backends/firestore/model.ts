@@ -24,7 +24,7 @@ export class CyberUiFirestoreBackedModel {
 
   // Save this model to the backend
   save(options: CyberUiFirestoreBackedModelSaveOptions = {}): Promise<void> {
-    return this.firestoreBackedModelService.backend.saveModel(this, options);
+    return this.firestoreBackedModelService.saveModel(this, options);
   }
 
   // Deletes the model from the backend, pending a confirmation from the user
