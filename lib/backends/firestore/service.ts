@@ -36,6 +36,12 @@ export class CyberUiFirestoreBackedModelService {
     model: CyberUiFirestoreBackedModel,
     options: CyberUiFirestoreBackedModelSaveOptions,
   ) {
+    // Refuse to save an empty model to the backend, unless options.allowEmptySave is true
+    if (!options.allowEmptySave) {
+      if (Object.keys(model.data).length === 0) {
+        return Promise.reject('Model refuses to be saved when it is empty');
+      }
+    }
     return this.backend.saveModel(model, options);
   }
 
