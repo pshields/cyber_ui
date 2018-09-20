@@ -6,6 +6,7 @@
 
 export {CyberUiFirestoreBackend} from './backends/firestore/backend';
 export {CyberUiFirestoreBackedModel} from './backends/firestore/model';
+export {CyberUiFirestoreBackedModelData} from './backends/firestore/data.interface';
 export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
 export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 

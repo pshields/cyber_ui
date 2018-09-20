@@ -1,1 +1,2 @@
 // TODO Test that model refuses to be saved if it is empty
+// TODO Test that collectionId doesn't automatically get saved to the backend even though it may be set on the model (especially applicable if we move to storing the data directly on the model itself, instead of on a data object)
