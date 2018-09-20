@@ -39,6 +39,7 @@ export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
 export {CyberUiEditDialogComponent} from './form/edit_dialog/component';
 export {CyberUiEditDialogModule} from './form/edit_dialog/module';
 export {CyberUiEditDialogParams} from './form/edit_dialog/params';
+export {CyberUiEditDialogService} from './form/edit_dialog/service';
 
 // =====
 // TASKS
