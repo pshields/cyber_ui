@@ -42,10 +42,10 @@ export class CyberUiFirestoreBackend {
       return Promise.reject('The collection in which to save this model must be specified before it can be saved');
     }
     // Assign the model a document id if it doesn't already have one
-    model.id = model.id || this.firestore.createId();
+    model.data.id = model.data.id || this.firestore.createId();
     // Get a reference to the Firestore document
-    const doc = this.firestore.doc(`${collectionId}/${model.id}`);
-    return doc.set(model.toDataObject());
+    const doc = this.firestore.doc(`${collectionId}/${model.data.id}`);
+    return doc.set(model.data);
   }
 
 }
