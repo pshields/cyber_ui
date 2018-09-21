@@ -16,7 +16,7 @@
     "@angular/common": "6.1.8",
     "@angular/compiler": "6.1.8",
     "@angular/core": "6.1.8",
-    "@angular/fire": "5.0.0",
+    "@angular/fire": "5.0.2",
     "@angular/forms": "6.1.8",
     "@angular/http": "6.1.8",
     "@angular/material": "6.4.7",
