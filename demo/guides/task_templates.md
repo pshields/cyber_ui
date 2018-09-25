@@ -1,4 +1,6 @@
-# Task templates (IN PROGRESS; VERY EARLY DRAFT)
+# Task templates
+
+(In progress; very early draft)
 
 ## Problem statement
 

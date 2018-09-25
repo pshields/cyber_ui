@@ -1,4 +1,6 @@
-# Uncertainty reduction (IN PROGRESS; VERY EARLY DRAFT)
+# Uncertainty reduction
+
+(In progress; very early draft)
 
 ## Introduction
 
