@@ -45,22 +45,26 @@ export {CyberUiEditDialogService} from './form/edit_dialog/service';
 // TASKS
 // =====
 
+// Interfaces
 export {TaskProvider} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksOptions} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksResponse} from './task/interfaces/task_provider';
-
 export {Task} from './task/interfaces/task';
 export {Action} from './task/interfaces/action';
 export {CyberUiActionContext} from './task/interfaces/action_context';
-
 export {TaskSuggestion} from './task/interfaces/task_suggestion';
 export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './task/interfaces/task_suggestion_service';
+
+// Injection tokens
 export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_service';
 
+// Reference implementations
 export {TaskProviderRegistryService} from './task/task_provider_registry.service';
+export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/provider';
 
+// Components and modules
 export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
