@@ -33,6 +33,9 @@ export {DiscreteProbabilityDistributionField} from './form/fields/discrete_proba
 export {TextField} from './form/fields/text';
 export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
 
+// Common fields
+export {COMPLETION_CRITERIA_TEXT_FIELD} from './form/fields/common/completion_criteria';
+
 // ------------------
 // Edit dialog module
 // ------------------
