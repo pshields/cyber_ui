@@ -6,7 +6,13 @@
     {
       "packageNames": ["@angular-devkit/build-angular", "@angular-devkit/build-ng-packagr"],
       "groupName": "@angular-devkit/build-* packages",
-      "schedule": "on monday"
+      "schedule": ["before 5am on monday"]
+    },
+    {
+      "packageNames": ["@types/jasmine", "@types/jasminewd2"],
+      "groupName": "@types/jasmine",
+      "schedule": ["before 5am on monday"]
     }
-  ]
+  ],
+  "timezone": "America/Chicago"
 }
