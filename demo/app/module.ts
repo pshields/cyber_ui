@@ -28,8 +28,6 @@ import {GuidesComponent} from '../guides/component';
 import {GuidesModule} from '../guides/module';
 import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
-import {MinimalTaskDisplayDemoModule} from '../minimal_task_display/module';
-import {MinimalTaskDisplayDemoComponent} from '../minimal_task_display/component';
 import {SplashPageComponent} from '../splash_page/component';
 
 import {SplashPageModule} from '../splash_page/module';
@@ -45,7 +43,6 @@ export const routes: Routes = [
   {path: 'guides/:id', component: GuidesComponent},
   {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
-  {path: 'components/minimal-task-display', component: MinimalTaskDisplayDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
   {path: '', component: SplashPageComponent},
@@ -76,7 +73,6 @@ export const routes: Routes = [
     GuidesModule,
     InterfacesDocumentationModule,
     MinimalTaskCardDemoModule,
-    MinimalTaskDisplayDemoModule,
     SplashPageModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
