@@ -12,6 +12,11 @@
       "packageNames": ["@types/jasmine", "@types/jasminewd2"],
       "groupName": "@types/jasmine",
       "schedule": ["before 5am on monday"]
+    },
+    {
+      "packageNames": ["firebase"],
+      "groupName": "firebase",
+      "schedule": ["before 5am on monday"]
     }
   ],
   "timezone": "America/Chicago"
