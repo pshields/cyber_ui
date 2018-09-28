@@ -14,6 +14,10 @@ export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 // DELEGATION
 // ==========
 
+export {CyberUiDelegateActionRequest} from './delegation/interfaces/delegate_action_request';
+export {CyberUiDelegateActionResponse} from './delegation/interfaces/delegate_action_response';
+export {CyberUiDelegationHistoryService} from './delegation/history/service';
+export {DelegatableThing} from './delegation/interfaces/delegatable_thing';
 export {DelegationActionRecord} from './delegation/interfaces/delegation_action_record';
 export {DelegationHistoryField} from './delegation/fields/history/field';
 export {DelegationTarget} from './delegation/interfaces/delegation_target';
