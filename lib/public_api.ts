@@ -10,6 +10,20 @@ export {CyberUiFirestoreBackedModelData} from './backends/firestore/data.interfa
 export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
 export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 
+// ==========
+// DELEGATION
+// ==========
+
+export {DelegationActionRecord} from './delegation/interfaces/delegation_action_record';
+export {DelegationHistoryField} from './delegation/fields/history/field';
+export {DelegationTarget} from './delegation/interfaces/delegation_target';
+export {DelegationMenuComponent} from './delegation/delegation_menu/component';
+export {CyberUiDelegationMenuModule} from './delegation/delegation_menu/module';
+export {DelegationMenuService} from './delegation/delegation_menu/service';
+export {DelegationMenuState} from './delegation/delegation_menu/state';
+
+export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';
+
 // =====
 // FORMS
 // =====
@@ -91,18 +105,6 @@ export {DiscreteProbabilityDistribution} from './probability/interfaces/discrete
 
 export {PredictableThing} from './prediction/interfaces/predictable_thing';
 export {Prediction} from './prediction/interfaces/prediction';
-
-// ==========
-// DELEGATION
-// ==========
-
-export {DelegationTarget} from './delegation/interfaces/delegation_target';
-export {DelegationMenuComponent} from './delegation/delegation_menu/component';
-export {CyberUiDelegationMenuModule} from './delegation/delegation_menu/module';
-export {DelegationMenuService} from './delegation/delegation_menu/service';
-export {DelegationMenuState} from './delegation/delegation_menu/state';
-
-export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';
 
 // ======
 // SNOOZE
