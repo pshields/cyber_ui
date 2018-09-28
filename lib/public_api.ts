@@ -89,6 +89,8 @@ export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/pro
 export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
+export {CyberUiMinimalTaskCardComponent} from './task/displays/minimal_card/component';
+export {CyberUiMinimalTaskCardModule} from './task/displays/minimal_card/module';
 
 // Task actions panel
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';
