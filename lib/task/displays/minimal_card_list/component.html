@@ -1,0 +1,6 @@
+<ng-container *ngIf="(_tasks | async) !== null">
+  <cyber-ui-minimal-task-card
+    *ngFor="let task of (_tasks | async)"
+    [task]="task">
+  </cyber-ui-minimal-task-card>
+</ng-container>

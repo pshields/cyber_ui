@@ -1,3 +1,20 @@
+// TODO import these directly from Angular Material at some point, if possible
+$mat-card-side-padding: 24px;
+$mat-card-bottom-padding: 24px;
+
 :host {
   display: block;
+}
+
+.cyber-ui-actions-display-component-container:not(:empty) {
+  // Negate .mat-card side padding
+  margin: 0 (-$mat-card-side-padding);
+}
+
+// When there is a custom actions display component, give it responsibility for setting the bottom padding appropriately, instead of attempting to get it right by default
+// Many custom actions display components do not want .mat-card to have bottom padding
+.mat-card.cyber-ui-custom-actions-display-component {
+  padding-bottom: 0;
+  // Also, allow the custom actions display to be clipped by mat-card's border-radius
+  overflow: hidden;
 }

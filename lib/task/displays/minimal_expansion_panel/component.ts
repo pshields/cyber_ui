@@ -5,7 +5,8 @@ import {Task} from '../../interfaces/task';
 import {TaskBodyComponent} from '../../interfaces/task_body_component';
 
 
-// A relatively minimal display component for a Task as a Material expansion panel
+// A relatively minimal display component for a task as a Material expansion panel
+// TODO The logic in this component is almost identical to that of minimal-task-card; figure out a way to reduce the redundancy
 @Component({
   selector: 'cyber-ui-minimal-task-expansion-panel',
   templateUrl: './component.html',

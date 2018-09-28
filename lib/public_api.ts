@@ -86,6 +86,8 @@ export {TaskProviderRegistryService} from './task/task_provider_registry.service
 export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/provider';
 
 // Components and modules
+export {CyberUiMinimalTaskCardListComponent} from './task/displays/minimal_card_list/component';
+export {CyberUiMinimalTaskCardListModule} from './task/displays/minimal_card_list/module';
 export {CyberUiTasksModule} from './task/module';
 export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component';
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';

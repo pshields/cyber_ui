@@ -1,8 +1,9 @@
 import {Component, Inject} from '@angular/core';
 
-import {CyberUiTaskAccordionComponent} from 'lib/task/displays/accordion/component';
-import {CyberUiActionsPanelComponent} from 'lib/task/displays/action_panel/component';
-import {ChoiceField, Option} from 'lib/form/fields/choice';
+import {CyberUiMinimalTaskCardListComponent} from 'lib/public_api';
+import {CyberUiTaskAccordionComponent} from 'lib/public_api';
+import {CyberUiActionsPanelComponent} from 'lib/public_api';
+import {ChoiceField, Option} from 'lib/public_api';
 import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
@@ -18,7 +19,7 @@ export class WorkOnTasksWorkflowDemoComponent {
 
   // The display component to use to display tasks
   // TODO Eventually demonstrate swapping this dynamically using a choicefield
-  displayComponent = CyberUiTaskAccordionComponent;
+  displayComponent = CyberUiMinimalTaskCardListComponent;
   // The display component to use to display task actions
   actionsDisplayComponent = CyberUiActionsPanelComponent;
 
@@ -34,8 +35,9 @@ export class WorkOnTasksWorkflowDemoComponent {
       label: 'Display component',
       propertyName: 'displayComponent',
       options: [
-        new Option('Accordion', CyberUiTaskAccordionComponent)
-      ],
+        new Option('Accordion', CyberUiTaskAccordionComponent),
+        new Option('Card list', CyberUiMinimalTaskCardListComponent),
+      ] as Option<any>[],
     }),
     new ChoiceField({
       label: 'Task actions display component',

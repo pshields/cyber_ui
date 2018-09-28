@@ -1,0 +1,4 @@
+// Apply some vertical margin between cards
+cyber-ui-minimal-task-card:not(:last-child) {
+  margin-bottom: 24px;
+}

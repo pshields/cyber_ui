@@ -1,10 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {CyberUiFormFieldsModule} from 'lib/form/form_fields/module';
-import {CyberUiTaskAccordionModule} from 'lib/task/displays/accordion/module';
-import {CyberUiActionsPanelModule} from 'lib/task/displays/action_panel/module';
-import {CyberUiWorkOnTasksWorkflowModule} from 'lib/workflows/work_on_tasks/module';
+import {CyberUiFormFieldsModule} from 'lib/public_api';
+import {CyberUiTaskAccordionModule} from 'lib/public_api';
+import {CyberUiMinimalTaskCardListModule} from 'lib/public_api';
+import {CyberUiActionsPanelModule} from 'lib/public_api';
+import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
 
 import {WorkOnTasksWorkflowDemoComponent} from './component';
 
@@ -14,6 +15,7 @@ import {WorkOnTasksWorkflowDemoComponent} from './component';
     CommonModule,
     CyberUiFormFieldsModule,
     CyberUiTaskAccordionModule,
+    CyberUiMinimalTaskCardListModule,
     CyberUiActionsPanelModule,
     CyberUiWorkOnTasksWorkflowModule,
   ],

@@ -1,7 +1,11 @@
-<mat-card>
+<mat-card [class.cyber-ui-custom-actions-display-component]="task.actionsDisplayComponent">
   <mat-card-title>{{task.label}}</mat-card-title>
+  <ng-template #body></ng-template>
   <ng-content></ng-content>
-  <mat-card-actions *ngIf="task.actions">
+  <div class="cyber-ui-actions-display-component-container">
+    <ng-template #actions></ng-template>
+  </div>
+  <mat-card-actions *ngIf="!task.actionsDisplayComponent && task.actions !== undefined && task.actions.length > 0">
     <button
       mat-button
       cyberUiActionContext
