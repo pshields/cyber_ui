@@ -5193,10 +5193,10 @@ ng-packagr@4.2.0:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-markdown@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-6.2.0.tgz#18902dd4075df52744ded68147c20e5aa483f99e"
-  integrity sha512-nW2zXHaNxZrSPQukSHF7iOWcfQF/ht6jB5YfK43ZEqDfpugA7f5DAOYprnhnj3YbCPyx5awEJE2z9+0QTXCtAw==
+ngx-markdown@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-6.2.1.tgz#51da938d5d441fbc2c216d4c6b00bb07e78429a8"
+  integrity sha512-c+qCMeSgQ1DrwIJl0zgKZfEoDs/cZGbDx4mlsjcuzlJvNc/fsit2Qnn6Ptmw9L+e55U34hQHA+zIdPhQmeTNRA==
   dependencies:
     "@types/marked" "^0.4.0"
     marked "^0.5.0"
