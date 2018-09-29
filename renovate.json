@@ -17,6 +17,11 @@
       "packageNames": ["firebase"],
       "groupName": "firebase",
       "schedule": ["before 5am on monday"]
+    },
+    {
+      "packageNames": ["ngx-markdown"],
+      "groupName": "ngx-markdown",
+      "schedule": ["before 5am on monday"]
     }
   ],
   "timezone": "America/Chicago"
