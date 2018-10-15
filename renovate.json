@@ -24,5 +24,6 @@
       "schedule": ["before 5am on monday"]
     }
   ],
+  "schedule": ["before 5am on monday"],
   "timezone": "America/Chicago"
 }
