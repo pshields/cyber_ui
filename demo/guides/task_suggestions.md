@@ -5,8 +5,8 @@
 ## Document goals
 
 * Explain the problem that task suggestion solve
-* Explain Cyber UI's approach to task suggestions and task suggestion services at a technical level
-* Explain some of the common task suggestion use cases and task suggestion services Cyber UI provides to address them
+* Explain Cyber UI's approach to task suggestions
+* Explain some of the common task suggestion use cases
 
 ## Introduction
 
@@ -23,3 +23,7 @@ One way to make tasks less aversive is to give them concrete completion criteria
 ### Entering the next sub-task or action for the current project or task
 
 Sometimes the task management system does not know the next concrete task that needs to be performed in furtherence of a higher-level task or project. In such cases, it sometimes can be useful to solicit the next action or task from the user.
+
+## Further reading
+
+See the "Task suggestion services" guide for information about how to write services that provide task suggestions.

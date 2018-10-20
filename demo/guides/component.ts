@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 // Import the Markdown-formatted guides at compile-time
 import * as taskRepresentationData from 'raw-loader!demo/guides/task_representation.md';
 import * as taskSuggestionsData from 'raw-loader!demo/guides/task_suggestions.md';
+import * as taskSuggestionServicesData from 'raw-loader!demo/guides/task_suggestion_services.md';
 import * as taskTemplatesData from 'raw-loader!demo/guides/task_templates.md';
 import * as uncertaintyReductionData from 'raw-loader!demo/guides/uncertainty_reduction.md';
 import * as workingWithAngularMaterialData from 'raw-loader!demo/guides/working_with_angular_material.md';
@@ -31,6 +32,11 @@ export const GUIDES = [
     id: 'task-suggestions',
     label: 'Task suggestions',
     data: taskSuggestionsData,
+  },
+  {
+    id: 'task-suggestion-services',
+    label: 'Task suggestion services',
+    data: taskSuggestionServicesData,
   },
   {
     id: 'task-templates',
