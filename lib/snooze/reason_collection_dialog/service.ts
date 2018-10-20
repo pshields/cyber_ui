@@ -1,21 +1,13 @@
 import {Injectable} from '@angular/core';
 
-import {MatDialog} from "@angular/material" ;
+import {MatDialog} from '@angular/material';
 
 import {CyberUiSnoozeReasonCollectionDialogComponent} from './component';
+import {CYBER_UI_SNOOZE_REASON_ONTOLOGY} from './snooze_reason_ontology';
 
 
 // Note: this will probably eventually live somewhere else
-const DEFAULT_SNOOZE_REASONS = [
-  // This reason indicates the task needs to be further refined
-  'It needs to be refined',
-  // This reason indicates that the reason was circumstantial rather
-  // than due to an intrinsic property of the task
-  "It's circumstantially suboptimal",
-  // This indicates that the snoozed item was not as impotant as it
-  // was deemed by the system, and should be demoted in the suggestions
-  "It's a bad suggestion",
-];
+const DEFAULT_SNOOZE_REASONS = CYBER_UI_SNOOZE_REASON_ONTOLOGY.map(reason => reason.label);
 
 
 @Injectable({
