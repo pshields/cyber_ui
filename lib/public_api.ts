@@ -9,6 +9,7 @@ export {CyberUiFirestoreBackedModel} from './backends/firestore/model';
 export {CyberUiFirestoreBackedModelData} from './backends/firestore/data.interface';
 export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
 export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
+export {CyberUiSavableModel} from './backends/interfaces/model';
 
 // ==========
 // DELEGATION

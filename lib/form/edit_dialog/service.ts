@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {MatDialog, MatSnackBar} from '@angular/material';
 
-import {SavableModel} from '../../backends/interfaces/model';
+import {CyberUiSavableModel} from '../../backends/interfaces/model';
 import {CyberUiActionContext} from '../../task/interfaces/action_context';
 
 import {CyberUiEditDialogComponent} from './component';
@@ -16,7 +16,7 @@ export class CyberUiEditDialogService {
     readonly snackbar: MatSnackBar,
   ) {}
 
-  showEditDialog<MODEL_T extends SavableModel = SavableModel>(
+  showEditDialog<MODEL_T extends CyberUiSavableModel = CyberUiSavableModel>(
       model: MODEL_T,
       contentTypeLabel = 'content',
   ): Promise<MODEL_T> {
