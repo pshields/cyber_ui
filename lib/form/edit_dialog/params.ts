@@ -8,14 +8,14 @@ export interface CyberUiEditDialogParams<MODEL_T = {}> {
   // this is used in the dialog title
   // e.g. if editing a task, contentTypeLabel should be 'task',
   // and the resulting dialog title will be 'Edit task'
-  contentTypeLabel: string;
+  contentTypeLabel?: string;
   // the data model object to bind to the form fields to
   model: MODEL_T;
   // the field list to show in the dialog, if not provided on the model
   // (either the model instance or its class/constructor should
   // have a 'fields' property, or the 'fields' param should be
   // provided explicitly)
-  fields: FormField<any, any, any>[];
+  fields?: FormField<any, any, any>[];
   // the actions to show in the mat-dialog-actions section
-  actions: Action[];
+  actions?: Action[];
 }

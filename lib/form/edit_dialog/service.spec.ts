@@ -1,0 +1,1 @@
+// TODO it('works with a plain data object that does not have a save method')

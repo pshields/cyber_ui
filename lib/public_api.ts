@@ -55,6 +55,8 @@ export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
 // Common fields
 export {COMPLETION_CRITERIA_TEXT_FIELD} from './form/fields/common/completion_criteria';
 
+export {CYBER_UI_SHOW_EDIT_DIALOG_CANCEL_ACTION} from './form/edit_dialog/service';
+
 // ------------------
 // Edit dialog module
 // ------------------

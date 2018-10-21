@@ -2,10 +2,16 @@ import {Injectable} from '@angular/core';
 
 import {MatDialog, MatSnackBar} from '@angular/material';
 
-import {CyberUiSavableModel} from '../../backends/interfaces/model';
 import {CyberUiActionContext} from '../../task/interfaces/action_context';
 
 import {CyberUiEditDialogComponent} from './component';
+import {CyberUiEditDialogParams} from './params';
+
+
+export const CYBER_UI_SHOW_EDIT_DIALOG_CANCEL_ACTION = {
+  label: 'CANCEL',
+  handler: (ctx: CyberUiActionContext) => ctx.dialogRef.close(),
+}
 
 
 @Injectable({providedIn: 'root'})
@@ -16,41 +22,42 @@ export class CyberUiEditDialogService {
     readonly snackbar: MatSnackBar,
   ) {}
 
-  showEditDialog<MODEL_T extends CyberUiSavableModel = CyberUiSavableModel>(
-      model: MODEL_T,
-      contentTypeLabel = 'content',
-  ): Promise<MODEL_T> {
+  showEditDialog(params: CyberUiEditDialogParams): Promise<typeof params.model> {
+    // Fill in empty params with reasonable defaults
+    if (params.actions === undefined) {
+      params.actions = [];
+      // If the model has a 'save' method, add a 'save' action which calls it.
+      if (typeof (params.model as any).save === 'function') {
+        params.actions.push(this.getSaveAction(() => (params.model as any).save()));
+      }
+      params.actions.push(CYBER_UI_SHOW_EDIT_DIALOG_CANCEL_ACTION);
+    }
     return new Promise((resolve, reject) => {
-      const dialogRef = this.dialog.open(CyberUiEditDialogComponent, {data: {
-        contentTypeLabel: contentTypeLabel,
-        model: model,
-        actions: [
-          {
-            label: 'SAVE',
-            handler: (ctx: CyberUiActionContext) => {
-              // Close the dialog. If the save fails, refer the user to the console logs to recover their unsaved data
-              ctx.dialogRef.close();
-              model.save().then(
-                () => this.snackbar.open('Saved'),
-                error => {
-                  console.error(error);
-                  this.snackbar.open('Failed to save - check console logs');
-                }
-              );
-            }
-          },
-          {
-            label: 'CANCEL',
-            handler: (ctx: CyberUiActionContext) => ctx.dialogRef.close(),
-          }
-        ]
-      }});
+      const dialogRef = this.dialog.open(CyberUiEditDialogComponent, {data: params});
       dialogRef.afterClosed().subscribe(
         () => {},
         error => reject(error),
-        () => resolve(model),
+        () => resolve(params.model),
       );
     });
+  }
+
+  // Given a save function, returns a save Action for use with CyberUiEditDialogService
+  getSaveAction(saveFn: () => Promise<void>) {
+    return {
+      label: 'SAVE',
+      handler: (ctx: CyberUiActionContext) => {
+        // Close the dialog. If the save fails, refer the user to the console logs to recover their unsaved data
+        ctx.dialogRef.close();
+        saveFn().then(
+          () => this.snackbar.open('Saved'),
+          error => {
+            console.error(error);
+            this.snackbar.open('Failed to save - check console logs');
+          }
+        );
+      }
+    }
   }
 
 }
