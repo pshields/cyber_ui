@@ -102,4 +102,25 @@
         mat-stroked-button
         (click)="(model[field.config.propertyName] === undefined && (model[field.config.propertyName] = []) && false) || model[field.config.propertyName].push({outcome: {label: ''}, probability: {value: ''}})">ADD ANOTHER OUTCOME</button>
   </div>
+  <!-- FieldListListField template -->
+  <!-- TODO Consider moving this to its own component at some point -->
+  <div
+      *ngIf="field.config.element === elements.CYBER_UI_FORM_FIELDS_LIST"
+      class="field-list-list-field">
+    <p>{{field.config.label}}</p>
+    <div *ngIf="model[field.config.propertyName] !== undefined">
+      <cyber-ui-form-fields
+          *ngFor="let model of model[field.config.propertyName]"
+          [fields]="field.config.fields"
+          [model]="model"
+          (change)="change.emit()"
+          (save)="save.emit()">
+      </cyber-ui-form-fields>
+    </div>
+    <button
+        type="button"
+        color="primary"
+        mat-stroked-button
+        (click)="(model[field.config.propertyName] === undefined && (model[field.config.propertyName] = []) && false) || model[field.config.propertyName].push({})">ADD CHILD</button>
+  </div>
 </ng-container>

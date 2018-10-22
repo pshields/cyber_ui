@@ -37,9 +37,9 @@ export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ((changes.model && this.getFields() !== undefined) || changes.fields !== undefined) {
+    if ((changes.model && this.getFields() !== undefined) || (changes.fields !== undefined && changes.fields.currentValue !== undefined)) {
       // Initialize undefined model fields where necessary
-      this.getFields().forEach(field => {
+      (this.getFields() || changes.fields.currentValue).forEach(field => {
         // Initialize discrete probabiliy distributions
         if (field.config.element === FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION) {
           if (this.model[field.config.propertyName] === undefined) {

@@ -49,6 +49,7 @@ export {BooleanField} from './form/fields/boolean';
 export {ChoiceField, Option} from './form/fields/choice';
 export {CommaSeparatedListField} from './form/fields/comma_separated_list';
 export {DiscreteProbabilityDistributionField} from './form/fields/discrete_probability_distribution';
+export {FieldListListField} from './form/fields/field_list_list';
 export {TextField} from './form/fields/text';
 export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
 
