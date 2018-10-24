@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 
 import {MatDialog} from '@angular/material';
 
@@ -14,7 +14,11 @@ import {DiscreteProbabilityDistributionFieldConfig} from '../fields/discrete_pro
   styleUrls: ['component.scss'],
 })
 export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
-  constructor(public dialog: MatDialog) {}
+
+  constructor(
+    public changeDetectorRef: ChangeDetectorRef,
+    public dialog: MatDialog,
+  ) {}
 
   // The model object to render the form fields for
   @Input() model: MODEL_T;

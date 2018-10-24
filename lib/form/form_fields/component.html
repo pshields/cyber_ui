@@ -109,18 +109,29 @@
       class="field-list-list-field">
     <p>{{field.config.label}}</p>
     <div *ngIf="model[field.config.propertyName] !== undefined">
-      <cyber-ui-form-fields
-          *ngFor="let model of model[field.config.propertyName]"
-          [fields]="field.config.fields"
-          [model]="model"
-          (change)="change.emit()"
-          (save)="save.emit()">
-      </cyber-ui-form-fields>
+      <div
+          *ngFor="let item of model[field.config.propertyName]; let i = index"
+          class="field-list-list-field-item">
+        <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
+        <button
+            type="button"
+            mat-icon-button
+            color="primary"
+            (click)="model[field.config.propertyName].splice(i, 1)">
+          <mat-icon aria-label="Remove item">close</mat-icon>
+        </button>
+        <cyber-ui-form-fields
+            [fields]="field.config.fields"
+            [model]="item"
+            (change)="change.emit()"
+            (save)="save.emit()">
+        </cyber-ui-form-fields>
+      </div>
     </div>
     <button
         type="button"
         color="primary"
         mat-stroked-button
-        (click)="(model[field.config.propertyName] === undefined && (model[field.config.propertyName] = []) && false) || model[field.config.propertyName].push({})">ADD {{field.config.contentTypeLabel}}</button>
+        (click)="(model[field.config.propertyName] === undefined && (model[field.config.propertyName] = []) && false) || model[field.config.propertyName].push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>
   </div>
 </ng-container>
