@@ -6,11 +6,17 @@ import {FormFieldElement} from '../form_field_element.enum';
 export interface FieldListListFieldOptions extends FormFieldOptions {
   // The list of fields to show
   fields: FormField[];
+  // The content type label to use for this field list
+  // This setting will be used to determine the button label for adding a new record
+  // e.g. if contentTypeLabel is 'SUBTASK', the button label will be 'ADD SUBTASK'
+  // Default: 'CHILD'
+  contentTypeLabel?: string;
 }
 
 
 export class FieldListListFieldConfig extends FormFieldConfig {
   fields: FormField[];
+  contentTypeLabel: string;
 
   constructor(options: FieldListListFieldOptions) {
     super(
@@ -21,7 +27,11 @@ export class FieldListListFieldConfig extends FormFieldConfig {
       FormFieldElement.CYBER_UI_FORM_FIELDS_LIST,
     );
     this.fields = options.fields;
-    console.log(this);
+    this.contentTypeLabel = this.getContentTypeLabel(options.contentTypeLabel);
+  }
+
+  getContentTypeLabel(label?: string): string {
+    return label || 'CHILD';
   }
 }
 

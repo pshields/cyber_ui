@@ -63,6 +63,7 @@ new FieldListListField({
   label: 'Child models (to demonstrate recursion)',
   propertyName: 'children',
   fields: DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS,
+  contentTypeLabel: 'CHILD MODEL',
 }));
 
 
