@@ -36,6 +36,11 @@ export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
   // Expose the FormFieldElement enum to the template for use in comparisons
   readonly elements = FormFieldElement;
 
+  emitSaveAndReturnFalse() {
+    this.save.emit();
+    return false;
+  }
+
   getFields() {
     return (this.fields || (this.model as any).fields || (this.model.constructor as any).fields);
   }

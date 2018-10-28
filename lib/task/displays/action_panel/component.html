@@ -6,6 +6,7 @@
     *ngFor="let action of actions | slice:0:3"
     (click)="action.handler(actionContext.getContext())"
     [style.backgroundColor]="action.color"
+    [style.color]="'#fff'"
     [style.flexGrow]="action.prominence || 1"
   >
     <mat-icon *ngFor="let iconName of action.iconNames">{{iconName}}</mat-icon>

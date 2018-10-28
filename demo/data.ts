@@ -90,6 +90,7 @@ export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
         label: 'BECOME A PATRON',
         handler: () => window.open('https://www.patreon.com/pshields/overview', '_blank'),
         iconNames: ['open_in_new'],
+        color: colors.DEMO_APP_PRIMARY,
       },
       {
         label: 'STAR ON GITHUB',
