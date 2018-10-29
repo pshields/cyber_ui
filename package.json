@@ -32,7 +32,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "0.8.5",
     "@angular-devkit/build-ng-packagr": "0.8.5",
-    "@angular/cli": "6.2.5",
+    "@angular/cli": "7.0.3",
     "@angular/compiler-cli": "7.0.1",
     "@angular/language-service": "7.0.1",
     "@types/jasmine": "2.8.9",
