@@ -5231,10 +5231,10 @@ ng-packagr@4.3.1:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-markdown@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-6.3.0.tgz#28619a19159dfd30e872a2725ef11aaf4c8aef23"
-  integrity sha512-h/C1KUWp3NfiOYf1fncSOvOOr1R52yDMlk7AEGacxXya+YVFb78Re96Mp7twBVwEZnUxP3lPh/HGGod2R4OpXg==
+ngx-markdown@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.0.0.tgz#c1b826b18da66159bacfb849bc04e046a442a77c"
+  integrity sha512-M2N9vS1WzQJvyK/jQ2KDbX5aZ4TucyVG/on8Iyl/wVkn8TC3wUVOa8ryIM4T/9VX5tX0y5dNscFpLiX31MtDTg==
   dependencies:
     "@types/marked" "^0.4.2"
     marked "^0.5.1"
