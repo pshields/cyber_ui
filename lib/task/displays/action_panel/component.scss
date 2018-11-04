@@ -12,6 +12,10 @@
     flex-basis: auto;
     // Don't allow action label to be truncated; wrap instead
     flex-shrink: 0;
+    // In order to wrap action labels instead of just overflowing off the side,
+    // set the max-width to 100% and set white-space to pre-wrap.
+    max-width: 100%;
+    white-space: pre-wrap;
     // By default, each action should have a flex-grow weight of 1
     // This can be overridden per-action via the `flexGrow` property
     flex-grow: 1;
