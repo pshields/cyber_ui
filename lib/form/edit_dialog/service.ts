@@ -6,6 +6,7 @@ import {CyberUiActionContext} from '../../task/interfaces/action_context';
 
 import {CyberUiEditDialogComponent} from './component';
 import {CyberUiEditDialogParams} from './params';
+import {saveActionHandler} from './util';
 
 
 export const CYBER_UI_SHOW_EDIT_DIALOG_CANCEL_ACTION = {
@@ -46,18 +47,7 @@ export class CyberUiEditDialogService {
   getSaveAction(saveFn: () => Promise<void>) {
     return {
       label: 'SAVE',
-      handler: (ctx: CyberUiActionContext) => {
-        // Close the dialog. If the save fails, refer the user to the console logs to recover their unsaved data
-        ctx.dialogRef.close();
-        saveFn().then(
-          () => this.snackbar.open('Saved'),
-          error => {
-            console.error(error);
-            this.snackbar.open('Failed to save - check console logs');
-          }
-        );
-      }
-    }
+      handler: ctx => saveActionHandler(saveFn, this.snackbar, ctx),
+    };
   }
-
 }

@@ -18,4 +18,7 @@ export interface CyberUiEditDialogParams<MODEL_T = {}> {
   fields?: FormField<any, any, any>[];
   // the actions to show in the mat-dialog-actions section
   actions?: Action[];
+  // optional function to call when the user saves the form component and closes the dialog
+  // without triggering any of the dialog actions
+  saveFn?: () => Promise<void>;
 }

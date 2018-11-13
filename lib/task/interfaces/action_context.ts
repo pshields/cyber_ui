@@ -9,7 +9,7 @@ import {MatDialogRef} from '@angular/material';
 export interface CyberUiActionContext {
 
   // A component factory resolver, provided in case it is needed to e.g. mount a custom menu component
-  componentFactoryResolver: ComponentFactoryResolver;
+  componentFactoryResolver?: ComponentFactoryResolver;
 
   // If this action is appearing inside of a dialog, this is a reference to the enclosing dialog
   // Typing note: we don't know the type of the dialog component here, so {} is used
