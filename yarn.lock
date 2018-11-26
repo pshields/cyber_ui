@@ -5234,10 +5234,10 @@ ng-packagr@4.4.0:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-markdown@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.0.0.tgz#c1b826b18da66159bacfb849bc04e046a442a77c"
-  integrity sha512-M2N9vS1WzQJvyK/jQ2KDbX5aZ4TucyVG/on8Iyl/wVkn8TC3wUVOa8ryIM4T/9VX5tX0y5dNscFpLiX31MtDTg==
+ngx-markdown@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.0.2.tgz#68407e699a21db59ead94e36e56ce02de95eade8"
+  integrity sha512-21HX7rU2R9BnZKmMbgMGCsGOYhCKEC7RZSumetxzT4o2abeTpIt//2fT7vyaGNa1E0WeldwU21kbJnPf2ru1Gw==
   dependencies:
     "@types/marked" "^0.4.2"
     marked "^0.5.1"
