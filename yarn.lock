@@ -441,10 +441,10 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/marked@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-0.4.2.tgz#64a89e53ea37f61cc0f3ee1732c555c2dbf6452f"
-  integrity sha512-cDB930/7MbzaGF6U3IwSQp6XBru8xWajF5PV2YZZeV8DyiliTuld11afVztGI9+yJZ29il5E+NpGA6ooV/Cjkg==
+"@types/marked@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-0.5.0.tgz#4b91c66ee8cf0abb6938e02fdec207279959962e"
+  integrity sha512-5uRumM3yeMj+JcvWGku/FRJJCmSWZczLd8FJf76a90YCltRHVpjF2gKHiL6U+pi4qyATn7HvxR0Mk7mDySwaOQ==
 
 "@types/node@*":
   version "10.0.8"
@@ -5020,10 +5020,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-marked@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-0.5.1.tgz#062f43b88b02ee80901e8e8d8e6a620ddb3aa752"
-  integrity sha512-iUkBZegCZou4AdwbKTwSW/lNDcz5OuRSl3qdcl31Ia0B2QPG0Jn+tKblh/9/eP9/6+4h27vpoh8wel/vQOV0vw==
+marked@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.5.2.tgz#3efdb27b1fd0ecec4f5aba362bddcd18120e5ba9"
+  integrity sha512-fdZvBa7/vSQIZCi4uuwo2N3q+7jJURpMVCcbaX0S1Mg65WZ5ilXvC67MviJAsdjqqgD+CEq4RKo5AYGgINkVAA==
 
 math-random@^1.0.1:
   version "1.0.1"
@@ -5449,13 +5449,13 @@ ng-packagr@4.4.5:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-markdown@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.0.2.tgz#68407e699a21db59ead94e36e56ce02de95eade8"
-  integrity sha512-21HX7rU2R9BnZKmMbgMGCsGOYhCKEC7RZSumetxzT4o2abeTpIt//2fT7vyaGNa1E0WeldwU21kbJnPf2ru1Gw==
+ngx-markdown@7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.0.3.tgz#fd4ba87db4bfaa5bf7f9a6ddb586b00a5b1a4af8"
+  integrity sha512-CbAGNTx1UctI3PJT3eh/40/ZM36LyEH2A8XfLaGxOJfzrp0dOHfJehnuSN/dKVqkQ9LEempcnyQCnqn+U9j08Q==
   dependencies:
-    "@types/marked" "^0.4.2"
-    marked "^0.5.1"
+    "@types/marked" "^0.5.0"
+    marked "^0.5.2"
     prismjs "^1.15.0"
     tslib "^1.9.0"
 
