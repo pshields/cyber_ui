@@ -87,12 +87,6 @@ export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
     label: 'Support development of Cyber UI',
     actions: [
       {
-        label: 'BECOME A PATRON',
-        handler: () => window.open('https://www.patreon.com/pshields/overview', '_blank'),
-        iconNames: ['open_in_new'],
-        color: colors.DEMO_APP_PRIMARY,
-      },
-      {
         label: 'STAR ON GITHUB',
         handler: () => window.open('https://www.github.com/pshields/cyber_ui', '_blank'),
         color: colors.GITHUB_GRAY,

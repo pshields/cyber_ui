@@ -4,9 +4,9 @@ Cyber UI provides Angular components and services for task management, predictio
 
 A demo is available at https://cyberui.org/.
 
-Cyber UI follows [semantic versioning](https://semver.org/) and is currently pre-v1. Breaking changes are likely up until the v1 release. A v1 release is expected by the end of 2019.
+Cyber UI follows [semantic versioning](https://semver.org/) and is currently pre-v1. Breaking changes are likely up until the v1 release.
 
-You can have a say in the future of this library and its API! Fund your desired features or support ongoing development by becoming a sponsor at https://patreon.com/pshields. At higher levels, sponsorships come with development time allocated according to your priorities.
+You can have a say in the future of this library and its API! Reach out to @pshields if you'd like to fund your desired features or support ongoing development.
 
 ## Development
 
