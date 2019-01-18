@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 
 // Import the Markdown-formatted guides at compile-time
 import * as styleGuideData from 'raw-loader!demo/guides/style.md';
+import * as systemizationData from 'raw-loader!demo/guides/systemization.md';
 import * as taskRepresentationData from 'raw-loader!demo/guides/task_representation.md';
 import * as taskSuggestionsData from 'raw-loader!demo/guides/task_suggestions.md';
 import * as taskSuggestionServicesData from 'raw-loader!demo/guides/task_suggestion_services.md';
@@ -28,6 +29,11 @@ export const GUIDES = [
     id: 'style-guide',
     label: 'Style guide',
     data: styleGuideData,
+  },
+  {
+    id: 'systemization',
+    label: 'Systemization',
+    data: systemizationData,
   },
   {
     id: 'task-representation',
