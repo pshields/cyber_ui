@@ -14,6 +14,7 @@ import {MarkdownModule} from 'ngx-markdown';
 
 import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
+import {CyberUiSettingsDialogModule} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
 import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
 import {CyberUiDelegationMenuModule} from 'lib/public_api';
@@ -77,6 +78,7 @@ export const routes: Routes = [
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
     CyberUiDelegationMenuModule,
+    CyberUiSettingsDialogModule,
     CyberUiSnoozeReasonCollectionDialogModule,
     CyberUiWorkOnTasksWorkflowModule,
   ],

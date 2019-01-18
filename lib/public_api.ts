@@ -118,6 +118,14 @@ export {DiscreteProbabilityDistribution} from './probability/interfaces/discrete
 export {PredictableThing} from './prediction/interfaces/predictable_thing';
 export {Prediction} from './prediction/interfaces/prediction';
 
+// ========
+// SETTINGS
+// ========
+
+export {CyberUiSettingsDialogComponent} from './settings/dialog/component';
+export {CyberUiSettingsDialogService} from './settings/dialog/service';
+export {CyberUiSettingsDialogModule} from './settings/dialog/module';
+
 // ======
 // SNOOZE
 // ======
