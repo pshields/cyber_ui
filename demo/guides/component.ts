@@ -9,6 +9,7 @@ import * as taskRepresentationData from 'raw-loader!demo/guides/task_representat
 import * as taskSuggestionsData from 'raw-loader!demo/guides/task_suggestions.md';
 import * as taskSuggestionServicesData from 'raw-loader!demo/guides/task_suggestion_services.md';
 import * as taskTemplatesData from 'raw-loader!demo/guides/task_templates.md';
+import * as themingData from 'raw-loader!demo/guides/theming.md';
 import * as uncertaintyReductionData from 'raw-loader!demo/guides/uncertainty_reduction.md';
 import * as workingWithAngularMaterialData from 'raw-loader!demo/guides/working_with_angular_material.md';
 
@@ -54,6 +55,11 @@ export const GUIDES = [
     id: 'task-templates',
     label: 'Task templates',
     data: taskTemplatesData,
+  },
+  {
+    id: 'theming',
+    label: 'Theming',
+    data:themingData,
   },
   {
     id: 'uncertainty-reduction',
