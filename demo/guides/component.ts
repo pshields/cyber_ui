@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 
 // Import the Markdown-formatted guides at compile-time
+import * as styleGuideData from 'raw-loader!demo/guides/style.md';
 import * as taskRepresentationData from 'raw-loader!demo/guides/task_representation.md';
 import * as taskSuggestionsData from 'raw-loader!demo/guides/task_suggestions.md';
 import * as taskSuggestionServicesData from 'raw-loader!demo/guides/task_suggestion_services.md';
@@ -23,6 +24,11 @@ export class Guide {
 
 // The list of guides that Cyber UI has documentation about
 export const GUIDES = [
+  {
+    id: 'style-guide',
+    label: 'Style guide',
+    data: styleGuideData,
+  },
   {
     id: 'task-representation',
     label: 'Task representation',
