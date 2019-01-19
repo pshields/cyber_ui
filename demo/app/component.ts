@@ -8,9 +8,10 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 import {filter} from 'rxjs/operators';
 
-import {ChoiceField} from 'lib/public_api';
 import {DelegationMenuService} from 'lib/public_api';
 import {CyberUiSettingsDialogService} from 'lib/public_api';
+
+import {DemoSettings} from './settings';
 
 
 @Component({
@@ -28,24 +29,7 @@ export class AppComponent {
   sidenavMode = 'side';
 
   // Demo settings
-  settings = {
-    label: 'Demo settings',
-    items: [
-      {
-        label: 'Theming',
-        items: [
-          new ChoiceField({
-            label: 'Theme',
-            propertyName: 'value',
-            options: [
-              new Option('Material', 'material'),
-              new Option('Minimal', 'minimal'),
-            ]
-          }),
-        ],
-      }
-    ]
-  };
+  settings = new DemoSettings();
 
   constructor(
     readonly breakpointObserver: BreakpointObserver,

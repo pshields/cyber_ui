@@ -1,4 +1,4 @@
-export type SettingsSectionItem<SETTINGS_T> = SettingsSection<SETTINGS_T> | SETTINGS_T;
+export type SettingsSectionItem<SETTINGS_T = {}> = SettingsSection<SETTINGS_T> | SETTINGS_T;
 
 export interface SettingsSection<SETTINGS_T = {}> {
   // Label for this section
