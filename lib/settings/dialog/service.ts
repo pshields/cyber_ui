@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 
 import {MatDialog} from '@angular/material';
 
+import {SettingsSection} from '../interfaces/section';
+
 import {CyberUiSettingsDialogComponent} from './component';
 
 
@@ -13,7 +15,11 @@ export class CyberUiSettingsDialogService {
   ) {}
 
   // Opens a settings dialog, and returns a Promise which will emit the result
-  open(): Promise<string|undefined> {
-    return this.matDialog.open(CyberUiSettingsDialogComponent).afterClosed().toPromise();
+  open(settings: SettingsSection): Promise<string|undefined> {
+    return this.matDialog.open(CyberUiSettingsDialogComponent, {
+      data: {
+        settings: settings
+      }
+    }).afterClosed().toPromise();
   }
 }

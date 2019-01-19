@@ -8,6 +8,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 import {filter} from 'rxjs/operators';
 
+import {ChoiceField} from 'lib/public_api';
 import {DelegationMenuService} from 'lib/public_api';
 import {CyberUiSettingsDialogService} from 'lib/public_api';
 
@@ -25,6 +26,26 @@ export class AppComponent {
   // This is set based on the viewport size
   // The initial value does not matter that much
   sidenavMode = 'side';
+
+  // Demo settings
+  settings = {
+    label: 'Demo settings',
+    items: [
+      {
+        label: 'Theming',
+        items: [
+          new ChoiceField({
+            label: 'Theme',
+            propertyName: 'value',
+            options: [
+              new Option('Material', 'material'),
+              new Option('Minimal', 'minimal'),
+            ]
+          }),
+        ],
+      }
+    ]
+  };
 
   constructor(
     readonly breakpointObserver: BreakpointObserver,
@@ -53,6 +74,10 @@ export class AppComponent {
           this.sidenav.close();
         }
       });
+  }
+
+  openSettings() {
+    this.settingsDialogService.open(this.settings);
   }
 
   setSidenavMode(isHandset: boolean) {

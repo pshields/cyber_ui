@@ -3,7 +3,6 @@ import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges
 import {MatDialog} from '@angular/material';
 
 import {FormField} from '../form_field';
-import {FormFieldOptions, FormFieldConfig} from '../form_field_config';
 import {FormFieldElement} from '../form_field_element.enum';
 import {DiscreteProbabilityDistributionFieldConfig} from '../fields/discrete_probability_distribution';
 
@@ -25,7 +24,10 @@ export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
 
   // Optional. The list of fields to display.
   // If not provided, the component will look for a `fields` property on the model or the model's constructor.
-  @Input() fields: FormField<MODEL_T, FormFieldOptions, FormFieldConfig>[];
+  @Input() fields: FormField<MODEL_T>[];
+
+  // If only a single field is to be used.
+  @Input() field: FormField<MODEL_T>;
 
   // Stream of change actions. If the any fields' model has changed, an event will be emitted.
   @Output() change: EventEmitter<void> = new EventEmitter();
@@ -42,7 +44,7 @@ export class CyberUiFormFieldsComponent<MODEL_T> implements OnChanges {
   }
 
   getFields() {
-    return (this.fields || (this.model as any).fields || (this.model.constructor as any).fields);
+    return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);
   }
 
   ngOnChanges(changes: SimpleChanges) {

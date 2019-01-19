@@ -1,0 +1,9 @@
+<div *ngIf="label" class="settings-section-label">{{label}}</div>
+<ng-container *ngIf="items">
+  <ng-container *ngFor="let item of items">
+    <cyber-ui-settings-section-items *ngIf="item.items" [items]="item.items" [label]="item.label">
+    </cyber-ui-settings-section-items>
+    <cyber-ui-form-fields *ngIf="item.config" [field]="item" [model]="item">
+    </cyber-ui-form-fields>
+  </ng-container>
+</ng-container>

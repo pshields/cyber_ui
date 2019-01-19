@@ -1,5 +1,5 @@
-<div mat-dialog-title>Settings</div>
-<!-- TODO Make the above title configurable; for example, in the demo, it should be set to 'Demo settings' -->
+<div mat-dialog-title>{{settings.label}}</div>
 <mat-dialog-content>
-  TODO Put settings here
+  <cyber-ui-settings-section-items [items]="settings.items">
+  </cyber-ui-settings-section-items>
 </mat-dialog-content>
