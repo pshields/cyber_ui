@@ -136,6 +136,12 @@ export {CyberUiSnoozeReasonCollectionDialogComponent} from './snooze/reason_coll
 export {CyberUiSnoozeReasonCollectionDialogModule} from './snooze/reason_collection_dialog/module';
 export {CyberUiSnoozeReasonCollectionDialogService} from './snooze/reason_collection_dialog/service';
 
+// =======
+// THEMING
+// =======
+
+export {CyberUiThemeModule} from './theme/module';
+export {CyberUiThemeService} from './theme/service';
 
 // =========
 // Workflows

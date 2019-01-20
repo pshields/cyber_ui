@@ -10,6 +10,7 @@ import {filter} from 'rxjs/operators';
 
 import {DelegationMenuService} from 'lib/public_api';
 import {CyberUiSettingsDialogService} from 'lib/public_api';
+import {CyberUiThemeService} from 'lib/public_api';
 
 import {DemoSettings} from './settings';
 
@@ -35,6 +36,7 @@ export class AppComponent {
     readonly breakpointObserver: BreakpointObserver,
     readonly delegationMenuService: DelegationMenuService,
     readonly settingsDialogService: CyberUiSettingsDialogService,
+    readonly themeService: CyberUiThemeService,
     readonly snackbar: MatSnackBar,
     readonly router: Router) {
       // Register a fake delegation target for demo purposes
