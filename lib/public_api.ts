@@ -125,7 +125,8 @@ export {Prediction} from './prediction/interfaces/prediction';
 export {CyberUiSettingsDialogComponent} from './settings/dialog/component';
 export {CyberUiSettingsDialogService} from './settings/dialog/service';
 export {CyberUiSettingsDialogModule} from './settings/dialog/module';
-export {SettingsSectionItem} from './settings/interfaces/section';
+export {CyberUiSettingsService} from './settings/service/service';
+export {SettingsSectionConfigItem} from './settings/interfaces/section_config';
 
 // ======
 // SNOOZE

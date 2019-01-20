@@ -1,5 +1,8 @@
-<div mat-dialog-title>{{settings.label}}</div>
+<div mat-dialog-title>{{config.label}}</div>
 <mat-dialog-content>
-  <cyber-ui-settings-section-items [items]="settings.items">
+  <cyber-ui-settings-section-items
+      [items]="config.items"
+      [model]="settings"
+      (changes)="onChange()">
   </cyber-ui-settings-section-items>
 </mat-dialog-content>

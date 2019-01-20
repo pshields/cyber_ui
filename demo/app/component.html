@@ -15,7 +15,11 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav opened [mode]="sidenavMode">
+  <mat-sidenav
+      #sidenav
+      opened
+      [mode]="sidenavMode"
+      *ngIf="themeService.currentThemeId === 'material'">
     <component-list></component-list>
   </mat-sidenav>
   <mat-sidenav-content>

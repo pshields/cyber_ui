@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 
 import {Observable, ReplaySubject} from 'rxjs';
 
+import {CyberUiSettingsService} from 'lib/settings/service/service';
+
 
 @Injectable({providedIn: 'root'})
 export class CyberUiThemeService {
@@ -9,12 +11,15 @@ export class CyberUiThemeService {
   // An up-to-date reference to the current theme's id
   public currentThemeId: string;
 
-  constructor() {
+  constructor(
+      readonly settingsService: CyberUiSettingsService
+  ) {
     // Keep currentThemeId up to date
     this.currentThemeIds.subscribe(id => this.currentThemeId = id);
-    // Push the initial theme value
-    // TODO Get this from the settings service
-    this.currentThemeIds.next('material');
+    // Subscribe to settings updates
+    settingsService.listen('theme').subscribe(themeId => {
+      this.currentThemeIds.next(themeId);
+    });
   }
 
   // Returns an observable which emits the current theme's id

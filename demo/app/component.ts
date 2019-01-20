@@ -9,10 +9,11 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {filter} from 'rxjs/operators';
 
 import {DelegationMenuService} from 'lib/public_api';
+import {CyberUiSettingsService} from 'lib/public_api';
 import {CyberUiSettingsDialogService} from 'lib/public_api';
 import {CyberUiThemeService} from 'lib/public_api';
 
-import {DemoSettings} from './settings';
+import {DemoSettings, DemoSettingsConfig} from './settings';
 
 
 @Component({
@@ -30,15 +31,19 @@ export class AppComponent {
   sidenavMode = 'side';
 
   // Demo settings
+  settingsConfig = new DemoSettingsConfig();
   settings = new DemoSettings();
 
   constructor(
     readonly breakpointObserver: BreakpointObserver,
     readonly delegationMenuService: DelegationMenuService,
+    readonly settingsService: CyberUiSettingsService,
     readonly settingsDialogService: CyberUiSettingsDialogService,
     readonly themeService: CyberUiThemeService,
     readonly snackbar: MatSnackBar,
     readonly router: Router) {
+      // Sent the initial demo settings to the settings service
+      this.settingsService.onChange(this.settings);
       // Register a fake delegation target for demo purposes
       delegationMenuService.registerDelegationTarget({
         label: 'The void',
@@ -63,7 +68,7 @@ export class AppComponent {
   }
 
   openSettings() {
-    this.settingsDialogService.open(this.settings);
+    this.settingsDialogService.open(this.settings, this.settingsConfig);
   }
 
   setSidenavMode(isHandset: boolean) {

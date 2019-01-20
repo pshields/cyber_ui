@@ -1,10 +1,10 @@
 import {ChoiceField} from 'lib/public_api';
-import {SettingsSectionItem} from 'lib/public_api';
+import {SettingsSectionConfigItem} from 'lib/public_api';
 
 
-export class DemoSettings {
+export class DemoSettingsConfig {
   readonly label = 'Demo settings';
-  items: SettingsSectionItem[];
+  items: SettingsSectionConfigItem[];
 
   constructor() {
     this.items = [
@@ -19,20 +19,18 @@ export class DemoSettings {
 
 
   getThemePickerField() {
-    const field = new ChoiceField({
+    return new ChoiceField({
       label: 'Theme',
-      propertyName: 'value',
+      propertyName: 'theme',
       options: [
         new Option('Material', 'material'),
         new Option('Minimal', 'minimal'),
       ]
     });
-    // At present the settings values are stored directly on the fields
-    // at the 'value' property. This line initializes this setting to the
-    // Material theme
-    // TODO Do this in a less hacky way - potentially by allowing specification
-    // of a default or initial value in the field options
-    (field as any).value = 'material';
-    return field;
   }
+}
+
+// Used to initialize the settings
+export class DemoSettings {
+  theme = 'material';
 }
