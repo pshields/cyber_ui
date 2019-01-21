@@ -1,4 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, ViewChild, Renderer2} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
 import {Router, NavigationEnd} from '@angular/router';
 
 import {MatSidenav} from '@angular/material';
@@ -41,7 +42,10 @@ export class AppComponent {
     readonly settingsDialogService: CyberUiSettingsDialogService,
     readonly themeService: CyberUiThemeService,
     readonly snackbar: MatSnackBar,
-    readonly router: Router) {
+    readonly router: Router,
+    readonly renderer: Renderer2,
+    @Inject(DOCUMENT) document: Document,
+  ) {
       // Sent the initial demo settings to the settings service
       this.settingsService.onChange(this.settings);
       // Register a fake delegation target for demo purposes
@@ -65,6 +69,7 @@ export class AppComponent {
           this.sidenav.close();
         }
       });
+      this.themeService.pinActiveThemeClassOnBodyElement(document, renderer);
   }
 
   openSettings() {

@@ -29,6 +29,7 @@ import {GuidesComponent} from '../guides/component';
 import {GuidesModule} from '../guides/module';
 import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
+import {MinimalDemoThemeModule} from '../minimal_demo_theme/module';
 import {SplashPageComponent} from '../splash_page/component';
 
 import {SplashPageModule} from '../splash_page/module';
@@ -74,6 +75,7 @@ export const routes: Routes = [
     GuidesModule,
     InterfacesDocumentationModule,
     MinimalTaskCardDemoModule,
+    MinimalDemoThemeModule,
     SplashPageModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module

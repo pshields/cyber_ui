@@ -1,0 +1,14 @@
+<div class="heading">Site navigation</div>
+<a routerLink="/">Home</a>
+<div class="heading">Guides</div>
+<a *ngFor="let guide of GUIDES" routerLink="/guides/{{guide.id}}">{{guide.label}}</a>
+<div class="heading">Interfaces</div>
+<a *ngFor="let interface of INTERFACES" routerLink="/interfaces/{{interface.id}}">{{interface.label}}</a>
+<div class="heading">Components</div>
+<a mat-list-item routerLink="/components/form-fields">cyber-ui-form-fields</a>
+<div class="heading">Task display components</div>
+<a mat-list-item routerLink="/components/minimal-task-card">cyber-ui-minimal-task-card</a>
+<div class="heading">Workflows</div>
+<a routerLink="/guides/systemization" fragment="workflow">systemize</a>
+<a routerLink="/workflows/work-on-tasks">work-on-tasks</a>
+<button (click)="appComponent.openSettings()">Settings</button>
