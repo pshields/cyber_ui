@@ -1,4 +1,7 @@
-<mat-toolbar color="primary" *ngIf="themeService.currentThemeId === 'material'">
+<mat-toolbar
+    color="primary"
+    *ngIf="themeService.currentThemeId === 'material'"
+    [style.backgroundColor]="themeService.topToolbarBackgroundColor">
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon class="menu">menu</mat-icon>
   </button>
@@ -14,14 +17,18 @@
   </button>
 </mat-toolbar>
 
-<mat-sidenav-container *ngIf="themeService.currentThemeId === 'material'">
+<mat-sidenav-container
+    *ngIf="themeService.currentThemeId === 'material'"
+    [style.background]="themeService.appBackground">
   <mat-sidenav
       #sidenav
       opened
-      [mode]="sidenavMode">
+      [mode]="sidenavMode"
+      [style.background]="themeService.appBackground">
     <component-list></component-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content
+      [style.background]="themeService.appBackground">
     <div id="main-content-area">
       <router-outlet></router-outlet>
     </div>

@@ -1,5 +1,9 @@
+import {BooleanField} from 'lib/public_api';
 import {ChoiceField} from 'lib/public_api';
+import {TextField} from 'lib/public_api';
 import {SettingsSectionConfigItem} from 'lib/public_api';
+
+import * as colors from '../defs/colors';
 
 
 export class DemoSettingsConfig {
@@ -9,9 +13,22 @@ export class DemoSettingsConfig {
   constructor() {
     this.items = [
       {
-        label: 'Theming',
         items: [
           this.getThemePickerField(),
+          {
+            label: 'Theme options',
+            items: [
+              new TextField({
+                label: 'Top toolbar default background color',
+                propertyName: 'topToolbarDefaultBackgroundColor',
+              }),
+              new BooleanField({
+                label: 'Match app and toolbar background?',
+                propertyName: 'matchAppAndToolbarBackground',
+                helpText: 'If true, the app background will be configured to match that of the top toolbar, removing the visual boundary between them.',
+              })
+            ]
+          }
         ],
       }
     ];
@@ -33,4 +50,6 @@ export class DemoSettingsConfig {
 // Used to initialize the settings
 export class DemoSettings {
   theme = 'material';
+  topToolbarDefaultBackgroundColor = colors.DEMO_APP_PRIMARY;
+  matchAppAndToolbarBackground = false;
 }
