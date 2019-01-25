@@ -1,5 +1,6 @@
 import {ChoiceField} from 'lib/public_api';
 import {CYBER_UI_MATERIAL_THEME_SETTINGS} from 'lib/public_api';
+import {ENERGY_LEVEL_FIELD} from 'lib/public_api';
 import {SettingsSectionConfigItem} from 'lib/public_api';
 
 import * as colors from '../defs/colors';
@@ -17,6 +18,12 @@ export class DemoSettingsConfig {
           {
             label: 'Material theme settings',
             items: CYBER_UI_MATERIAL_THEME_SETTINGS,
+          },
+          {
+            label: 'User settings',
+            items: [
+              ENERGY_LEVEL_FIELD,
+            ]
           }
         ],
       }
