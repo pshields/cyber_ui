@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatButtonModule, MatDialogModule, MatListModule} from '@angular/material';
 
-import {CyberUiFormFieldsModule} from 'lib/form/form_fields/module';
+import {CyberUiFormFieldsModule} from '../../form/form_fields/module';
 
 import {CyberUiSettingsDialogComponent} from './component';
 import {CyberUiSettingsDialogService} from './service';

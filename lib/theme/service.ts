@@ -2,7 +2,7 @@ import {Injectable, Renderer2} from '@angular/core';
 
 import {ReplaySubject} from 'rxjs';
 
-import {CyberUiSettingsService} from 'lib/settings/service/service';
+import {CyberUiSettingsService} from '../settings/service/service';
 
 
 @Injectable({providedIn: 'root'})

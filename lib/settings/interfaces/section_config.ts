@@ -1,4 +1,4 @@
-import {FormField} from 'lib/form/form_field';
+import {FormField} from '../../form/form_field';
 
 
 export type SettingsSectionConfigItem = SettingsSectionConfig | FormField;

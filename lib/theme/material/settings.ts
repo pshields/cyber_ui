@@ -1,5 +1,5 @@
-import {BooleanField} from 'lib/form/fields/boolean';
-import {TextField} from 'lib/form/fields/text';
+import {BooleanField} from '../../form/fields/boolean';
+import {TextField} from '../../form/fields/text';
 
 
 export const MATCH_APP_AND_TOOLBAR_BACKGROUND = new BooleanField({
