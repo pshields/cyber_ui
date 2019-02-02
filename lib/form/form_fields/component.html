@@ -39,8 +39,8 @@
         [(ngModel)]="model[field.config.propertyName]"
         (ngModelChange)="change.emit()"
         [cyberUiAutofocus]="field.config.autofocus">
+      {{field.config.label}}
     </mat-checkbox>
-    <span>&nbsp;{{field.config.label}}</span>
     <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
