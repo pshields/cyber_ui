@@ -155,3 +155,9 @@ export {WORKFLOW_SETTINGS_SERVICE} from './workflows/injection_tokens/workflow_s
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflows/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflows/work_on_tasks/module';
+
+// ====
+// UTIL
+// ====
+
+export {CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from './util/dialog.config';

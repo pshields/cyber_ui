@@ -9,10 +9,11 @@ import {MatIconModule} from '@angular/material';
 import {MatListModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 
 import {MarkdownModule} from 'ngx-markdown';
 
-import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
+import {TASK_SUGGESTION_SERVICE, CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from 'lib/public_api';
 import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
 import {CyberUiSettingsDialogModule} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
@@ -87,6 +88,8 @@ export const routes: Routes = [
   providers: [
     {provide: TASK_SUGGESTION_SERVICE, useClass: DemoTaskSuggestionService},
     {provide: WORKFLOW_SETTINGS_SERVICE, useClass: DemoWorkflowSettingsService},
+    // Customize MatDialogModule options by settings some application-wide defaults
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG},
   ],
   bootstrap: [AppComponent]
 })
