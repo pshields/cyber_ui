@@ -46,7 +46,7 @@ export class AppComponent {
     readonly renderer: Renderer2,
     @Inject(DOCUMENT) document: Document,
   ) {
-      // Sent the initial demo settings to the settings service
+      // Send the initial demo settings to the settings service
       this.settingsService.onChange(this.settings);
       // Register a fake delegation target for demo purposes
       delegationMenuService.registerDelegationTarget({
