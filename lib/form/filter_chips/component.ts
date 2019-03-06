@@ -8,6 +8,7 @@ import {CyberUiChoiceFieldMenuComponent} from '../menus/choice_field/component';
 @Component({
   selector: 'cyber-ui-filter-chips',
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class CyberUiFilterChipsComponent {
   // The filters to show

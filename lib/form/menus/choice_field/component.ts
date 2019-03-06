@@ -6,6 +6,7 @@ import {ChoiceField} from '../../fields/choice';
 
 @Component({
   templateUrl: './component.html',
+  styleUrls: ['./component.scss'],
 })
 export class CyberUiChoiceFieldMenuComponent {
   // The field to show in a menu
