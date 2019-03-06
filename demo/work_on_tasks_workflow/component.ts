@@ -59,6 +59,23 @@ export class WorkOnTasksWorkflowDemoComponent {
         new Option('Hard', 'hard'),
       ]
     }),
+    new ChoiceField({
+      label: 'Location',
+      propertyName: 'location',
+      options: [
+        new Option('Home', 'home'),
+        new Option('Work', 'work'),
+      ]
+    }),
+    // TODO Convert this to a value in range field once that is supported in filter chips component
+    new ChoiceField({
+      label: 'Time limit',
+      propertyName: 'timeLimit',
+      options: [
+        new Option('5 minutes', 5),
+        new Option('1 hour', 60),
+      ]
+    }),
   ];
 
   onDemoSettingsChange() {

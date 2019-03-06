@@ -1,6 +1,5 @@
 <span #trigger [matMenuTriggerFor]="menu"></span>
 <mat-menu #menu="matMenu">
-  <!-- TODO Improve the styling of the heading; it have the disabled styling -->
   <header mat-menu-item disabled><span class="mat-subheading-2">{{field.config.label}}</span></header>
   <div mat-menu-item *ngFor="let option of field.config.options">
     <mat-radio-button>{{option.label}}</mat-radio-button>
