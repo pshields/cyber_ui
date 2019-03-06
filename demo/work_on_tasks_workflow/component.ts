@@ -49,6 +49,18 @@ export class WorkOnTasksWorkflowDemoComponent {
     })
   ];
 
+  demoFilters = [
+    new ChoiceField({
+      label: 'Difficulty',
+      propertyName: 'difficulty',
+      options: [
+        new Option('Easy', 'easy'),
+        new Option('Medium', 'medium'),
+        new Option('Hard', 'hard'),
+      ]
+    }),
+  ];
+
   onDemoSettingsChange() {
     this.taskSuggestionService.setActionsDisplayComponent(this.actionsDisplayComponent);
   }

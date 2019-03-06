@@ -2,8 +2,8 @@ import {Component, Inject, ComponentFactory, ComponentFactoryResolver, Input, On
 
 import {Subscription, Subject, ReplaySubject} from 'rxjs';
 
+import {FormField} from '../../form/form_field';
 import {TASK_SUGGESTION_SERVICE} from '../../task/injection_tokens/task_suggestion_service';
-
 import {Task} from '../../task/interfaces/task';
 import {TaskSuggestionService} from '../../task/interfaces/task_suggestion_service';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../task/interfaces/task_suggestion_service';
@@ -16,7 +16,7 @@ import {WorkflowSettingsService} from '../interfaces/workflow_settings_service';
 // A workflow for working on tasks using an arbitrary task-list-rendering component
 @Component({
   selector: 'cyber-ui-work-on-tasks-workflow',
-  template: '<ng-template #view></ng-template>',
+  template: '<cyber-ui-filter-chips *ngIf="filters" [filters]="filters"></cyber-ui-filter-chips><ng-template #view></ng-template>',
 })
 export class CyberUiWorkOnTasksWorkflowComponent<
     TASK_T extends Task,
@@ -38,6 +38,8 @@ export class CyberUiWorkOnTasksWorkflowComponent<
 
   // The Angular component to use to display the tasks
   @Input() displayComponent: any;
+  // The filters available for this task suggestion worfklow
+  @Input() filters: FormField;
 
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE)

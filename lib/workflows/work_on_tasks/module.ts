@@ -1,12 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {CyberUiWorkOnTasksWorkflowComponent} from './component';
+import {CyberUiFilterChipsModule} from '../../form/filter_chips/module';
 
+import {CyberUiWorkOnTasksWorkflowComponent} from './component';
 
 @NgModule({
   imports: [
     CommonModule,
+    // TODO Don't depend on Material modules from this theme-agnostic workflow module
+    CyberUiFilterChipsModule,
   ],
   declarations: [
     CyberUiWorkOnTasksWorkflowComponent,
