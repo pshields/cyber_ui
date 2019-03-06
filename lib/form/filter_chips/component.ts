@@ -3,6 +3,8 @@ import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewContai
 import {FormField} from '../form_field';
 import {ChoiceField} from '../fields/choice';
 import {CyberUiChoiceFieldMenuComponent} from '../menus/choice_field/component';
+import {first} from 'rxjs/operators';
+
 
 // Trailing icon names to re-use
 const TRAILING_ICON = {
@@ -40,6 +42,12 @@ export class CyberUiFilterChipsComponent {
       cmpRef.instance.field = field;
       // Link up the menu to the settings
       cmpRef.instance.model = this.settings;
+      // Subscribe to the first clear action taken from the menu, and clear the filter when that happens
+      cmpRef.instance.clear.pipe(first()).subscribe(() => {
+        this.clearFilter(field);
+        // Close the menu
+        cmpRef.instance.trigger.closeMenu();
+      });
       // Trigger the menu
       // Needs to be done asynchronously to wait for the component's view to init
       setTimeout(() => cmpRef.instance.trigger.openMenu(), 0);

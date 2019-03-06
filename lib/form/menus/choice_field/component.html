@@ -2,7 +2,12 @@
 <mat-menu #menu="matMenu">
   <!-- This menu is lazily rendered to avoid 'changed after it was checked' error-->
   <ng-template matMenuContent>
-    <header mat-menu-item disabled><span class="mat-subheading-2">{{field.config.label}}</span></header>
+    <header mat-menu-item disabled>
+      <span class="mat-subheading-2">{{field.config.label}}</span>
+      <button mat-icon-button (click)="clear.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </header>
     <div mat-menu-item
         *ngFor="let option of field.config.options"
         (click)="choose(option)">

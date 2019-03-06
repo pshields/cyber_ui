@@ -1,3 +1,23 @@
 header {
   color: #000 !important;
+  display: flex;
+  align-items: stretch;
+  // The 'close' icon should be able to exceed the bounding box of the header,
+  // and overflow onto the mat-menu-content padding, instead of getting cropped
+  overflow: visible;
+
+  > span.mat-subheading-2 {
+    flex-grow: 1;
+    padding-right: 16px;
+  }
+
+  [mat-icon-button] {
+    // Apply custom adjustments
+    margin: -8px -16px 0 0 ;
+
+    mat-icon {
+      // Unset the custom mat-menu icon styling applied by Angular Material
+      margin: 0;
+    }
+  }
 }
