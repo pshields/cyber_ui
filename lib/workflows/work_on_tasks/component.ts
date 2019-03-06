@@ -16,7 +16,7 @@ import {WorkflowSettingsService} from '../interfaces/workflow_settings_service';
 // A workflow for working on tasks using an arbitrary task-list-rendering component
 @Component({
   selector: 'cyber-ui-work-on-tasks-workflow',
-  template: '<cyber-ui-filter-chips *ngIf="filters" [filters]="filters"></cyber-ui-filter-chips><ng-template #view></ng-template>',
+  templateUrl: './component.html',
 })
 export class CyberUiWorkOnTasksWorkflowComponent<
     TASK_T extends Task,
@@ -39,7 +39,9 @@ export class CyberUiWorkOnTasksWorkflowComponent<
   // The Angular component to use to display the tasks
   @Input() displayComponent: any;
   // The filters available for this task suggestion worfklow
-  @Input() filters: FormField;
+  @Input() filters: FormField[];
+  // The filter settings
+  @Input() filterSettings: {};
 
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE)

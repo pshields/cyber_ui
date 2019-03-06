@@ -25,11 +25,23 @@ export class CyberUiFilterChipsComponent {
     if (field instanceof ChoiceField) {
       const factory: ComponentFactory<CyberUiChoiceFieldMenuComponent> = this.componentFactoryResolver.resolveComponentFactory(CyberUiChoiceFieldMenuComponent);
       const cmpRef = viewContainer.createComponent(factory);
-      // Link up the menu to the field
+      // Link the menu to the field
       cmpRef.instance.field = field;
+      // Link up the menu to the settings
+      cmpRef.instance.model = this.settings;
       // Trigger the menu
       // Needs to be done asynchronously to wait for the component's view to init
       setTimeout(() => cmpRef.instance.trigger.openMenu(), 0);
+    } else {
+      // Log error / show snack about not knowing how to handle this type of field here yet
+    }
+  }
+
+  getLabelForField(field: FormField) {
+    if (this.settings[field.config.propertyName] !== undefined) {
+      return `${field.config.label}: ${this.settings[field.config.propertyName]}`;
+    } else {
+      return field.config.label;
     }
   }
 }

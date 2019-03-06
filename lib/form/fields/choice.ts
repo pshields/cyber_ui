@@ -4,7 +4,7 @@ import {FormFieldElement} from '../form_field_element.enum';
 
 
 // Class for representing an option in the list of options for ChoiceField
-export class Option<VALUE_T> {
+export class Option<VALUE_T = {}> {
   constructor(
       public label: string,
       public value: VALUE_T

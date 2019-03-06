@@ -77,6 +77,7 @@ export class WorkOnTasksWorkflowDemoComponent {
       ]
     }),
   ];
+  demoFilterSettings = {};
 
   onDemoSettingsChange() {
     this.taskSuggestionService.setActionsDisplayComponent(this.actionsDisplayComponent);
