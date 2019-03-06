@@ -1,10 +1,14 @@
 <span #trigger [matMenuTriggerFor]="menu"></span>
 <mat-menu #menu="matMenu">
-  <header mat-menu-item disabled><span class="mat-subheading-2">{{field.config.label}}</span></header>
-  <div mat-menu-item *ngFor="let option of field.config.options">
-    <mat-radio-button
-      [checked]="model[field.config.propertyName] === option.value"
-      (click)="choose(option)"
-    >{{option.label}}</mat-radio-button>
-  </div>
+  <!-- This menu is lazily rendered to avoid 'changed after it was checked' error-->
+  <ng-template matMenuContent>
+    <header mat-menu-item disabled><span class="mat-subheading-2">{{field.config.label}}</span></header>
+    <div mat-menu-item
+        *ngFor="let option of field.config.options"
+        (click)="choose(option)">
+      <mat-radio-button
+        [checked]="model[field.config.propertyName] === option.value"
+      >{{option.label}}</mat-radio-button>
+    </div>
+  </ng-template>
 </mat-menu>

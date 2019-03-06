@@ -6,5 +6,8 @@
     #directive="cyberUiFilterChipDirective"
     color="primary"
     [selected]="isFilterActive(field)"
-  >{{getLabelForField(field)}}<mat-icon matChipTrailingIcon>arrow_drop_down</mat-icon></mat-chip>
+  >{{getLabelForField(field)}}<mat-icon
+    matChipTrailingIcon
+    (click)="handleIconClick(field, directive.viewContainer, $event)"
+  >{{getTrailingIconName(field)}}</mat-icon></mat-chip>
 </mat-chip-list>

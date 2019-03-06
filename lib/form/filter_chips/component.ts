@@ -4,6 +4,12 @@ import {FormField} from '../form_field';
 import {ChoiceField} from '../fields/choice';
 import {CyberUiChoiceFieldMenuComponent} from '../menus/choice_field/component';
 
+// Trailing icon names to re-use
+const TRAILING_ICON = {
+  ARROW_DROP_DOWN: 'arrow_drop_down',
+  CLOSE: 'close',
+};
+
 
 @Component({
   selector: 'cyber-ui-filter-chips',
@@ -17,6 +23,11 @@ export class CyberUiFilterChipsComponent {
   @Input() settings: {};
 
   constructor(readonly componentFactoryResolver: ComponentFactoryResolver) {}
+
+  // Clears the filter
+  clearFilter(field: FormField) {
+    delete this.settings[field.config.propertyName];
+  }
 
   handleClick(field: FormField, viewContainer: ViewContainerRef) {
     // Clear the previous menu, if one exists
@@ -37,6 +48,21 @@ export class CyberUiFilterChipsComponent {
     }
   }
 
+  handleIconClick(field: FormField, viewContainer: ViewContainerRef, event?: MouseEvent) {
+    // If the field is currently active, clicking the icon clears the filter
+    // Otherwise, it should have the same behavior as clicking the rest of the chip
+    if (this.isFilterActive(field)) {
+      this.clearFilter(field);
+    } else {
+      this.handleClick(field, viewContainer);
+    }
+    // Since the click was handled here, stop it from bubbling up
+    if (event) {
+      event.stopPropagation();;
+    }
+    return false;
+  }
+
   // Returns the label to use for this filter chip (dynamic based on the field's current value)
   getLabelForField(field: FormField) {
     if (this.settings[field.config.propertyName] !== undefined) {
@@ -49,5 +75,15 @@ export class CyberUiFilterChipsComponent {
   // Returns whether this filter chip is considered active or not
   isFilterActive(field: FormField) {
     return this.settings[field.config.propertyName] !== undefined;
+  }
+
+  getTrailingIconName(field: FormField) {
+    // If the filter is active, show the close icon
+    // Otherwise, show the drop down icon
+    if (this.isFilterActive(field)) {
+      return TRAILING_ICON.CLOSE;
+    } else {
+      return TRAILING_ICON.ARROW_DROP_DOWN;
+    }
   }
 }
