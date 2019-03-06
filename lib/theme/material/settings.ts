@@ -15,7 +15,21 @@ export const TOP_TOOLBAR_DEFAULT_BACKGROUND_COLOR = new TextField({
 });
 
 
+export const TOP_TOOLBAR_GRADIENT = new BooleanField({
+  label: 'Top toolbar gradient?',
+  propertyName: 'topToolbarGradientActive',
+});
+
+
+export const TOP_TOOLBAR_DROP_SHADOW = new BooleanField({
+  label: 'Top toolbar drop shadow?',
+  propertyName: 'topToolbarDropShadowActive',
+});
+
+
 export const CYBER_UI_MATERIAL_THEME_SETTINGS = [
   TOP_TOOLBAR_DEFAULT_BACKGROUND_COLOR,
   MATCH_APP_AND_TOOLBAR_BACKGROUND,
+  TOP_TOOLBAR_GRADIENT,
+  TOP_TOOLBAR_DROP_SHADOW,
 ];
