@@ -1,9 +1,10 @@
-<mat-chip-list>
+<mat-chip-list [multiple]="true">
   <mat-chip
     *ngFor="let field of filters"
     (click)="handleClick(field, directive.viewContainer)"
     cyberUiFilterChipDirective
     #directive="cyberUiFilterChipDirective"
-    [attr.color]
+    color="primary"
+    [selected]="isFilterActive(field)"
   >{{getLabelForField(field)}}<mat-icon matChipTrailingIcon>arrow_drop_down</mat-icon></mat-chip>
 </mat-chip-list>

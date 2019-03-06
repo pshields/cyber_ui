@@ -37,11 +37,17 @@ export class CyberUiFilterChipsComponent {
     }
   }
 
+  // Returns the label to use for this filter chip (dynamic based on the field's current value)
   getLabelForField(field: FormField) {
     if (this.settings[field.config.propertyName] !== undefined) {
       return `${field.config.label}: ${field.format(this.settings[field.config.propertyName])}`;
     } else {
       return field.config.label;
     }
+  }
+
+  // Returns whether this filter chip is considered active or not
+  isFilterActive(field: FormField) {
+    return this.settings[field.config.propertyName] !== undefined;
   }
 }
