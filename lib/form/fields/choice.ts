@@ -48,7 +48,7 @@ export class ChoiceFieldConfig<OPTION_VALUE_T> extends FormFieldConfig {
 
 // This field type for representing a choice from a discrete set of options
 // The model's value will be whatever the underying selected option's value is
-export class ChoiceField<MODEL_T, OPTION_VALUE_T> extends FormField<MODEL_T, FormFieldOptions, ChoiceFieldConfig<OPTION_VALUE_T>> {
+export class ChoiceField<MODEL_T = {}, OPTION_VALUE_T = {}> extends FormField<MODEL_T, FormFieldOptions, ChoiceFieldConfig<OPTION_VALUE_T>> {
 
   constructor(options: ChoiceFieldOptions<OPTION_VALUE_T>) {
     super(options, ChoiceFieldConfig);

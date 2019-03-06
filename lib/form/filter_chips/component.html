@@ -1,3 +1,9 @@
-<mat-chip-list *ngFor="let field of filters">
-  <mat-chip>{{field.config.label}}</mat-chip>
+<mat-chip-list>
+  <ng-container *ngFor="let field of filters">
+    <mat-chip
+      (click)="handleClick(field, directive.viewContainer)"
+      cyberUiFilterChipDirective
+      #directive="cyberUiFilterChipDirective"
+    >{{field.config.label}}<mat-icon matChipTrailingIcon>arrow_drop_down</mat-icon></mat-chip>
+  </ng-container>
 </mat-chip-list>
