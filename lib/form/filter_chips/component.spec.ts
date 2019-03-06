@@ -1,0 +1,1 @@
+// TODO test that getLabelForField calls the field's #format method rather than using the property value directly

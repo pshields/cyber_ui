@@ -54,5 +54,20 @@ export class ChoiceField<MODEL_T = {}, OPTION_VALUE_T = {}> extends FormField<MO
     super(options, ChoiceFieldConfig);
   }
 
+  // When displaying the value as a string, use the option's corresponding label
+  format(value: any) {
+    if (value === undefined) {
+      return 'None';
+    } else {
+      const correspondingOption = this.config.options.find(option => option.value === value);
+      if (correspondingOption) {
+        return correspondingOption.label;
+      } else {
+        // TODO Log an error in some uniform way here
+        return '[ERROR - COULD NOT RESOLVE VALUE]';
+      }
+    }
+  }
+
 }
 

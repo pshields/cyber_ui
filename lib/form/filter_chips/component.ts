@@ -39,7 +39,7 @@ export class CyberUiFilterChipsComponent {
 
   getLabelForField(field: FormField) {
     if (this.settings[field.config.propertyName] !== undefined) {
-      return `${field.config.label}: ${this.settings[field.config.propertyName]}`;
+      return `${field.config.label}: ${field.format(this.settings[field.config.propertyName])}`;
     } else {
       return field.config.label;
     }
