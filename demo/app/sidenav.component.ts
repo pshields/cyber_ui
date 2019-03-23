@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+import {CYBER_UI_CAPABILITY_AREAS} from '../defs/capability_areas';
 import {GUIDES} from '../guides/component';
 import {INTERFACES} from '../interfaces/component';
 
@@ -10,6 +11,7 @@ import {INTERFACES} from '../interfaces/component';
 })
 export class AppSidenavComponent {
   // Expose for use in the template
+  readonly CAPABILITY_AREAS = CYBER_UI_CAPABILITY_AREAS;
   readonly GUIDES = GUIDES;
   readonly INTERFACES = INTERFACES;
 }

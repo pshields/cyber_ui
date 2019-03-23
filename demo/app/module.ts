@@ -20,6 +20,8 @@ import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
 import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
 import {CyberUiDelegationMenuModule} from 'lib/public_api';
 
+import {CapabilityAreasComponent} from '../capability_areas/component';
+import {CapabilityAreasModule} from 'demo/capability_areas/module';
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
 import {FormFieldsDemoComponent} from '../form_fields/component';
@@ -44,6 +46,7 @@ import {AppSidenavComponent} from './sidenav.component';
 export const routes: Routes = [
   {path: 'guides/:id', component: GuidesComponent},
   {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
+  {path: 'capability-areas/:id', component: CapabilityAreasComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
@@ -71,6 +74,7 @@ export const routes: Routes = [
     // Routing
     RouterModule.forRoot(routes),
     // Demo modules
+    CapabilityAreasModule,
     FormFieldsDemoModule,
     GuidesModule,
     InterfacesDocumentationModule,

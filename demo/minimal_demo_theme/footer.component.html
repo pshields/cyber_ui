@@ -1,5 +1,7 @@
 <div class="heading">Site navigation</div>
 <a routerLink="/">Home</a>
+<div class="heading">Capability areas</div>
+<a *ngFor="let area of CAPABILITY_AREAS" routerLink="/capability-areas/{{area.id}}">{{area.label}}</a>
 <div class="heading">Guides</div>
 <a *ngFor="let guide of GUIDES" routerLink="/guides/{{guide.id}}">{{guide.label}}</a>
 <div class="heading">Interfaces</div>

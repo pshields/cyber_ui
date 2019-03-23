@@ -1,0 +1,7 @@
+<ng-container *ngIf="!capabilityArea">
+  <h1>Capability areas</h1>
+  <p>This section of the site contains documentation on the various capability areas of Cyber UI.</p>
+</ng-container>
+<ng-container *ngIf="capabilityArea">
+  <markdown [data]="capabilityArea.data"></markdown>
+</ng-container>
