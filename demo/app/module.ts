@@ -38,8 +38,7 @@ import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/compon
 import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
-import {ComponentListComponent} from './component_list.component';
-
+import {AppSidenavComponent} from './sidenav.component';
 
 
 export const routes: Routes = [
@@ -55,7 +54,7 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentListComponent,
+    AppSidenavComponent,
   ],
   imports: [
     // Angular core modules
