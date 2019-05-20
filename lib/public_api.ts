@@ -34,6 +34,7 @@ export {delegationMenuActivationHandler} from './delegation/delegation_menu/util
 // =====
 
 export {CyberUiAutofocusModule} from './form/autofocus/module';
+export {CyberUiFormFieldsComponent} from './form/form_fields/component';
 export {CyberUiFormFieldsModule} from './form/form_fields/module';
 
 // Although abstract, it's import to at least export the type since consumers may want to use it
@@ -153,8 +154,12 @@ export {CYBER_UI_MATERIAL_THEME_SETTINGS} from './theme/material/settings';
 export {WorkflowSettingsService} from './workflows/interfaces/workflow_settings_service';
 export {WORKFLOW_SETTINGS_SERVICE} from './workflows/injection_tokens/workflow_settings_service';
 
+export {CyberUiAddThingWorkflowModule} from './workflows/add_thing/module';
+export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflows/add_thing/display_component_injection_token';
+
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflows/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflows/work_on_tasks/module';
+
 
 // ====
 // UTIL
