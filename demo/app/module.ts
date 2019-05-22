@@ -19,6 +19,7 @@ import {CyberUiSettingsDialogModule} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
 import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
 import {CyberUiDelegationMenuModule} from 'lib/public_api';
+import {CyberUiFakeBackendModule} from 'lib/public_api';
 
 import {AddThingWorkflowDemoComponent} from '../add_thing_workflow/component';
 import {AddThingWorkflowDemoModule} from '../add_thing_workflow/module';
@@ -43,6 +44,7 @@ import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav.component';
+
 
 
 export const routes: Routes = [
@@ -91,6 +93,8 @@ export const routes: Routes = [
     CyberUiSettingsDialogModule,
     CyberUiSnoozeReasonCollectionDialogModule,
     CyberUiWorkOnTasksWorkflowModule,
+    // Backend to use in the demo
+    CyberUiFakeBackendModule,
   ],
   providers: [
     {provide: TASK_SUGGESTION_SERVICE, useClass: DemoTaskSuggestionService},

@@ -9,6 +9,9 @@ export {CyberUiFirestoreBackedModel} from './backends/firestore/model';
 export {CyberUiFirestoreBackedModelData} from './backends/firestore/data.interface';
 export {CyberUiFirestoreBackedModelService} from './backends/firestore/service';
 export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
+
+export {CyberUiFakeBackendModule} from './backends/fake/module';
+
 export {CyberUiSavableModel} from './backends/interfaces/model';
 
 // ==========
@@ -155,7 +158,7 @@ export {WorkflowSettingsService} from './workflows/interfaces/workflow_settings_
 export {WORKFLOW_SETTINGS_SERVICE} from './workflows/injection_tokens/workflow_settings_service';
 
 export {CyberUiAddThingWorkflowModule} from './workflows/add_thing/module';
-export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflows/add_thing/display_component_injection_token';
+export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflows/add_thing/display_component';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflows/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflows/work_on_tasks/module';
