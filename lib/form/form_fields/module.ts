@@ -35,6 +35,9 @@ import {CyberUiFormFieldsComponent} from './component';
   ],
   exports: [
     CyberUiFormFieldsComponent
+  ],
+  entryComponents: [
+    CyberUiFormFieldsComponent
   ]
 })
 export class CyberUiFormFieldsModule {}
