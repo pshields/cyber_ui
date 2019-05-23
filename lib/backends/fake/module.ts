@@ -10,5 +10,4 @@ import {FakeModelService} from './model.service';
     {provide: CYBER_UI_MODEL_SERVICE, useClass: FakeModelService},
   ]
 })
-export class CyberUiFakeBackendModule {
-}
+export class CyberUiFakeBackendModule {}
