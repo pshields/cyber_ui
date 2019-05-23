@@ -158,7 +158,7 @@ export {WorkflowSettingsService} from './workflow/interfaces/workflow_settings_s
 export {WORKFLOW_SETTINGS_SERVICE} from './workflow/injection_tokens/workflow_settings_service';
 
 export {CyberUiAddThingWorkflowModule} from './workflow/add_thing/module';
-export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/display_component';
+export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/injection_token';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflow/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module';

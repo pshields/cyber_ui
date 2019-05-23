@@ -3,9 +3,8 @@ import {Component, ComponentRef, ComponentFactoryResolver, Inject, Type, ViewCon
 import {CyberUiSavableModel} from '../../backends/interfaces/model';
 import {CYBER_UI_MODEL_SERVICE, CyberUiModelService} from '../../backends/interfaces/model_service';
 
-import {CyberUiAddThingWorkflowDisplayComponent} from './display_component';
-import {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './display_component';
-
+import {CyberUiAddThingWorkflowDisplayComponent} from './displays/default/component';
+import {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './injection_token';
 
 
 // TODO At some point, refactor this component to allow for dynamic changing of the display component
