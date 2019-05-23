@@ -4,7 +4,7 @@ import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
 
 
 // A default display component implementation for add-thing-workflow
-// Developers may elect to supply a substitute display component by providing it via the
+// Developers may elect to provide a substitute display component via the
 // CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT injection token
 @Component({
   templateUrl: 'component.html',
