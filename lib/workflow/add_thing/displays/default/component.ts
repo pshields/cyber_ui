@@ -3,7 +3,9 @@ import {Component} from '@angular/core';
 import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
 
 
-// This component only exists for typing purposes. It's essentially an interface.
+// A default display component implementation for add-thing-workflow
+// Developers may elect to supply a substitute display component by providing it via the
+// CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT injection token
 @Component({
   templateUrl: 'component.html',
 })

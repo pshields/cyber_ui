@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 
+import {MatButtonModule} from '@angular/material';
+
 import {CyberUiFormFieldsModule} from '../../../../form/form_fields/module';
 
 import {CyberUiAddThingWorkflowDefaultDisplayComponent} from './component';
@@ -7,6 +9,7 @@ import {CyberUiAddThingWorkflowDefaultDisplayComponent} from './component';
 
 @NgModule({
   imports: [
+    MatButtonModule,
     CyberUiFormFieldsModule,
   ],
   declarations: [

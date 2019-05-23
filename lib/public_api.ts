@@ -151,7 +151,7 @@ export {CyberUiThemeService} from './theme/service';
 export {CYBER_UI_MATERIAL_THEME_SETTINGS} from './theme/material/settings';
 
 // =========
-// Workflows
+// WORKFLOWS
 // =========
 
 export {WorkflowSettingsService} from './workflow/interfaces/workflow_settings_service';
@@ -159,6 +159,7 @@ export {WORKFLOW_SETTINGS_SERVICE} from './workflow/injection_tokens/workflow_se
 
 export {CyberUiAddThingWorkflowModule} from './workflow/add_thing/module';
 export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/injection_token';
+export {CyberUiAddThingWorkflowDefaultDisplayModule} from './workflow/add_thing/displays/default/module';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflow/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module';
