@@ -1,6 +1,14 @@
 import {Component} from '@angular/core';
 
 import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
+import {LABEL_FIELD} from '../../../../form/fields/common/label';
+import {FormField} from '../../../../form/form_field';
+
+
+// TODO Make this dynamic and developer-configurable
+const TEMPORARY_HARDCODED_FIELD_LIST = [
+  LABEL_FIELD
+];
 
 
 // A default display component implementation for add-thing-workflow
@@ -10,10 +18,15 @@ import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
   templateUrl: 'component.html',
 })
 export class CyberUiAddThingWorkflowDefaultDisplayComponent {
+  fields: FormField[] = TEMPORARY_HARDCODED_FIELD_LIST;
   model: CyberUiSavableModel;
 }
 
 
-// This default display component is also used to obtain a type for use throughout the add-thing-workflow code
-// It's assumed that any substitute display component will still conform to this type where relevant
-export type CyberUiAddThingWorkflowDisplayComponent = CyberUiAddThingWorkflowDefaultDisplayComponent;
+// It's assumed that any substitute display component will still conform to the following type where relevant
+@Component({
+  template: ''
+})
+export class CyberUiAddThingWorkflowDisplayComponent {
+  model: CyberUiSavableModel;
+}
