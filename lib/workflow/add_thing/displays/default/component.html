@@ -2,5 +2,5 @@
 <cyber-ui-form-fields
   [model]="model"
   [fields]="fields"></cyber-ui-form-fields>
-<button mat-button mat-flat-button color="primary">SAVE</button>
-<button mat-button>DISCARD</button>
+<button mat-button mat-flat-button color="primary" (click)="saves.emit(model)">SAVE</button>
+<button mat-button (click)="exits.emit()">DISCARD</button>

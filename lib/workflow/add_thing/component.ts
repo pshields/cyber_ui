@@ -1,10 +1,11 @@
-import {Component, ComponentRef, ComponentFactoryResolver, Inject, Type, ViewContainerRef} from '@angular/core';
+import {Component, ComponentRef, ComponentFactoryResolver, EventEmitter, Inject, Type, ViewContainerRef} from '@angular/core';
 
 import {CyberUiSavableModel} from '../../backends/interfaces/model';
 import {CYBER_UI_MODEL_SERVICE, CyberUiModelService} from '../../backends/interfaces/model_service';
 
 import {CyberUiAddThingWorkflowDisplayComponent} from './displays/default/component';
 import {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './injection_token';
+import {CyberUiAddThingWorkflowExitEvent} from './exit.event';
 
 
 // TODO At some point, refactor this component to allow for dynamic changing of the display component
@@ -19,6 +20,9 @@ export class CyberUiAddThingWorkflowComponent {
 
   // A reference to the display component, once created by the component factory
   displayComponentRef: ComponentRef<CyberUiAddThingWorkflowDisplayComponent>;
+
+  // Stream of exit events (only 1 expected, indicating when the workflow is finished)
+  exits = new EventEmitter<CyberUiAddThingWorkflowExitEvent>();
 
   constructor(
     @Inject(CYBER_UI_MODEL_SERVICE) readonly modelService: CyberUiModelService,
@@ -35,7 +39,26 @@ export class CyberUiAddThingWorkflowComponent {
     // Get a new empty model and hook it up to the display component
     this.model = modelService.getNewEmptyModel();
     this.displayComponentRef.instance.model = this.model;
-    // TODO Implement save and exit logic
+    // Handle save and exit events from the display component
+    this.displayComponentRef.instance.saves.subscribe(model => this.handleSave(model));
+    this.displayComponentRef.instance.exits.subscribe(() => this.handleExit());
+  }
+
+  handleExit() {
+    this.exits.emit({});
+  }
+
+  handleSave(model: CyberUiSavableModel) {
+    model.save().then(
+      () => this.exits.emit({model: model}),
+      error => {} // TODO Handle this error
+    );
+  }
+
+  // Discards the existing model and gets a new one
+  clearModel() {
+    this.model = this.modelService.getNewEmptyModel();
+    this.displayComponentRef.instance.model = this.model;
   }
 
 }

@@ -157,13 +157,14 @@ export {CYBER_UI_MATERIAL_THEME_SETTINGS} from './theme/material/settings';
 export {WorkflowSettingsService} from './workflow/interfaces/workflow_settings_service';
 export {WORKFLOW_SETTINGS_SERVICE} from './workflow/injection_tokens/workflow_settings_service';
 
+export {CyberUiAddThingWorkflowComponent} from './workflow/add_thing/component';
+export {CyberUiAddThingWorkflowExitEvent} from './workflow/add_thing/exit.event';
 export {CyberUiAddThingWorkflowModule} from './workflow/add_thing/module';
 export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/injection_token';
 export {CyberUiAddThingWorkflowDefaultDisplayModule} from './workflow/add_thing/displays/default/module';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflow/work_on_tasks/component';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module';
-
 
 // ====
 // UTIL

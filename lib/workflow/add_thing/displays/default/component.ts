@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter} from '@angular/core';
 
 import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
 import {LABEL_FIELD} from '../../../../form/fields/common/label';
 import {FormField} from '../../../../form/form_field';
+
 
 
 // TODO Make this dynamic and developer-configurable
@@ -20,6 +21,10 @@ const TEMPORARY_HARDCODED_FIELD_LIST = [
 export class CyberUiAddThingWorkflowDefaultDisplayComponent {
   fields: FormField[] = TEMPORARY_HARDCODED_FIELD_LIST;
   model: CyberUiSavableModel;
+
+  // If saving, the event will contain a reference to the model to save
+  saves = new EventEmitter<CyberUiSavableModel>();
+  exits = new EventEmitter<void>();
 }
 
 
@@ -29,4 +34,7 @@ export class CyberUiAddThingWorkflowDefaultDisplayComponent {
 })
 export class CyberUiAddThingWorkflowDisplayComponent {
   model: CyberUiSavableModel;
+
+  saves: EventEmitter<CyberUiSavableModel>;
+  exits: EventEmitter<void>;
 }
