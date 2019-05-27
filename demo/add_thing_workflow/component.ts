@@ -1,8 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
 
+import {MatSnackBar} from '@angular/material';
+
 import {CyberUiFormFieldsComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowExitEvent} from 'lib/public_api';
+
+
+// TODO Use a demo-wide snackbar config instead of defining something here
+const snackbarConfig = {duration: 3000};
 
 
 @Component({
@@ -16,14 +22,18 @@ export class AddThingWorkflowDemoComponent {
 
   @ViewChild(CyberUiAddThingWorkflowComponent) workflowComponent: CyberUiAddThingWorkflowComponent;
 
+  constructor(
+    private readonly snackbar: MatSnackBar,
+  ) {}
+
   ngAfterViewInit() {
     this.workflowComponent.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
       if (e.model) {
+        this.snackbar.open('add-thing-workflow saved model: ' + JSON.stringify(e.model), undefined, snackbarConfig);
         console.info('add-thing-workflow saved model', e.model);
-        // TODO Activate the snack bar mentioning the saved model
       } else {
+        this.snackbar.open('add-thing-workflow exited without saving', undefined, snackbarConfig);
         console.info('add-thing-workflow exited without saving');
-        // TODO Activate the snack bar mentioning that the existing model was discarded
       }
       // Reset the workflow component with a new model
       this.workflowComponent.clearModel();
