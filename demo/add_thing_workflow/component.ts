@@ -19,8 +19,10 @@ export class AddThingWorkflowDemoComponent {
   ngAfterViewInit() {
     this.workflowComponent.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
       if (e.model) {
+        console.info('add-thing-workflow saved model', e.model);
         // TODO Activate the snack bar mentioning the saved model
       } else {
+        console.info('add-thing-workflow exited without saving');
         // TODO Activate the snack bar mentioning that the existing model was discarded
       }
       // Reset the workflow component with a new model

@@ -1,7 +1,12 @@
 import {TextField} from '../text';
 
 
-export const LABEL_FIELD = new TextField({
-  label: 'Label',
-  propertyName: 'label',
-});
+export function getLabelField(options = {}) {
+  return new TextField(Object.assign({
+    label: 'Label',
+    propertyName: 'label'
+  }, options));
+}
+
+
+export const LABEL_FIELD = getLabelField();

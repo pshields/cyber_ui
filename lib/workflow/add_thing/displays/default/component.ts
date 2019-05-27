@@ -1,14 +1,13 @@
 import {Component, EventEmitter} from '@angular/core';
 
 import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
-import {LABEL_FIELD} from '../../../../form/fields/common/label';
+import {getLabelField} from '../../../../form/fields/common/label';
 import {FormField} from '../../../../form/form_field';
-
 
 
 // TODO Make this dynamic and developer-configurable
 const TEMPORARY_HARDCODED_FIELD_LIST = [
-  LABEL_FIELD
+  getLabelField({saveOnEnter: true})
 ];
 
 
