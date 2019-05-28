@@ -20,6 +20,13 @@ body.cyber-ui-material-theme {
   margin: 0;
   // Needed so the mat-sidenav can occupy the full screen height
   height: 100%;
+
+  #main-content-area {
+    // Override the default 14px set by mat-typography, in order to avoid
+    // the scrollbars in form fields, and because it looks a little nicer
+    // Scrollbar issue: https://github.com/angular/components/issues/10376
+    font-size: 16px;
+  }
 }
 
 mat-expansion-panel-header.mat-expansion-panel-header {
