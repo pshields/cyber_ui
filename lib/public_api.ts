@@ -161,6 +161,7 @@ export {WORKFLOW_SETTINGS_SERVICE} from './workflow/injection_tokens/workflow_se
 export {CyberUiAddThingWorkflowComponent} from './workflow/add_thing/component';
 export {CyberUiAddThingWorkflowExitEvent} from './workflow/add_thing/exit.event';
 export {CyberUiAddThingWorkflowModule} from './workflow/add_thing/module';
+export {CyberUiAddThingWorkflowService} from './workflow/add_thing/service';
 export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/injection_token';
 export {CyberUiAddThingWorkflowDefaultDisplayComponent} from './workflow/add_thing/displays/default/component';
 export {CyberUiAddThingWorkflowDefaultDisplayModule} from './workflow/add_thing/displays/default/module';

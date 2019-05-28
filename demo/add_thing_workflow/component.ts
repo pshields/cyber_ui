@@ -3,6 +3,7 @@ import {Component, ViewChild} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 
 import {CyberUiFormFieldsComponent} from 'lib/public_api';
+import {CyberUiAddThingWorkflowService} from 'lib/public_api';
 import {CyberUiAddThingWorkflowComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowExitEvent} from 'lib/public_api';
 
@@ -23,11 +24,12 @@ export class AddThingWorkflowDemoComponent {
   @ViewChild(CyberUiAddThingWorkflowComponent) workflowComponent: CyberUiAddThingWorkflowComponent;
 
   constructor(
-    private readonly snackbar: MatSnackBar,
+    readonly snackbar: MatSnackBar,
+    readonly workflowService: CyberUiAddThingWorkflowService,
   ) {}
 
   ngAfterViewInit() {
-    this.workflowComponent.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
+    this.workflowService.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
       if (e.model) {
         this.snackbar.open('add-thing-workflow saved model: ' + JSON.stringify(e.model), undefined, snackbarConfig);
         console.info('add-thing-workflow saved model', e.model);
