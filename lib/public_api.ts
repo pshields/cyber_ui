@@ -13,6 +13,7 @@ export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 export {CyberUiFakeBackendModule} from './backends/fake/module';
 
 export {CyberUiSavableModel} from './backends/interfaces/model';
+export {CYBER_UI_MODEL_SERVICE} from './backends/interfaces/model_service';
 
 // ==========
 // DELEGATION
@@ -161,6 +162,7 @@ export {CyberUiAddThingWorkflowComponent} from './workflow/add_thing/component';
 export {CyberUiAddThingWorkflowExitEvent} from './workflow/add_thing/exit.event';
 export {CyberUiAddThingWorkflowModule} from './workflow/add_thing/module';
 export {CYBER_UI_ADD_THING_WORKFLOW_DISPLAY_COMPONENT} from './workflow/add_thing/injection_token';
+export {CyberUiAddThingWorkflowDefaultDisplayComponent} from './workflow/add_thing/displays/default/component';
 export {CyberUiAddThingWorkflowDefaultDisplayModule} from './workflow/add_thing/displays/default/module';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflow/work_on_tasks/component';

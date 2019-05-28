@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 
+import {CyberUiModelService} from '../interfaces/model_service';
+
 import {CyberUiFirestoreBackend} from './backend';
 import {CyberUiFirestoreBackedModel} from './model';
 import {CyberUiFirestoreBackedModelDeleteOptions, CyberUiFirestoreBackedModelSaveOptions} from './options';
@@ -11,11 +13,15 @@ import {CyberUiFirestoreBackedModelDeleteOptions, CyberUiFirestoreBackedModelSav
 // That way, we don't have to constantly change the model constructors
 // when adding or removing depdencies
 @Injectable({providedIn: 'root'})
-export class CyberUiFirestoreBackedModelService {
+export class CyberUiFirestoreBackedModelService implements CyberUiModelService {
 
   constructor(
     readonly backend: CyberUiFirestoreBackend,
   ) {}
+
+  getNewEmptyModel() {
+    return new CyberUiFirestoreBackedModel(this, {});
+  }
 
   deleteModel(
     model: CyberUiFirestoreBackedModel,

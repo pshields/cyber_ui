@@ -7,7 +7,7 @@ import {FormField} from '../../../../form/form_field';
 
 // TODO Make this dynamic and developer-configurable
 const TEMPORARY_HARDCODED_FIELD_LIST = [
-  getLabelField({saveOnEnter: true})
+  getLabelField({autofocus: true, saveOnEnter: true})
 ];
 
 
