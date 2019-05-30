@@ -1,3 +1,5 @@
+<mat-spinner *ngIf="(_tasks | async) === null"></mat-spinner>
+
 <ng-container *ngIf="(_tasks | async) !== null">
   <cyber-ui-minimal-task-card
     *ngFor="let task of (_tasks | async)"
