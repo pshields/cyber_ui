@@ -1,8 +1,9 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, HostBinding} from '@angular/core';
 
 import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
 import {getLabelField} from '../../../../form/fields/common/label';
 import {FormField} from '../../../../form/form_field';
+import {CyberUiThemeService} from '../../../../theme/service';
 
 
 // TODO Make this dynamic and developer-configurable
@@ -24,6 +25,15 @@ export class CyberUiAddThingWorkflowDefaultDisplayComponent {
   // If saving, the event will contain a reference to the model to save
   saves = new EventEmitter<CyberUiSavableModel>();
   exits = new EventEmitter<void>();
+
+  @HostBinding('style.color') public color: string;
+
+  constructor(themeService: CyberUiThemeService) {
+    // Change the text color based on the current theme
+    themeService.textColor.subscribe(color => {
+      this.color = color;
+    });
+  }
 }
 
 
