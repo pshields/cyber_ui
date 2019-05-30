@@ -21,7 +21,7 @@ export class AddThingWorkflowDemoComponent {
   // TODO Eventually demonstrate swapping this dynamically using a choicefield
   displayComponent = CyberUiFormFieldsComponent;
 
-  @ViewChild(CyberUiAddThingWorkflowComponent) workflowComponent: CyberUiAddThingWorkflowComponent;
+  @ViewChild(CyberUiAddThingWorkflowComponent, {static: true}) workflowComponent: CyberUiAddThingWorkflowComponent;
 
   constructor(
     readonly snackbar: MatSnackBar,

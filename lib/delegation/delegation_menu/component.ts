@@ -13,7 +13,7 @@ import {DelegationMenuState} from './state';
 export class DelegationMenuComponent {
 
   // Reference to the underlying MatMenuTrigger
-  @ViewChild('trigger', {read: MatMenuTrigger}) trigger: MatMenuTrigger;
+  @ViewChild('trigger', {read: MatMenuTrigger, static: true}) trigger: MatMenuTrigger;
 
   // All applicable state is stored in the DelegationMenuState
   state: DelegationMenuState = {

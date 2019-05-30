@@ -15,11 +15,11 @@ import {TaskBodyComponent} from '../../interfaces/task_body_component';
 export class CyberUiMinimalTaskExpansionPanelComponent<TASK_T extends Task> implements DoCheck, OnChanges {
   // A reference to the underlying Material expansion panel
   // This is useful e.g. to be able to open the panel from a parent component
-  @ViewChild(MatExpansionPanel) panel: MatExpansionPanel;
+  @ViewChild(MatExpansionPanel, {static: true}) panel: MatExpansionPanel;
   // A reference to the view container where a custom body component can be rendered
-  @ViewChild('body', {read: ViewContainerRef}) bodyViewContainer: ViewContainerRef;
+  @ViewChild('body', { read: ViewContainerRef, static: true }) bodyViewContainer: ViewContainerRef;
   // A reference to the view container where a custom actions display component can be rendered
-  @ViewChild('actions', {read: ViewContainerRef}) actionsViewContainer: ViewContainerRef;
+  @ViewChild('actions', { read: ViewContainerRef, static: true }) actionsViewContainer: ViewContainerRef;
   // The task to display in the expansion panel
   @Input() task: TASK_T;
   // The current body component (tracked for purposes of change detection)

@@ -16,7 +16,7 @@ export class CyberUiChoiceFieldMenuComponent {
   // A stream of clear events for the containing component to listen to
   @Output() clear: EventEmitter<void> = new EventEmitter();
   // The menu trigger, to be called by the component that creates this component
-  @ViewChild('trigger', {read: MatMenuTrigger}) trigger: MatMenuTrigger;
+  @ViewChild('trigger', {read: MatMenuTrigger, static: true}) trigger: MatMenuTrigger;
 
   choose(option: Option) {
     this.model[this.field.config.propertyName] = option.value;

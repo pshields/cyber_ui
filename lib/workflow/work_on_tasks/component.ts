@@ -34,7 +34,7 @@ export class CyberUiWorkOnTasksWorkflowComponent<
   // A subject containing the latest tasks (to pass to the display component)
   tasks: Subject<TASK_T[]> = new ReplaySubject<TASK_T[]>(1);
 
-  @ViewChild('view', {read: ViewContainerRef}) viewContainer: ViewContainerRef;
+  @ViewChild('view', {read: ViewContainerRef, static: true}) viewContainer: ViewContainerRef;
 
   // The Angular component to use to display the tasks
   @Input() displayComponent: any;

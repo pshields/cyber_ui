@@ -24,7 +24,7 @@ import {DemoSettings, DemoSettingsConfig} from './settings';
 })
 export class AppComponent {
   // A reference to the app sidenav
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
 
   // The mode of the Material Sidenav
   // This is set based on the viewport size

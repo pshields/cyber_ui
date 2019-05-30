@@ -14,9 +14,9 @@ import {TaskBodyComponent} from '../../interfaces/task_body_component';
 })
 export class CyberUiMinimalTaskCardComponent<TASK_T extends Task> {
   // A reference to the view container where a custom body component can be rendered
-  @ViewChild('body', {read: ViewContainerRef}) bodyViewContainer: ViewContainerRef;
+  @ViewChild('body', {read: ViewContainerRef, static: true}) bodyViewContainer: ViewContainerRef;
   // A reference to the view container where a custom actions display component can be rendered
-  @ViewChild('actions', {read: ViewContainerRef}) actionsViewContainer: ViewContainerRef;
+  @ViewChild('actions', {read: ViewContainerRef, static: true}) actionsViewContainer: ViewContainerRef;
   // The task to display
   @Input() task: TASK_T;
   // The current body component (tracked for purposes of change detection)
