@@ -27,7 +27,7 @@
     "firebase": "6.0.4",
     "ngx-markdown": "7.1.5",
     "rxjs": "6.5.2",
-    "zone.js": "0.9.0"
+    "zone.js": "0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.13.8",
