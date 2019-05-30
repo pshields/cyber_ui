@@ -1,16 +1,16 @@
 <mat-nav-list>
   <a mat-list-item routerLink="/">Home</a>
-  <div matSubheader>CAPABILITY AREAS</div>
+  <div matSubheader [style.color]="matListSubheaderColor">CAPABILITY AREAS</div>
   <a *ngFor="let area of CAPABILITY_AREAS" mat-list-item routerLink="/capability-areas/{{area.id}}">{{area.label}}</a>
-  <div matSubheader>GUIDES</div>
+  <div matSubheader [style.color]="matListSubheaderColor">GUIDES</div>
   <a *ngFor="let guide of GUIDES" mat-list-item routerLink="/guides/{{guide.id}}">{{guide.label}}</a>
-  <div matSubheader>INTERFACES</div>
+  <div matSubheader [style.color]="matListSubheaderColor">INTERFACES</div>
   <a *ngFor="let interface of INTERFACES" mat-list-item routerLink="/interfaces/{{interface.id}}">{{interface.label}}</a>
-  <div matSubheader>MISC COMPONENTS</div>
+  <div matSubheader [style.color]="matListSubheaderColor">MISC COMPONENTS</div>
   <a mat-list-item routerLink="/components/form-fields">cyber-ui-form-fields</a>
-  <div matSubheader>TASK DISPLAY COMPONENTS</div>
+  <div matSubheader [style.color]="matListSubheaderColor">TASK DISPLAY COMPONENTS</div>
   <a mat-list-item routerLink="/components/minimal-task-card">cyber-ui-minimal-task-card</a>
-  <div matSubheader>WORKFLOWS</div>
+  <div matSubheader [style.color]="matListSubheaderColor">WORKFLOWS</div>
   <a mat-list-item routerLink="/workflows/add-thing">add-thing</a>
   <a mat-list-item routerLink="/guides/systemization" fragment="workflow">systemize</a>
   <a mat-list-item routerLink="/workflows/work-on-tasks">work-on-tasks</a>

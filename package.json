@@ -27,6 +27,7 @@
     "firebase": "6.0.4",
     "ngx-markdown": "8.0.1",
     "rxjs": "6.5.2",
+    "tinycolor2": "^1.4.1",
     "zone.js": "0.9.1"
   },
   "devDependencies": {
@@ -54,7 +55,7 @@
     "tslint": "5.16.0",
     "typescript": "3.4.5"
   },
-   "resolutions": {
-     "caniuse-lite": "1.0.30000971"
+  "resolutions": {
+    "caniuse-lite": "1.0.30000971"
   }
 }
