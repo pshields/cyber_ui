@@ -5565,7 +5565,7 @@ ng-packagr@5.1.0:
     terser "^3.16.1"
     update-notifier "^2.3.0"
 
-ngx-markdown@^8.0.1:
+ngx-markdown@8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-8.0.1.tgz#71c97eeaa913ac4f0bdbdad5f8bd8b6ceaf831ca"
   integrity sha512-PtV2o/77GTGhRv5m8GcgIP8nXjNQqBaAn9GTxsr1zveV9r8IpFRdHgHEDx4ijCOhxxu5+LONsCXbLV1dOS8/Pw==

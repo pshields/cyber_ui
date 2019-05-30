@@ -25,7 +25,7 @@
     "@angular/router": "7.2.13",
     "core-js": "2.6.5",
     "firebase": "6.0.4",
-    "ngx-markdown": "^8.0.1",
+    "ngx-markdown": "8.0.1",
     "rxjs": "6.5.2",
     "zone.js": "0.9.1"
   },
