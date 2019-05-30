@@ -5565,10 +5565,10 @@ ng-packagr@5.1.0:
     terser "^3.16.1"
     update-notifier "^2.3.0"
 
-ngx-markdown@7.1.5:
-  version "7.1.5"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-7.1.5.tgz#27fe3b88e3e3494c0ad778123b959c189e76452f"
-  integrity sha512-boL1eQkdHHwVQuLsRF4eaIxuBx2PoJidO/YStLU2a0u6Q7VCjaZI09oSPgsAmsDjJ/Hu7ZWGPv475H7BGJ8iCw==
+ngx-markdown@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-8.0.1.tgz#71c97eeaa913ac4f0bdbdad5f8bd8b6ceaf831ca"
+  integrity sha512-PtV2o/77GTGhRv5m8GcgIP8nXjNQqBaAn9GTxsr1zveV9r8IpFRdHgHEDx4ijCOhxxu5+LONsCXbLV1dOS8/Pw==
   dependencies:
     "@types/marked" "^0.6.0"
     marked "^0.6.0"
