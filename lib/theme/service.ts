@@ -2,9 +2,14 @@ import {Injectable, Renderer2} from '@angular/core';
 
 import {ReplaySubject} from 'rxjs';
 
-import * as tinycolor from 'tinycolor2';
+import * as tinycolor_ from 'tinycolor2';
 
 import {CyberUiSettingsService} from '../settings/service/service';
+
+
+// Avoid "Cannot call a namespace ('tinycolor')" compilation error
+// see e.g. https://github.com/jvandemo/generator-angular2-library/issues/221
+const tinycolor = tinycolor_;
 
 
 @Injectable({providedIn: 'root'})
