@@ -31,7 +31,7 @@ export class AddThingWorkflowDemoComponent {
   ngAfterViewInit() {
     this.workflowService.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
       if (e.model) {
-        this.snackbar.open('add-thing-workflow saved model: ' + JSON.stringify(e.model), undefined, snackbarConfig);
+        this.snackbar.open('add-thing-workflow saved model: ' + JSON.stringify(e.model.toJson()), undefined, snackbarConfig);
         console.info('add-thing-workflow saved model', e.model);
       } else {
         this.snackbar.open('add-thing-workflow exited without saving', undefined, snackbarConfig);

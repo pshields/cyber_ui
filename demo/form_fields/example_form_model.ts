@@ -7,6 +7,8 @@ import {FormFieldElement} from 'lib/public_api';
 import {TextField} from 'lib/public_api';
 import {ValueInNumericRangeField} from 'lib/public_api';
 
+import {FakeModel} from 'lib/backends/fake/model';
+
 
 export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS = [
   new TextField({
@@ -67,11 +69,14 @@ new FieldListListField({
 }));
 
 
-export class DemoAppExampleFormModel {
+export class DemoAppExampleFormModel extends FakeModel {
   static readonly fields = DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS;
 
   // Properties' initial values
   // Note that most fields do not need to be initialized - doing so is optional
-  tags = ['tag 1', 'tag 2'];
-  slideToggleExample = true;
+  constructor() {
+    super();
+    this.data['tags'] =  ['tag 1', 'tag 2'];
+    this.data['slideToggleExample'] = true;
+  }
 }

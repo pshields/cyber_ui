@@ -37,6 +37,14 @@ export class CyberUiFirestoreBackedModel {
     // TODO Implement using EditDialogService
   }
 
+  getProperty(propertyName: string) {
+    return this.data[propertyName];
+  }
+
+  setProperty(propertyName: string, value: {}) {
+    this.data[propertyName] = value;
+  }
+
   // Save this model to the backend
   save(options: CyberUiFirestoreBackedModelSaveOptions = {}): Promise<void> {
     return this.firestoreBackedModelService.saveModel(this, options);
@@ -45,6 +53,11 @@ export class CyberUiFirestoreBackedModel {
   // Deletes the model from the backend, pending a confirmation from the user
   delete(options: CyberUiFirestoreBackedModelDeleteOptions): Promise<void> {
     return this.firestoreBackedModelService.deleteModel(this, options);
+  }
+
+  // TODO Address security implications of this; maybe make a copy?
+  toJson() {
+    return this.data;
   }
 
 }

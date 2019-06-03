@@ -1,9 +1,12 @@
 import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewContainerRef} from '@angular/core';
 
+import {first} from 'rxjs/operators';
+
+import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
+
 import {FormField} from '../form_field';
 import {ChoiceField} from '../fields/choice';
 import {CyberUiChoiceFieldMenuComponent} from '../menus/choice_field/component';
-import {first} from 'rxjs/operators';
 
 
 // Trailing icon names to re-use
@@ -22,7 +25,7 @@ export class CyberUiFilterChipsComponent {
   // The filters to show
   @Input() filters: FormField[];
   // The settings object to manipulate
-  @Input() settings: {};
+  @Input() settings: CyberUiInteractiveModel;
 
   constructor(readonly componentFactoryResolver: ComponentFactoryResolver) {}
 

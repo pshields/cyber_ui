@@ -12,7 +12,7 @@
         *ngFor="let option of field.config.options"
         (click)="choose(option)">
       <mat-radio-button
-        [checked]="model[field.config.propertyName] === option.value"
+        [checked]="field.getModelProperty(model, field.config.propertyName) === option.value"
       >{{option.label}}</mat-radio-button>
     </div>
   </ng-template>

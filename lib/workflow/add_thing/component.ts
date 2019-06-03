@@ -41,7 +41,7 @@ export class CyberUiAddThingWorkflowComponent {
   handleSave(model: CyberUiSavableModel) {
     model.save().then(
       () => this.service.exitWorkflow({model: model}),
-      error => console.log(error)
+      error => console.error(error)
     );
   }
 
