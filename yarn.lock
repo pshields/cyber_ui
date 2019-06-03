@@ -1021,10 +1021,10 @@ anymatch@^3.0.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-app-root-path@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.1.0.tgz#98bf6599327ecea199309866e8140368fd2e646a"
-  integrity sha1-mL9lmTJ+zqGZMJhm6BQDaP0uZGo=
+app-root-path@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.2.1.tgz#d0df4a682ee408273583d43f6f79e9892624bc9a"
+  integrity sha512-91IFKeKk7FjfmezPKkwtaRvSpnUc4gDwPAjA1YZ9Gn0q0PPeW+vbeUsZuyDwjI7+QTHhcLen2v25fi/AmhvbJA==
 
 append-transform@^0.4.0:
   version "0.4.0"
@@ -2137,12 +2137,12 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codelyzer@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.0.0.tgz#e4032efb23a7c5d4bcfe7321fc1789490c679837"
-  integrity sha512-Bif70XYt8NFf/Q9GPTxmC86OsBRfQZq1dBjdruJ5kZhJ8/jKhJL6MvCLKnYtSOG6Rhiv/44DU0cHk6GYthjy8Q==
+codelyzer@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.1.0.tgz#a0eb89497622679ea4c53b6974aa45598f06a4b5"
+  integrity sha512-QiyY2/oDQnYx4mAVEDqr+z9MwrOto18tQFjExiuRChXCy0yvngS5fQpWIxvAGpbOmZFiR1PRTRLbEI71u10maA==
   dependencies:
-    app-root-path "^2.1.0"
+    app-root-path "^2.2.1"
     aria-query "^3.0.0"
     axobject-query "^2.0.2"
     css-selector-tokenizer "^0.7.1"
