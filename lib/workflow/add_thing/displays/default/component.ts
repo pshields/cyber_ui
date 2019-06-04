@@ -26,12 +26,18 @@ export class CyberUiAddThingWorkflowDefaultDisplayComponent {
   saves = new EventEmitter<CyberUiSavableModel>();
   exits = new EventEmitter<void>();
 
+  // Regular text color
   @HostBinding('style.color') public color: string;
+  // Prominent text color (used for heading)
+  public prominentTextColor: string;
 
   constructor(themeService: CyberUiThemeService) {
     // Change the text color based on the current theme
     themeService.textColor.subscribe(color => {
       this.color = color;
+    });
+    themeService.prominentTextColor.subscribe(color => {
+      this.prominentTextColor = color;
     });
   }
 }
