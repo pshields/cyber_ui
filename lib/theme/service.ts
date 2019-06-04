@@ -23,8 +23,14 @@ export class CyberUiThemeService {
   public appBackground: string;
   // The current text color to use for subheaders in Material lists
   readonly matListSubheaderColor = new ReplaySubject<string>(1);
-  // The current text color to use in typical text on the page
+  // The current text color to use in typical body text on the page
+  // As currently implemented, opacity is diminished to reduce contrast
+  // In situations where a solid, prominent foreground text color is desired,
+  // use prominentTextColor instead
   readonly textColor = new ReplaySubject<string>(1);
+  // A more prominent foreground text color appropriate given the current background
+  // The current implementation preserves full opacity
+  readonly prominentTextColor = new ReplaySubject<string>(1);
 
   constructor(
       readonly settingsService: CyberUiSettingsService,
@@ -47,6 +53,7 @@ export class CyberUiThemeService {
     this.appBackground = this.getAppBackground(settings);
     this.matListSubheaderColor.next(this.getMatListSubheaderColor(settings));
     this.textColor.next(this.getTextColor(settings));
+    this.prominentTextColor.next(this.getProminentTextColor(settings));
   }
 
   getMatListSubheaderColor(settings) {
@@ -57,6 +64,17 @@ export class CyberUiThemeService {
       return 'rgba(255, 255, 255, 0.54)';
     } else {
       return 'rgba(0, 0, 0, 0.54)';
+    }
+  }
+
+  getProminentTextColor(settings) {
+    // TODO There's some more work to do here, but as a starting point:
+    // if the background color is dark, use white; if it's bright, use black.
+    const color = tinycolor(this.getAppBackground(settings));
+    if (color.getBrightness() < 127) {
+      return 'white';
+    } else {
+      return 'black';
     }
   }
 
