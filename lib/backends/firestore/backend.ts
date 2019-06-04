@@ -4,6 +4,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 
 import {CyberUiFirestoreBackedModel} from './model';
 import {CyberUiFirestoreBackedModelSaveOptions, CyberUiFirestoreBackedModelDeleteOptions} from './options';
+import {CyberUiFirestorePathService} from './path_service';
 
 
 // A reference implementation for persisting data in Firestore
@@ -12,6 +13,7 @@ export class CyberUiFirestoreBackend {
 
   constructor(
     readonly firestore: AngularFirestore,
+    readonly firestorePathService: CyberUiFirestorePathService,
   ) {}
 
   // Deletes the Firestore document corresponding to this model
@@ -22,11 +24,12 @@ export class CyberUiFirestoreBackend {
     model: CyberUiFirestoreBackedModel,
     options: CyberUiFirestoreBackedModelDeleteOptions = {},
   ): Promise<void> {
-    // Refuse to delete a model missing a collection or document ID
-    if (!model.collectionId || !model.id) {
-      return Promise.reject('Backend refuses to delete a model that is missing a collection or a document ID');
+    const path = this.firestorePathService.calculatePath(model);
+    // Refuse to delete a model whose path cannot be determined
+    if (!path) {
+      return Promise.reject('Backend refuses to delete a model whose path cannot be determined');
     }
-    const doc = this.firestore.doc(`${model.collectionId}/${model.id}`);
+    const doc = this.firestore.doc(path);
     return doc.delete();
   }
 
@@ -35,17 +38,16 @@ export class CyberUiFirestoreBackend {
     model: CyberUiFirestoreBackedModel,
     options: CyberUiFirestoreBackedModelSaveOptions = {},
   ): Promise<void> {
-    // Determine the collection in which to save the model
-    const collectionId = options.collectionId || model.collectionId;
-    // Refuse to save if the collection in which to save the model has not been specified
-    if (!collectionId) {
-      return Promise.reject('The collection in which to save this model must be specified before it can be saved');
-    }
     // Assign the model a document id if it doesn't already have one
     model.data.id = model.data.id || this.firestore.createId();
+    // Calculate the path at which to save the document
+    const path = this.firestorePathService.calculatePath(model, options);
+    // Refuse to save if the path could not be determined
+    if (!path) {
+      return Promise.reject('Failed to calculate path for document');
+    }
     // Get a reference to the Firestore document
-    const doc = this.firestore.doc(`${collectionId}/${model.data.id}`);
+    const doc = this.firestore.doc(path);
     return doc.set(model.data);
   }
-
 }
