@@ -1,6 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-import {CyberUiSavableModel} from './model';
+import {CyberUiSavableModel} from './savable_model';
 
 
 export const CYBER_UI_MODEL_SERVICE = new InjectionToken('CyberUiModelService');

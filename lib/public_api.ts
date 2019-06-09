@@ -12,7 +12,7 @@ export {CyberUiFirestoreBackendModule} from './backends/firestore/module';
 
 export {CyberUiFakeBackendModule} from './backends/fake/module';
 
-export {CyberUiSavableModel} from './backends/interfaces/model';
+export {CyberUiSavableModel} from './backends/interfaces/savable_model';
 export {CYBER_UI_MODEL_SERVICE} from './backends/interfaces/model_service';
 
 // ==========

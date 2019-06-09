@@ -1,6 +1,6 @@
 import {Component, EventEmitter, HostBinding} from '@angular/core';
 
-import {CyberUiSavableModel} from '../../../../backends/interfaces/model';
+import {CyberUiSavableModel} from '../../../../backends/interfaces/savable_model';
 import {getLabelField} from '../../../../form/fields/common/label';
 import {FormField} from '../../../../form/form_field';
 import {CyberUiThemeService} from '../../../../theme/service';

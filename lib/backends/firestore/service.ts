@@ -48,6 +48,13 @@ export class CyberUiFirestoreBackedModelService implements CyberUiModelService {
         return Promise.reject('Model refuses to be saved when it is empty');
       }
     }
+    // Set the 'added' date on the model, unless options specify otherwise or the property is already set
+    // TODO Add tests for this functionality
+    if (options.setAddedIfUndefined === undefined || options.setAddedIfUndefined === true) {
+      if (model.data.added === undefined) {
+        model.data.added = Date.now();
+      }
+    }
     return this.backend.saveModel(model, options);
   }
 

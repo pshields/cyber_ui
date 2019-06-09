@@ -1,4 +1,4 @@
-import {CyberUiSavableModel} from '../../backends/interfaces/model';
+import {CyberUiSavableModel} from '../../backends/interfaces/savable_model';
 
 
 export interface CyberUiAddThingWorkflowExitEvent {

@@ -1,4 +1,7 @@
-export interface CyberUiFirestoreBackedModelSaveOptions {
+import {CyberUiSavableModelSaveOptions} from '../interfaces/savable_model';
+
+
+export interface CyberUiFirestoreBackedModelSaveOptions extends CyberUiSavableModelSaveOptions {
   // Whether to allow an empty data object to be saved in the backend (default: false)
   allowEmptySave?: boolean;
   // The collection to save this model in

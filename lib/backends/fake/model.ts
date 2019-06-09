@@ -1,4 +1,4 @@
-import {CyberUiSavableModel} from '../interfaces/model';
+import {CyberUiSavableModel} from '../interfaces/savable_model';
 
 
 // A non-persistent fake model to use in tests and demos

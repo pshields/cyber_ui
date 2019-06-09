@@ -1,6 +1,6 @@
 import {Component, ComponentRef, ComponentFactoryResolver, Inject, Type, ViewContainerRef} from '@angular/core';
 
-import {CyberUiSavableModel} from '../../backends/interfaces/model';
+import {CyberUiSavableModel} from '../../backends/interfaces/savable_model';
 import {CYBER_UI_MODEL_SERVICE, CyberUiModelService} from '../../backends/interfaces/model_service';
 
 import {CyberUiAddThingWorkflowDisplayComponent} from './displays/default/component';
