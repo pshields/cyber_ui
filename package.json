@@ -25,7 +25,7 @@
     "@angular/router": "8.0.0",
     "core-js": "2.6.9",
     "firebase": "6.0.4",
-    "ngx-markdown": "8.0.1",
+    "ngx-markdown": "8.0.2",
     "rxjs": "6.5.2",
     "tinycolor2": "1.4.1",
     "zone.js": "0.9.1"
