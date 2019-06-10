@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 
 import {FormField} from '../form_field';
 import {FormFieldElement} from '../form_field_element.enum';

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatSnackBarModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {CyberUiMinimalTaskCardModule} from 'lib/task/displays/minimal_card/module';
 

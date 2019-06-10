@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {CyberUiFormFieldsComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowService} from 'lib/public_api';

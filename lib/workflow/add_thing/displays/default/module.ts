@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
 
 import {CyberUiFormFieldsModule} from '../../../../form/form_fields/module';
 

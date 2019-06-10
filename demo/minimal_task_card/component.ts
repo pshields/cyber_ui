@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
 import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';

@@ -1,5 +1,5 @@
 import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef, OnChanges, SimpleChanges, DoCheck} from '@angular/core';
-import {MatExpansionPanel} from '@angular/material';
+import {MatExpansionPanel} from '@angular/material/expansion';
 
 import {Task} from '../../interfaces/task';
 import {TaskBodyComponent} from '../../interfaces/task_body_component';

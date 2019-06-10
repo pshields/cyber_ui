@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatButtonModule} from '@angular/material';
-import {MatIconModule} from '@angular/material';
-import {MatMenuModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {CyberUiActionContextModule} from '../../action_context/module';
 

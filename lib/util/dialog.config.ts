@@ -2,7 +2,7 @@
 // Cyber UI provides an opinionated version of the defaults in this module
 // For example, Angular Material dialogs are fairly narrow by default
 // CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG configures a larger default size
-import {MatDialogConfig} from '@angular/material';
+import {MatDialogConfig} from '@angular/material/dialog';
 
 
 // Start with an instance of MatDialogConfig in order to inherit the Material defaults

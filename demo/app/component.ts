@@ -2,8 +2,8 @@ import {Component, Inject, ViewChild, Renderer2} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {Router, NavigationEnd} from '@angular/router';
 
-import {MatSidenav} from '@angular/material';
-import {MatSnackBar} from '@angular/material';
+import {MatSidenav} from '@angular/material/sidenav';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 

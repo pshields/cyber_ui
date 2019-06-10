@@ -1,7 +1,9 @@
 import {NgModel} from '@angular/forms';
 import {async, fakeAsync, tick} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {MatSlideToggle, MatCheckbox} from '@angular/material';
+
+import {MatCheckbox} from '@angular/material/checkbox';
+import {MatSlideToggle} from '@angular/material/slide-toggle';
 
 import {BooleanField} from '../../fields/boolean';
 import {FormFieldOptions} from '../../form_field_config';

@@ -1,6 +1,6 @@
 // Data for the demo
 import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {Task} from 'lib/task/interfaces/task';
 import {TaskSuggestion} from 'lib/task/interfaces/task_suggestion';

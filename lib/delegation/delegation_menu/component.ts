@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 
-import {MatMenuTrigger} from '@angular/material';
+import {MatMenuTrigger} from '@angular/material/menu';
 
 import {DelegationMenuService} from './service';
 import {DelegationMenuState} from './state';

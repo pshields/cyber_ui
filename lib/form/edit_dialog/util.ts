@@ -1,5 +1,5 @@
 import {CyberUiActionContext} from '../../task/interfaces/action_context';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 // This needs to be defined here rather than on EditDialogService in order to avoid 

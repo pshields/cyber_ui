@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 
 import {CyberUiSnoozeReasonCollectionDialogComponent} from './component';
 import {CYBER_UI_SNOOZE_REASON_ONTOLOGY} from './snooze_reason_ontology';

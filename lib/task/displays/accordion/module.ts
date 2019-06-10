@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatExpansionModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import {CyberUiMinimalTaskExpansionPanelModule} from '../minimal_expansion_panel/module';
 

@@ -1,6 +1,6 @@
 import {ComponentFactoryResolver, Directive, Optional, ViewContainerRef} from '@angular/core';
 
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 
 import {CyberUiActionContext} from '../interfaces/action_context';
 

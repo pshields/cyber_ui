@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatMenuModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {DelegationMenuComponent} from './component';
 import {DelegationMenuService} from './service';

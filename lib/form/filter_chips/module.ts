@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatChipsModule, MatIconModule} from '@angular/material';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 
 import {CyberUiChoiceFieldMenuModule} from '../menus/choice_field/module';
 

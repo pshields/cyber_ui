@@ -1,6 +1,6 @@
 import {ComponentFactoryResolver, ViewContainerRef} from '@angular/core';
 
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 
 
 // A context object with properties potentially useful for action handlers
