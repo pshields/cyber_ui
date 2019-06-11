@@ -1,0 +1,9 @@
+// Apply some vertical margin between cards
+cyber-ui-minimal-task-card:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+// Show the spinner in a slightly more vertically centered fashion
+:host mat-spinner {
+  margin-top: 64px;
+}

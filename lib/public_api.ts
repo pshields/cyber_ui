@@ -103,6 +103,10 @@ export {CyberUiTaskAccordionComponent} from './task/displays/accordion/component
 export {CyberUiTaskAccordionModule} from './task/displays/accordion/module';
 export {CyberUiMinimalTaskCardComponent} from './task/displays/minimal_card/component';
 export {CyberUiMinimalTaskCardModule} from './task/displays/minimal_card/module';
+export {CyberUiMinimalTaskComponent} from './task/displays/minimal/component';
+export {CyberUiMinimalTaskModule} from './task/displays/minimal/module';
+export {CyberUiMinimalTaskListComponent} from './task/displays/minimal_list/component';
+export {CyberUiMinimalTaskListModule} from './task/displays/minimal_list/module';
 
 // Task actions panel
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';

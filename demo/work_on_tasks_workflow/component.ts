@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 
 import {CyberUiMinimalTaskCardListComponent} from 'lib/public_api';
+import {CyberUiMinimalTaskListComponent} from 'lib/public_api';
 import {CyberUiTaskAccordionComponent} from 'lib/public_api';
 import {CyberUiActionsPanelComponent} from 'lib/public_api';
 import {ChoiceField, Option} from 'lib/public_api';
@@ -37,6 +38,7 @@ export class WorkOnTasksWorkflowDemoComponent {
       options: [
         new Option('Accordion', CyberUiTaskAccordionComponent),
         new Option('Card list', CyberUiMinimalTaskCardListComponent),
+        new Option('List', CyberUiMinimalTaskListComponent)
       ] as Option<any>[],
     }),
     new ChoiceField({
