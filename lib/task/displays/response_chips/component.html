@@ -1,0 +1,9 @@
+<mat-chip-list *ngIf="actions !== undefined && actions.length > 0">
+  <mat-chip
+    mat-button
+    cyberUiActionContext
+    #actionContext="cyberUiActionContext"
+    *ngFor="let action of actions"
+    (click)="action.handler(actionContext.getContext())"
+    >{{action.label}}</mat-chip>
+</mat-chip-list>

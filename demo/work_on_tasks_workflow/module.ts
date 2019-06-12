@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {CyberUiFormFieldsModule} from 'lib/public_api';
+import {CyberUiResponseChipsModule} from 'lib/public_api';
 import {CyberUiTaskAccordionModule} from 'lib/public_api';
 import {CyberUiMinimalTaskCardListModule} from 'lib/public_api';
 import {CyberUiMinimalTaskListModule} from 'lib/public_api';
@@ -19,6 +20,7 @@ import {WorkOnTasksWorkflowDemoComponent} from './component';
     CyberUiMinimalTaskCardListModule,
     CyberUiMinimalTaskListModule,
     CyberUiActionsPanelModule,
+    CyberUiResponseChipsModule,
     CyberUiWorkOnTasksWorkflowModule,
   ],
   declarations: [

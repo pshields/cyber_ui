@@ -4,6 +4,7 @@ import {CyberUiMinimalTaskCardListComponent} from 'lib/public_api';
 import {CyberUiMinimalTaskListComponent} from 'lib/public_api';
 import {CyberUiTaskAccordionComponent} from 'lib/public_api';
 import {CyberUiActionsPanelComponent} from 'lib/public_api';
+import {CyberUiResponseChipsComponent} from 'lib/public_api';
 import {ChoiceField, Option} from 'lib/public_api';
 import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 
@@ -19,10 +20,9 @@ export class WorkOnTasksWorkflowDemoComponent {
   self = this;  // allow for referencing the host class from the template
 
   // The display component to use to display tasks
-  // TODO Eventually demonstrate swapping this dynamically using a choicefield
-  displayComponent = CyberUiMinimalTaskCardListComponent;
+  displayComponent = CyberUiMinimalTaskListComponent;
   // The display component to use to display task actions
-  actionsDisplayComponent = CyberUiActionsPanelComponent;
+  actionsDisplayComponent = CyberUiResponseChipsComponent;
 
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE) readonly taskSuggestionService: DemoTaskSuggestionService
@@ -46,7 +46,8 @@ export class WorkOnTasksWorkflowDemoComponent {
       propertyName: 'actionsDisplayComponent',
       options: [
         new Option('Default', '' as any),
-        new Option('CyberUiTaskActionPanel', CyberUiActionsPanelComponent)
+        new Option('CyberUiTaskActionPanel', CyberUiActionsPanelComponent),
+        new Option('CyberUiResponseChips', CyberUiResponseChipsComponent),
       ]
     })
   ];

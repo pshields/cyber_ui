@@ -112,6 +112,10 @@ export {CyberUiMinimalTaskListModule} from './task/displays/minimal_list/module'
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';
 export {CyberUiActionsPanelModule} from './task/displays/action_panel/module';
 
+// Response chips
+export {CyberUiResponseChipsComponent} from './task/displays/response_chips/component';
+export {CyberUiResponseChipsModule} from './task/displays/response_chips/module';
+
 // ===========
 // PROBABILITY
 // ===========
