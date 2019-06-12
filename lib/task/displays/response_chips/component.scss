@@ -2,3 +2,9 @@
   background: none;
   border: 1px solid #e0e0e0;
 }
+
+// When shown in a cyber-ui-minimal-task-card, use appropriate padding
+:host-context(cyber-ui-minimal-task-card) mat-chip-list {
+  display: block;
+  padding: 16px;
+}
