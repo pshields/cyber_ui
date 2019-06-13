@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 
 import {MarkdownModule} from 'ngx-markdown';
 
@@ -101,6 +102,8 @@ export const routes: Routes = [
     {provide: WORKFLOW_SETTINGS_SERVICE, useClass: DemoWorkflowSettingsService},
     // Customize MatDialogModule options by settings some application-wide defaults
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG},
+    // Provide a reasonable default duration for snack bar messages
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}},
   ],
   bootstrap: [AppComponent]
 })
