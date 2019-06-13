@@ -5,5 +5,12 @@
     #actionContext="cyberUiActionContext"
     *ngFor="let action of actions"
     (click)="action.handler(actionContext.getContext())"
-    >{{action.label}}</mat-chip>
+    >
+      <mat-icon
+        *ngFor="let iconName of action.iconNames"
+        [style.color]="action.color"
+        >{{iconName}}</mat-icon>
+      <ng-container *ngIf="action.iconNames">&nbsp;</ng-container>
+      {{action.label}}
+  </mat-chip>
 </mat-chip-list>
