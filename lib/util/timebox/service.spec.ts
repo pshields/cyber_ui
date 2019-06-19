@@ -1,5 +1,5 @@
-import {ActiveTimeboxesSnapshot} from './defs/active_time_boxes_snapshot';
-import {StartTimeboxResponse} from './defs/start_time_box_response';
+import {ActiveTimeboxesSnapshot} from './defs/active_timeboxes_snapshot';
+import {StartTimeboxResponse} from './defs/start_timebox_response';
 
 import {CyberUiTimeboxService} from './service';
 

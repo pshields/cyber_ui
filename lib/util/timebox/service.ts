@@ -3,15 +3,15 @@ import {Injectable} from '@angular/core';
 import {ReplaySubject, Observable, timer} from 'rxjs';
 import {map, take} from 'rxjs/operators';
 
-import {ActiveTimeboxesSnapshot} from './defs/active_time_boxes_snapshot';
-import {CancelTimeboxOptions} from './defs/cancel_time_box_options';
-import {CancelTimeboxResponse} from './defs/cancel_time_box_response';
-import {GetCountDownOptions} from './defs/get_count_down_options';
-import {StartTimeboxOptions} from './defs/start_time_box_options';
-import {StartTimeboxResponse} from './defs/start_time_box_response';
-import {Timebox} from './defs/time_box';
+import {ActiveTimeboxesSnapshot} from './defs/active_timeboxes_snapshot';
+import {CancelTimeboxOptions} from './defs/cancel_timebox_options';
+import {CancelTimeboxResponse} from './defs/cancel_timebox_response';
+import {GetCountdownOptions} from './defs/get_countdown_options';
+import {StartTimeboxOptions} from './defs/start_timebox_options';
+import {StartTimeboxResponse} from './defs/start_timebox_response';
+import {Timebox} from './defs/timebox';
 import {TimeboxEvent} from './defs/event';
-import {TimeboxId} from './defs/time_box_id';
+import {TimeboxId} from './defs/timebox_id';
 
 
 // A service for tracking timeboxes
@@ -71,7 +71,7 @@ export class CyberUiTimeboxService {
 
   // Returns an observable counting down to 0 at the desired level of granularity
   // The observed quantity will be a duration in milliseconds
-  getCountDown(options: GetCountDownOptions): Observable<number> {
+  getCountdown(options: GetCountdownOptions): Observable<number> {
     // Get the time box with the given id
     const timebox = this.getTimeboxById(options.timeboxId);
     // Initialize time remaining

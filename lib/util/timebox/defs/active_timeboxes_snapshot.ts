@@ -1,4 +1,4 @@
-import {Timebox} from './time_box';
+import {Timebox} from './timebox';
 
 
 export interface ActiveTimeboxesSnapshot {

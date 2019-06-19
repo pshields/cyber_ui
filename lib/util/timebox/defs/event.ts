@@ -1,4 +1,4 @@
-import {TimeboxId} from './time_box_id';
+import {TimeboxId} from './timebox_id';
 
 
 export interface TimeboxEvent {
