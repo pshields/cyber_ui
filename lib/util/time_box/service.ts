@@ -3,15 +3,15 @@ import {Injectable} from '@angular/core';
 import {ReplaySubject, Observable, timer} from 'rxjs';
 import {map, take} from 'rxjs/operators';
 
-import {ActiveTimeBoxesSnapshot} from './defs/active_time_boxes_snapshot';
-import {CancelTimeBoxOptions} from './defs/cancel_time_box_options';
-import {CancelTimeBoxResponse} from './defs/cancel_time_box_response';
+import {ActiveTimeboxesSnapshot} from './defs/active_time_boxes_snapshot';
+import {CancelTimeboxOptions} from './defs/cancel_time_box_options';
+import {CancelTimeboxResponse} from './defs/cancel_time_box_response';
 import {GetCountDownOptions} from './defs/get_count_down_options';
-import {StartTimeBoxOptions} from './defs/start_time_box_options';
-import {StartTimeBoxResponse} from './defs/start_time_box_response';
-import {TimeBox} from './defs/time_box';
-import {TimeBoxEvent} from './defs/event';
-import {TimeBoxId} from './defs/time_box_id';
+import {StartTimeboxOptions} from './defs/start_time_box_options';
+import {StartTimeboxResponse} from './defs/start_time_box_response';
+import {Timebox} from './defs/time_box';
+import {TimeboxEvent} from './defs/event';
+import {TimeboxId} from './defs/time_box_id';
 
 
 // A service for tracking timeboxes
@@ -19,39 +19,39 @@ import {TimeBoxId} from './defs/time_box_id';
 @Injectable({
   providedIn: 'root',
 })
-export class CyberUiTimeBoxService {
+export class CyberUiTimeboxService {
 
   // Counter used to generate time box ids
   private idCounter = 0;
 
   // The currently active time boxes
-  private readonly boxes: TimeBox[] = [];
+  private readonly boxes: Timebox[] = [];
 
   // Time box event stream. Used internally for recordkeeping.
-  private stream = new ReplaySubject<TimeBoxEvent>(1);
+  private stream = new ReplaySubject<TimeboxEvent>(1);
 
-  private activeTimeBoxes = new ReplaySubject<ActiveTimeBoxesSnapshot>(1);
+  private activeTimeboxes = new ReplaySubject<ActiveTimeboxesSnapshot>(1);
 
-  private getNewTimeboxId(): TimeBoxId {
+  private getNewTimeboxId(): TimeboxId {
     // Increment the counter so that next time, it will return a different id
     return this.idCounter++;
   }
 
-  private getTimeBoxById(id: TimeBoxId): TimeBox {
-    return this.boxes.find(timeBox => timeBox.id === id);
+  private getTimeboxById(id: TimeboxId): Timebox {
+    return this.boxes.find(timebox => timebox.id === id);
   }
 
-  private addTimeBox(timeBox: TimeBox) {
-    this.boxes.push(timeBox);
+  private addTimebox(timebox: Timebox) {
+    this.boxes.push(timebox);
   }
 
   // Handle time box completion (called when the time box duration has elapsed)
-  private onTimeBoxComplete(timeBox: TimeBox) {
+  private onTimeboxComplete(timebox: Timebox) {
     // Remove this time box from the boxes list
-    this.boxes.splice(this.boxes.indexOf(timeBox));
+    this.boxes.splice(this.boxes.indexOf(timebox));
     // Emit an end event to the stream
     this.stream.next({
-      timeBoxId: timeBox.id,
+      timeboxId: timebox.id,
       type: 'end',
     });
   }
@@ -59,21 +59,21 @@ export class CyberUiTimeBoxService {
   constructor() {
     // Hook into the event stream to power the active time boxes replay subject
     this.stream.subscribe(event => {
-      this.activeTimeBoxes.next({boxes: this.boxes});
+      this.activeTimeboxes.next({boxes: this.boxes});
     });
   }
 
   // Returns the current active time boxes, as an observable that will change over time
   // as the active time boxes change
-  getActiveTimeBoxes(): Observable<ActiveTimeBoxesSnapshot> {
-    return this.activeTimeBoxes;
+  getActiveTimeboxes(): Observable<ActiveTimeboxesSnapshot> {
+    return this.activeTimeboxes;
   }
 
   // Returns an observable counting down to 0 at the desired level of granularity
   // The observed quantity will be a duration in milliseconds
   getCountDown(options: GetCountDownOptions): Observable<number> {
     // Get the time box with the given id
-    const timebox = this.getTimeBoxById(options.timeBoxId);
+    const timebox = this.getTimeboxById(options.timeboxId);
     // Initialize time remaining
     const timeRemaining = timebox.end - Date.now();
     // Determine the period to use
@@ -88,28 +88,28 @@ export class CyberUiTimeBoxService {
       .pipe(take(numUpdates));
   }
 
-  startTimeBox(options: StartTimeBoxOptions): StartTimeBoxResponse {
+  startTimebox(options: StartTimeboxOptions): StartTimeboxResponse {
     const start = Date.now();
-    const timeBox: TimeBox = {
+    const timebox: Timebox = {
       id: this.getNewTimeboxId(),
       start: start,
       end: start + options.duration
     };
-    timeBox.timeoutId = window.setTimeout(() => this.onTimeBoxComplete(timeBox), options.duration);
+    timebox.timeoutId = window.setTimeout(() => this.onTimeboxComplete(timebox), options.duration);
     // Add this time box to the internal list of active time boxes
-    this.addTimeBox(timeBox);
+    this.addTimebox(timebox);
     // Emit a time box start event to the stream
     this.stream.next({
-      timeBoxId: timeBox.id,
+      timeboxId: timebox.id,
       type: 'start',
     });
     return {
-      timeBoxId: timeBox.id,
+      timeboxId: timebox.id,
     };
   }
 
-  cancelTimeBox(options: CancelTimeBoxOptions): CancelTimeBoxResponse {
-    const timebox = this.getTimeBoxById(options.id);
+  cancelTimebox(options: CancelTimeboxOptions): CancelTimeboxResponse {
+    const timebox = this.getTimeboxById(options.id);
     if (!timebox) {
       return {
         error: `Could not find time box with given id: ${options.id}`
@@ -122,7 +122,7 @@ export class CyberUiTimeBoxService {
       // Emit a cancel event to the stream
       this.stream.next({
         type: 'cancel',
-        timeBoxId: timebox.id
+        timeboxId: timebox.id
       });
       return {};
     }

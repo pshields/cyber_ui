@@ -1,36 +1,36 @@
-import {ActiveTimeBoxesSnapshot} from './defs/active_time_boxes_snapshot';
-import {StartTimeBoxResponse} from './defs/start_time_box_response';
+import {ActiveTimeboxesSnapshot} from './defs/active_time_boxes_snapshot';
+import {StartTimeboxResponse} from './defs/start_time_box_response';
 
-import {CyberUiTimeBoxService} from './service';
+import {CyberUiTimeboxService} from './service';
 
 
-describe('CyberUiTimeBoxService', () => {
-  let service: CyberUiTimeBoxService;
+describe('CyberUiTimeboxService', () => {
+  let service: CyberUiTimeboxService;
 
   beforeEach(() => {
-    service = new CyberUiTimeBoxService();
+    service = new CyberUiTimeboxService();
   });
 
-  describe('#startTimeBox', () => {
+  describe('#startTimebox', () => {
     it('returns the id of the newly-created time box', () => {
-      let resp = service.startTimeBox({duration: 5000});
-      expect(typeof resp.timeBoxId).toEqual('number');
+      let resp = service.startTimebox({duration: 5000});
+      expect(typeof resp.timeboxId).toEqual('number');
     });
   });
 
-  describe('#getActiveTimeBoxes', () => {
+  describe('#getActiveTimeboxes', () => {
     describe('when a time box starts', () => {
-      let response: StartTimeBoxResponse;
-      let snapshots: ActiveTimeBoxesSnapshot[] = [];
+      let response: StartTimeboxResponse;
+      let snapshots: ActiveTimeboxesSnapshot[] = [];
       beforeEach(() => {
         snapshots = [];
-        response = service.startTimeBox({duration: 5000});
-        service.getActiveTimeBoxes().subscribe(snapshot => snapshots.push(snapshot));
+        response = service.startTimebox({duration: 5000});
+        service.getActiveTimeboxes().subscribe(snapshot => snapshots.push(snapshot));
       });
       it('emits a new snapshot containing the box', () => {
         expect(snapshots.length).toEqual(1);
         expect(snapshots[0].boxes.length).toEqual(1);
-        expect(snapshots[0].boxes[0].id).toEqual(response.timeBoxId);
+        expect(snapshots[0].boxes[0].id).toEqual(response.timeboxId);
       })
     });
     // TODO When a timebox ends, it emits a new snapshot with the box removed

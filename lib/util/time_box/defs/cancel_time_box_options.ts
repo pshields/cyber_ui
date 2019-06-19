@@ -1,7 +1,7 @@
-import {TimeBoxId} from './time_box_id';
+import {TimeboxId} from './time_box_id';
 
 
-export interface CancelTimeBoxOptions {
+export interface CancelTimeboxOptions {
   // The id of the time box to cancel
-  id: TimeBoxId;
+  id: TimeboxId;
 }

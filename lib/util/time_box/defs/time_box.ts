@@ -1,7 +1,7 @@
-import {TimeBoxId} from './time_box_id';
+import {TimeboxId} from './time_box_id';
 
 
-export interface TimeBox {
+export interface Timebox {
   // The start time, in milliseconds since the Unix epoch
   start: number;
 
@@ -9,7 +9,7 @@ export interface TimeBox {
   end: number;
 
   // An identifier for this time box, if needing to lookup by ID
-  id: TimeBoxId;
+  id: TimeboxId;
 
   // A reference to the browser timeoutId associated with this time box
   // Used if we need to cancel the time box prematurely

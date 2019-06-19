@@ -1,1 +1,1 @@
-export type TimeBoxId = number;
+export type TimeboxId = number;

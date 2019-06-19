@@ -1,7 +1,7 @@
-import {TimeBoxId} from './time_box_id';
+import {TimeboxId} from './time_box_id';
 
 
-export interface StartTimeBoxResponse {
+export interface StartTimeboxResponse {
   // The ID of the newly-created time box
-  timeBoxId: TimeBoxId;
+  timeboxId: TimeboxId;
 }

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {CyberUiTimeBoxService} from './service';
+import {CyberUiTimeboxService} from './service';
 
 
 @NgModule({
-  providers: [CyberUiTimeBoxService],
+  providers: [CyberUiTimeboxService],
 })
-export class CyberUiTimeBoxModule {}
+export class CyberUiTimeboxModule {}

@@ -1,6 +1,6 @@
-import {TimeBox} from './time_box';
+import {Timebox} from './time_box';
 
 
-export interface ActiveTimeBoxesSnapshot {
-  boxes: TimeBox[];
+export interface ActiveTimeboxesSnapshot {
+  boxes: Timebox[];
 }
