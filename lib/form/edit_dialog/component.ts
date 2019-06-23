@@ -28,9 +28,17 @@ export class CyberUiEditDialogComponent {
   }
 
   saveAndClose() {
-    // if there was a save function provided, call that and close the dialog
-    if (this.params.saveFn) {
-      saveActionHandler(this.params.saveFn, this.snackbar, {
+    // if there was a save function provided, or if the model exposes
+    // a save method, call that and close the dialog
+    // TODO Test that model.save() gets called if params.saveFn is not provided
+    // TODO Test that model.save() gets called with the correct 'this' binding
+    // TODO Remove 'any' types once params.model uses CyberUiSavableModel type
+    let saveFn = this.params.saveFn;
+    if (!saveFn && (this.params.model as any).save) {
+      saveFn = () => (this.params.model as any).save();
+    }
+    if (saveFn) {
+      saveActionHandler(saveFn, this.snackbar, {
         dialogRef: this.dialogRef
       });
     } else {

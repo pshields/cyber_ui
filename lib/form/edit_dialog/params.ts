@@ -3,6 +3,7 @@ import {Action} from '../../task/interfaces/action';
 import {FormField} from '../form_field';
 
 
+// TODO MODEL_T should extend CyberUiSavableModel
 export interface CyberUiEditDialogParams<MODEL_T = {}> {
   // the (lower-case) label of the kind of thing being edited
   // this is used in the dialog title
