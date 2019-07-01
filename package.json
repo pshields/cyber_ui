@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "8.0.3",
     "@angular/router": "8.0.3",
     "core-js": "2.6.9",
-    "firebase": "6.2.2",
+    "firebase": "6.2.4",
     "ngx-markdown": "8.0.2",
     "rxjs": "6.5.2",
     "tinycolor2": "1.4.1",
