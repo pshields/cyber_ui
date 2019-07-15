@@ -7,6 +7,9 @@ export const CYBER_UI_NEEDS_LIST = [
     label: 'Belonging'
   }),
   new Need({
+    label: 'Clarity'
+  }),
+  new Need({
     label: 'Connection'
   }),
   new Need({
