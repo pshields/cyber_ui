@@ -4,6 +4,9 @@ import {Need} from '../need';
 // A list of needs which can be used as a starting point
 export const CYBER_UI_NEEDS_LIST = [
   new Need({
+    label: 'Belonging'
+  }),
+  new Need({
     label: 'Connection'
   }),
   new Need({
@@ -14,6 +17,9 @@ export const CYBER_UI_NEEDS_LIST = [
   }),
   new Need({
     label: 'Novelty'
+  }),
+  new Need({
+    label: 'Safety'
   }),
   new Need({
     label: 'Space'
