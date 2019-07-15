@@ -9,4 +9,10 @@ export const CYBER_UI_NEEDS_LIST = [
   new Need({
     label: 'Ease'
   }),
+  new Need({
+    label: 'Novelty'
+  }),
+  new Need({
+    label: 'Space'
+  }),
 ];
