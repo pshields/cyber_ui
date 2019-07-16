@@ -1,3 +1,18 @@
 <h1>Timeboxing</h1>
 
 <p>Cyber UI provides capabilities for timeboxing.</p>
+
+<h2>Demo</h2>
+
+<h3>Active timeboxes</h3>
+
+<p *ngIf="!snapshot || !snapshot.boxes || snapshot.boxes.length === 0">No active timeboxes</p>
+
+<ol *ngIf="snapshot && snapshot.boxes && snapshot.boxes.length > 0">
+  <li *ngFor="let box of snapshot.boxes">
+    {{ box | json }}
+    <button mat-button (click)="timeboxService.cancelTimebox({id: box.id})">CANCEL</button>
+  </li>
+</ol>
+
+<button mat-stroked-button (click)="addTimebox()">ADD TIMEBOX</button>

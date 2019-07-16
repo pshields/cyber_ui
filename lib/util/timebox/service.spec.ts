@@ -41,3 +41,5 @@ describe('CyberUiTimeboxService', () => {
   });
 });
 
+// TODO Test that one timebox expires or is canceled (test both scenarios), that the other existing timeboxes remain
+// An improper use of Array.splice might cause all remaining timeboxes to be removed.

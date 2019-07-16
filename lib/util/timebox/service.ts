@@ -48,7 +48,7 @@ export class CyberUiTimeboxService {
   // Handle time box completion (called when the time box duration has elapsed)
   private onTimeboxComplete(timebox: Timebox) {
     // Remove this time box from the boxes list
-    this.boxes.splice(this.boxes.indexOf(timebox));
+    this.boxes.splice(this.boxes.indexOf(timebox), 1);
     // Emit an end event to the stream
     this.stream.next({
       timeboxId: timebox.id,
@@ -118,7 +118,7 @@ export class CyberUiTimeboxService {
       // Remove the scheduled end trigger
       clearTimeout(timebox.timeoutId);
       // Remove the time box from the list of active boxes
-      this.boxes.splice(this.boxes.indexOf(timebox));
+      this.boxes.splice(this.boxes.indexOf(timebox), 1);
       // Emit a cancel event to the stream
       this.stream.next({
         type: 'cancel',

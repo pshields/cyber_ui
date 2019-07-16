@@ -181,6 +181,7 @@ export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module'
 // UTIL
 // ====
 
+export {ActiveTimeboxesSnapshot} from './util/timebox/defs/active_timeboxes_snapshot';
 export {CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from './util/dialog.config';
 export {CyberUiTimeboxService} from './util/timebox/service';
 export {CyberUiTimeboxModule} from './util/timebox/module';
