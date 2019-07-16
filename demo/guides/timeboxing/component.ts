@@ -10,6 +10,7 @@ import {ActiveTimeboxesSnapshot} from 'lib/public_api';
 })
 export class TimeboxingGuideComponent {
 
+  // The current list of active timeboxes
   snapshot: ActiveTimeboxesSnapshot;
 
   constructor(
@@ -17,7 +18,6 @@ export class TimeboxingGuideComponent {
   ) {
     timeboxService.getActiveTimeboxes().subscribe(snapshot => {
       this.snapshot = snapshot;
-      console.log(snapshot);
     });
   }
 
