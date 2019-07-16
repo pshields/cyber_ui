@@ -19,6 +19,9 @@ export const CYBER_UI_NEEDS_LIST = [
     label: 'Ease'
   }),
   new Need({
+    label: 'Intimacy'
+  }),
+  new Need({
     label: 'Novelty'
   }),
   new Need({
@@ -27,4 +30,7 @@ export const CYBER_UI_NEEDS_LIST = [
   new Need({
     label: 'Space'
   }),
+  new Need({
+    label: 'Touch'
+  })
 ];
