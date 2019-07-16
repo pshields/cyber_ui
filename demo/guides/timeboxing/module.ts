@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 
 import {MatButtonModule} from '@angular/material';
 
+import {CyberUiTimeboxCountdownDisplayModule} from 'lib/public_api';
+
 import {TimeboxingGuideComponent} from './component';
 
 
@@ -10,6 +12,7 @@ import {TimeboxingGuideComponent} from './component';
   imports: [
     CommonModule,
     MatButtonModule,
+    CyberUiTimeboxCountdownDisplayModule,
   ],
   declarations: [
     TimeboxingGuideComponent,

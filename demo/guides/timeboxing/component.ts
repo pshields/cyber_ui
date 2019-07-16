@@ -22,7 +22,7 @@ export class TimeboxingGuideComponent {
   }
 
   addTimebox() {
-    this.timeboxService.startTimebox({duration: 10000});
+    this.timeboxService.startTimebox({duration: 60000});
   }
 
 }

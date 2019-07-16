@@ -10,6 +10,7 @@
 
 <ol *ngIf="snapshot && snapshot.boxes && snapshot.boxes.length > 0">
   <li *ngFor="let box of snapshot.boxes">
+    <cyber-ui-timebox-countdown-display [timeboxId]="box.id"></cyber-ui-timebox-countdown-display>
     {{ box | json }}
     <button mat-button (click)="timeboxService.cancelTimebox({id: box.id})">CANCEL</button>
   </li>

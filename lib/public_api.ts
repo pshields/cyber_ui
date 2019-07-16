@@ -187,3 +187,4 @@ export {CyberUiTimeboxService} from './util/timebox/service';
 export {CyberUiTimeboxModule} from './util/timebox/module';
 export {Timebox} from './util/timebox/defs/timebox';
 export {TimeboxId} from './util/timebox/defs/timebox_id';
+export {CyberUiTimeboxCountdownDisplayModule} from './util/timebox/countdown_display/module';
