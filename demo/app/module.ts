@@ -45,10 +45,12 @@ import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav.component';
+import {TimeboxingGuideComponent} from 'demo/guides/timeboxing/component';
 
 
 
 export const routes: Routes = [
+  {path: 'guides/timeboxing', component: TimeboxingGuideComponent},
   {path: 'guides/:id', component: GuidesComponent},
   {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
   {path: 'capability-areas/:id', component: CapabilityAreasComponent},

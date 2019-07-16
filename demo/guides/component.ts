@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-
 // Import the Markdown-formatted guides at compile-time
 import * as styleGuideData from 'raw-loader!demo/guides/style.md';
 import * as systemizationData from 'raw-loader!demo/guides/systemization.md';
@@ -19,8 +18,10 @@ export class Guide {
   id: string;
   // The guide's name (used in the navigation)
   label: string;
-  // The Markdown data to render corresponding to this guide
-  data: string|any;
+  // The Markdown data to render, if the guide is a Markdown document
+  data?: string|any;
+  // Note: if the guide is its own component, it should be given its own route
+  // rather than using this component
 }
 
 
@@ -57,9 +58,13 @@ export const GUIDES = [
     data: taskTemplatesData,
   },
   {
+    id: 'timeboxing',
+    label: 'Timeboxing',
+  },
+  {
     id: 'theming',
     label: 'Theming',
-    data:themingData,
+    data: themingData,
   },
   {
     id: 'uncertainty-reduction',
