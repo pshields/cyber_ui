@@ -7,6 +7,8 @@
 .mat-chip.mat-standard-chip {
   // Lessen the contrast of unactivated filters
   background: none;
+  // The appropriate text color is computed dynamically on the component
+  color: inherit;
   // Treat filter chips as buttons
   cursor: pointer;
 }

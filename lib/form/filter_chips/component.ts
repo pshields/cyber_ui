@@ -1,8 +1,9 @@
-import {Component, ComponentFactory, ComponentFactoryResolver, Input, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactory, ComponentFactoryResolver, HostBinding, Input, ViewContainerRef} from '@angular/core';
 
 import {first} from 'rxjs/operators';
 
 import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
+import {CyberUiThemeService} from '../../theme/service';
 
 import {FormField} from '../form_field';
 import {ChoiceField} from '../fields/choice';
@@ -26,8 +27,20 @@ export class CyberUiFilterChipsComponent {
   @Input() filters: FormField[];
   // The settings object to manipulate
   @Input() settings: CyberUiInteractiveModel;
+  // The default text color for the filter chips
+  @HostBinding('style.color') color: string;
 
-  constructor(readonly componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(
+    readonly componentFactoryResolver: ComponentFactoryResolver,
+    readonly themeService: CyberUiThemeService,
+  ) {
+    // Using matListSubheaderColor since we want some opacity
+    // TODO Utilize a better naming convention to make it more
+    // clear what we're asking for from the theme service here
+    themeService.textColor.subscribe(color => {
+      this.color = color;
+    });
+  }
 
   // Clears the filter
   clearFilter(field: FormField) {

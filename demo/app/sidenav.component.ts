@@ -18,7 +18,7 @@ export class AppSidenavComponent {
   readonly GUIDES = GUIDES;
   readonly INTERFACES = INTERFACES;
 
-  @HostBinding('style.color') public color: string;
+  @HostBinding('style.color') color: string;
   matListSubheaderColor: string;
 
   constructor(
