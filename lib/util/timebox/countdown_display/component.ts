@@ -26,4 +26,13 @@ export class CyberUiTimeboxCountdownDisplayComponent implements OnChanges {
       this.countdown = this.timeboxService.getCountdown({timeboxId: changes.timeboxId.currentValue})
     }
   }
+
+  addFiveMinutes() {
+    this.timeboxService.addTimeToTimebox({
+      id: this.timeboxId,
+      duration: 5 * 1000 * 60,
+    });
+    // Update the countdown
+    this.countdown = this.timeboxService.getCountdown({timeboxId: this.timeboxId});
+  }
 }

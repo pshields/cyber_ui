@@ -1,1 +1,4 @@
-<button mat-button>{{countdown | async | timer}}</button>
+<button mat-button [matMenuTriggerFor]="menu">{{countdown | async | timer}}</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="addFiveMinutes()">Add 5 minutes</button>
+</mat-menu>

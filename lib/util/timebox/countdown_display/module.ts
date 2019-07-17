@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {CyberUiTimerPipeModule} from '../timer_pipe/module';
 
@@ -12,6 +13,7 @@ import {CyberUiTimeboxCountdownDisplayComponent} from './component';
   imports: [
     CommonModule,
     MatButtonModule,
+    MatMenuModule,
     CyberUiTimerPipeModule,
   ],
   declarations: [

@@ -12,6 +12,7 @@ import {StartTimeboxResponse} from './defs/start_timebox_response';
 import {Timebox} from './defs/timebox';
 import {TimeboxEvent} from './defs/event';
 import {TimeboxId} from './defs/timebox_id';
+import {AddTimeToTimeboxOptions} from './defs/add_time_to_timebox_options';
 
 
 // A service for tracking timeboxes
@@ -35,10 +36,6 @@ export class CyberUiTimeboxService {
   private getNewTimeboxId(): TimeboxId {
     // Increment the counter so that next time, it will return a different id
     return this.idCounter++;
-  }
-
-  private getTimeboxById(id: TimeboxId): Timebox {
-    return this.boxes.find(timebox => timebox.id === id);
   }
 
   private addTimebox(timebox: Timebox) {
@@ -88,6 +85,10 @@ export class CyberUiTimeboxService {
       .pipe(take(numUpdates));
   }
 
+  getTimeboxById(id: TimeboxId): Timebox {
+    return this.boxes.find(timebox => timebox.id === id);
+  }
+
   startTimebox(options: StartTimeboxOptions): StartTimeboxResponse {
     const start = Date.now();
     const timebox: Timebox = {
@@ -122,6 +123,28 @@ export class CyberUiTimeboxService {
       // Emit a cancel event to the stream
       this.stream.next({
         type: 'cancel',
+        timeboxId: timebox.id
+      });
+      return {};
+    }
+  }
+
+  addTimeToTimebox(options: AddTimeToTimeboxOptions): {} {
+    const timebox = this.getTimeboxById(options.id);
+    if (!timebox) {
+      return {
+        error: `Could not find time box with given id: ${options.id}`
+      };
+    } else {
+      // Remove the scheduled end trigger
+      clearTimeout(timebox.timeoutId);
+      // Calculate the new end time
+      timebox.end += options.duration;
+      // Set the new end trigger
+      timebox.timeoutId = window.setTimeout(() => this.onTimeboxComplete(timebox), timebox.end - Date.now());
+      // Emit a modify event to the stream
+      this.stream.next({
+        type: 'modify',
         timeboxId: timebox.id
       });
       return {};
