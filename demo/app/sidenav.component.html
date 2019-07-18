@@ -1,5 +1,4 @@
 <mat-nav-list>
-  <a mat-list-item routerLink="/">Home</a>
   <div matSubheader [style.color]="matListSubheaderColor">CAPABILITY AREAS</div>
   <a *ngFor="let area of CAPABILITY_AREAS" mat-list-item routerLink="/capability-areas/{{area.id}}">{{area.label}}</a>
   <div matSubheader [style.color]="matListSubheaderColor">GUIDES</div>

@@ -8,9 +8,13 @@
   height: 100%;
 }
 
-
 mat-toolbar {
   display: flex;
+
+  .logo {
+    // Show the user that the logo is clickable to get back to the home page
+    cursor: pointer;
+  }
 
   .external-links {
     flex-grow: 1;

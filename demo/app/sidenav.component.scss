@@ -1,3 +1,11 @@
+.mat-list-base {
+  // For some reason, when the first nav item is a subheading,
+  // the padding on mat-list-base is not getting taken into account
+  // This margin-top correctly adds the vertical space between
+  // the top bar and the sidenav to address this
+  margin-top: 8px;
+}
+
 .mat-list-base .mat-list-item {
   color: inherit;
 }
