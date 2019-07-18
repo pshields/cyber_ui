@@ -47,5 +47,5 @@ export class DemoSettingsConfig {
 export class DemoSettings {
   theme = 'material';
   topToolbarDefaultBackgroundColor = colors.DEMO_APP_PRIMARY;
-  matchAppAndToolbarBackground = false;
+  matchAppAndToolbarBackground = true;
 }
