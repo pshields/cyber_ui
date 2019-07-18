@@ -47,7 +47,7 @@ export class AppComponent {
     @Inject(DOCUMENT) document: Document,
   ) {
       // Send the initial demo settings to the settings service
-      this.settingsService.onChange(this.settings);
+      settingsService.onChange(this.settings);
       // Register a fake delegation target for demo purposes
       delegationMenuService.registerDelegationTarget({
         label: 'The void',
@@ -60,7 +60,7 @@ export class AppComponent {
         Breakpoints.XSmall,
       ]).subscribe(result => this.setSidenavMode(result.matches));
       // On handset screen sizes, close the sidenav after navigation events
-      this.router.events.pipe(
+      router.events.pipe(
         filter(e => e instanceof NavigationEnd)
       ).subscribe(e => {
         // Only close the sidenav if on a handset screen size, where
@@ -69,7 +69,7 @@ export class AppComponent {
           this.sidenav.close();
         }
       });
-      this.themeService.pinActiveThemeClassOnBodyElement(document, renderer);
+      themeService.pinActiveThemeClassOnBodyElement(document, renderer);
   }
 
   openSettings() {
