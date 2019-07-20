@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, HostBinding} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+
+import {CyberUiThemeService} from 'lib/public_api';
 
 // Import the Markdown-formatted guides at compile-time
 import * as styleGuideData from 'raw-loader!demo/guides/style.md';
@@ -89,11 +91,21 @@ export class GuidesComponent {
   guideId: string;
   // The current guide
   guide: Guide;
+  // The color of the primary text content on page
+  // (dynamic based on theme settings)
+  @HostBinding('style.color') color: string;
 
-  constructor(route: ActivatedRoute) {
+  constructor(
+    route: ActivatedRoute,
+    readonly themeService: CyberUiThemeService,
+  ) {
     route.params.subscribe(params => {
       this.guideId = params.id;
       this.guide = GUIDES.find(obj => obj.id === this.guideId);
+    });
+    // Update the text color based on the current theme settings
+    themeService.textColor.subscribe(color => {
+      this.color = color;
     });
   }
 }
