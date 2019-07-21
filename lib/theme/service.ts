@@ -31,6 +31,8 @@ export class CyberUiThemeService {
   // A more prominent foreground text color appropriate given the current background
   // The current implementation preserves full opacity
   readonly prominentTextColor = new ReplaySubject<string>(1);
+  // The primary color to use for links
+  readonly primaryLinkColor = new ReplaySubject<string>(1);
 
   constructor(
       readonly settingsService: CyberUiSettingsService,
@@ -45,7 +47,8 @@ export class CyberUiThemeService {
     });
     // Keep cached properties up to date on settings changes
     settingsService.listen().subscribe(settings => this.recalculateCachedProperties(settings));
-
+    // Update theme-related CSS custom properties
+    this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
   }
 
   recalculateCachedProperties(settings) {
@@ -54,6 +57,7 @@ export class CyberUiThemeService {
     this.matListSubheaderColor.next(this.getMatListSubheaderColor(settings));
     this.textColor.next(this.getTextColor(settings));
     this.prominentTextColor.next(this.getProminentTextColor(settings));
+    this.primaryLinkColor.next(this.getPrimaryLinkColor(settings));
   }
 
   getMatListSubheaderColor(settings) {
@@ -64,6 +68,19 @@ export class CyberUiThemeService {
       return 'rgba(255, 255, 255, 0.54)';
     } else {
       return 'rgba(0, 0, 0, 0.54)';
+    }
+  }
+
+  getPrimaryLinkColor(settings) {
+    const appBackgroundColor = tinycolor(this.getAppBackground(settings));
+    const topToolbarBackgroundColor = tinycolor(this.getTopToolbarBackgroundColor(settings));
+    if (appBackgroundColor.isLight() && topToolbarBackgroundColor.isDark()) {
+      return topToolbarBackgroundColor.darken(10);
+    } else if (appBackgroundColor.isLight() && topToolbarBackgroundColor.isLight()) {
+      return 'blue';
+    } else {
+      // The app background color is dark
+      return appBackgroundColor.lighten(25).spin(10);
     }
   }
 
@@ -115,5 +132,9 @@ export class CyberUiThemeService {
       // Update the reference to the previous theme ID
       previousThemeId = themeId;
     });
+  }
+
+  setCssCustomProperty(propertyName: string, value: string) {
+    document.documentElement.style.setProperty(propertyName, value);
   }
 }

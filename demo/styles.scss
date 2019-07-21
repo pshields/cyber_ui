@@ -10,6 +10,19 @@ $cyber-ui-demo-theme: mat-light-theme($cyber-ui-primary, $cyber-ui-accent);
 
 @include angular-material-theme($cyber-ui-demo-theme);
 
+
+// =====================
+// CSS custom properties
+// =====================
+//
+// Use of CSS custom properties in Cyber UI is in an exploratory phase.
+// The rationale for their use is to more easily facilitate dynamically
+// adjusting styles when the theme changes while the app is running.
+:root {
+  --primary-link-color: default;
+}
+
+
 html {
   background-color: $cyber-ui-demo-viewport-background;
   // Needed so the mat-sidenav can occupy the full screen height
@@ -27,6 +40,11 @@ body.cyber-ui-material-theme {
     // Scrollbar issue: https://github.com/angular/components/issues/10376
     font-size: 16px;
   }
+}
+
+// Link styles
+a {
+  color: var(--primary-link-color);
 }
 
 mat-expansion-panel-header.mat-expansion-panel-header {
