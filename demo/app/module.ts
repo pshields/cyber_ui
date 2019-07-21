@@ -38,6 +38,8 @@ import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalDemoThemeModule} from '../minimal_demo_theme/module';
 import {SplashPageComponent} from '../splash_page/component';
+import {TimeboxingGuideComponent} from '../guides/timeboxing/component';
+import {TimeboxingGuideModule} from '../guides/timeboxing/module';
 
 import {SplashPageModule} from '../splash_page/module';
 import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/component';
@@ -45,7 +47,6 @@ import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav.component';
-import {TimeboxingGuideComponent} from 'demo/guides/timeboxing/component';
 
 
 
@@ -90,6 +91,7 @@ export const routes: Routes = [
     MinimalTaskCardDemoModule,
     MinimalDemoThemeModule,
     SplashPageModule,
+    TimeboxingGuideModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
     CyberUiDelegationMenuModule,

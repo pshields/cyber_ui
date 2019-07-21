@@ -1,0 +1,1 @@
+export type RegisterTopicsResponse = {};  // TODO Replace with an actual response structure
