@@ -38,6 +38,8 @@ import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalDemoThemeModule} from '../minimal_demo_theme/module';
 import {SplashPageComponent} from '../splash_page/component';
+import {TaskProvidersDocumentationComponent} from '../task_providers/component';
+import {TaskProvidersDocumentationModule} from '../task_providers/module';
 import {TimeboxingGuideComponent} from '../guides/timeboxing/component';
 import {TimeboxingGuideModule} from '../guides/timeboxing/module';
 
@@ -49,7 +51,6 @@ import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav.component';
 
 
-
 export const routes: Routes = [
   {path: 'guides/timeboxing', component: TimeboxingGuideComponent},
   {path: 'guides/:id', component: GuidesComponent},
@@ -57,6 +58,7 @@ export const routes: Routes = [
   {path: 'capability-areas/:id', component: CapabilityAreasComponent},
   {path: 'components/minimal-task-card', component: MinimalTaskCardDemoComponent},
   {path: 'components/form-fields', component: FormFieldsDemoComponent},
+  {path: 'task-providers/:id', component: TaskProvidersDocumentationComponent},
   {path: 'workflows/add-thing', component: AddThingWorkflowDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
   {path: '', component: SplashPageComponent},
@@ -91,6 +93,7 @@ export const routes: Routes = [
     MinimalTaskCardDemoModule,
     MinimalDemoThemeModule,
     SplashPageModule,
+    TaskProvidersDocumentationModule,
     TimeboxingGuideModule,
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module

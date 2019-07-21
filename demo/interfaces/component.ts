@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, HostBinding} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+
+import {CyberUiThemeService} from 'lib/public_api';
 
 
 export class Interface {
@@ -37,11 +39,21 @@ export class InterfacesDocumentationComponent {
   interfaceId: string;
   // The interface object
   interface: Interface;
+  // The color of the primary text content on page
+  // (dynamic based on theme settings)
+  @HostBinding('style.color') color: string;
 
-  constructor(route: ActivatedRoute) {
+  constructor(
+    route: ActivatedRoute,
+    readonly themeService: CyberUiThemeService,
+) {
     route.params.subscribe(params => {
       this.interfaceId = params.id;
       this.interface = INTERFACES.find(obj => obj.id === this.interfaceId);
+    });
+    // Update the text color based on the current theme settings
+    themeService.textColor.subscribe(color => {
+      this.color = color;
     });
   }
 }
