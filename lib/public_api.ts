@@ -88,6 +88,9 @@ export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './task/interfaces/task_suggestion_service';
 
+// Identifiers
+export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './task/providers/mindfully_attend_to_topic/provider';
+
 // Injection tokens
 export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_service';
 
@@ -107,6 +110,9 @@ export {CyberUiMinimalTaskComponent} from './task/displays/minimal/component';
 export {CyberUiMinimalTaskModule} from './task/displays/minimal/module';
 export {CyberUiMinimalTaskListComponent} from './task/displays/minimal_list/component';
 export {CyberUiMinimalTaskListModule} from './task/displays/minimal_list/module';
+
+// Labels
+export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL} from './task/providers/mindfully_attend_to_topic/provider';
 
 // Task actions panel
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';

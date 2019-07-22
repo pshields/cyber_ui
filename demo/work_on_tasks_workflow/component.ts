@@ -1,5 +1,7 @@
 import {Component, Inject} from '@angular/core';
 
+import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from 'lib/public_api';
+import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL} from 'lib/public_api';
 import {CyberUiMinimalTaskCardListComponent} from 'lib/public_api';
 import {CyberUiMinimalTaskListComponent} from 'lib/public_api';
 import {CyberUiTaskAccordionComponent} from 'lib/public_api';
@@ -23,6 +25,10 @@ export class WorkOnTasksWorkflowDemoComponent {
   displayComponent = CyberUiMinimalTaskListComponent;
   // The display component to use to display task actions
   actionsDisplayComponent = CyberUiResponseChipsComponent;
+  // The list of task providers to use
+  taskProviders = [
+    CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID
+  ];
 
   constructor(
     @Inject(TASK_SUGGESTION_SERVICE) readonly taskSuggestionService: DemoTaskSuggestionService
@@ -49,6 +55,14 @@ export class WorkOnTasksWorkflowDemoComponent {
         new Option('CyberUiTaskActionPanel', CyberUiActionsPanelComponent),
         new Option('CyberUiResponseChips', CyberUiResponseChipsComponent),
       ]
+    }),
+    new ChoiceField({
+      label: 'Task providers',
+      propertyName: 'taskProviders',
+      options: [
+        new Option(CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL, CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID),
+      ],
+      multiple: true,
     })
   ];
 
