@@ -18,8 +18,15 @@ $cyber-ui-demo-theme: mat-light-theme($cyber-ui-primary, $cyber-ui-accent);
 // Use of CSS custom properties in Cyber UI is in an exploratory phase.
 // The rationale for their use is to more easily facilitate dynamically
 // adjusting styles when the theme changes while the app is running.
+//
+// Most CSS custom properties used by Cyber UI are set dynamically by
+// the theme service based on the current theme and settings. The initial
+// values set here are mostly an attempt to provide reasonable defaults
+// which might be shown in the moments after initial page load before
+// the theme service has set the values.
 :root {
   --primary-link-color: default;
+  --text-color: black;
 }
 
 
@@ -27,6 +34,15 @@ html {
   background-color: $cyber-ui-demo-viewport-background;
   // Needed so the mat-sidenav can occupy the full screen height
   height: 100%;
+}
+
+// By default at the top level of the document, text color should
+// come from the --text-color CSS custom property maintained by
+// the Cyber UI theme service
+html,
+// Also override the text color Angular Material sets on .mat-drawer-container
+.mat-drawer-container {
+  color: var(--text-color);
 }
 
 body.cyber-ui-material-theme {

@@ -48,6 +48,7 @@ export class CyberUiThemeService {
     // Keep cached properties up to date on settings changes
     settingsService.listen().subscribe(settings => this.recalculateCachedProperties(settings));
     // Update theme-related CSS custom properties
+    this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
     this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
   }
 
