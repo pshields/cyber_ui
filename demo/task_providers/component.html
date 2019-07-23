@@ -1,3 +1,17 @@
 <h2 *ngIf="documentation"><code>{{documentation.className}}</code></h2>
 
+<ng-container *ngIf="documentation.id === 'mindfully-attend-to-topic'">
+  <p>
+    This provider provides tasks related to mindfully attending to topics. Often, mindful attention towards a topic over a sustained period of time can be more effective than working on an existing task that might not be relevant, or might not be the highest-priority thing.
+  </p>
+
+  <h3>Registering topics</h3>
+
+  <p>
+    In order to know which topics to create tasks for, topics must be registered with the provider via a `RegisterTopicsRequest`. Development of this functionality is still in progress.
+  </p>
+
+</ng-container>
+
 <p>This documentation is under construction.</p>
+

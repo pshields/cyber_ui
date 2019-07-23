@@ -1,6 +1,22 @@
 import {CyberUiMindfullyAttendToTopicTaskProvider} from './provider';
 
 
+const EXAMPLE_TOPIC_1 = {
+  label: 'Example topic 1'
+};
+
+
+const EXAMPLE_TOPIC_2 = {
+  label: 'Example topic 2'
+};
+
+
+const EXAMPLE_TOPICS_LIST = [
+  EXAMPLE_TOPIC_1,
+  EXAMPLE_TOPIC_2
+];
+
+
 describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
 
   let provider: CyberUiMindfullyAttendToTopicTaskProvider;
@@ -14,7 +30,12 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
   });
 
   describe('when registering topics', () => {
-    // TODO
+    it('adds the topics to the list of topic registrations', () => {
+      provider.registerTopics({
+        topics: EXAMPLE_TOPICS_LIST
+      });
+      expect(provider.getTopicRegistrationsCount()).toEqual(2);
+    });
   });
 
 });
