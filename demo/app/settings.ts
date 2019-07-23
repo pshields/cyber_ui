@@ -24,7 +24,15 @@ export class DemoSettingsConfig {
             items: [
               ENERGY_LEVEL_FIELD,
             ]
-          }
+          },
+          new ChoiceField({
+            label: 'Pomodoro length',
+            propertyName: 'pomodoroLength',
+            options: [
+              new Option('20 minutes', '20'),
+              new Option('25 minutes', '25')
+            ]
+          })
         ],
       }
     ];
@@ -48,4 +56,5 @@ export class DemoSettings {
   theme = 'material';
   topToolbarDefaultBackgroundColor = colors.DEMO_APP_PRIMARY;
   matchAppAndToolbarBackground = true;
+  pomodoroLength = '20';  // in minutes
 }
