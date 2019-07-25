@@ -49,6 +49,7 @@ export class CyberUiThemeService {
     settingsService.listen().subscribe(settings => this.recalculateCachedProperties(settings));
     // Update theme-related CSS custom properties
     this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
+    this.matListSubheaderColor.subscribe(color => this.setCssCustomProperty('--mat-list-subheader-color', color));
     this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
   }
 
