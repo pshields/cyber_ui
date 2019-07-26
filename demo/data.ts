@@ -3,15 +3,14 @@ import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {Task} from 'lib/task/interfaces/task';
-import {TaskSuggestion} from 'lib/task/interfaces/task_suggestion';
 
 import {Action} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
 import {delegationMenuActivationHandler} from 'lib/public_api';
 
 import * as colors from './defs/colors';
-import {DemoTaskSuggestionService} from './task_suggestion_service/service';
-import {} from 'lib/snooze/reason_collection_dialog/service';
+
+import {DemoTaskProvider} from './task_suggestion_service/demo_task_provider';
 
 
 // Context needed to define the actions for the demo tasks
@@ -19,7 +18,7 @@ export interface DemoTaskActionsContext {
   router: Router;
   snackBar: MatSnackBar;
   snoozeReasonCollectionDialogService: CyberUiSnoozeReasonCollectionDialogService;
-  taskSuggestionService: DemoTaskSuggestionService;
+  demoTaskProvider: DemoTaskProvider;
 }
 
 
@@ -37,7 +36,7 @@ export class DemoTask {
       {
         label: 'MARK COMPLETE',
         handler: () => {
-          context.taskSuggestionService.markTaskComplete(this);
+          context.demoTaskProvider.markTaskComplete(this);
           context.snackBar.open('Marked complete');
         },
         color: colors.COMPLETION_GREEN,
@@ -97,7 +96,7 @@ export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
   firstTask.actions = firstTask.actions.concat([
     {
       label: 'MARK COMPLETE',
-      handler: () => context.taskSuggestionService.markTaskComplete(firstTask),
+      handler: () => context.demoTaskProvider.markTaskComplete(firstTask),
       iconNames: ['check'],
       color: colors.COMPLETION_GREEN,
     }
@@ -108,13 +107,4 @@ export function getDemoTasks(context: DemoTaskActionsContext): Task[] {
     new DemoTask('Example 1234567', context),
     new DemoTask('GHIJ8910', context)
   ];
-}
-
-// Similar to getDemoTasks but returns a TaskSuggestion[]
-export function getDemoTaskSuggestions(context: DemoTaskActionsContext): TaskSuggestion<Task>[] {
-  return getDemoTasks(context).map(task => {
-    return {
-      task: task
-    };
-  });
 }

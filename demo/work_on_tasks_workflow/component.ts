@@ -2,15 +2,18 @@ import {Component, Inject} from '@angular/core';
 
 import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from 'lib/public_api';
 import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL} from 'lib/public_api';
+import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
 import {CyberUiMinimalTaskCardListComponent} from 'lib/public_api';
 import {CyberUiMinimalTaskListComponent} from 'lib/public_api';
 import {CyberUiTaskAccordionComponent} from 'lib/public_api';
 import {CyberUiActionsPanelComponent} from 'lib/public_api';
 import {CyberUiResponseChipsComponent} from 'lib/public_api';
 import {ChoiceField, Option} from 'lib/public_api';
-import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 
-import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
+import {DEMO_TASK_PROVIDER_ID} from '../task_suggestion_service/demo_task_provider';
+import {DEMO_TASK_PROVIDER_LABEL} from '../task_suggestion_service/demo_task_provider';
+import {DemoTaskProvider} from '../task_suggestion_service/demo_task_provider';
+import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
 
 
 @Component({
@@ -27,11 +30,14 @@ export class WorkOnTasksWorkflowDemoComponent {
   actionsDisplayComponent = CyberUiResponseChipsComponent;
   // The list of task providers to use
   taskProviders = [
-    CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID
+    DEMO_TASK_PROVIDER_ID
   ];
+  // Tell the work-on-tasks-workflow component to reload the suggestions on settings changes
+  reloadSuggestionsAfterWorkflowSettingsChange = true;
 
   constructor(
-    @Inject(TASK_SUGGESTION_SERVICE) readonly taskSuggestionService: DemoTaskSuggestionService
+    readonly demoTaskProvider: DemoTaskProvider,
+    @Inject(WORKFLOW_SETTINGS_SERVICE) readonly workflowSettingsService: DemoWorkflowSettingsService,
   ) {
     // Load the initial demo settings (e.g. actions display component)
     this.onDemoSettingsChange();
@@ -60,6 +66,7 @@ export class WorkOnTasksWorkflowDemoComponent {
       label: 'Task providers',
       propertyName: 'taskProviders',
       options: [
+        new Option(DEMO_TASK_PROVIDER_LABEL, DEMO_TASK_PROVIDER_ID),
         new Option(CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL, CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID),
       ],
       multiple: true,
@@ -97,6 +104,7 @@ export class WorkOnTasksWorkflowDemoComponent {
   demoFilterSettings = {};
 
   onDemoSettingsChange() {
-    this.taskSuggestionService.setActionsDisplayComponent(this.actionsDisplayComponent);
+    this.demoTaskProvider.setActionsDisplayComponent(this.actionsDisplayComponent);
+    this.workflowSettingsService.setGetSuggestionsOptions(this);
   }
 }

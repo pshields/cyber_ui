@@ -1,14 +1,13 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
-import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 import {Task} from 'lib/public_api';
 
 import {getDemoTasks} from '../data';
-import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
+import {DemoTaskProvider} from '../task_suggestion_service/demo_task_provider';
 
 
 @Component({
@@ -22,13 +21,13 @@ export class MinimalTaskCardDemoComponent {
     readonly router: Router,
     readonly snackBar: MatSnackBar,
     readonly snoozeReasonCollectionDialogService: CyberUiSnoozeReasonCollectionDialogService,
-    @Inject(TASK_SUGGESTION_SERVICE) readonly taskSuggestionService: DemoTaskSuggestionService
+    readonly demoTaskProvider: DemoTaskProvider
   ) {
     this.tasks = getDemoTasks({
       router,
       snackBar,
       snoozeReasonCollectionDialogService,
-      taskSuggestionService,
+      demoTaskProvider,
     });
   }
 }

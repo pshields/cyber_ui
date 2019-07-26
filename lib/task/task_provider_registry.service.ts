@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {Observable, merge} from 'rxjs';
+import {Observable, merge, of} from 'rxjs';
 
 import {Task} from './interfaces/task';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from './interfaces/task_suggestion_service';
@@ -23,7 +23,7 @@ import {TaskProviderRegistry} from './interfaces/task_provider_registry';
 // By using a task provider registry, downstream consumers such as task suggestion services don't need to
 // worry about where the tasks come from. They can just work with the tasks that they are given.
 @Injectable()
-export class TaskProviderRegistryService<TASK_T extends Task> implements TaskProviderRegistry<TASK_T> {
+export class TaskProviderRegistryService<TASK_T extends Task = Task> implements TaskProviderRegistry<TASK_T> {
   // The list of task providers registered in the registry
   private providers = new Map<TaskProviderId, TaskProvider<TASK_T>>();
 
@@ -61,6 +61,11 @@ export class TaskProviderRegistryService<TASK_T extends Task> implements TaskPro
       }
     });
     let numProviderCompletions = 0;
+    // If there are no active providers, emit an empty response
+    if (providerResponses.length === 0) {
+      return of({tasks: []});
+    }
+    // If there are active providers, combine their responses into a single observable
     return Observable.create(subscriber => {
       merge(
           providerResponses

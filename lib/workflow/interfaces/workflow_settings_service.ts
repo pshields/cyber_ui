@@ -4,7 +4,7 @@ import {TaskSuggestionServiceGetSuggestionsBaseOptions} from '../../task/interfa
 
 
 export interface WorkflowSettingsService<
-    GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions
+    GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions = TaskSuggestionServiceGetSuggestionsBaseOptions
   > {
   // Stream of GetSuggestions options (emitted after each options change)
   changes: Observable<GET_SUGGESTIONS_OPTIONS_T>;

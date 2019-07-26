@@ -11,9 +11,16 @@ export class DemoWorkflowSettingsService implements WorkflowSettingsService<
   > {
   changes = new EventEmitter<TaskSuggestionServiceGetSuggestionsBaseOptions>();
 
+  options = {};
+
   constructor() {}
 
   getGetSuggestionsOptions(): TaskSuggestionServiceGetSuggestionsBaseOptions {
-    return {};
+    return this.options;
+  }
+
+  setGetSuggestionsOptions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {
+    this.options = options;
+    this.changes.emit(options);
   }
 }

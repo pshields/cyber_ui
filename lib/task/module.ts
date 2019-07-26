@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {TaskProviderRegistryService} from './task_provider_registry.service';
 
 

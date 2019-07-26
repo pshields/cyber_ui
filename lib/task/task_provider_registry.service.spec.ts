@@ -103,3 +103,6 @@ describe('TaskProviderRegistry', () => {
     });
   });
 });
+
+// TODO Test that getTasks returns an empty response after the settings change such that there are no active task providers
+// Prior to fixing this, it would create an observable which would never complete in that case

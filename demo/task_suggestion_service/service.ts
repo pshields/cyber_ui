@@ -1,19 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
 
-import {MatSnackBar} from '@angular/material/snack-bar';
-
-import {ReplaySubject} from 'rxjs';
-import {first, map} from 'rxjs/operators';
-
-import {getDemoTaskSuggestions} from '../data';
+import {map} from 'rxjs/operators';
 
 import {Task} from 'lib/public_api';
+import {TaskProviderRegistryService} from 'lib/public_api';
 import {TaskSuggestionService} from 'lib/public_api';
 import {TaskSuggestionServiceGetSuggestionsBaseOptions} from 'lib/public_api';
 import {TaskSuggestionServiceGetSuggestionsBaseResponse} from 'lib/public_api';
-import {TaskSuggestion} from 'lib/public_api';
-import {CyberUiSnoozeReasonCollectionDialogService} from 'lib/public_api';
+
+import {DEMO_TASK_PROVIDER_ID, DemoTaskProvider} from './demo_task_provider';
 
 
 // A TaskSuggestionService for use on the demo site
@@ -23,44 +18,17 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
     TaskSuggestionServiceGetSuggestionsBaseOptions,
     TaskSuggestionServiceGetSuggestionsBaseResponse<Task>
   > {
-  suggestions = new ReplaySubject<TaskSuggestion<Task>[]>(1);
 
   constructor(
-    readonly router: Router,
-    readonly snackBar: MatSnackBar,
-    readonly snoozeReasonCollectionDialogService: CyberUiSnoozeReasonCollectionDialogService
+    readonly demoTaskProvider: DemoTaskProvider,
+    readonly taskProviderRegistry: TaskProviderRegistryService
   ) {
-    this.suggestions.next(getDemoTaskSuggestions({
-        router: this.router,
-        snackBar: this.snackBar,
-        snoozeReasonCollectionDialogService: this.snoozeReasonCollectionDialogService,
-        taskSuggestionService: this,
-    }));
-  }
-
-  markTaskComplete(task: Task) {
-    this.suggestions.pipe(first()).subscribe(suggestions => {
-      this.suggestions.next(suggestions.filter(suggestion => {
-        return suggestion.task !== task;
-      }));
-    });
-  }
-
-  setActionsDisplayComponent(componentCls: string|any) {
-    if (componentCls === '') {
-      componentCls = undefined;
-    }
-    this.suggestions.pipe(first()).subscribe(suggestions => {
-      this.suggestions.next(suggestions.map(suggestion => {
-        suggestion.task.actionsDisplayComponent = componentCls;
-        return suggestion;
-      }));
-    });
+    taskProviderRegistry.registerProvider(DEMO_TASK_PROVIDER_ID, demoTaskProvider);
   }
 
   getSuggestions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {
-    return this.suggestions.pipe(map(tasks => {
-      return {suggestions: tasks};
+    return this.taskProviderRegistry.getTasks(options).pipe(map(tasks => {
+      return {suggestions: tasks.tasks.map(task => { return {task: task}})};
     }));
   }
 }

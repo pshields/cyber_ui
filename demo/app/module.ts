@@ -18,6 +18,7 @@ import {TASK_SUGGESTION_SERVICE, CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from 'lib/p
 import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
 import {CyberUiSettingsDialogModule} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
+import {CyberUiTasksModule} from 'lib/public_api';
 import {CyberUiWorkOnTasksWorkflowModule} from 'lib/public_api';
 import {CyberUiDelegationMenuModule} from 'lib/public_api';
 import {CyberUiFakeBackendModule} from 'lib/public_api';
@@ -26,6 +27,7 @@ import {AddThingWorkflowDemoComponent} from '../add_thing_workflow/component';
 import {AddThingWorkflowDemoModule} from '../add_thing_workflow/module';
 import {CapabilityAreasComponent} from '../capability_areas/component';
 import {CapabilityAreasModule} from 'demo/capability_areas/module';
+import {DemoTaskProvider} from '../task_suggestion_service/demo_task_provider';
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
 import {DemoWorkflowSettingsService} from '../workflow_settings_service/service';
 import {FormFieldsDemoComponent} from '../form_fields/component';
@@ -100,11 +102,13 @@ export const routes: Routes = [
     CyberUiDelegationMenuModule,
     CyberUiSettingsDialogModule,
     CyberUiSnoozeReasonCollectionDialogModule,
+    CyberUiTasksModule,
     CyberUiWorkOnTasksWorkflowModule,
     // Backend to use in the demo
     CyberUiFakeBackendModule,
   ],
   providers: [
+    DemoTaskProvider,
     {provide: TASK_SUGGESTION_SERVICE, useClass: DemoTaskSuggestionService},
     {provide: WORKFLOW_SETTINGS_SERVICE, useClass: DemoWorkflowSettingsService},
     // Customize MatDialogModule options by settings some application-wide defaults
