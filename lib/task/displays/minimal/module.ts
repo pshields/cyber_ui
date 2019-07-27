@@ -20,5 +20,8 @@ import {CyberUiMinimalTaskComponent} from './component';
   exports: [
     CyberUiMinimalTaskComponent,
   ],
+  entryComponents: [
+    CyberUiMinimalTaskComponent,
+  ]
 })
 export class CyberUiMinimalTaskModule {}
