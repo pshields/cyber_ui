@@ -57,6 +57,7 @@ export class CyberUiThemeService {
     this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
     this.matListSubheaderColor.subscribe(color => this.setCssCustomProperty('--mat-list-subheader-color', color));
     this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
+    this.prominentTextColor.subscribe(color => this.setCssCustomProperty('--prominent-text-color', color));
     // Set static CSS custom properties
     this.setCssCustomProperty('--light-background-text-color', LIGHT_THEME_TEXT_COLOR);
     this.setCssCustomProperty('--light-background-subheader-color', LIGHT_THEME_SUBHEADER_COLOR);
