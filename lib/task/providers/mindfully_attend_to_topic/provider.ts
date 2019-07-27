@@ -52,7 +52,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     const tasks: Task[] = [];
     this.topicRegistrations.forEach(topicRegistration => {
       tasks.push({
-        label: `Spend a 50-minute hard focus session attending to ${topicRegistration.label}, and log follow-ups as appropriate`
+        label: `Spend a 50-minute hard focus session attending to ${topicRegistration.labelWhenUsedInASentence}, and log follow-ups as appropriate`
       })
     });
     this.tasks.next(tasks);

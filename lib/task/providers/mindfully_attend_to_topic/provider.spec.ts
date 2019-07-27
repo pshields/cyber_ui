@@ -39,3 +39,4 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
   });
 
 });
+// TODO Add a test that the topic's `labelWhenUsedInASentence` is used in the produced task statement
