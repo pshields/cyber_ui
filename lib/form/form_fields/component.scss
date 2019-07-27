@@ -53,8 +53,7 @@
   }
 
   .mat-form-field-appearance-legacy .mat-form-field-underline {
-    // TODO Replace with a property that uses 42% opacity
-    background-color: var(--mat-list-subheader-color);
+    background-color: var(--low-opacity-color);
   }
 }
 
@@ -72,8 +71,7 @@
   }
 
   .mat-form-field-appearance-legacy .mat-form-field-underline {
-    // TODO Replace with a property that uses 42% opacity
-    background-color: var(--light-background-subheader-color);
+    background-color: var(--light-background-low-opacity-color);
   }
 
 }

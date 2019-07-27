@@ -1,6 +1,6 @@
 .mat-chip.mat-standard-chip {
   background: none;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--low-opacity-color);
   cursor: pointer;
   color: var(--text-color);
 }

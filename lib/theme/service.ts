@@ -16,7 +16,8 @@ export const DARK_THEME_TEXT_COLOR = 'rgba(255, 255, 255, 0.87)';
 export const LIGHT_THEME_TEXT_COLOR = 'rgba(0, 0, 0, 0.87)';
 export const DARK_THEME_SUBHEADER_COLOR = 'rgba(255, 255, 255, 0.54)';
 export const LIGHT_THEME_SUBHEADER_COLOR = 'rgba(0, 0, 0, 0.54)';
-
+export const DARK_THEME_LOW_OPACITY_COLOR = 'rgba(255, 255, 255, 0.42)';
+export const LIGHT_THEME_LOW_OPACITY_COLOR = 'rgba(0, 0, 0, 0.42)';
 
 @Injectable({providedIn: 'root'})
 export class CyberUiThemeService {
@@ -29,6 +30,7 @@ export class CyberUiThemeService {
   public appBackground: string;
   // The current text color to use for subheaders in Material lists
   readonly matListSubheaderColor = new ReplaySubject<string>(1);
+  readonly lowOpacityColor = new ReplaySubject<string>(1);
   // The current text color to use in typical body text on the page
   // As currently implemented, opacity is diminished to reduce contrast
   // In situations where a solid, prominent foreground text color is desired,
@@ -55,17 +57,20 @@ export class CyberUiThemeService {
     settingsService.listen().subscribe(settings => this.recalculateCachedProperties(settings));
     // Update theme-related CSS custom properties
     this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
+    this.lowOpacityColor.subscribe(color => this.setCssCustomProperty('--low-opacity-color', color));
     this.matListSubheaderColor.subscribe(color => this.setCssCustomProperty('--mat-list-subheader-color', color));
     this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
     this.prominentTextColor.subscribe(color => this.setCssCustomProperty('--prominent-text-color', color));
     // Set static CSS custom properties
     this.setCssCustomProperty('--light-background-text-color', LIGHT_THEME_TEXT_COLOR);
     this.setCssCustomProperty('--light-background-subheader-color', LIGHT_THEME_SUBHEADER_COLOR);
+    this.setCssCustomProperty('--light-background-low-opacity-color', LIGHT_THEME_LOW_OPACITY_COLOR);
   }
 
   recalculateCachedProperties(settings) {
     this.topToolbarBackgroundColor = this.getTopToolbarBackgroundColor(settings);
     this.appBackground = this.getAppBackground(settings);
+    this.lowOpacityColor.next(this.getLowOpacityColor(settings));
     this.matListSubheaderColor.next(this.getMatListSubheaderColor(settings));
     this.textColor.next(this.getTextColor(settings));
     this.prominentTextColor.next(this.getProminentTextColor(settings));
@@ -80,6 +85,17 @@ export class CyberUiThemeService {
       return DARK_THEME_SUBHEADER_COLOR;
     } else {
       return LIGHT_THEME_SUBHEADER_COLOR;
+    }
+  }
+
+  getLowOpacityColor(settings) {
+    // TODO There's some more work to do here, but as a starting point:
+    // if the background color is dark, use white; if it's bright, use black.
+    const color = tinycolor(this.getAppBackground(settings));
+    if (color.getBrightness() < 127) {
+      return DARK_THEME_LOW_OPACITY_COLOR;
+    } else {
+      return LIGHT_THEME_LOW_OPACITY_COLOR;
     }
   }
 
