@@ -1,3 +1,4 @@
+import {BooleanField} from 'lib/public_api';
 import {ChoiceField} from 'lib/public_api';
 import {CYBER_UI_MATERIAL_THEME_SETTINGS} from 'lib/public_api';
 import {ENERGY_LEVEL_FIELD} from 'lib/public_api';
@@ -32,7 +33,18 @@ export class DemoSettingsConfig {
               new Option('20 minutes', '20'),
               new Option('25 minutes', '25')
             ]
-          })
+          }),
+          new BooleanField({
+            label: 'Play sound effect when recognizing an achievement',
+            propertyName: 'playSoundEffectWhenRecognizingAnAchievement',
+          }),
+          new ChoiceField({
+            label: 'Achievement sound effect',
+            propertyName: 'achievementSoundEffectName',
+            options: [
+              new Option('Applause', 'applause')
+            ]
+          }),
         ],
       }
     ];
@@ -57,4 +69,6 @@ export class DemoSettings {
   topToolbarDefaultBackgroundColor = colors.DEMO_APP_PRIMARY;
   matchAppAndToolbarBackground = true;
   pomodoroLength = '20';  // in minutes
+  playSoundEffectWhenRecognizingAnAchievement = true;
+  achievementSoundEffectName = 'applause';
 }
