@@ -18,3 +18,8 @@ $mat-card-bottom-padding: 16px;
   // Also, allow the custom actions display to be clipped by mat-card's border-radius
   overflow: hidden;
 }
+
+::ng-deep mat-card-title.mat-card-title {
+  // Improve line height by overriding a .mat-typography style
+  line-height: normal;
+}
