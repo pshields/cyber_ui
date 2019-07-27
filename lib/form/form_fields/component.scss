@@ -57,3 +57,23 @@
     background-color: var(--mat-list-subheader-color);
   }
 }
+
+// Handle theming in overlays
+:host-context(.cdk-overlay-container) ::ng-deep {
+
+  .mat-select-value,
+  .mat-select-arrow {
+    // Get the text color from app-wide CSS custom property
+    color: var(--light-background-text-color);
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: var(--light-background-subheader-color);
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    // TODO Replace with a property that uses 42% opacity
+    background-color: var(--light-background-subheader-color);
+  }
+
+}

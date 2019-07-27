@@ -11,6 +11,12 @@ import {CyberUiSettingsService} from '../settings/service/service';
 // see e.g. https://github.com/jvandemo/generator-angular2-library/issues/221
 const tinycolor = tinycolor_;
 
+// Static theme constants
+export const DARK_THEME_TEXT_COLOR = 'rgba(255, 255, 255, 0.87)';
+export const LIGHT_THEME_TEXT_COLOR = 'rgba(0, 0, 0, 0.87)';
+export const DARK_THEME_SUBHEADER_COLOR = 'rgba(255, 255, 255, 0.54)';
+export const LIGHT_THEME_SUBHEADER_COLOR = 'rgba(0, 0, 0, 0.54)';
+
 
 @Injectable({providedIn: 'root'})
 export class CyberUiThemeService {
@@ -51,6 +57,9 @@ export class CyberUiThemeService {
     this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
     this.matListSubheaderColor.subscribe(color => this.setCssCustomProperty('--mat-list-subheader-color', color));
     this.primaryLinkColor.subscribe(color => this.setCssCustomProperty('--primary-link-color', color));
+    // Set static CSS custom properties
+    this.setCssCustomProperty('--light-background-text-color', LIGHT_THEME_TEXT_COLOR);
+    this.setCssCustomProperty('--light-background-subheader-color', LIGHT_THEME_SUBHEADER_COLOR);
   }
 
   recalculateCachedProperties(settings) {
@@ -67,9 +76,9 @@ export class CyberUiThemeService {
     // if the background color is dark, use white; if it's bright, use black.
     const color = tinycolor(this.getAppBackground(settings));
     if (color.getBrightness() < 127) {
-      return 'rgba(255, 255, 255, 0.54)';
+      return DARK_THEME_SUBHEADER_COLOR;
     } else {
-      return 'rgba(0, 0, 0, 0.54)';
+      return LIGHT_THEME_SUBHEADER_COLOR;
     }
   }
 
@@ -102,9 +111,9 @@ export class CyberUiThemeService {
     // if the background color is dark, use white; if it's bright, use black.
     const color = tinycolor(this.getAppBackground(settings));
     if (color.getBrightness() < 127) {
-      return 'rgba(255, 255, 255, 0.87)';
+      return DARK_THEME_TEXT_COLOR;
     } else {
-      return 'rgba(0, 0, 0, 0.87)';
+      return LIGHT_THEME_TEXT_COLOR;
     }
   }
 
