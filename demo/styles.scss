@@ -11,6 +11,7 @@ $cyber-ui-demo-theme: mat-light-theme($cyber-ui-primary, $cyber-ui-accent);
 @include angular-material-theme($cyber-ui-demo-theme);
 
 
+// TODO Move this section to documentation
 // =====================
 // CSS custom properties
 // =====================
@@ -24,10 +25,6 @@ $cyber-ui-demo-theme: mat-light-theme($cyber-ui-primary, $cyber-ui-accent);
 // values set here are mostly an attempt to provide reasonable defaults
 // which might be shown in the moments after initial page load before
 // the theme service has set the values.
-:root {
-  --primary-link-color: default;
-  --text-color: black;
-}
 
 
 html {
