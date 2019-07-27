@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 
 import {map} from 'rxjs/operators';
 
+import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from 'lib/public_api';
+import {CyberUiMindfullyAttendToTopicTaskProvider} from 'lib/public_api';
 import {Task} from 'lib/public_api';
 import {TaskProviderRegistryService} from 'lib/public_api';
 import {TaskSuggestionService} from 'lib/public_api';
@@ -21,9 +23,21 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
 
   constructor(
     readonly demoTaskProvider: DemoTaskProvider,
-    readonly taskProviderRegistry: TaskProviderRegistryService
+    readonly mindfullyAttendToTopicProvider: CyberUiMindfullyAttendToTopicTaskProvider,
+    readonly taskProviderRegistry: TaskProviderRegistryService,
   ) {
     taskProviderRegistry.registerProvider(DEMO_TASK_PROVIDER_ID, demoTaskProvider);
+    taskProviderRegistry.registerProvider(CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID, mindfullyAttendToTopicProvider);
+    // Register some example topics with the mindfully-attend-to-topic task provider
+    mindfullyAttendToTopicProvider.registerTopics({
+      topics: [
+        {
+          label: 'Systemization'
+        }, {
+          label: 'Lifestyle'
+        }
+      ]
+    });
   }
 
   getSuggestions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {

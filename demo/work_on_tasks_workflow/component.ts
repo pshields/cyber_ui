@@ -30,7 +30,8 @@ export class WorkOnTasksWorkflowDemoComponent {
   actionsDisplayComponent = CyberUiResponseChipsComponent;
   // The list of task providers to use
   taskProviders = [
-    DEMO_TASK_PROVIDER_ID
+    DEMO_TASK_PROVIDER_ID,
+    CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID,
   ];
   // Tell the work-on-tasks-workflow component to reload the suggestions on settings changes
   reloadSuggestionsAfterWorkflowSettingsChange = true;

@@ -14,8 +14,10 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 
 import {MarkdownModule} from 'ngx-markdown';
 
-import {TASK_SUGGESTION_SERVICE, CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from 'lib/public_api';
+import {CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from 'lib/public_api';
+import {TASK_SUGGESTION_SERVICE} from 'lib/public_api';
 import {WORKFLOW_SETTINGS_SERVICE} from 'lib/public_api';
+import {CyberUiMindfullyAttendToTopicTaskProviderModule} from 'lib/public_api';
 import {CyberUiSettingsDialogModule} from 'lib/public_api';
 import {CyberUiSnoozeReasonCollectionDialogModule} from 'lib/public_api';
 import {CyberUiTasksModule} from 'lib/public_api';
@@ -100,6 +102,7 @@ export const routes: Routes = [
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
     CyberUiDelegationMenuModule,
+    CyberUiMindfullyAttendToTopicTaskProviderModule,
     CyberUiSettingsDialogModule,
     CyberUiSnoozeReasonCollectionDialogModule,
     CyberUiTasksModule,

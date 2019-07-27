@@ -114,6 +114,10 @@ export {CyberUiMinimalTaskListModule} from './task/displays/minimal_list/module'
 // Labels
 export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL} from './task/providers/mindfully_attend_to_topic/provider';
 
+// Providers
+export {CyberUiMindfullyAttendToTopicTaskProvider} from './task/providers/mindfully_attend_to_topic/provider';
+export {CyberUiMindfullyAttendToTopicTaskProviderModule} from './task/providers/mindfully_attend_to_topic/module';
+
 // Task actions panel
 export {CyberUiActionsPanelComponent} from './task/displays/action_panel/component';
 export {CyberUiActionsPanelModule} from './task/displays/action_panel/module';
