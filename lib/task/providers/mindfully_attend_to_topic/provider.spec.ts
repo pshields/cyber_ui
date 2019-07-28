@@ -1,3 +1,7 @@
+import {first} from 'rxjs/operators';
+
+
+import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './provider';
 import {CyberUiMindfullyAttendToTopicTaskProvider} from './provider';
 
 
@@ -36,6 +40,23 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
       });
       expect(provider.getTopicRegistrationsCount()).toEqual(2);
     });
+  });
+
+  describe('getTasks()', () => {
+    describe('when no topics have been registered', () => {
+      beforeEach(() => {
+        expect(provider.getTopicRegistrationsCount()).toEqual(0);
+      });
+      it('returns an empty array, rather than waiting indefinitely', () => {
+        expect(provider.getTasks().pipe(first()).subscribe(response => {
+          expect(response.tasks.length).toBe(0);
+        }));
+      });
+    });
+  });
+
+  it('stores its id as a static property on the class', () => {
+    expect(CyberUiMindfullyAttendToTopicTaskProvider.id).toEqual(CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID);
   });
 
 });

@@ -23,6 +23,13 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   private topicRegistrations: TopicRegistration[] = [];
   private tasks = new ReplaySubject<Task[]>(1);
 
+  constructor() {
+    // Initialize the tasks observable with an empty list
+    // This way, the task provider won't wait indefinitely to receive a response
+    // from this task provider, if no topics have been registered
+    this.tasks.next([]);
+  }
+
   // Registers topics with the provider
   registerTopics(options: RegisterTopicsOptions): RegisterTopicsResponse {
     for (let topicOptions of options.topics) {
@@ -58,4 +65,5 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     this.tasks.next(tasks);
   }
 
+  static readonly id = CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID;
 }
