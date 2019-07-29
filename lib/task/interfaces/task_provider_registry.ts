@@ -1,7 +1,8 @@
 import {Observable} from 'rxjs';
 
 import {Task} from './task';
-import {TaskProvider, TaskProviderId, TaskProviderGetTasksOptions, TaskProviderGetTasksResponse} from './task_provider';
+import {TaskProvider, TaskProviderId, TaskProviderGetTasksOptions} from './task_provider';
+import {TaskSuggestion} from './task_suggestion';
 
 
 export interface TaskProviderRegistry<TASK_T extends Task> {
@@ -12,5 +13,9 @@ export interface TaskProviderRegistry<TASK_T extends Task> {
   getProviders(): TaskProvider<TASK_T>[];
 
   // Returns an observable emitting the current list of tasks
-  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderGetTasksResponse<TASK_T>>;
+  getTasks(options: TaskProviderGetTasksOptions): Observable<TaskProviderRegistryGetTasksResponse<TASK_T>>;
+}
+
+export interface TaskProviderRegistryGetTasksResponse<TASK_T extends Task = Task> {
+  suggestions: TaskSuggestion<TASK_T>[];
 }

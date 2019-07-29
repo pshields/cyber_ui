@@ -80,6 +80,7 @@ export {CyberUiEditDialogService} from './form/edit_dialog/service';
 export {TaskProvider} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksOptions} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksResponse} from './task/interfaces/task_provider';
+export {TaskProviderRegistryGetTasksResponse} from './task/interfaces/task_provider_registry';
 export {Task} from './task/interfaces/task';
 export {Action} from './task/interfaces/action';
 export {CyberUiActionContext} from './task/interfaces/action_context';

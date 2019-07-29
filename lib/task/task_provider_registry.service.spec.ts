@@ -90,7 +90,7 @@ describe('TaskProviderRegistry', () => {
     beforeEach(async(() => {
       registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
       registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
-      registry.getTasks({}).subscribe(response => latestTaskLabels = response.tasks.map(task => task.label));
+      registry.getTasks({}).subscribe(response => latestTaskLabels = response.suggestions.map(suggestion => suggestion.task.label));
     }));
 
     it('returns only the latest set of tasks from each provider', () => {

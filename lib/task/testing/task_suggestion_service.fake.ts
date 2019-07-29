@@ -34,6 +34,7 @@ export class FakeTaskSuggestionService implements TaskSuggestionService<
               }
             ]
           },
+          providerId: 'TASK_A_PROVIDER',
         },
         {
           task: {
@@ -44,7 +45,8 @@ export class FakeTaskSuggestionService implements TaskSuggestionService<
                 handler: () => {}
               }
             ]
-          }
+          },
+          providerId: 'TASK_B_PROVIDER',
         }
       ]
     });

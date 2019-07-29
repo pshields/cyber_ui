@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 
-import {map} from 'rxjs/operators';
-
 import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from 'lib/public_api';
 import {CyberUiMindfullyAttendToTopicTaskProvider} from 'lib/public_api';
 import {Task} from 'lib/public_api';
@@ -41,8 +39,6 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
   }
 
   getSuggestions(options: TaskSuggestionServiceGetSuggestionsBaseOptions) {
-    return this.taskProviderRegistry.getTasks(options).pipe(map(tasks => {
-      return {suggestions: tasks.tasks.map(task => { return {task: task}})};
-    }));
+    return this.taskProviderRegistry.getTasks(options);
   }
 }
