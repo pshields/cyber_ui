@@ -25,6 +25,7 @@
     "core-js": "2.6.9",
     "firebase": "6.3.3",
     "ngx-markdown": "8.1.0",
+    "randexp": "^0.5.3",
     "rxjs": "6.5.2",
     "tinycolor2": "1.4.1",
     "zone.js": "0.10.0"
