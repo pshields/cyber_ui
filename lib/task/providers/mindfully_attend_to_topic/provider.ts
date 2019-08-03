@@ -1,3 +1,5 @@
+import {Injectable} from '@angular/core';
+
 import {ReplaySubject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -27,6 +29,7 @@ const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus sess
 // Provides tasks around mindfully attending to topics
 // Example task statement:
 // Start a 50-minute hard focus session with the intention to mindfully attend to systemization, and log follow-ups as appropriate
+@Injectable({providedIn: 'root'})
 export class CyberUiMindfullyAttendToTopicTaskProvider {
   private topicRegistrations: TopicRegistration[] = [];
   private tasks = new ReplaySubject<Task[]>(1);
