@@ -30,9 +30,11 @@ export class DemoTaskSuggestionService implements TaskSuggestionService<
     mindfullyAttendToTopicProvider.registerTopics({
       topics: [
         {
-          label: 'Systemization'
+          label: 'Systemization',
+          importance: 0.8,
         }, {
-          label: 'Lifestyle'
+          label: 'Lifestyle',
+          importance: 0.7,
         }
       ]
     });

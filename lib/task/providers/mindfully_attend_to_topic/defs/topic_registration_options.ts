@@ -7,4 +7,8 @@ export interface TopicRegistrationOptions {
   // A version of the label appropriate for use in a sentence
   // If omitted, a lowercase version of the label will be used
   labelWhenUsedInASentence?: string;
+  // The importance of this topic to the user, as a number in [0, 1]
+  // The idea is that the higher the importance, the more frequently
+  // the user will be shown a task corresponding to this topic
+  importance: number;
 }

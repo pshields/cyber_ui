@@ -6,12 +6,14 @@ import {CyberUiMindfullyAttendToTopicTaskProvider} from './provider';
 
 
 const EXAMPLE_TOPIC_1 = {
-  label: 'Example topic 1'
+  label: 'Example topic 1',
+  importance: 0.5
 };
 
 
 const EXAMPLE_TOPIC_2 = {
-  label: 'Example topic 2'
+  label: 'Example topic 2',
+  importance: 0.4
 };
 
 
