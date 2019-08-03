@@ -1,5 +1,10 @@
+import {async} from '@angular/core/testing';
+
 import {first} from 'rxjs/operators';
 
+import {Task} from '../../../task/interfaces/task';
+
+import {ResponseEvent} from './defs/response_event';
 
 import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './provider';
 import {CyberUiMindfullyAttendToTopicTaskProvider} from './provider';
@@ -59,6 +64,32 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
 
   it('stores its id as a static property on the class', () => {
     expect(CyberUiMindfullyAttendToTopicTaskProvider.id).toEqual(CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID);
+  });
+
+  describe('when the user selects the primary action', () => {
+    let task: Task;
+    let responseEvent: ResponseEvent;
+
+    beforeEach(async(() => {
+      provider.registerTopics({
+        topics: EXAMPLE_TOPICS_LIST
+      });
+      provider.getTasks().subscribe(tasksResponse => {
+        task = tasksResponse.tasks[0];
+      });
+      provider.responses.subscribe(response => {
+        responseEvent = response;
+      })
+    }));
+    beforeEach(async(() => {
+      task.actions[0].handler({});
+    }));
+
+    it('emits a response event for that action', () => {
+      expect(responseEvent).not.toBeUndefined();
+      expect(responseEvent.label).not.toBeUndefined();
+      expect(responseEvent.label).toEqual(task.actions[0].label);
+    });
   });
 
 });
