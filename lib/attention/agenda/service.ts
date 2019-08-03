@@ -9,7 +9,7 @@ import {CyberUiAttentionalAgendaSnapshot} from './attentional_agenda_snapshot';
 
 
 // A service for managing subjects of the user's attention
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class CyberUiAttentionalAgendaService {
   private readonly state = new ReplaySubject<CyberUiAttentionalAgendaSnapshot>(1);
   private items: CyberUiAttentionalAgendaItem[] = [];
