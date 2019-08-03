@@ -89,5 +89,6 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     return this.primaryActionLabelRandExp.gen();
   }
 
+  // For convenience, store the task provider's suggested id as a static class property
   static readonly id = CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID;
 }
