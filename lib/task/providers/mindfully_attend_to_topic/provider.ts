@@ -21,7 +21,7 @@ export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID = 'CYBER_UI_MIN
 const PRIMARY_ACTION_LABEL_GENERATOR_REGEX = /(OK, LET'S GO|I'M READY|START (IT|TIMEBOX|SESSION|HARD FOCUS SESSION))(!)?/;
 
 // The regexp used to stochastically generate the task label
-const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus session mindfully attending to TOPIC_LABEL_TOKEN(, and log follow-ups as appropriate)?/;
+const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus session( with the intention of)? mindfully attending to TOPIC_LABEL_TOKEN(, and log follow-ups as appropriate)?/;
 
 
 // Provides tasks around mindfully attending to topics
