@@ -12,7 +12,14 @@ export class CyberUiAttentionalAgendaSnapshot {
     this.items = options.items;
   }
 
+  // Returns the item which was most recently added to the agenda
   getMostRecentlyAddedItem(): CyberUiAttentionalAgendaItem {
-    return this.items[this.items.length - 1];
+    return this.items.reduce((mostRecentItem, candidateItem) => {
+      if (mostRecentItem && mostRecentItem.added > candidateItem.added) {
+        return mostRecentItem;
+      } else {
+        return candidateItem;
+      }
+    });
   }
 }
