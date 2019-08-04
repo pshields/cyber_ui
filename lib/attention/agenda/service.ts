@@ -24,6 +24,17 @@ export class CyberUiAttentionalAgendaService {
     const newItem = new CyberUiAttentionalAgendaItem(options, this);
     this.items.push(newItem);
     // Emit a new state for consumers
+    this.emitNewState();
+  }
+
+  clearItem(item: CyberUiAttentionalAgendaItem) {
+    // Remove the item from the agenda
+    this.items.splice(this.items.indexOf(item), 1);
+    // Emit a new state for consumers
+    this.emitNewState();
+  }
+
+  private emitNewState() {
     const newState = new CyberUiAttentionalAgendaSnapshot({
       items: this.items
     });

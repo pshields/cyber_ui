@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <cyber-ui-timebox-countdown-display
+    *ngIf="item.timeboxId"
+    [timeboxId]="item.timeboxId">
+  </cyber-ui-timebox-countdown-display>
+  <span class="label">{{item.label}}</span>
+  <button mat-button (click)="item.clear()">CLEAR</button>
+</mat-toolbar>

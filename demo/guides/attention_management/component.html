@@ -14,7 +14,8 @@
       *ngIf="item.timeboxId"
       [timeboxId]="item.timeboxId">
     </cyber-ui-timebox-countdown-display>
-    {{ item.label }}
+    {{item.label}}
+    <button mat-button (click)="item.clear()">CLEAR</button>
   </li>
 </ol>
 
@@ -33,3 +34,8 @@
 <div class="demo-controls">
   <button mat-stroked-button (click)="addItemToAgenda()">ADD ITEM TO AGENDA</button>
 </div>
+
+<h3>Attentional agenda using <code>cyber-ui-attentional-agenda-display-component</code></h3>
+
+<cyber-ui-attentional-agenda-display [agenda]="agenda">
+</cyber-ui-attentional-agenda-display>

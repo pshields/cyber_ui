@@ -4,6 +4,7 @@
 // ATTENTION
 // =========
 
+export {CyberUiAttentionalAgendaDisplayModule} from './attention/agenda/display/module';
 export {CyberUiAttentionalAgendaItemOptions} from './attention/agenda/defs/attentional_agenda_item_options';
 export {CyberUiAttentionalAgendaService} from './attention/agenda/service';
 export {CyberUiAttentionalAgendaSnapshot} from './attention/agenda/attentional_agenda_snapshot';

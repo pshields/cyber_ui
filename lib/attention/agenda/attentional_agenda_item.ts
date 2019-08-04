@@ -23,12 +23,17 @@ export class CyberUiAttentionalAgendaItem {
     this.timeboxId = this.getTimeboxId(options);
   }
 
+  // Clears this item from the agenda
+  clear() {
+    this.service.clearItem(this);
+  }
+
   // Returns the value to use for the `added` timestamp
-  getAdded(options: CyberUiAttentionalAgendaItemOptions) {
+  private getAdded(options: CyberUiAttentionalAgendaItemOptions) {
     return options.added || Date.now();
   }
 
-  getTimeboxId(options: CyberUiAttentionalAgendaItemOptions) {
+  private getTimeboxId(options: CyberUiAttentionalAgendaItemOptions) {
     if (options.timeboxId) return options.timeboxId;
     else if (options.timeboxDuration) {
       return this.service.timeboxService.startTimebox({

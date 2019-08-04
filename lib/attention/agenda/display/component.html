@@ -1,0 +1,6 @@
+<ng-container *ngIf="agenda">
+  <cyber-ui-attentional-agenda-item-display
+    *ngFor="let item of agenda.items"
+    [item]="item">
+  </cyber-ui-attentional-agenda-item-display>
+</ng-container>
