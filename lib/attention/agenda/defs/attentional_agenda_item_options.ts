@@ -11,5 +11,5 @@ export interface CyberUiAttentionalAgendaItemOptions {
   timeboxId?: TimeboxId;
   // An optional timebox duration (in ms), if the item should be timeboxed
   // Note: timeboxId has precedence if provided
-  timeboxDuation?: number;
+  timeboxDuration?: number;
 }

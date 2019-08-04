@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 
 import {CyberUiAttentionalAgendaService} from 'lib/public_api';
 import {CyberUiAttentionalAgendaSnapshot} from 'lib/public_api';
+import {CyberUiAttentionalAgendaItemOptions} from 'lib/public_api';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class AttentionManagementGuideComponent {
   demoItemsAdded = 0;
   // The contents of the 'Item label' input field for new items
   demoAgendaItemInput = this.getNextPlaceholder();
+  demoAgendaItemTimeboxDuration = '50';
 
   constructor(
     readonly attentionalAgendaService: CyberUiAttentionalAgendaService,
@@ -27,10 +29,14 @@ export class AttentionManagementGuideComponent {
   }
 
   addItemToAgenda() {
-    this.attentionalAgendaService.addItemToAttentionalAgenda({
+    const options: CyberUiAttentionalAgendaItemOptions = {
       label: this.demoAgendaItemInput,
-      timeboxDuation: 50 * 60 * 1000,
-    });
+    };
+    const minutes = parseInt(this.demoAgendaItemTimeboxDuration);
+    if (this.demoAgendaItemTimeboxDuration && !isNaN(minutes)) {
+      options.timeboxDuration = minutes * 60 * 1000;
+    }
+    this.attentionalAgendaService.addItemToAttentionalAgenda(options);
     this.demoAgendaItemInput = this.getNextPlaceholder();
   }
 

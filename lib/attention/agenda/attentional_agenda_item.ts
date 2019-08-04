@@ -30,9 +30,9 @@ export class CyberUiAttentionalAgendaItem {
 
   getTimeboxId(options: CyberUiAttentionalAgendaItemOptions) {
     if (options.timeboxId) return options.timeboxId;
-    else if (options.timeboxDuation) {
+    else if (options.timeboxDuration) {
       return this.service.timeboxService.startTimebox({
-        duration: options.timeboxDuation
+        duration: options.timeboxDuration
       }).timeboxId;
     }
   }

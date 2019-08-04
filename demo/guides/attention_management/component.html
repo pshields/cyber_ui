@@ -18,9 +18,17 @@
   </li>
 </ol>
 
-<mat-form-field>
-  <input matInput placeholder="Item label" [(ngModel)]="demoAgendaItemInput">
-</mat-form-field>
+<div class="stacked-form-fields">
+
+  <mat-form-field>
+    <input matInput placeholder="Item label" [(ngModel)]="demoAgendaItemInput">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Timebox length in minutes (leave blank for no timebox)" [(ngModel)]="demoAgendaItemTimeboxDuration">
+  </mat-form-field>
+
+</div>
 
 <div class="demo-controls">
   <button mat-stroked-button (click)="addItemToAgenda()">ADD ITEM TO AGENDA</button>
