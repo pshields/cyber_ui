@@ -23,7 +23,8 @@ import {AddTimeToTimeboxOptions} from './defs/add_time_to_timebox_options';
 export class CyberUiTimeboxService {
 
   // Counter used to generate time box ids
-  private idCounter = 0;
+  // Note: starts at 1 instead of 0 to avoid bugs around 0 being falsy
+  private idCounter = 1;
 
   // The currently active time boxes
   private readonly boxes: Timebox[] = [];

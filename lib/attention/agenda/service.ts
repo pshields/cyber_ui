@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 
 import {Observable, ReplaySubject} from 'rxjs';
 
+import {CyberUiTimeboxService} from '../../util/timebox/service';
+
 import {CyberUiAttentionalAgendaItemOptions} from './defs/attentional_agenda_item_options';
 
 import {CyberUiAttentionalAgendaItem} from './attentional_agenda_item';
@@ -14,8 +16,12 @@ export class CyberUiAttentionalAgendaService {
   private readonly state = new ReplaySubject<CyberUiAttentionalAgendaSnapshot>(1);
   private items: CyberUiAttentionalAgendaItem[] = [];
 
+  constructor(
+    readonly timeboxService: CyberUiTimeboxService,
+  ) {}
+
   addItemToAttentionalAgenda(options: CyberUiAttentionalAgendaItemOptions) {
-    const newItem = new CyberUiAttentionalAgendaItem(options);
+    const newItem = new CyberUiAttentionalAgendaItem(options, this);
     this.items.push(newItem);
     // Emit a new state for consumers
     const newState = new CyberUiAttentionalAgendaSnapshot({

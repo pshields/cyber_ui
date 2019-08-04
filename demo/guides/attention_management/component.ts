@@ -28,7 +28,8 @@ export class AttentionManagementGuideComponent {
 
   addItemToAgenda() {
     this.attentionalAgendaService.addItemToAttentionalAgenda({
-      label: this.demoAgendaItemInput
+      label: this.demoAgendaItemInput,
+      timeboxDuation: 50 * 60 * 1000,
     });
     this.demoAgendaItemInput = this.getNextPlaceholder();
   }

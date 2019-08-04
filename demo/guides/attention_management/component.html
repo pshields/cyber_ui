@@ -10,7 +10,11 @@
 
 <ol *ngIf="agenda && agenda.items && agenda.items.length > 0">
   <li *ngFor="let item of agenda.items">
-    {{ item | json }}
+    <cyber-ui-timebox-countdown-display
+      *ngIf="item.timeboxId"
+      [timeboxId]="item.timeboxId">
+    </cyber-ui-timebox-countdown-display>
+    {{ item.label }}
   </li>
 </ol>
 
