@@ -27,6 +27,8 @@ import {CyberUiFakeBackendModule} from 'lib/public_api';
 
 import {AddThingWorkflowDemoComponent} from '../add_thing_workflow/component';
 import {AddThingWorkflowDemoModule} from '../add_thing_workflow/module';
+import {AttentionManagementGuideComponent} from '../guides/attention_management/component';
+import {AttentionManagementGuideModule} from '../guides/attention_management/module';
 import {CapabilityAreasComponent} from '../capability_areas/component';
 import {CapabilityAreasModule} from 'demo/capability_areas/module';
 import {DemoTaskProvider} from '../task_suggestion_service/demo_task_provider';
@@ -56,6 +58,7 @@ import {AppSidenavComponent} from './sidenav.component';
 
 
 export const routes: Routes = [
+  {path: 'guides/attention-management', component: AttentionManagementGuideComponent},
   {path: 'guides/timeboxing', component: TimeboxingGuideComponent},
   {path: 'guides/:id', component: GuidesComponent},
   {path: 'interfaces/:id', component: InterfacesDocumentationComponent},
@@ -90,6 +93,7 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     // Demo modules
     AddThingWorkflowDemoModule,
+    AttentionManagementGuideModule,
     CapabilityAreasModule,
     FormFieldsDemoModule,
     GuidesModule,

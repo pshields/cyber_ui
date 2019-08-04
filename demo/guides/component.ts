@@ -30,6 +30,10 @@ export class Guide {
 // The list of guides that Cyber UI has documentation about
 export const GUIDES = [
   {
+    id: 'attention-management',
+    label: 'Attention management'
+  },
+  {
     id: 'style-guide',
     label: 'Style guide',
     data: styleGuideData,

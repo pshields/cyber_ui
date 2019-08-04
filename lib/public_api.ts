@@ -1,5 +1,12 @@
 // Public API surface of cyber_ui
 
+// =========
+// ATTENTION
+// =========
+
+export {CyberUiAttentionalAgendaService} from './attention/agenda/service';
+export {CyberUiAttentionalAgendaSnapshot} from './attention/agenda/attentional_agenda_snapshot';
+
 // ========
 // BACKENDS
 // ========

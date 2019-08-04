@@ -1,0 +1,23 @@
+<h1>Attention management</h1>
+
+<p>Cyber UI provides capabilities for attention management.</p>
+
+<h2>Demo</h2>
+
+<h3>Attentional agenda</h3>
+
+<p *ngIf="!agenda || !agenda.items || agenda.items.length === 0">Agenda is empty</p>
+
+<ol *ngIf="agenda && agenda.items && agenda.items.length > 0">
+  <li *ngFor="let item of agenda.items">
+    {{ item | json }}
+  </li>
+</ol>
+
+<mat-form-field>
+  <input matInput placeholder="Item label" [(ngModel)]="demoAgendaItemInput">
+</mat-form-field>
+
+<div class="demo-controls">
+  <button mat-stroked-button (click)="addItemToAgenda()">ADD ITEM TO AGENDA</button>
+</div>
