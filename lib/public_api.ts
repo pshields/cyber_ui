@@ -97,6 +97,7 @@ export {TaskSuggestion} from './task/interfaces/task_suggestion';
 export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './task/interfaces/task_suggestion_service';
+export {CyberUiMindfullyAttendToTopicUserResponseEvent} from './task/providers/mindfully_attend_to_topic/defs/user_response_event';
 
 // Identifiers
 export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './task/providers/mindfully_attend_to_topic/provider';

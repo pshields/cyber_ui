@@ -9,7 +9,7 @@ import {Task} from '../../interfaces/task';
 
 import {RegisterTopicsOptions} from './defs/register_topics_options';
 import {RegisterTopicsResponse} from './defs/register_topics_response';
-import {ResponseEvent} from './defs/response_event';
+import {CyberUiMindfullyAttendToTopicUserResponseEvent} from './defs/user_response_event';
 
 import {TopicRegistration} from './topic_registration';
 
@@ -33,7 +33,7 @@ const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus sess
 // Start a 50-minute hard focus session with the intention to mindfully attend to systemization, and log follow-ups as appropriate
 @Injectable({providedIn: 'root'})
 export class CyberUiMindfullyAttendToTopicTaskProvider {
-  responses = new EventEmitter<ResponseEvent>();
+  responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent>();
 
   private topicRegistrations: TopicRegistration[] = [];
   private tasks = new ReplaySubject<Task[]>(1);
@@ -75,20 +75,25 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   private updateTasks() {
     const tasks: Task[] = [];
     this.topicRegistrations.forEach(topicRegistration => {
+      const label = this.getTaskLabelForTopic(topicRegistration);
       tasks.push({
-        label: this.getTaskLabelForTopic(topicRegistration),
-        actions: this.getActions(),
+        label: label,
+        actions: this.getActions(label, topicRegistration),
       })
     });
     this.tasks.next(tasks);
   }
 
-  private getActions() {
+  private getActions(taskLabel: string, topicRegistration: TopicRegistration) {
     const actions = [];
     const primaryAction = {
       label: this.getPrimaryActionLabel(),
       handler: () => {
-        this.responses.next(primaryAction);
+        this.responses.next({
+          taskLabel: taskLabel,
+          actionLabel: primaryAction.label,
+          topicRegistration: topicRegistration
+        });
       },
     };
     actions.push(primaryAction);

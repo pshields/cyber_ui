@@ -4,7 +4,7 @@ import {first} from 'rxjs/operators';
 
 import {Task} from '../../../task/interfaces/task';
 
-import {ResponseEvent} from './defs/response_event';
+import {CyberUiMindfullyAttendToTopicUserResponseEvent} from './defs/user_response_event';
 
 import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './provider';
 import {CyberUiMindfullyAttendToTopicTaskProvider} from './provider';
@@ -68,7 +68,7 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
 
   describe('when the user selects the primary action', () => {
     let task: Task;
-    let responseEvent: ResponseEvent;
+    let responseEvent: CyberUiMindfullyAttendToTopicUserResponseEvent;
 
     beforeEach(async(() => {
       provider.registerTopics({
@@ -87,8 +87,8 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
 
     it('emits a response event for that action', () => {
       expect(responseEvent).not.toBeUndefined();
-      expect(responseEvent.label).not.toBeUndefined();
-      expect(responseEvent.label).toEqual(task.actions[0].label);
+      expect(responseEvent.actionLabel).not.toBeUndefined();
+      expect(responseEvent.actionLabel).toEqual(task.actions[0].label);
     });
   });
 
