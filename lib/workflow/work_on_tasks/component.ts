@@ -19,9 +19,9 @@ import {WorkflowSettingsService} from '../interfaces/workflow_settings_service';
   templateUrl: './component.html',
 })
 export class CyberUiWorkOnTasksWorkflowComponent<
-    TASK_T extends Task,
-    GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions,
-    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>
+    TASK_T extends Task = Task,
+    GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions = TaskSuggestionServiceGetSuggestionsBaseOptions,
+    GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T> = TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>
   > implements OnChanges {
 
   getSuggestionsOptions: GET_SUGGESTIONS_OPTIONS_T;
