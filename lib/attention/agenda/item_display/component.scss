@@ -1,3 +1,8 @@
 .label {
   flex: 1;
+  // Override the mat-toolbar font size with a value that is more
+  // consistent with the other controls (countdown timer, clear button)
+  // as well as fits more text content into each line (some attentional
+  // agenda item labels may be quite long)
+  font-size: 15px;
 }
