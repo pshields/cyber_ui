@@ -7,6 +7,11 @@ export interface CyberUiTaskProviderRegistryGetTasksOptions {
   deadline?: number;
   // The maximum number of tasks to return from each provider (default: no limit)
   limit?: number;
+  // If `oneshot` set, the registry will only emit a single, final response,
+  // either once the deadline is reached (if a deadline was specified) or once all provider
+  // response observables have completed (if no deadline was specified or if this occurs
+  // before the deadline is reached)
+  oneshot?: boolean;
   // The IDs of the providers to get tasks from (default: all registered providers)
   taskProviders?: string[];
 }

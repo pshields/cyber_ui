@@ -8,7 +8,7 @@ import {TaskProviderRegistry, TaskProviderRegistryGetTasksResponse} from '../int
 import {TaskSuggestion} from '../interfaces/task_suggestion';
 
 import {CyberUiTaskProviderRegistryGetTasksOptions} from './defs/get_tasks_options';
-import {timeout} from 'rxjs/operators';
+import {timeout, last} from 'rxjs/operators';
 
 
 // A highly experimental registry for collecting tasks from multiple providers
@@ -69,14 +69,14 @@ export class TaskProviderRegistryService<TASK_T extends Task = Task> implements 
       return of({suggestions: []});
     }
     // If there are active providers, combine their responses into a single observable
-    return Observable.create((subscriber: Subscriber<TaskProviderRegistryGetTasksResponse<TASK_T>>) => {
+    let observable = Observable.create((subscriber: Subscriber<TaskProviderRegistryGetTasksResponse<TASK_T>>) => {
       merge(
           providerResponses
           .map(providerResponse => {
             let providerResponseObservable = providerResponse.responseObservable;
             // If the request has a deadline, terminate all provider response observables at the expiration of the deadline
             if (options.deadline) {
-              providerResponseObservable = providerResponseObservable.pipe(timeout(options.deadline))
+              providerResponseObservable = providerResponseObservable.pipe(timeout(options.deadline));
             }
             providerResponseObservable.subscribe((response: TaskProviderGetTasksResponse<TASK_T>) => {
               // Update the tasks associated with this provider
@@ -97,10 +97,18 @@ export class TaskProviderRegistryService<TASK_T extends Task = Task> implements 
                 suggestions: result
               });
             },
-            error => console.error(error),
+            error => {
+              console.error(error);
+              numProviderCompletions += 1;
+              // If this is the last provider to complete/error, mark the subscriber as complete
+              // (there won't be any more events after this)
+              if (numProviderCompletions === providerResponses.length) {
+                subscriber.complete();
+              }
+            },
             () => {
               numProviderCompletions += 1;
-              // If this is the last provider to complete, mark the subscriber as complete
+              // If this is the last provider to complete/error, mark the subscriber as complete
               // (there won't be any more events after this)
               if (numProviderCompletions === providerResponses.length) {
                 subscriber.complete();
@@ -110,5 +118,10 @@ export class TaskProviderRegistryService<TASK_T extends Task = Task> implements 
         })
       );
     });
+    // If options.oneshot is set, return only the final response to the requester
+    if (options.oneshot) {
+      observable = observable.pipe(last());
+    }
+    return observable;
   }
 }

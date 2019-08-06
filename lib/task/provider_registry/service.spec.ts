@@ -109,21 +109,29 @@ describe('CyberUiTaskProviderRegistryService', () => {
   });
 
   describe('when a provider emits multiple responses', () => {
-    let latestTaskLabels: string[];
+    let taskLabels: string[][] = [];
 
     beforeEach(fakeAsync(() => {
       registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
       registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
       registry.registerProvider('SLOW_TASK_PROVIDER', SLOW_TASK_PROVIDER);
-      registry.getTasks({}).subscribe(response => latestTaskLabels = response.suggestions.map(suggestion => suggestion.task.label));
+      registry.getTasks({}).subscribe(response => taskLabels.push(response.suggestions.map(suggestion => suggestion.task.label)));
       tick(MAXIMUM_NECESSARY_TICK);
     }));
 
-    it('returns only the latest set of tasks from each provider', () => {
-      expect(latestTaskLabels).toContain(TASK_FROM_PROVIDER_A_FINAL_RESPONSE_LABEL);
-      expect(latestTaskLabels).not.toContain(TASK_FROM_PROVIDER_A_INITIAL_RESPONSE_LABEL);
-      expect(latestTaskLabels).toContain(TASK_FROM_PROVIDER_B_INITIAL_AND_FINAL_RESPONSE_LABEL);
-      expect(latestTaskLabels).toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
+    it('returns an evolving set of the latest tasks from each provider', () => {
+      // The registry should emit four responses; two corresponding to provider A, one for B, and one for SLOW_TASK_PROVIDER
+      expect(taskLabels.length).toBe(4);
+      // Expectations for the initial response
+      expect(taskLabels[0]).toContain(TASK_FROM_PROVIDER_A_INITIAL_RESPONSE_LABEL);
+      expect(taskLabels[0]).not.toContain(TASK_FROM_PROVIDER_A_FINAL_RESPONSE_LABEL);
+      expect(taskLabels[0]).not.toContain(TASK_FROM_PROVIDER_B_INITIAL_AND_FINAL_RESPONSE_LABEL);
+      expect(taskLabels[0]).not.toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
+      // Expectations for the final response
+      expect(taskLabels[3]).toContain(TASK_FROM_PROVIDER_A_FINAL_RESPONSE_LABEL);
+      expect(taskLabels[3]).not.toContain(TASK_FROM_PROVIDER_A_INITIAL_RESPONSE_LABEL);
+      expect(taskLabels[3]).toContain(TASK_FROM_PROVIDER_B_INITIAL_AND_FINAL_RESPONSE_LABEL);
+      expect(taskLabels[3]).toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
     });
   });
 
@@ -146,8 +154,54 @@ describe('CyberUiTaskProviderRegistryService', () => {
     it('does not contain tasks from providers that returned after the deadline', () => {
       expect(latestTaskLabels).not.toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
     });
-
   });
+
+  describe('when options.oneshot is set', () => {
+    let taskLabels: string[][];
+
+    beforeEach(() => taskLabels = []);
+
+    describe('and deadline is also set', () => {
+      beforeEach(fakeAsync(() => {
+        registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
+        registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
+        registry.registerProvider('SLOW_TASK_PROVIDER', SLOW_TASK_PROVIDER);
+        registry.getTasks({
+          deadline: EXAMPLE_DEADLINE,
+          oneshot: true,
+        }).subscribe(response => taskLabels.push(response.suggestions.map(suggestion => suggestion.task.label)));
+        tick(MAXIMUM_NECESSARY_TICK);
+      }));
+
+      it('returns only a single response consisting of the tasks that had been received by the deadline', () => {
+        expect(taskLabels.length).toBe(1);
+        expect(taskLabels[0]).toContain(TASK_FROM_PROVIDER_A_FINAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).not.toContain(TASK_FROM_PROVIDER_A_INITIAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).toContain(TASK_FROM_PROVIDER_B_INITIAL_AND_FINAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).not.toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
+      });
+    });
+
+    describe('and deadline not set', () => {
+      beforeEach(fakeAsync(() => {
+        registry.registerProvider('TASK_PROVIDER_A', TASK_PROVIDER_A);
+        registry.registerProvider('TASK_PROVIDER_B', TASK_PROVIDER_B);
+        registry.registerProvider('SLOW_TASK_PROVIDER', SLOW_TASK_PROVIDER);
+        registry.getTasks({
+          oneshot: true,
+        }).subscribe(response => taskLabels.push(response.suggestions.map(suggestion => suggestion.task.label)));
+        tick(MAXIMUM_NECESSARY_TICK);
+      }));
+
+      it('returns only a single response consisting of the final set of tasks received from each provider', () => {
+        expect(taskLabels.length).toBe(1);
+        expect(taskLabels[0]).toContain(TASK_FROM_PROVIDER_A_FINAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).not.toContain(TASK_FROM_PROVIDER_A_INITIAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).toContain(TASK_FROM_PROVIDER_B_INITIAL_AND_FINAL_RESPONSE_LABEL);
+        expect(taskLabels[0]).toContain(TASK_FROM_VERY_SLOW_PROVIDER_LABEL);
+      });
+    });
+  })
 });
 
 // TODO Test that getTasks returns an empty response after the settings change such that there are no active task providers
