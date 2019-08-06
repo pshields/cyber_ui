@@ -2,11 +2,13 @@ import {Injectable} from '@angular/core';
 
 import {Observable, merge, of, Subscriber} from 'rxjs';
 
-import {Task} from './interfaces/task';
-import {TaskSuggestionServiceGetSuggestionsBaseOptions} from './interfaces/task_suggestion_service';
-import {TaskProvider, TaskProviderId, TaskProviderGetTasksResponse} from './interfaces/task_provider';
-import {TaskProviderRegistry, TaskProviderRegistryGetTasksResponse} from './interfaces/task_provider_registry';
-import {TaskSuggestion} from './interfaces/task_suggestion';
+import {Task} from '../interfaces/task';
+import {TaskProvider, TaskProviderId, TaskProviderGetTasksResponse} from '../interfaces/task_provider';
+import {TaskProviderRegistry, TaskProviderRegistryGetTasksResponse} from '../interfaces/task_provider_registry';
+import {TaskSuggestion} from '../interfaces/task_suggestion';
+
+import {CyberUiTaskProviderRegistryGetTasksOptions} from './defs/get_tasks_options';
+import {timeout} from 'rxjs/operators';
 
 
 // A highly experimental registry for collecting tasks from multiple providers
@@ -44,7 +46,7 @@ export class TaskProviderRegistryService<TASK_T extends Task = Task> implements 
 
   // Returns an observable emitting the current list of tasks (live-updating after each task provider returns)
   // To get an observable emitting only the final complete list of tasks, call `.last()` on the returned observable
-  getTasks(options: TaskSuggestionServiceGetSuggestionsBaseOptions): Observable<TaskProviderRegistryGetTasksResponse<TASK_T>> {
+  getTasks(options: CyberUiTaskProviderRegistryGetTasksOptions): Observable<TaskProviderRegistryGetTasksResponse<TASK_T>> {
     // Maintain a mapping from providers to the latest tasks they've returned
     // Note that a given provider may emit multiple responses over time
     // In that case, we need to replace the old set of tasks with the new
@@ -71,7 +73,12 @@ export class TaskProviderRegistryService<TASK_T extends Task = Task> implements 
       merge(
           providerResponses
           .map(providerResponse => {
-            return providerResponse.responseObservable.subscribe((response: TaskProviderGetTasksResponse<TASK_T>) => {
+            let providerResponseObservable = providerResponse.responseObservable;
+            // If the request has a deadline, terminate all provider response observables at the expiration of the deadline
+            if (options.deadline) {
+              providerResponseObservable = providerResponseObservable.pipe(timeout(options.deadline))
+            }
+            providerResponseObservable.subscribe((response: TaskProviderGetTasksResponse<TASK_T>) => {
               // Update the tasks associated with this provider
               // Either they were previously undefined (in the case of the initial provider response),
               // or they were previously defined but have become outdated due to the newer response,

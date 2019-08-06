@@ -106,7 +106,7 @@ export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './task/provid
 export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_service';
 
 // Reference implementations
-export {TaskProviderRegistryService} from './task/task_provider_registry.service';
+export {TaskProviderRegistryService} from './task/provider_registry/service';
 export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/provider';
 
 // Components and modules

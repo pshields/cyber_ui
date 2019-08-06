@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 
-import {TaskProviderRegistryService} from './task_provider_registry.service';
+import {TaskProviderRegistryService} from './provider_registry/service';
 
 
 @NgModule({
