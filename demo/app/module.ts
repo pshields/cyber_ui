@@ -44,8 +44,8 @@ import {MinimalTaskCardDemoComponent} from '../minimal_task_card/component';
 import {MinimalTaskCardDemoModule} from '../minimal_task_card/module';
 import {MinimalDemoThemeModule} from '../minimal_demo_theme/module';
 import {SplashPageComponent} from '../splash_page/component';
-import {TaskProvidersDocumentationComponent} from '../task_providers/component';
-import {TaskProvidersDocumentationModule} from '../task_providers/module';
+import {TaskProvidersDocumentationComponent} from '../docs/task_providers/component';
+import {TaskProvidersDocumentationModule} from '../docs/task_providers/module';
 import {TimeboxingGuideComponent} from '../guides/timeboxing/component';
 import {TimeboxingGuideModule} from '../guides/timeboxing/module';
 
