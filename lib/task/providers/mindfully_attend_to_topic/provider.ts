@@ -5,14 +5,12 @@ import {map} from 'rxjs/operators';
 
 import * as RandExp from 'randexp';
 
-import {Task} from '../../interfaces/task';
-
 import {RegisterTopicsOptions} from './defs/register_topics_options';
 import {RegisterTopicsResponse} from './defs/register_topics_response';
+import {CyberUiMindfullyAttendToTopicTask} from './defs/task';
 import {CyberUiMindfullyAttendToTopicUserResponseEvent} from './defs/user_response_event';
 
 import {TopicRegistration} from './topic_registration';
-
 
 
 // A human readable label describing this provider
@@ -36,7 +34,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent>();
 
   private topicRegistrations: TopicRegistration[] = [];
-  private tasks = new ReplaySubject<Task[]>(1);
+  private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask[]>(1);
   private primaryActionLabelRandExp = new RandExp(PRIMARY_ACTION_LABEL_GENERATOR_REGEX);
   private taskLabelRandExp = new RandExp(TASK_LABEL_GENERATOR_REGEX);
 
@@ -73,12 +71,13 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
 
   // Updates the list of tasks produced by this provider, in response to a change in topic registrations
   private updateTasks() {
-    const tasks: Task[] = [];
+    const tasks: CyberUiMindfullyAttendToTopicTask[] = [];
     this.topicRegistrations.forEach(topicRegistration => {
       const label = this.getTaskLabelForTopic(topicRegistration);
       tasks.push({
         label: label,
         actions: this.getActions(label, topicRegistration),
+        topic: topicRegistration,
       })
     });
     this.tasks.next(tasks);

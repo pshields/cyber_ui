@@ -42,6 +42,13 @@ export {DelegationMenuState} from './delegation/delegation_menu/state';
 
 export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';
 
+// ==========
+// ENGAGEMENT
+// ==========
+
+export {CyberUiTimeSinceLastEngagementService} from './engagement/time_since_last_engagement/service';
+export {CyberUiTimeSinceLastEngagementModule} from './engagement/time_since_last_engagement/module';
+
 // =====
 // FORMS
 // =====
@@ -98,6 +105,7 @@ export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './task/interfaces/task_suggestion_service';
 export {CyberUiMindfullyAttendToTopicUserResponseEvent} from './task/providers/mindfully_attend_to_topic/defs/user_response_event';
+export {CyberUiMindfullyAttendToTopicTask} from './task/providers/mindfully_attend_to_topic/defs/task';
 
 // Identifiers
 export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './task/providers/mindfully_attend_to_topic/provider';
