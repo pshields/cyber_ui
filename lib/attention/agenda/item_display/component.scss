@@ -5,4 +5,8 @@
   // as well as fits more text content into each line (some attentional
   // agenda item labels may be quite long)
   font-size: 15px;
+
+  &.clickable {
+    cursor: pointer;
+  }
 }

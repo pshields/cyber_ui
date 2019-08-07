@@ -8,6 +8,8 @@ import {CyberUiAttentionalAgendaService} from './service';
 export class CyberUiAttentionalAgendaItem {
   // The label for this agenda item (shown in the UI)
   label: string;
+  // (Optional) the router link to navigate to when the label is clicked
+  labelRouterLink?: string;
   // The timestamp at which this item was added to the agenda
   // If added multiple times, this timestamp refers to the most recent time
   added: number;
@@ -19,6 +21,7 @@ export class CyberUiAttentionalAgendaItem {
     readonly service: CyberUiAttentionalAgendaService,
   ) {
     this.label = options.label;
+    this.labelRouterLink = options.labelRouterLink;
     this.added = this.getAdded(options);
     this.timeboxId = this.getTimeboxId(options);
   }

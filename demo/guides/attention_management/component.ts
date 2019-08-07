@@ -18,6 +18,7 @@ export class AttentionManagementGuideComponent {
   demoItemsAdded = 0;
   // The contents of the 'Item label' input field for new items
   demoAgendaItemInput = this.getNextPlaceholder();
+  demoAgendaItemRouterLink = '';
   demoAgendaItemTimeboxDuration = '50';
 
   constructor(
@@ -35,6 +36,10 @@ export class AttentionManagementGuideComponent {
     const minutes = parseInt(this.demoAgendaItemTimeboxDuration);
     if (this.demoAgendaItemTimeboxDuration && !isNaN(minutes)) {
       options.timeboxDuration = minutes * 60 * 1000;
+    }
+    if (this.demoAgendaItemRouterLink) {
+      console.log(this.demoAgendaItemRouterLink);
+      options.labelRouterLink = this.demoAgendaItemRouterLink;
     }
     this.attentionalAgendaService.addItemToAttentionalAgenda(options);
     this.demoAgendaItemInput = this.getNextPlaceholder();

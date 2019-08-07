@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -12,6 +13,7 @@ import {CyberUiAttentionalAgendaItemDisplayComponent} from './component';
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     CyberUiTimeboxCountdownDisplayModule,
     MatButtonModule,
     MatToolbarModule,
