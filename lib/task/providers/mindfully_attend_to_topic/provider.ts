@@ -22,6 +22,11 @@ export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID = 'CYBER_UI_MIN
 // The regexp used to stochastically generate the primary action label
 const PRIMARY_ACTION_LABEL_GENERATOR_REGEX = /(OK, LET'S GO|I'M READY|GET STARTED|START (IT|TIMEBOX|SESSION|HARD FOCUS SESSION))(!)?/;
 
+// The regexp used to stochastically generate the secondary action label
+const SKIP_ACTION_LABEL_GENERATOR_REGEX = /NAH|NOT RIGHT NOW/;
+
+
+
 // The regexp used to stochastically generate the task label
 const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus session( with the intention of)? mindfully attending to TOPIC_LABEL_TOKEN(, and log follow-ups as appropriate)?/;
 
@@ -36,6 +41,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   private topicRegistrations: TopicRegistration[] = [];
   private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask[]>(1);
   private primaryActionLabelRandExp = new RandExp(PRIMARY_ACTION_LABEL_GENERATOR_REGEX);
+  private skipActionLabelRandExp = new RandExp(SKIP_ACTION_LABEL_GENERATOR_REGEX);
   private taskLabelRandExp = new RandExp(TASK_LABEL_GENERATOR_REGEX);
 
   constructor() {
@@ -91,11 +97,24 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
         this.responses.next({
           taskLabel: taskLabel,
           actionLabel: primaryAction.label,
+          canonicalActionSlug: 'proceed',
           topicRegistration: topicRegistration
         });
-      },
+      }
     };
     actions.push(primaryAction);
+    const skipAction = {
+      label: this.getSkipActionLabel(),
+      handler: () => {
+        this.responses.next({
+          taskLabel: taskLabel,
+          actionLabel: skipAction.label,
+          canonicalActionSlug: 'skip',
+          topicRegistration: topicRegistration
+        });
+      }
+    };
+    actions.push(skipAction);
     return actions;
   }
 
@@ -105,6 +124,10 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
 
   private getPrimaryActionLabel() {
     return this.primaryActionLabelRandExp.gen();
+  }
+
+  private getSkipActionLabel() {
+    return this.skipActionLabelRandExp.gen();
   }
 
   // For convenience, store the task provider's suggested id as a static class property

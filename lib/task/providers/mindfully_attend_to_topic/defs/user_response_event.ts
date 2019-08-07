@@ -8,6 +8,8 @@ export interface CyberUiMindfullyAttendToTopicUserResponseEvent {
   taskLabel: string;
   // The action label selected by the user
   actionLabel: string;
+  // The canonical identifier / slug for the action
+  canonicalActionSlug: 'proceed' | 'skip';
   // The topic registration of the topic corresponding to this task
   topicRegistration: TopicRegistration;
 }
