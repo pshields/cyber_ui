@@ -7,6 +7,11 @@ import {CyberUiGetTimeSinceLastEngagementOptions} from './defs/get_options';
 import {CyberUiGetTimeSinceLastEngagementResponse} from './defs/get_response';
 
 
+// TODO Document in the appropriate places that some backends may impose restrictions on itemId
+// (e.g. max length, prohibited characters, etc.)
+// For example, Firestore disallows '/' from appearing in field paths
+// Consumers may want to normalize or encode their input to avoid these issues
+// And at some point this functionality might be worth adding to Cyber UI
 type CyberUiItemEngagementRecordMapping = {[itemId: string]: CyberUiItemEngagementRecord};
 
 
