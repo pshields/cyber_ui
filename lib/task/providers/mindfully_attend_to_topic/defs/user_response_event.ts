@@ -1,4 +1,4 @@
-import {TopicRegistration} from '../topic_registration';
+import {CyberUiTopicRegistration} from '../topic_registration';
 
 
 // Representation of a user selecting a response for a task provided by this provider
@@ -11,5 +11,5 @@ export interface CyberUiMindfullyAttendToTopicUserResponseEvent {
   // The canonical identifier / slug for the action
   canonicalActionSlug: 'proceed' | 'skip';
   // The topic registration of the topic corresponding to this task
-  topicRegistration: TopicRegistration;
+  topicRegistration: CyberUiTopicRegistration;
 }

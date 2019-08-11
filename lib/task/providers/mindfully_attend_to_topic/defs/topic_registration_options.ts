@@ -4,6 +4,9 @@
 export interface TopicRegistrationOptions {
   // The label for this topic
   label: string;
+  // The (unique, URL-friendly) slug for this topic
+  // If omitted, one will be calculated using the `slugify` library
+  slug?: string;
   // A version of the label appropriate for use in a sentence
   // If omitted, a lowercase version of the label will be used
   labelWhenUsedInASentence?: string;

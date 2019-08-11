@@ -10,7 +10,7 @@ import {RegisterTopicsResponse} from './defs/register_topics_response';
 import {CyberUiMindfullyAttendToTopicTask} from './defs/task';
 import {CyberUiMindfullyAttendToTopicUserResponseEvent} from './defs/user_response_event';
 
-import {TopicRegistration} from './topic_registration';
+import {CyberUiTopicRegistration} from './topic_registration';
 
 
 // A human readable label describing this provider
@@ -38,7 +38,7 @@ const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( 50-minute)? hard focus sess
 export class CyberUiMindfullyAttendToTopicTaskProvider {
   responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent>();
 
-  private topicRegistrations: TopicRegistration[] = [];
+  private topicRegistrations: CyberUiTopicRegistration[] = [];
   private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask[]>(1);
   private primaryActionLabelRandExp = new RandExp(PRIMARY_ACTION_LABEL_GENERATOR_REGEX);
   private skipActionLabelRandExp = new RandExp(SKIP_ACTION_LABEL_GENERATOR_REGEX);
@@ -54,7 +54,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   // Registers topics with the provider
   registerTopics(options: RegisterTopicsOptions): RegisterTopicsResponse {
     for (let topicOptions of options.topics) {
-      const topicRegistration = new TopicRegistration(topicOptions);
+      const topicRegistration = new CyberUiTopicRegistration(topicOptions);
       this.topicRegistrations.push(topicRegistration);
     }
     // Update the list of tasks produced by this provider
@@ -65,6 +65,11 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   // Utility method to get the current number of topic registrations
   getTopicRegistrationsCount() {
     return this.topicRegistrations.length;
+  }
+
+  // Returns the topic registration matching the given slug
+  getTopicRegistrationFromSlug(slug: string): CyberUiTopicRegistration {
+    return this.topicRegistrations.find(registration => registration.slug === slug);
   }
 
   getTasks() {
@@ -89,7 +94,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     this.tasks.next(tasks);
   }
 
-  private getActions(taskLabel: string, topicRegistration: TopicRegistration) {
+  private getActions(taskLabel: string, topicRegistration: CyberUiTopicRegistration) {
     const actions = [];
     const primaryAction = {
       label: this.getPrimaryActionLabel(),
@@ -118,7 +123,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     return actions;
   }
 
-  private getTaskLabelForTopic(topic: TopicRegistration) {
+  private getTaskLabelForTopic(topic: CyberUiTopicRegistration) {
     return this.taskLabelRandExp.gen().replace('TOPIC_LABEL_TOKEN', topic.labelWhenUsedInASentence);
   }
 
