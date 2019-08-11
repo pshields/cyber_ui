@@ -204,6 +204,7 @@ export {CyberUiAddThingWorkflowDefaultDisplayComponent} from './workflow/add_thi
 export {CyberUiAddThingWorkflowDefaultDisplayModule} from './workflow/add_thing/displays/default/module';
 
 export {CyberUiWorkOnTasksWorkflowComponent} from './workflow/work_on_tasks/component';
+export {CyberUiWorkOnTasksWorkflowService} from './workflow/work_on_tasks/service';
 export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module';
 
 // ====

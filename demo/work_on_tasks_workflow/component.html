@@ -29,3 +29,7 @@
     [filters]="demoFilters"
     [filterSettings]="demoFilterSettings">
 </cyber-ui-work-on-tasks-workflow>
+
+<button mat-icon-button aria-label="Refresh suggestions" (click)="workOnTasksWorkflowService.reloadSuggestions()">
+  <mat-icon>refresh</mat-icon>
+</button>

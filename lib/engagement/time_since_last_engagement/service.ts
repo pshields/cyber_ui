@@ -36,7 +36,6 @@ export class CyberUiTimeSinceLastEngagementService {
   ) {
     this.collection.stateChanges().subscribe(actions => {
       actions.map(action => {
-        console.log(action);
         const collectionId = action.payload.doc.id;
         // If this mapping changed, updated it locally
         if (action.type === 'added' || action.type === 'modified') {
@@ -46,10 +45,8 @@ export class CyberUiTimeSinceLastEngagementService {
           // The mapping was deleted
           this.state.delete(collectionId);
         }
-        console.log(this.state);
       });
     });
-
   }
 
   // Returns the engagement record for the requested item from the given collection

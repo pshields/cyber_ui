@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common';
 import {CyberUiFilterChipsModule} from '../../form/filter_chips/module';
 
 import {CyberUiWorkOnTasksWorkflowComponent} from './component';
+import {CyberUiWorkOnTasksWorkflowService} from './service';
+
 
 @NgModule({
   imports: [
@@ -17,5 +19,8 @@ import {CyberUiWorkOnTasksWorkflowComponent} from './component';
   exports: [
     CyberUiWorkOnTasksWorkflowComponent,
   ],
+  providers: [
+    CyberUiWorkOnTasksWorkflowService,
+  ]
 })
 export class CyberUiWorkOnTasksWorkflowModule {}

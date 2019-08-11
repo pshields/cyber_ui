@@ -12,6 +12,8 @@ import {TaskSuggestionServiceGetSuggestionsBaseResponse} from '../../task/interf
 import {WORKFLOW_SETTINGS_SERVICE} from '../injection_tokens/workflow_settings_service';
 import {WorkflowSettingsService} from '../interfaces/workflow_settings_service';
 
+import {CyberUiWorkOnTasksWorkflowService} from './service';
+
 
 // A workflow for working on tasks using an arbitrary task-list-rendering component
 @Component({
@@ -55,6 +57,7 @@ export class CyberUiWorkOnTasksWorkflowComponent<
       GET_SUGGESTIONS_OPTIONS_T
     >,
     private readonly resolver: ComponentFactoryResolver,
+    readonly service: CyberUiWorkOnTasksWorkflowService,
   ) {
     // Get options to use during the initial request
     this.getSuggestionsOptions = workflowSettingsService.getGetSuggestionsOptions();
@@ -67,6 +70,9 @@ export class CyberUiWorkOnTasksWorkflowComponent<
         this.loadSuggestions();
       }
     });
+    // Subscribe to any reload events sent by the service
+    // This allows consumers to request a reload of suggestions in response to e.g. user action
+    service.reloadEvents.subscribe(() => this.loadSuggestions());
   }
 
   ngOnChanges(changes: SimpleChanges) {

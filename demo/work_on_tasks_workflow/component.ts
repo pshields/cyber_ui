@@ -8,6 +8,7 @@ import {CyberUiMinimalTaskListComponent} from 'lib/public_api';
 import {CyberUiTaskAccordionComponent} from 'lib/public_api';
 import {CyberUiActionsPanelComponent} from 'lib/public_api';
 import {CyberUiResponseChipsComponent} from 'lib/public_api';
+import {CyberUiWorkOnTasksWorkflowService} from 'lib/public_api';
 import {ChoiceField, Option} from 'lib/public_api';
 
 import {DEMO_TASK_PROVIDER_ID} from '../task_suggestion_service/demo_task_provider';
@@ -39,6 +40,7 @@ export class WorkOnTasksWorkflowDemoComponent {
   constructor(
     readonly demoTaskProvider: DemoTaskProvider,
     @Inject(WORKFLOW_SETTINGS_SERVICE) readonly workflowSettingsService: DemoWorkflowSettingsService,
+    readonly workOnTasksWorkflowService: CyberUiWorkOnTasksWorkflowService,
   ) {
     // Load the initial demo settings (e.g. actions display component)
     this.onDemoSettingsChange();

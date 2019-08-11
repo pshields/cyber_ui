@@ -38,7 +38,6 @@ export class AttentionManagementGuideComponent {
       options.timeboxDuration = minutes * 60 * 1000;
     }
     if (this.demoAgendaItemRouterLink) {
-      console.log(this.demoAgendaItemRouterLink);
       options.labelRouterLink = this.demoAgendaItemRouterLink;
     }
     this.attentionalAgendaService.addItemToAttentionalAgenda(options);
