@@ -11,6 +11,7 @@ export class CyberUiTopicRegistration {
 
   constructor(options: TopicRegistrationOptions) {
     this.label = options.label;
+    this.slug = this.getSlug(options);
     this.labelWhenUsedInASentence = this.getLabelWhenUsedInASentence(options);
     this.importance = this.getImportance(options);
   }
