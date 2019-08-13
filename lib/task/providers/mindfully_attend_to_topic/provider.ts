@@ -1,6 +1,6 @@
 import {Injectable, EventEmitter} from '@angular/core';
 
-import {ReplaySubject} from 'rxjs';
+import {ReplaySubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import * as RandExp from 'randexp';
@@ -39,6 +39,8 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent>();
 
   private topicRegistrations: CyberUiTopicRegistration[] = [];
+  // A copy of the list of topic registrations for external consumers
+  private topicRegistrationsSubject = new ReplaySubject<CyberUiTopicRegistration[]>(1);
   private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask[]>(1);
   private primaryActionLabelRandExp = new RandExp(PRIMARY_ACTION_LABEL_GENERATOR_REGEX);
   private skipActionLabelRandExp = new RandExp(SKIP_ACTION_LABEL_GENERATOR_REGEX);
@@ -49,6 +51,8 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     // This way, the task provider won't wait indefinitely to receive a response
     // from this task provider, if no topics have been registered
     this.tasks.next([]);
+    // Initialize the registrations observable with an empty list, to reflect the initial state
+    this.topicRegistrationsSubject.next([]);
   }
 
   // Registers topics with the provider
@@ -57,6 +61,9 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
       const topicRegistration = new CyberUiTopicRegistration(topicOptions);
       this.topicRegistrations.push(topicRegistration);
     }
+    // Update the list of topic registrations that consumers might be listening to
+    // Note: .slice() makes a shallow copy of the original array
+    this.topicRegistrationsSubject.next(this.topicRegistrations.slice());
     // Update the list of tasks produced by this provider
     this.updateTasks();
     return;
@@ -70,6 +77,11 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   // Returns the topic registration matching the given slug
   getTopicRegistrationFromSlug(slug: string): CyberUiTopicRegistration {
     return this.topicRegistrations.find(registration => registration.slug === slug);
+  }
+
+  // Returns an observable of the current list of topic registrations
+  getTopicRegistrations(): Observable<CyberUiTopicRegistration[]> {
+    return this.topicRegistrationsSubject;
   }
 
   getTasks() {

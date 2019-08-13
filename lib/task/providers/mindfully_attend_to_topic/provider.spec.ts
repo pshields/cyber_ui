@@ -94,3 +94,4 @@ describe('CyberUiMindfullyAttendToTopicTaskProvider', () => {
 
 });
 // TODO Add a test that the topic's `labelWhenUsedInASentence` is used in the produced task statement
+// TODO Test that when subscribing to getTopicRegistrations(), altering the returned arrays does not alter the contents of the provider's registrations array (e.g. test that consumers receieve a shallow copy rather than a reference to the original array)
