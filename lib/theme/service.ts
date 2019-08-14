@@ -28,6 +28,7 @@ export class CyberUiThemeService {
   public topToolbarBackgroundColor: string;
   // The current app background CSS value to use
   public appBackground: string;
+  readonly appBackgroundColor = new ReplaySubject<string>(1);
   // The current text color to use for subheaders in Material lists
   readonly matListSubheaderColor = new ReplaySubject<string>(1);
   readonly lowOpacityColor = new ReplaySubject<string>(1);
@@ -56,6 +57,7 @@ export class CyberUiThemeService {
     // Keep cached properties up to date on settings changes
     settingsService.listen().subscribe(settings => this.recalculateCachedProperties(settings));
     // Update theme-related CSS custom properties
+    this.appBackgroundColor.subscribe(color => this.setCssCustomProperty('--app-background-color', color));
     this.textColor.subscribe(color => this.setCssCustomProperty('--text-color', color));
     this.lowOpacityColor.subscribe(color => this.setCssCustomProperty('--low-opacity-color', color));
     this.matListSubheaderColor.subscribe(color => this.setCssCustomProperty('--mat-list-subheader-color', color));
@@ -70,6 +72,7 @@ export class CyberUiThemeService {
   recalculateCachedProperties(settings) {
     this.topToolbarBackgroundColor = this.getTopToolbarBackgroundColor(settings);
     this.appBackground = this.getAppBackground(settings);
+    this.appBackgroundColor.next(this.getAppBackground(settings));
     this.lowOpacityColor.next(this.getLowOpacityColor(settings));
     this.matListSubheaderColor.next(this.getMatListSubheaderColor(settings));
     this.textColor.next(this.getTextColor(settings));
