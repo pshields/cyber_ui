@@ -119,6 +119,7 @@ export {TaskProviderRegistryService} from './task/provider_registry/service';
 export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/provider';
 
 // Components and modules
+export {CyberUiActionContextModule} from './task/action_context/module';
 export {CyberUiMinimalTaskCardListComponent} from './task/displays/minimal_card_list/component';
 export {CyberUiMinimalTaskCardListModule} from './task/displays/minimal_card_list/module';
 export {CyberUiTasksModule} from './task/module';
