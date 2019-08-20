@@ -5,6 +5,10 @@
   // as well as fits more text content into each line (some attentional
   // agenda item labels may be quite long)
   font-size: 15px;
+  // Prevent scrollbars and overflow by setting overflow:hidden on the label
+  // Also, use ellipses to indicate text oveflow
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &.clickable {
     cursor: pointer;
