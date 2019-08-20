@@ -1,4 +1,8 @@
+import {Observable, of} from 'rxjs';
+
 import {TimeboxId} from '../../util/timebox/defs/timebox_id';
+
+import {Action} from '../../task/interfaces/action';
 
 import {CyberUiAttentionalAgendaItemOptions} from './defs/attentional_agenda_item_options';
 
@@ -15,6 +19,8 @@ export class CyberUiAttentionalAgendaItem {
   added: number;
   // The id of the associated timebox, if there is one
   timeboxId?: TimeboxId;
+  // Any custom actions to show for this agenda item
+  actions?: Observable<Action[]>;
 
   constructor(
     options: CyberUiAttentionalAgendaItemOptions,
@@ -24,6 +30,7 @@ export class CyberUiAttentionalAgendaItem {
     this.labelRouterLink = options.labelRouterLink;
     this.added = this.getAdded(options);
     this.timeboxId = this.getTimeboxId(options);
+    this.actions = this.getActions(options);
   }
 
   // Clears this item from the agenda
@@ -43,6 +50,10 @@ export class CyberUiAttentionalAgendaItem {
         duration: options.timeboxDuration
       }).timeboxId;
     }
+  }
+
+  private getActions(options: CyberUiAttentionalAgendaItemOptions) {
+    return options.actions || of([]);
   }
 
 }

@@ -5,6 +5,8 @@ import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
+import {CyberUiActionContextModule} from '../../../task/action_context/module';
+
 import {CyberUiTimeboxCountdownDisplayModule} from '../../../util/timebox/countdown_display/module';
 
 import {CyberUiAttentionalAgendaItemDisplayComponent} from './component';
@@ -14,6 +16,7 @@ import {CyberUiAttentionalAgendaItemDisplayComponent} from './component';
   imports: [
     CommonModule,
     RouterModule,
+    CyberUiActionContextModule,
     CyberUiTimeboxCountdownDisplayModule,
     MatButtonModule,
     MatToolbarModule,

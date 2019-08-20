@@ -1,4 +1,8 @@
+import {Observable} from 'rxjs';
+
 import {TimeboxId} from '../../../util/timebox/defs/timebox_id';
+
+import {Action} from '../../../task/interfaces/action';
 
 
 export interface CyberUiAttentionalAgendaItemOptions {
@@ -16,4 +20,7 @@ export interface CyberUiAttentionalAgendaItemOptions {
   // An optional timebox duration (in ms), if the item should be timeboxed
   // Note: timeboxId has precedence if provided
   timeboxDuration?: number;
+  // An optional observable of custom actions for this agenda item
+  // It's an observable so that the actions can change dynamically after creation
+  actions?: Observable<Action[]>;
 }
