@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
-import {RegisterCollectionOptions} from './defs/register_collection_options';
-import {RegisterCollectionResponse} from './defs/register_collection_response';
+import {RegisterMissingDataSourceOptions} from './defs/register_missing_data_source_options';
+import {RegisterMissingDataSourceResponse} from './defs/register_missing_data_source_response';
 
 
 // A human readable label describing this provider
@@ -17,8 +17,8 @@ export class CyberUiAddMissingDataTaskProvider {
 
   constructor() {}
 
-  // Registers a collection with the provider
-  registerCollection(options: RegisterCollectionOptions): RegisterCollectionResponse {
+  // Registers a source of missing data with missing-data-task-provider
+  registerMissingDataSource(options: RegisterMissingDataSourceOptions): RegisterMissingDataSourceResponse {
     return;
   }
 

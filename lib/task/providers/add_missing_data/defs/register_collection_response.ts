@@ -1,1 +1,0 @@
-export type RegisterCollectionResponse = {};  // TODO Replace with an actual response structure
