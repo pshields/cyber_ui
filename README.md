@@ -25,12 +25,9 @@ Run `ng test cyber_ui` or `ng test demo` to execute the respective tests via [Ka
 
 ### What visual design guidelines does Cyber UI follow?
 
-Cyber UI attempts to generally conform to the [Material Design](https://material.io/) aesthetic and principles.
+Cyber UI generally attempts to conform to the [Material Design](https://material.io/) aesthetic and principles.
 
 ### How does Cyber UI relate to Angular Material?
 
 Cyber UI uses Angular Material components when it is feasible to do so, in order to keep the Cyber UI code surface smaller and less expensive to maintain.
 
-Some Cyber UI workflows call for UI components that aren't present in Angular Material. In such cases, Cyber UI may provide its own components. These components will attempt to align with the general Material aesthetic.
-
-If a needed-but-unimplemented component could live in Angular Material, an attempt should be made to contribute it there. Otherwise, it can live in Cyber UI.
