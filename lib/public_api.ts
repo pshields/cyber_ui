@@ -37,7 +37,7 @@ export {DelegationHistoryField} from './delegation/fields/history/field';
 export {DelegationTarget} from './delegation/interfaces/delegation_target';
 export {DelegationMenuComponent} from './delegation/delegation_menu/component';
 export {CyberUiDelegationMenuModule} from './delegation/delegation_menu/module';
-export {DelegationMenuService} from './delegation/delegation_menu/service';
+export {CyberUiDelegationMenuService} from './delegation/delegation_menu/service';
 export {DelegationMenuState} from './delegation/delegation_menu/state';
 
 export {delegationMenuActivationHandler} from './delegation/delegation_menu/util';

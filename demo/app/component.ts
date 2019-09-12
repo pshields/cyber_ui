@@ -9,7 +9,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 import {filter} from 'rxjs/operators';
 
-import {DelegationMenuService} from 'lib/public_api';
+import {CyberUiDelegationMenuService} from 'lib/public_api';
 import {CyberUiSettingsService} from 'lib/public_api';
 import {CyberUiSettingsDialogService} from 'lib/public_api';
 import {CyberUiThemeService} from 'lib/public_api';
@@ -37,7 +37,7 @@ export class AppComponent {
 
   constructor(
     readonly breakpointObserver: BreakpointObserver,
-    readonly delegationMenuService: DelegationMenuService,
+    readonly delegationMenuService: CyberUiDelegationMenuService,
     readonly settingsService: CyberUiSettingsService,
     readonly settingsDialogService: CyberUiSettingsDialogService,
     readonly themeService: CyberUiThemeService,
@@ -49,11 +49,13 @@ export class AppComponent {
       // Send the initial demo settings to the settings service
       settingsService.onChange(this.settings);
       // Register a fake delegation target for demo purposes
-      delegationMenuService.registerDelegationTarget({
-        label: 'The void',
-        handler: () => {
-          this.snackbar.open('Delegated to the void');
-        },
+      delegationMenuService.registerDelegationTargets({
+        targets: [{
+          label: 'The void',
+          handler: () => {
+            this.snackbar.open('Delegated to the void');
+          },
+        }]
       });
       // Listen for viewport size changes, and set the sidenav mode accordingly
       breakpointObserver.observe([

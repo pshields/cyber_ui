@@ -7,7 +7,7 @@ import {DelegationTarget} from '../interfaces/delegation_target';
 
 
 @Injectable()
-export class DelegationMenuService {
+export class CyberUiDelegationMenuService {
   // The latest state to use to power the delegation menu
   readonly state = new ReplaySubject<DelegationMenuState>(1);
 

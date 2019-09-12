@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {MatMenuModule} from '@angular/material/menu';
 
 import {DelegationMenuComponent} from './component';
-import {DelegationMenuService} from './service';
+import {CyberUiDelegationMenuService} from './service';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import {DelegationMenuService} from './service';
   ],
   declarations: [DelegationMenuComponent],
   exports: [DelegationMenuComponent],
-  providers: [DelegationMenuService],
+  providers: [CyberUiDelegationMenuService],
   entryComponents: [DelegationMenuComponent],
 })
 export class CyberUiDelegationMenuModule {}

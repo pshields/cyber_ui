@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 
 import {MatMenuTrigger} from '@angular/material/menu';
 
-import {DelegationMenuService} from './service';
+import {CyberUiDelegationMenuService} from './service';
 import {DelegationMenuState} from './state';
 
 
@@ -21,7 +21,7 @@ export class DelegationMenuComponent {
   };
 
   constructor(
-    readonly delegationMenuService: DelegationMenuService
+    readonly delegationMenuService: CyberUiDelegationMenuService
   ) {
     // Subscribe to state updates from the delegation menu service
     delegationMenuService.state.subscribe(state => this.state = state);

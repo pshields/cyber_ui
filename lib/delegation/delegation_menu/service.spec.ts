@@ -1,4 +1,4 @@
-import {DelegationMenuService} from './service';
+import {CyberUiDelegationMenuService} from './service';
 
 import {DelegationTarget} from '../interfaces/delegation_target';
 
@@ -12,11 +12,11 @@ const DELEGATION_TARGET_1: DelegationTarget = {
 };
 
 
-describe('DelegationMenuService', () => {
-  let service: DelegationMenuService;
+describe('CyberUiDelegationMenuService', () => {
+  let service: CyberUiDelegationMenuService;
 
   beforeEach(() => {
-    service = new DelegationMenuService();
+    service = new CyberUiDelegationMenuService();
   });
 
   describe('when registering a delegation target', () => {
