@@ -25,7 +25,9 @@ describe('CyberUiDelegationMenuService', () => {
     beforeEach(() => {
       stateEmissions = [];
       service.state.subscribe(state => stateEmissions.push(state));
-      service.registerDelegationTarget(DELEGATION_TARGET_1);
+      service.registerDelegationTargets({
+        targets: [DELEGATION_TARGET_1]
+      });
     });
 
     it('emits a new state with the newly-registered delegation target', () => {

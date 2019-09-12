@@ -4,6 +4,7 @@ import {ReplaySubject} from 'rxjs';
 
 import {DelegationMenuState} from './state';
 import {DelegationTarget} from '../interfaces/delegation_target';
+import {RegisterDelegationTargetsOptions} from './defs/register_delegation_targets_options';
 
 
 @Injectable()
@@ -15,8 +16,12 @@ export class CyberUiDelegationMenuService {
 
   // Registers a delegation target with the service
   // At the moment, this is irrevocable, but it doesn't need to be
-  registerDelegationTarget(target: DelegationTarget) {
-    this.registeredDelegationTargets.push(target);
+  registerDelegationTargets(options: RegisterDelegationTargetsOptions) {
+    if (options.clearPreviousRegistrations) {
+      this.registeredDelegationTargets = options.targets.slice();
+    } else {
+      this.registeredDelegationTargets = this.registeredDelegationTargets.concat(options.targets);
+    }
     // Send any subscribed delegation menus the latest menu state
     this.state.next({
       // Provide a shallow copy of registeredDelegationTargets in order to
