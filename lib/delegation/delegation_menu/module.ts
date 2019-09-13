@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 
 import {MatMenuModule} from '@angular/material/menu';
 
+import {CyberUiActionContextModule} from '../../task/action_context/module';
+
 import {DelegationMenuComponent} from './component';
 import {CyberUiDelegationMenuService} from './service';
 
@@ -11,6 +13,7 @@ import {CyberUiDelegationMenuService} from './service';
   imports: [
     CommonModule,
     MatMenuModule,
+    CyberUiActionContextModule
   ],
   declarations: [DelegationMenuComponent],
   exports: [DelegationMenuComponent],

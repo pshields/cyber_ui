@@ -8,7 +8,7 @@ import {DelegationMenuState} from './state';
 // A mock delegation target used for testing
 const DELEGATION_TARGET_1: DelegationTarget = {
   label: 'Delegation target 1',
-  handler: () => {},
+  delegationTargetHandler: () => {},
 };
 
 

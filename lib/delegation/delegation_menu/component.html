@@ -4,6 +4,7 @@
   <button
       *ngFor="let delegationTarget of state.delegationTargets"
       mat-menu-item
-      cyber-ui-action-context
-      (click)="delegationTarget.handler()">{{delegationTarget.label}}</button>
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
+      (click)="delegationTarget.delegationTargetHandler(delegatableThing, actionContext)">{{delegationTarget.label}}</button>
 </mat-menu>

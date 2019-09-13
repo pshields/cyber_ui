@@ -52,7 +52,7 @@ export class AppComponent {
       delegationMenuService.registerDelegationTargets({
         targets: [{
           label: 'The void',
-          handler: () => {
+          delegationTargetHandler: () => {
             this.snackbar.open('Delegated to the void');
           },
         }]
