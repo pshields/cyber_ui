@@ -1,7 +1,7 @@
 // A topic configuration record for use by the mindfully-attend-to-topic provider
 // Used internally by the provider for recordkeeping, as well as externally
 // by applications registering topics with the provider
-export interface TopicRegistrationOptions {
+export interface TopicRegistrationOptions<DATA_T = {}> {
   // The label for this topic
   label: string;
   // The (unique, URL-friendly) slug for this topic
@@ -14,4 +14,6 @@ export interface TopicRegistrationOptions {
   // The idea is that the higher the importance, the more frequently
   // the user will be shown a task corresponding to this topic
   importance: number;
+  // An optional data payload object to be stashed on the registration
+  data?: DATA_T;
 }

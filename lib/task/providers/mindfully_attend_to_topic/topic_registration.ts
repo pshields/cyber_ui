@@ -3,17 +3,19 @@ import slugify from 'slugify';
 import {TopicRegistrationOptions} from './defs/topic_registration_options';
 
 
-export class CyberUiTopicRegistration {
+export class CyberUiTopicRegistration<DATA_T = {}> {
   readonly label: string;
   readonly slug: string;
   readonly labelWhenUsedInASentence: string;
   readonly importance: number;
+  readonly data?: DATA_T;
 
-  constructor(options: TopicRegistrationOptions) {
+  constructor(options: TopicRegistrationOptions<DATA_T>) {
     this.label = options.label;
     this.slug = this.getSlug(options);
     this.labelWhenUsedInASentence = this.getLabelWhenUsedInASentence(options);
     this.importance = this.getImportance(options);
+    this.data = options.data;
   }
 
   getLabelWhenUsedInASentence(options: TopicRegistrationOptions) {
