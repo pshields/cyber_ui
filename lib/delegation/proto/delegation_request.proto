@@ -7,10 +7,10 @@ package cyber_ui.delegation;
 
 message DelegationRequest {
   Requester requester = 1;
-  label string = 2;
+  string label = 2;
 }
 
 
 message Requester {
-  id string = 1;
+  string id = 1;
 }

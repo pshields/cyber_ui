@@ -1,0 +1,6 @@
+proto_library(
+  name = "proto",
+  srcs = [
+    "delegation_request.proto",
+  ],
+)
