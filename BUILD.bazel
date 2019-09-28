@@ -1,1 +1,11 @@
-exports_files(["tsconfig.json"], visibility = ["//visibility:public"])
+# Expose tsconfig.json as a Bazel target (TODO document why this is necessary)
+exports_files(
+    ["tsconfig.json"],
+    visibility = ["//visibility:public"],
+)
+
+# Configure Gazelle target
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/pshields/cyber_ui
+gazelle(name = "gazelle")
