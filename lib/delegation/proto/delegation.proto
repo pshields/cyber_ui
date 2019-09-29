@@ -1,6 +1,5 @@
-// Some very early experiments about what a delegation request might look like
 syntax = "proto3";
-
+// Some very early experiments about what a delegation request might look like
 
 package cyber_ui.delegation;
 

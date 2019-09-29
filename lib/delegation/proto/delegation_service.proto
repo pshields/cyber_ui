@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package cyber_ui.delegation;
+
+import "lib/delegation/proto/delegation.proto";
+
+service DelegationService {
+  rpc SubmitDelegationRequest(DelegationRequest) returns (SubmitDelegationRequestResponse) {}
+}
+
+message SubmitDelegationRequestResponse {
+  string responseMessage = 1;
+}
