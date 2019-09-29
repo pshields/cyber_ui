@@ -57,6 +57,9 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
 
   // Registers topics with the provider
   registerTopics(options: RegisterTopicsOptions): RegisterTopicsResponse {
+    if (options.clearExisting) {
+      this.topicRegistrations = [];
+    }
     for (let topicOptions of options.topics) {
       const topicRegistration = new CyberUiTopicRegistration(topicOptions);
       this.topicRegistrations.push(topicRegistration);
