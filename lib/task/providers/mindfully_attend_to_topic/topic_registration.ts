@@ -2,12 +2,15 @@ import slugify from 'slugify';
 
 import {TopicRegistrationOptions} from './defs/topic_registration_options';
 
+import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_DEFAULT_TIMEBOX_DURATION} from './provider';
+
 
 export class CyberUiTopicRegistration<DATA_T = {}> {
   readonly label: string;
   readonly slug: string;
   readonly labelWhenUsedInASentence: string;
   readonly importance: number;
+  readonly timeboxDuration: number;
   readonly data?: DATA_T;
 
   constructor(options: TopicRegistrationOptions<DATA_T>) {
@@ -15,6 +18,7 @@ export class CyberUiTopicRegistration<DATA_T = {}> {
     this.slug = this.getSlug(options);
     this.labelWhenUsedInASentence = this.getLabelWhenUsedInASentence(options);
     this.importance = this.getImportance(options);
+    this.timeboxDuration = this.getTimeboxDuration(options);
     this.data = options.data;
   }
 
@@ -31,5 +35,9 @@ export class CyberUiTopicRegistration<DATA_T = {}> {
 
   getSlug(options: TopicRegistrationOptions) {
     return options.slug || slugify(options.label, {lower: true});
+  }
+
+  getTimeboxDuration(options: TopicRegistrationOptions) {
+    return options.timeboxDuration || CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_DEFAULT_TIMEBOX_DURATION;
   }
 }

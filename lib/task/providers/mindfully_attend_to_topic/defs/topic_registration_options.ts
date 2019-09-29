@@ -14,6 +14,9 @@ export interface TopicRegistrationOptions<DATA_T = {}> {
   // The idea is that the higher the importance, the more frequently
   // the user will be shown a task corresponding to this topic
   importance: number;
+  // (Optional) number of minutes to start a timebox for when
+  // mindfully attending to this topic
+  timeboxDuration?: number;
   // An optional data payload object to be stashed on the registration
   data?: DATA_T;
 }
