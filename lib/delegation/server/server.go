@@ -14,7 +14,7 @@ type delegationServer struct{}
 
 func (s *delegationServer) SubmitDelegationRequest(ctx context.Context, req *pb.DelegationRequest) (*pb.SubmitDelegationRequestResponse, error) {
 	response := &pb.SubmitDelegationRequestResponse{}
-	response.ResponseMessage = "I don't know how to delegate that yet"
+	response.ResponseMessage = "I don't know how to delegate \"" + req.Label + "\" yet"
 	return response, nil
 }
 
