@@ -82,4 +82,8 @@ describe('ValueInNumericRangeField template', () => {
       // TODO Expect clicking on the button to open a dialog containing TestDialogComponent
     });
   });
+
+  // TODO When the model property is defined, the clear button is displayed
+  // TODO When the model property is defined, the clear button clears it
+  // TODO When the model property is undefined, the clear button is not displayed
 });

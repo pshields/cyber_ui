@@ -70,6 +70,12 @@
         [cyberUiAutofocus]="field.autofocus">
     </mat-slider>
     <span>{{getModelProperty(model, field.config.propertyName)|number:field.config.digitinfo}}</span>
+    <button
+        mat-icon-button
+        *ngIf="getModelProperty(model, field.config.propertyName) !== undefined"
+        (click)="setModelProperty(model, field.config.propertyName, undefined)">
+      <mat-icon>close</mat-icon>
+    </button>
     <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
     <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
