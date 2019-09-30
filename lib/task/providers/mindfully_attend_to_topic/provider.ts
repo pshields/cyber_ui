@@ -19,9 +19,6 @@ export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_LABEL = 'Mindful a
 // A string identifier of this provider for use in e.g. settings lists
 export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID = 'CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER';
 
-// The default timebox duration, in minutes
-export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_DEFAULT_TIMEBOX_DURATION = 50;
-
 // The regexp used to stochastically generate the primary action label
 const PRIMARY_ACTION_LABEL_GENERATOR_REGEX = /(OK, LET'S GO|I'M READY|GET STARTED|START (IT|TIMEBOX|SESSION|HARD FOCUS SESSION))(!)?/;
 

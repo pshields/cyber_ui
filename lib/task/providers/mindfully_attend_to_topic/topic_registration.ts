@@ -2,7 +2,9 @@ import slugify from 'slugify';
 
 import {TopicRegistrationOptions} from './defs/topic_registration_options';
 
-import {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_DEFAULT_TIMEBOX_DURATION} from './provider';
+
+// The default timebox duration, in minutes
+export const CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_DEFAULT_TIMEBOX_DURATION = 50;
 
 
 export class CyberUiTopicRegistration<DATA_T = {}> {
