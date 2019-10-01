@@ -116,7 +116,6 @@ export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_s
 
 // Reference implementations
 export {TaskProviderRegistryService} from './task/provider_registry/service';
-export {CyberUiWorkOnThingTaskProvider} from './task/providers/work_on_thing/provider';
 
 // Components and modules
 export {CyberUiActionContextModule} from './task/action_context/module';
