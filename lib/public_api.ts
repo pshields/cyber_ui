@@ -181,6 +181,13 @@ export {CyberUiSnoozeReasonCollectionDialogComponent} from './snooze/reason_coll
 export {CyberUiSnoozeReasonCollectionDialogModule} from './snooze/reason_collection_dialog/module';
 export {CyberUiSnoozeReasonCollectionDialogService} from './snooze/reason_collection_dialog/service';
 
+// ======
+// STATUS
+// ======
+
+export {CyberUiStatusIndicatorModule} from './status/indicator/module';
+export {CyberUiStatusIndicatorState} from './status/indicator/state';
+
 // =======
 // THEMING
 // =======
