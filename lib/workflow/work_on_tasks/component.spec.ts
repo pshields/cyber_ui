@@ -60,3 +60,5 @@ describe('CyberUiWorkOnTasksAccordionWorkflowComponent', () => {
     });
   });
 });
+
+// TODO Test that all subscriptions are unsubscribed after component has been destroyed

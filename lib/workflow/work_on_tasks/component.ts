@@ -1,4 +1,4 @@
-import {Component, Inject, ComponentFactory, ComponentFactoryResolver, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, Inject, ComponentFactory, ComponentFactoryResolver, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef} from '@angular/core';
 
 import {Subscription, Subject, ReplaySubject} from 'rxjs';
 
@@ -24,7 +24,7 @@ export class CyberUiWorkOnTasksWorkflowComponent<
     TASK_T extends Task = Task,
     GET_SUGGESTIONS_OPTIONS_T extends TaskSuggestionServiceGetSuggestionsBaseOptions = TaskSuggestionServiceGetSuggestionsBaseOptions,
     GET_SUGGESTIONS_RESPONSE_T extends TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T> = TaskSuggestionServiceGetSuggestionsBaseResponse<TASK_T>
-  > implements OnChanges {
+  > implements OnChanges, OnDestroy {
 
   getSuggestionsOptions: GET_SUGGESTIONS_OPTIONS_T;
   suggestionsResponse: GET_SUGGESTIONS_RESPONSE_T;
@@ -90,7 +90,7 @@ export class CyberUiWorkOnTasksWorkflowComponent<
   // Subscribes to the suggestion service using the latest workflow settings
   loadSuggestions() {
     // Unsubscribe from the previous subscription, if it exists
-    if (this.getSuggestionsSubscription !== undefined) {
+    if (this.getSuggestionsSubscription !== undefined && !this.getSuggestionsSubscription.closed) {
       this.getSuggestionsSubscription.unsubscribe();
     }
     this.getSuggestionsSubscription = this.taskSuggestionService
@@ -101,5 +101,12 @@ export class CyberUiWorkOnTasksWorkflowComponent<
         // Update the tasks subject
         this.tasks.next(response.suggestions.map(suggestion => suggestion.task));
     });
+  }
+
+  ngOnDestroy() {
+    // Clean up and unsubscribe from the task suggestion service, to avoid memory leaks
+    if (this.getSuggestionsSubscription !== undefined && !this.getSuggestionsSubscription.closed) {
+      this.getSuggestionsSubscription.unsubscribe();
+    }
   }
 }
