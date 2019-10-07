@@ -42,7 +42,7 @@
     "@bazel/buildifier": "latest",
     "@bazel/typescript": "latest",
     "@types/jasmine": "2.8.16",
-    "@types/jasminewd2": "2.0.7",
+    "@types/jasminewd2": "2.0.8",
     "@types/node": "8.10.54",
     "codelyzer": "5.1.2",
     "jasmine-core": "2.99.1",
