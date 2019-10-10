@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package cyber_ui.activity;
+
+import "lib/activity/proto/activity_suggestion.proto";
+
+
+message GetActivitySuggestionRequest {
+  string label = 1;
+}
+
+
+message GetActivitySuggestionResponse {
+  ActivitySuggestion suggestion = 1;
+}

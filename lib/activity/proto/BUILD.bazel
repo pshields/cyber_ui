@@ -1,0 +1,10 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "cyber_ui_activity_proto",
+    srcs = [
+        "activity_suggestion.proto",
+        "get_activity_suggestion.proto",
+    ],
+    visibility = ["//visibility:public"],
+)

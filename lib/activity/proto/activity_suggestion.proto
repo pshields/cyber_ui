@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package cyber_ui.activity;
+
+
+message ActivitySuggestion {
+  string label = 1;
+}
