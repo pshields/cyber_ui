@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+package cyber_ui.attention;
+
+
 message FocalItem {
   string label = 1;
 }

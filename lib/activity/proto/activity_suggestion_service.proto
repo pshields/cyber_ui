@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package cyber_ui.activity;
+
+import "lib/activity/proto/activity_suggestion_request.proto";
+import "lib/activity/proto/activity_suggestion_response.proto";
+
+
+service ActivitySuggestionService {
+  rpc GetActivitySuggestion(ActivitySuggestionRequest) returns (ActivitySuggestionResponse) {}
+}

@@ -1,13 +1,31 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
 proto_library(
     name = "cyber_ui_activity_proto",
     srcs = [
         "activity_suggestion.proto",
-        "get_activity_suggestion.proto",
+        "activity_suggestion_request.proto",
+        "activity_suggestion_response.proto",
+        "activity_suggestion_service.proto",
     ],
-    deps = [
-      "//lib/attention/proto:cyber_ui_attention_proto",
-    ],
+    visibility = ["//visibility:public"],
+    deps = ["//lib/attention/proto:cyber_ui_attention_proto"],
+)
+
+go_proto_library(
+    name = "cyber_ui_activity_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "cyber_ui/lib/activity/proto",
+    proto = ":cyber_ui_activity_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//lib/attention/proto:go_default_library"],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":cyber_ui_activity_go_proto"],
+    importpath = "cyber_ui/lib/activity/proto",
     visibility = ["//visibility:public"],
 )

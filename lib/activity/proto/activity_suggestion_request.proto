@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package cyber_ui.activity;
+
+import "lib/attention/proto/focal_item.proto";
+
+
+message ActivitySuggestionRequest {
+  // The set of focal items to consider
+  repeated cyber_ui.attention.FocalItem focalItems = 4;
+}
