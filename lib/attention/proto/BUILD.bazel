@@ -1,0 +1,9 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "cyber_ui_attention_proto",
+    srcs = [
+        "focal_item.proto",
+    ],
+    visibility = ["//visibility:public"],
+)

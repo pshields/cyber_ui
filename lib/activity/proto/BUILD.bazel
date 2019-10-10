@@ -6,5 +6,8 @@ proto_library(
         "activity_suggestion.proto",
         "get_activity_suggestion.proto",
     ],
+    deps = [
+      "//lib/attention/proto:cyber_ui_attention_proto",
+    ],
     visibility = ["//visibility:public"],
 )

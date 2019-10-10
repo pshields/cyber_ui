@@ -3,10 +3,12 @@ syntax = "proto3";
 package cyber_ui.activity;
 
 import "lib/activity/proto/activity_suggestion.proto";
+import "lib/attention/proto/focal_item.proto";
 
 
 message GetActivitySuggestionRequest {
-  string label = 1;
+  // The set of focal items to consider
+  repeated FocalItem focalItems = 4;
 }
 
 
