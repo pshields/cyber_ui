@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package cyber_ui.mood;
+
+import "lib/mood/proto/mood_component_weighting.proto";
+
+
+// A "mood state" is a representation of a user's current mood
+// This is currently implemented as a vector of weighted mood components,
+// where a mood component is a commonly-used label such as "calm" or "irritated"
+// TODO Figure out a reasonable way to represent uncertainty w.r.t mood states
+message MoodState {
+  repeated MoodComponentWeighting weights = 1;
+}

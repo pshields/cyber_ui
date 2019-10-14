@@ -11,7 +11,10 @@ proto_library(
         "activity_suggestion_service.proto",
     ],
     visibility = ["//visibility:public"],
-    deps = ["//lib/attention/proto:cyber_ui_attention_proto"],
+    deps = [
+        "//lib/attention/proto:cyber_ui_attention_proto",
+        "//lib/mood/proto:cyber_ui_mood_proto",
+    ],
 )
 
 go_proto_library(
@@ -20,7 +23,10 @@ go_proto_library(
     importpath = "cyber_ui/lib/activity/proto",
     proto = ":cyber_ui_activity_proto",
     visibility = ["//visibility:public"],
-    deps = ["//lib/attention/proto:go_default_library"],
+    deps = [
+        "//lib/attention/proto:go_default_library",
+        "//lib/mood/proto:go_default_library",
+    ],
 )
 
 go_library(

@@ -3,9 +3,16 @@ syntax = "proto3";
 package cyber_ui.activity;
 
 import "lib/attention/proto/focal_item.proto";
+import "lib/mood/proto/mood_state.proto";
 
 
 message ActivitySuggestionRequest {
+
   // The set of focal items to consider
+  // In other words, the current subject(s) of the user's attention
   repeated cyber_ui.attention.FocalItem focalItems = 4;
+
+  // A representation of the user's current mood
+  cyber_ui.mood.MoodState moodState = 6;
+
 }

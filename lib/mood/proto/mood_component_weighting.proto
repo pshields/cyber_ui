@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package cyber_ui.mood;
+
+
+message MoodComponentWeighting {
+
+  // A label identifying this mood component
+  string moodComponentLabel = 1;
+
+  // The weight (intensity) of this component of the user's mood
+  float weight = 2;
+}
