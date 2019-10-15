@@ -1,4 +1,5 @@
 # compiled output
+/bazel-dist
 /dist
 /tmp
 /out-tsc
