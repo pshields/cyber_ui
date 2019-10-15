@@ -2895,6 +2895,11 @@ commander@^2.12.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
   integrity sha512-VlfT9F3V0v+jr4yxPc5gg9s62/fIVWsd2Bk2iD435um1NlGMYdVCq+MjcXnhYq2icNOizHr1kK+5TI6H0Hy0ag==
 
+commander@^2.19.0:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
 commander@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.0.tgz#0641ea00838c7a964627f04cddc336a2deddd60a"
@@ -5746,6 +5751,13 @@ karma@4.3.0:
     tmp "0.0.33"
     useragent "2.3.0"
 
+katex@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.11.1.tgz#df30ca40c565c9df01a466a00d53e079e84ffaa2"
+  integrity sha512-5oANDICCTX0NqYIyAiFCCwjQ7ERu3DQG2JFHLbYOf+fXaMoH8eg/zOq5WSYJsKMi/QebW+Eh3gSM+oss1H/bww==
+  dependencies:
+    commander "^2.19.0"
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
@@ -6459,12 +6471,13 @@ ng-packagr@5.6.1:
     terser "^4.1.2"
     update-notifier "^3.0.0"
 
-ngx-markdown@8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-8.1.1.tgz#7d377fcb91dbf0578db12da71b866d12d5aa5fd5"
-  integrity sha512-WL2KJXwQBQeFD1TfJeWZGi8DUqS2ZeNJOFWO7PjrsOnDrU1ISWewk6NZbNATN58UlswrzNqHk6lrXpRA0yJPtg==
+ngx-markdown@8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-8.2.1.tgz#53bafde382aa69ae6787abf0d72bf63bc028105a"
+  integrity sha512-59LG8rEoOwDsZyyJckp+QDnW/c5wMaRpNkb6TWktlBVTfQKyAYHr6BuSskVbZ4y8nsj54UQg0CDFLBOfUiqOwA==
   dependencies:
     "@types/marked" "^0.6.5"
+    katex "^0.11.1"
     marked "^0.7.0"
     prismjs "^1.16.0"
     tslib "^1.9.0"

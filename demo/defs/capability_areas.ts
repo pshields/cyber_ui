@@ -1,4 +1,5 @@
 // Import the Markdown-formatted guides at compile-time
+import * as activitySuggestionsData from 'raw-loader!demo/capability_areas/activity_suggestions.md';
 import * as assistanceData from 'raw-loader!demo/capability_areas/assistance.md';
 import * as gamificationData from 'raw-loader!demo/capability_areas/gamification.md';
 import * as needManagementData from 'raw-loader!demo/capability_areas/need_management.md';
@@ -12,29 +13,34 @@ export interface CyberUiCapabilityArea {
   // The human-readable label of this capability area
   label: string;
   // Markdown documentation associated with this capability area
-  data?: typeof import("*.md");
+  data?: string;
 }
 
 
 export const CYBER_UI_CAPABILITY_AREAS: CyberUiCapabilityArea[] = [
   {
+    label: 'Activity suggestions',
+    id: 'activity-suggestions',
+    data: activitySuggestionsData.default,
+  },
+  {
     label: 'Assistance',
     id: 'assistance',
-    data: assistanceData,
+    data: assistanceData.default,
   },
   {
     label: 'Gamification',
     id: 'gamification',
-    data: gamificationData,
+    data: gamificationData.default,
   },
   {
     label: 'Need management',
     id: 'need-management',
-    data: needManagementData,
+    data: needManagementData.default,
   },
   {
     label: 'Task management',
     id: 'task-management',
-    data: taskManagementData,
+    data: taskManagementData.default,
   },
 ];
