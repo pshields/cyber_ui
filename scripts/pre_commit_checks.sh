@@ -6,3 +6,5 @@ ng test demo --watch=false
 # Try building the library and demo app, to detect any build errors
 ng build cyber_ui
 ng build demo
+# Check that all Bazel build targets in the workspace build successfully
+bazel build //...
