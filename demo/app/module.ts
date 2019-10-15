@@ -30,6 +30,7 @@ import {AddThingWorkflowDemoModule} from '../add_thing_workflow/module';
 import {AttentionManagementGuideComponent} from '../guides/attention_management/component';
 import {AttentionManagementGuideModule} from '../guides/attention_management/module';
 import {CapabilityAreasComponent} from '../capability_areas/component';
+import {CyberUiDemoViewConceptsComponent} from '../concept/workflows/view/component';
 import {CapabilityAreasModule} from 'demo/capability_areas/module';
 import {DemoTaskProvider} from '../task_suggestion_service/demo_task_provider';
 import {DemoTaskSuggestionService} from '../task_suggestion_service/service';
@@ -55,6 +56,7 @@ import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav.component';
+import {CyberUiDemoViewConceptsWorkflowModule} from '../concept/workflows/view/module';
 
 
 export const routes: Routes = [
@@ -68,6 +70,7 @@ export const routes: Routes = [
   {path: 'task-providers/:id', component: TaskProvidersDocumentationComponent},
   {path: 'workflows/add-thing', component: AddThingWorkflowDemoComponent},
   {path: 'workflows/work-on-tasks', component: WorkOnTasksWorkflowDemoComponent},
+  {path: 'workflows/view-concepts', component: CyberUiDemoViewConceptsComponent},
   {path: '', component: SplashPageComponent},
 ];
 
@@ -95,6 +98,7 @@ export const routes: Routes = [
     AddThingWorkflowDemoModule,
     AttentionManagementGuideModule,
     CapabilityAreasModule,
+    CyberUiDemoViewConceptsWorkflowModule,
     FormFieldsDemoModule,
     GuidesModule,
     InterfacesDocumentationModule,

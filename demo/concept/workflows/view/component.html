@@ -1,0 +1,7 @@
+<h1>Concepts</h1>
+<dl *ngIf="concepts | async; let concepts">
+  <ng-container *ngFor="let concept of concepts">
+    <dt>{{concept.label}}</dt>
+    <dd>{{concept.description}}</dd>
+  </ng-container>
+</dl>
