@@ -1,21 +1,12 @@
 <!-- Fields may either be passed in via the 'fields' input, or defined on the model instance, or defined statically on the model's constructor -->
 <ng-container *ngFor="let field of getFields()">
-  <mat-form-field *ngIf="field.config.useMatFormField">
-    <!-- TextField template -->
-    <textarea
-      *ngIf="field.config.element === elements.TEXTAREA"
-      matInput
-      matTextareaAutosize
-      [placeholder]="field.config.label"
-      [required]="field.config.required"
-      [cyberUiAutofocus]="field.config.autofocus"
-      [ngModel]="field.getNgModelBoundValue(model)"
-      (ngModelChange)="field.boundValueChangeHandler(model, $event)"
-      (ngModelChange)="change.emit()"
-      (keydown.enter)="field.config.saveOnEnter ? emitSaveAndReturnFalse() : null"></textarea>
+  <cyber-ui-text-field
+    *ngIf="field.config.element === elements.TEXTAREA"
+    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
+  </cyber-ui-text-field>
+  <mat-form-field *ngIf="field.config.element === elements.SELECT">
     <!-- ChoiceField template -->
     <mat-select
-        *ngIf="field.config.element === elements.SELECT"
         [placeholder]="field.config.label"
         [required]="field.config.required"
         [name]="field.config.propertyName"

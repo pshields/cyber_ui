@@ -43,7 +43,7 @@ export class TextFieldConfig extends FormFieldConfig {
 // This field type is for various text such as labels or notes
 // Other fields may subclass this field and provide alternate representations on the data model
 // e.g. CommaSeparatedListField subclasses TextField and stores itself as a string[] on the model
-export class TextField<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> extends FormField<MODEL_T, FormFieldOptions, FormFieldConfig> {
+export class TextField<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel) = {}> extends FormField<MODEL_T, TextFieldOptions, TextFieldConfig> {
 
   constructor(options: TextFieldOptions) {
     super(options, TextFieldConfig);

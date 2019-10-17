@@ -1,0 +1,13 @@
+<mat-form-field>
+  <textarea
+    matInput
+    matTextareaAutosize
+    [placeholder]="field.config.label"
+    [required]="field.config.required"
+    [cyberUiAutofocus]="field.config.autofocus"
+    [ngModel]="field.getNgModelBoundValue(model)"
+    (ngModelChange)="field.boundValueChangeHandler(model, $event)"
+    (ngModelChange)="change.emit()"
+    (keydown.enter)="field.config.saveOnEnter ? emitSaveAndReturnFalse() : null">
+  </textarea>
+</mat-form-field>
