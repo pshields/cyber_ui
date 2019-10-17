@@ -40,11 +40,6 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
   // Expose the FormFieldElement enum to the template for use in comparisons
   readonly elements = FormFieldElement;
 
-  emitSaveAndReturnFalse() {
-    this.save.emit();
-    return false;
-  }
-
   getFields() {
     return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);
   }
