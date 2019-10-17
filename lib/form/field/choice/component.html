@@ -11,3 +11,6 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+<button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)">
+  <mat-icon>help</mat-icon>
+</button>

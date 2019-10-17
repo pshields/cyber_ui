@@ -1,5 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
+import {CyberUiFormFieldService} from '../service';
+
 import {TextField} from './field';
 
 
@@ -9,6 +11,11 @@ import {TextField} from './field';
   styleUrls: ['component.scss'],
 })
 export class CyberUiTextFieldComponent {
+
+  constructor(
+    readonly service: CyberUiFormFieldService
+  ) {}
+
   @Input() field: TextField;
 
   @Input() model: {};

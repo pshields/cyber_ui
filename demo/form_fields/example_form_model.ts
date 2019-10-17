@@ -8,6 +8,7 @@ import {TextField} from 'lib/public_api';
 import {ValueInNumericRangeField} from 'lib/public_api';
 
 import {FakeModel} from 'lib/backends/fake/model';
+import {CyberUiDemoExamplHelpDialogComponent} from './example_help_dialog.component';
 
 
 export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS = [
@@ -44,7 +45,8 @@ export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS = [
       new Option('B', 'b'),
       new Option('C', 'c'),
       new Option('D', 'd')
-    ]
+    ],
+    helpDialog: CyberUiDemoExamplHelpDialogComponent,
   }),
   new DiscreteProbabilityDistributionField({
     label: 'Which S&P 500 company will become the first to achieve a market capitalization of ≥ $2T?',

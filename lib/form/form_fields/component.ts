@@ -1,12 +1,11 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 
-import {MatDialog} from '@angular/material/dialog';
-
 import {FormField} from '../form_field';
 import {FormFieldElement} from '../form_field_element.enum';
 import {DiscreteProbabilityDistributionFieldConfig} from '../field/discrete_probability_distribution';
 import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
 import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
+import {CyberUiFormFieldService} from '../field/service';
 
 
 @Component({
@@ -17,8 +16,8 @@ import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> implements OnChanges {
 
   constructor(
-    public changeDetectorRef: ChangeDetectorRef,
-    public dialog: MatDialog,
+    readonly changeDetectorRef: ChangeDetectorRef,
+    readonly service: CyberUiFormFieldService,
   ) {}
 
   // The model object to render the form fields for
@@ -86,7 +85,4 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
     this.change.emit();
   }
 
-  openHelpDialog(cmp: any) {
-    this.dialog.open(cmp);
-  }
 }

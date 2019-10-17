@@ -8,8 +8,6 @@
     *ngIf="field.config.element === elements.SELECT"
     [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
   </cyber-ui-choice-field>
-  <!-- Help dialog placement when mat-form-field is used. Needs better styling / layout -->
-  <button type="button" *ngIf="field.config.useMatFormField && field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   <!-- BooleanField template -->
   <div class="checkbox-container" *ngIf="field.config.element === elements.MAT_CHECKBOX">
     <mat-checkbox
@@ -21,7 +19,7 @@
         [cyberUiAutofocus]="field.config.autofocus">
       {{field.config.label}}
     </mat-checkbox>
-    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
     <span>{{field.config.label}}&nbsp;</span>
@@ -33,7 +31,7 @@
         (ngModelChange)="onNgModelChange(model, field.config.propertyName, $event)"
         [cyberUiAutofocus]="field.config.autofocus">
     </mat-slide-toggle>
-    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <!-- ValueInNumericRangeField template -->
   <div class="slider-container" *ngIf="field.config.element === elements.MAT_SLIDER">
@@ -57,7 +55,7 @@
       <mat-icon>close</mat-icon>
     </button>
     <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
-    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
+    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   </div>
   <!-- DiscreteProbabilityDistributionField template -->
   <!-- TODO Move this to a cyber-ui-discrete-probability-distribution-field component -->

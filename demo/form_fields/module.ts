@@ -6,6 +6,7 @@ import {CyberUiEditDialogModule} from 'lib/public_api';
 import {CyberUiFormFieldsModule} from 'lib/public_api';
 
 import {FormFieldsDemoComponent} from './component';
+import {CyberUiDemoExamplHelpDialogComponent} from './example_help_dialog.component';
 
 
 @NgModule({
@@ -16,7 +17,11 @@ import {FormFieldsDemoComponent} from './component';
     MatButtonModule
   ],
   declarations: [
+    CyberUiDemoExamplHelpDialogComponent,
     FormFieldsDemoComponent,
-  ]
+  ],
+  entryComponents: [
+    CyberUiDemoExamplHelpDialogComponent,
+  ],
 })
 export class FormFieldsDemoModule {}

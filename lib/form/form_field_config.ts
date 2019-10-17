@@ -1,3 +1,5 @@
+import {ComponentType} from '@angular/cdk/portal';
+
 import {FormFieldElement} from './form_field_element.enum';
 
 
@@ -12,7 +14,7 @@ export interface FormFieldOptions {
   required?: boolean;
   autofocus?: boolean;
   helpText?: string;
-  helpDialog?: any;
+  helpDialog?: ComponentType<unknown>;
   // Consumers may specify a preference for which underlying UI element should be used,
   // but be warned that most field types support only one or a small number of elements.
   // If an unsupported element is requested for a given field, an error will be logged to
@@ -39,7 +41,7 @@ export class FormFieldConfig {
   readonly helpText: string|undefined;
   // Component to show in a dialog if they need more of an explanation
   // This is a more comprehensive alternative to helpText
-  readonly helpDialog: any|undefined;
+  readonly helpDialog: ComponentType<unknown>|undefined;
   // Computed property: whether to show this field inside of a mat-form-field
   readonly useMatFormField: boolean;
   // Computed property: the underlying element or component powering this field
