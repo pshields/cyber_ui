@@ -12,9 +12,10 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {CyberUiAutofocusModule} from '../autofocus/module';
+import {CyberUiTextFieldModule} from '../field/text/module';
+import {CyberUiChoiceFieldModule} from '../field/choice/module';
 
 import {CyberUiFormFieldsComponent} from './component';
-import {CyberUiTextFieldModule} from '../field/text/module';
 
 
 @NgModule({
@@ -31,15 +32,16 @@ import {CyberUiTextFieldModule} from '../field/text/module';
     MatSlideToggleModule,
     CyberUiAutofocusModule,
     CyberUiTextFieldModule,
+    CyberUiChoiceFieldModule,
   ],
   declarations: [
-    CyberUiFormFieldsComponent
+    CyberUiFormFieldsComponent,
   ],
   exports: [
-    CyberUiFormFieldsComponent
+    CyberUiFormFieldsComponent,
   ],
   entryComponents: [
-    CyberUiFormFieldsComponent
+    CyberUiFormFieldsComponent,
   ]
 })
 export class CyberUiFormFieldsModule {}

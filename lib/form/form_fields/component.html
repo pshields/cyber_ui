@@ -4,21 +4,10 @@
     *ngIf="field.config.element === elements.TEXTAREA"
     [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
   </cyber-ui-text-field>
-  <mat-form-field *ngIf="field.config.element === elements.SELECT">
-    <!-- ChoiceField template -->
-    <mat-select
-        [placeholder]="field.config.label"
-        [required]="field.config.required"
-        [name]="field.config.propertyName"
-        [ngModel]="getModelProperty(model, field.config.propertyName)"
-        (ngModelChange)="onNgModelChange(model, field.config.propertyName, $event)"
-        [cyberUiAutofocus]="field.autofocus"
-        [multiple]="field.config.multiple">
-      <mat-option *ngFor="let option of field.config.options" [value]="option.value">
-       {{option.label}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <cyber-ui-choice-field
+    *ngIf="field.config.element === elements.SELECT"
+    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
+  </cyber-ui-choice-field>
   <!-- Help dialog placement when mat-form-field is used. Needs better styling / layout -->
   <button type="button" *ngIf="field.config.useMatFormField && field.config.helpDialog" mat-icon-button (click)="openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
   <!-- BooleanField template -->

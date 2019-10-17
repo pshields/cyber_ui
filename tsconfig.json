@@ -21,6 +21,9 @@
       "cyber_ui": [
         "dist/cyber_ui"
       ]
-    }
-  }
+    },
+  },
+  "exclude": [
+    "bazel-dist"
+  ]
 }

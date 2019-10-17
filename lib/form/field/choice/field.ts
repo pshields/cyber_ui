@@ -1,6 +1,6 @@
-import {FormField} from '../form_field';
-import {FormFieldOptions, FormFieldConfig} from '../form_field_config';
-import {FormFieldElement} from '../form_field_element.enum';
+import {FormField} from '../../form_field';
+import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
+import {FormFieldElement} from '../../form_field_element.enum';
 
 
 // Class for representing an option in the list of options for ChoiceField
