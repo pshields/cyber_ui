@@ -14,6 +14,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {CyberUiAutofocusModule} from '../autofocus/module';
 import {CyberUiTextFieldModule} from '../field/text/module';
 import {CyberUiChoiceFieldModule} from '../field/choice/module';
+import {CyberUiBooleanFieldModule} from '../field/boolean/module';
 
 import {CyberUiFormFieldsComponent} from './component';
 
@@ -33,6 +34,7 @@ import {CyberUiFormFieldsComponent} from './component';
     CyberUiAutofocusModule,
     CyberUiTextFieldModule,
     CyberUiChoiceFieldModule,
+    CyberUiBooleanFieldModule,
   ],
   declarations: [
     CyberUiFormFieldsComponent,

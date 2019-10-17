@@ -8,31 +8,10 @@
     *ngIf="field.config.element === elements.SELECT"
     [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
   </cyber-ui-choice-field>
-  <!-- BooleanField template -->
-  <div class="checkbox-container" *ngIf="field.config.element === elements.MAT_CHECKBOX">
-    <mat-checkbox
-        color="primary"
-        [required]="field.config.required"
-        [name]="field.config.propertyName"
-        [ngModel]="getModelProperty(model, field.config.propertyName)"
-        (ngModelChange)="onNgModelChange(model, field.config.propertyName, $event)"
-        [cyberUiAutofocus]="field.config.autofocus">
-      {{field.config.label}}
-    </mat-checkbox>
-    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
-  </div>
-  <div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
-    <span>{{field.config.label}}&nbsp;</span>
-    <mat-slide-toggle
-        color="primary"
-        [required]="field.config.required"
-        [name]="field.config.propertyName"
-        [ngModel]="getModelProperty(model, field.config.propertyName)"
-        (ngModelChange)="onNgModelChange(model, field.config.propertyName, $event)"
-        [cyberUiAutofocus]="field.config.autofocus">
-    </mat-slide-toggle>
-    <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
-  </div>
+  <cyber-ui-boolean-field
+    *ngIf="field.config.element === elements.MAT_CHECKBOX || field.config.element === elements.MAT_SLIDE_TOGGLE"
+    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
+  </cyber-ui-boolean-field>
   <!-- ValueInNumericRangeField template -->
   <div class="slider-container" *ngIf="field.config.element === elements.MAT_SLIDER">
     <span>{{field.config.label}}&nbsp;</span>
@@ -40,18 +19,18 @@
         color="primary"
         [required]="field.config.required"
         [name]="field.config.propertyName"
-        [ngModel]="getModelProperty(model, field.config.propertyName)"
-        (ngModelChange)="onNgModelChange(model, field.config.propertyName, $event)"
+        [ngModel]="field.getModelProperty(model, field.config.propertyName)"
+        (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); change.emit()"
         [max]="field.config.maxValue"
         [min]="field.config.minValue"
         [step]="field.config.step"
         [cyberUiAutofocus]="field.autofocus">
     </mat-slider>
-    <span>{{getModelProperty(model, field.config.propertyName)|number:field.config.digitinfo}}</span>
+    <span>{{field.getModelProperty(model, field.config.propertyName)|number:field.config.digitinfo}}</span>
     <button
         mat-icon-button
-        *ngIf="getModelProperty(model, field.config.propertyName) !== undefined"
-        (click)="setModelProperty(model, field.config.propertyName, undefined)">
+        *ngIf="field.getModelProperty(model, field.config.propertyName) !== undefined"
+        (click)="field.setModelProperty(model, field.config.propertyName, undefined)">
       <mat-icon>close</mat-icon>
     </button>
     <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
@@ -64,7 +43,7 @@
       class="discrete-probability-distribution-field">
     <p>{{field.config.label}}</p>
     <div class="outcome-probability-assignment"
-         *ngFor="let assignment of getModelProperty(model, field.config.propertyName)">
+         *ngFor="let assignment of field.getModelProperty(model, field.config.propertyName)">
       <mat-form-field [class.outcome]="true">
         <textarea
             matInput
@@ -84,7 +63,7 @@
         type="button"
         color="primary"
         mat-stroked-button
-        (click)="(getModelProperty(model, field.config.propertyName) === undefined && setModelProperty(model, field.config.propertyName, []) && false) || getModelProperty(model, field.config.propertyName).push({outcome: {label: ''}, probability: {value: ''}})">ADD ANOTHER OUTCOME</button>
+        (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({outcome: {label: ''}, probability: {value: ''}})">ADD ANOTHER OUTCOME</button>
   </div>
   <!-- FieldListListField template -->
   <!-- TODO Consider moving this to its own component at some point -->
@@ -92,16 +71,16 @@
       *ngIf="field.config.element === elements.CYBER_UI_FORM_FIELDS_LIST"
       class="field-list-list-field">
     <p>{{field.config.label}}</p>
-    <div *ngIf="getModelProperty(model, field.config.propertyName) !== undefined">
+    <div *ngIf="field.getModelProperty(model, field.config.propertyName) !== undefined">
       <div
-          *ngFor="let item of getModelProperty(model, field.config.propertyName); let i = index"
+          *ngFor="let item of field.getModelProperty(model, field.config.propertyName); let i = index"
           class="field-list-list-field-item">
         <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
         <button
             type="button"
             mat-icon-button
             color="primary"
-            (click)="getModelProperty(model, field.config.propertyName).splice(i, 1)">
+            (click)="field.getModelProperty(model, field.config.propertyName).splice(i, 1)">
           <mat-icon aria-label="Remove item">close</mat-icon>
         </button>
         <cyber-ui-form-fields
@@ -116,6 +95,6 @@
         type="button"
         color="primary"
         mat-stroked-button
-        (click)="(getModelProperty(model, field.config.propertyName) === undefined && setModelProperty(model, field.config.propertyName, []) && false) || getModelProperty(model, field.config.propertyName).push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>
+        (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>
   </div>
 </ng-container>

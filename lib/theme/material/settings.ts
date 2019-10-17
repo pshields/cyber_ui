@@ -1,4 +1,4 @@
-import {BooleanField} from '../../form/field/boolean';
+import {BooleanField} from '../../form/field/boolean/field';
 import {TextField} from '../../form/field/text/field';
 
 

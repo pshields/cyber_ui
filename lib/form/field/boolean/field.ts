@@ -1,6 +1,6 @@
-import {FormField} from '../form_field';
-import {FormFieldConfig, FormFieldOptions} from '../form_field_config';
-import {FormFieldElement} from '../form_field_element.enum';
+import {FormField} from '../../form_field';
+import {FormFieldConfig, FormFieldOptions} from '../../form_field_config';
+import {FormFieldElement} from '../../form_field_element.enum';
 
 
 export class BooleanFieldConfig extends FormFieldConfig {
@@ -23,7 +23,7 @@ export class BooleanFieldConfig extends FormFieldConfig {
 // This field type is for boolean values
 // It also supports an initial `undefined` state
 // Fields of this type are stored on the data model as true, false, or undefined
-export class BooleanField<MODEL_T> extends FormField<MODEL_T, FormFieldOptions, BooleanFieldConfig> {
+export class BooleanField<MODEL_T = {}> extends FormField<MODEL_T, FormFieldOptions, BooleanFieldConfig> {
   constructor(options: FormFieldOptions) {
     super(options, BooleanFieldConfig);
   }

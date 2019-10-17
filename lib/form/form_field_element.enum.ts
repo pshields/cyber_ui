@@ -2,6 +2,7 @@
 // These values should not be persisted; they are not guaranteed to be stable over time
 // This list may grow or change over time
 // Note that a given field type may only support one or a small number of these elements
+// TODO Switch this to a string type
 export enum FormFieldElement {
   NONE,  // For fields that don't end up in the UI
   INPUT,

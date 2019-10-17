@@ -66,7 +66,7 @@ export {FormFieldOptions, FormFieldConfig} from './form/form_field_config';
 export {FormFieldElement} from './form/form_field_element.enum';
 
 // Export the various fields
-export {BooleanField} from './form/field/boolean';
+export {BooleanField} from './form/field/boolean/field';
 export {ChoiceField, Option} from './form/field/choice/field';
 export {CommaSeparatedListField} from './form/field/comma_separated_list';
 export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution';
