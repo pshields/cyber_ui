@@ -16,35 +16,10 @@
     *ngIf="field.config.element === elements.MAT_SLIDER"
     [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
   </cyber-ui-value-in-numeric-range-field>
-  <!-- DiscreteProbabilityDistributionField template -->
-  <!-- TODO Move this to a cyber-ui-discrete-probability-distribution-field component -->
-  <div
-      *ngIf="field.config.element === elements.DISCRETE_PROBABILITY_DISTRIBUTION"
-      class="discrete-probability-distribution-field">
-    <p>{{field.config.label}}</p>
-    <div class="outcome-probability-assignment"
-         *ngFor="let assignment of field.getModelProperty(model, field.config.propertyName)">
-      <mat-form-field [class.outcome]="true">
-        <textarea
-            matInput
-            matTextareaAutosize
-            placeholder="Outcome"
-            [(ngModel)]="assignment.outcome.label"></textarea>
-      </mat-form-field>
-      <mat-form-field [class.probability]="true">
-        <textarea
-            matInput
-            matTextareaAutosize
-            placeholder="Probability"
-            [(ngModel)]="assignment.probability.value"></textarea>
-      </mat-form-field>
-    </div>
-    <button
-        type="button"
-        color="primary"
-        mat-stroked-button
-        (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({outcome: {label: ''}, probability: {value: ''}})">ADD ANOTHER OUTCOME</button>
-  </div>
+  <cyber-ui-discrete-probability-distribution-field
+    *ngIf="field.config.element === elements.DISCRETE_PROBABILITY_DISTRIBUTION"
+    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
+  </cyber-ui-discrete-probability-distribution-field>
   <!-- FieldListListField template -->
   <!-- TODO Consider moving this to its own component at some point -->
   <div

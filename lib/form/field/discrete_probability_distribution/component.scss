@@ -1,0 +1,14 @@
+.outcome-probability-assignment {
+  display: flex;
+
+  mat-form-field.outcome {
+    flex-basis: 320px;
+    flex-grow: 5;
+    margin-right: 16px;
+  }
+
+  mat-form-field.probability {
+    flex-basis: 80px;
+    flex-grow: 1;
+  }
+}

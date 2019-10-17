@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges
 
 import {FormField} from '../form_field';
 import {FormFieldElement} from '../form_field_element.enum';
-import {DiscreteProbabilityDistributionFieldConfig} from '../field/discrete_probability_distribution';
+import {DiscreteProbabilityDistributionFieldConfig} from '../field/discrete_probability_distribution/field';
 import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
 import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 import {CyberUiFormFieldService} from '../field/service';
@@ -47,7 +47,8 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
     if ((changes.model && this.getFields() !== undefined) || (changes.fields !== undefined && changes.fields.currentValue !== undefined)) {
       // Initialize undefined model fields where necessary
       (this.getFields() || changes.fields.currentValue).forEach(field => {
-        // Initialize discrete probabiliy distributions
+        // Initialize discrete probability distributions
+        // TODO This logic should live elsewhere, not here in cyber-ui-form-fields component
         if (field.config.element === FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION) {
           if (field.getModelProperty(this.model, field.config.propertyName) === undefined) {
             field.setModelProperty(this.model, field.config.propertyName, (field.config as DiscreteProbabilityDistributionFieldConfig).outcomePresets.map(outcome => ({outcome: outcome, probability: {value: ''}})));

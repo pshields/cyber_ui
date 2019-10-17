@@ -69,7 +69,7 @@ export {FormFieldElement} from './form/form_field_element.enum';
 export {BooleanField} from './form/field/boolean/field';
 export {ChoiceField, Option} from './form/field/choice/field';
 export {CommaSeparatedListField} from './form/field/comma_separated_list';
-export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution';
+export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution/field';
 export {FieldListListField} from './form/field/field_list_list';
 export {TextField} from './form/field/text/field';
 export {ValueInNumericRangeField} from './form/field/value_in_numeric_range/field';

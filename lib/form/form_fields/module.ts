@@ -12,12 +12,13 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {CyberUiAutofocusModule} from '../autofocus/module';
-import {CyberUiTextFieldModule} from '../field/text/module';
-import {CyberUiChoiceFieldModule} from '../field/choice/module';
 import {CyberUiBooleanFieldModule} from '../field/boolean/module';
+import {CyberUiChoiceFieldModule} from '../field/choice/module';
+import {CyberUiDiscreteProbabilityDistributionFieldModule} from '../field/discrete_probability_distribution/module';
+import {CyberUiTextFieldModule} from '../field/text/module';
+import {CyberUiValueInNumericRangeFieldModule} from '../field/value_in_numeric_range/module';
 
 import {CyberUiFormFieldsComponent} from './component';
-import {CyberUiValueInNumericRangeFieldModule} from '../field/value_in_numeric_range/module';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {CyberUiValueInNumericRangeFieldModule} from '../field/value_in_numeric_r
     CyberUiTextFieldModule,
     CyberUiChoiceFieldModule,
     CyberUiBooleanFieldModule,
+    CyberUiDiscreteProbabilityDistributionFieldModule,
     CyberUiValueInNumericRangeFieldModule,
   ],
   declarations: [
