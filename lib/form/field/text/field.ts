@@ -1,9 +1,9 @@
-import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
+import {CyberUiInteractiveModel} from '../../../model/interfaces/interactive_model';
+import {CyberUiLiteralModel} from '../../../model/interfaces/literal_model';
 
-import {FormField} from '../form_field';
-import {FormFieldOptions, FormFieldConfig} from '../form_field_config';
-import {FormFieldElement} from '../form_field_element.enum';
+import {FormField} from '../../form_field';
+import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
+import {FormFieldElement} from '../../form_field_element.enum';
 
 
 export interface TextFieldOptions extends FormFieldOptions {

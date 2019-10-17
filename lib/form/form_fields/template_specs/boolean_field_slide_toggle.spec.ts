@@ -5,7 +5,7 @@ import {By} from '@angular/platform-browser';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
 
-import {BooleanField} from '../../fields/boolean';
+import {BooleanField} from '../../field/boolean';
 import {FormFieldOptions} from '../../form_field_config';
 import {FormFieldElement} from '../../form_field_element.enum';
 

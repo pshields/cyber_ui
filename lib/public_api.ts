@@ -71,7 +71,7 @@ export {ChoiceField, Option} from './form/field/choice';
 export {CommaSeparatedListField} from './form/field/comma_separated_list';
 export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution';
 export {FieldListListField} from './form/field/field_list_list';
-export {TextField} from './form/field/text';
+export {TextField} from './form/field/text/field';
 export {ValueInNumericRangeField} from './form/field/value_in_numeric_range';
 
 // Common fields

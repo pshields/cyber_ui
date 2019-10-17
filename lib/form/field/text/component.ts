@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
-import {TextField} from '../field/text';
+import {TextField} from './field';
 
 
 @Component({

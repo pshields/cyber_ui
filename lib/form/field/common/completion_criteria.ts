@@ -1,4 +1,4 @@
-import {TextField} from '../text';
+import {TextField} from '../text/field';
 
 
 // This field is a user-editable, Markdown-formatted text field that the user can use to track the completion criteria for a thing
@@ -9,5 +9,3 @@ export const COMPLETION_CRITERIA_TEXT_FIELD = new TextField({
   label: 'Completion criteria',
   propertyName: 'completionCriteriaText',
 });
-
-

@@ -1,7 +1,7 @@
 import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
 import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 
-import {TextField} from './text';
+import {TextField} from './text/field';
 
 
 // Represents a list of string values

@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 
 import {MatInputModule} from '@angular/material';
 
-import {CyberUiAutofocusModule} from '../autofocus/module';
+import {CyberUiAutofocusModule} from '../../autofocus/module';
 
 import {CyberUiTextFieldComponent} from './component';
 

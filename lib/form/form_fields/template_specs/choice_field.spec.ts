@@ -2,7 +2,7 @@ import {NgModel} from '@angular/forms';
 import {async} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 
-import {ChoiceField} from '../../fields/choice';
+import {ChoiceField} from '../../field/choice';
 
 import {configureTestingModuleAndSetupContext, TestContext, TestDialogComponent} from '../component.spec';
 

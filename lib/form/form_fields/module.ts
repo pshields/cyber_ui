@@ -14,7 +14,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {CyberUiAutofocusModule} from '../autofocus/module';
 
 import {CyberUiFormFieldsComponent} from './component';
-import {CyberUiTextFieldModule} from '../text_field/module';
+import {CyberUiTextFieldModule} from '../field/text/module';
 
 
 @NgModule({

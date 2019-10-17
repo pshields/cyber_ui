@@ -1,4 +1,4 @@
-import {TextField} from '../text';
+import {TextField} from '../text/field';
 
 
 export function getLabelField(options = {}) {
