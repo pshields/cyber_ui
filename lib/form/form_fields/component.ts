@@ -31,7 +31,7 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
   // If only a single field is to be used.
   @Input() field: FormField<MODEL_T>;
 
-  // Stream of change actions. If the any fields' model has changed, an event will be emitted.
+  // Stream of change actions. An event will be emitted when any field's value changes.
   @Output() change: EventEmitter<void> = new EventEmitter();
 
   // Stream of save actions. If the model should be saved, an event will be emitted.
