@@ -66,17 +66,17 @@ export {FormFieldOptions, FormFieldConfig} from './form/form_field_config';
 export {FormFieldElement} from './form/form_field_element.enum';
 
 // Export the various fields
-export {BooleanField} from './form/fields/boolean';
-export {ChoiceField, Option} from './form/fields/choice';
-export {CommaSeparatedListField} from './form/fields/comma_separated_list';
-export {DiscreteProbabilityDistributionField} from './form/fields/discrete_probability_distribution';
-export {FieldListListField} from './form/fields/field_list_list';
-export {TextField} from './form/fields/text';
-export {ValueInNumericRangeField} from './form/fields/value_in_numeric_range';
+export {BooleanField} from './form/field/boolean';
+export {ChoiceField, Option} from './form/field/choice';
+export {CommaSeparatedListField} from './form/field/comma_separated_list';
+export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution';
+export {FieldListListField} from './form/field/field_list_list';
+export {TextField} from './form/field/text';
+export {ValueInNumericRangeField} from './form/field/value_in_numeric_range';
 
 // Common fields
-export {COMPLETION_CRITERIA_TEXT_FIELD} from './form/fields/common/completion_criteria';
-export {ENERGY_LEVEL_FIELD} from './form/fields/common/energy_level';
+export {COMPLETION_CRITERIA_TEXT_FIELD} from './form/field/common/completion_criteria';
+export {ENERGY_LEVEL_FIELD} from './form/field/common/energy_level';
 
 export {CYBER_UI_SHOW_EDIT_DIALOG_CANCEL_ACTION} from './form/edit_dialog/service';
 

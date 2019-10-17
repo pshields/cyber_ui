@@ -5,7 +5,7 @@ import {MatMenuTrigger} from '@angular/material/menu';
 import {CyberUiInteractiveModel} from '../../../model/interfaces/interactive_model';
 import {CyberUiLiteralModel} from '../../../model/interfaces/literal_model';
 
-import {ChoiceField, Option} from '../../fields/choice';
+import {ChoiceField, Option} from '../../field/choice';
 
 
 @Component({

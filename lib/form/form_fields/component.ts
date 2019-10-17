@@ -4,7 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 
 import {FormField} from '../form_field';
 import {FormFieldElement} from '../form_field_element.enum';
-import {DiscreteProbabilityDistributionFieldConfig} from '../fields/discrete_probability_distribution';
+import {DiscreteProbabilityDistributionFieldConfig} from '../field/discrete_probability_distribution';
 import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
 import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 

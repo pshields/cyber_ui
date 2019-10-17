@@ -6,7 +6,7 @@ import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model'
 import {CyberUiThemeService} from '../../theme/service';
 
 import {FormField} from '../form_field';
-import {ChoiceField} from '../fields/choice';
+import {ChoiceField} from '../field/choice';
 import {CyberUiChoiceFieldMenuComponent} from '../menus/choice_field/component';
 
 
