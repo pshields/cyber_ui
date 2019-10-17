@@ -17,6 +17,7 @@ import {CyberUiChoiceFieldModule} from '../field/choice/module';
 import {CyberUiBooleanFieldModule} from '../field/boolean/module';
 
 import {CyberUiFormFieldsComponent} from './component';
+import {CyberUiValueInNumericRangeFieldModule} from '../field/value_in_numeric_range/module';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {CyberUiFormFieldsComponent} from './component';
     CyberUiTextFieldModule,
     CyberUiChoiceFieldModule,
     CyberUiBooleanFieldModule,
+    CyberUiValueInNumericRangeFieldModule,
   ],
   declarations: [
     CyberUiFormFieldsComponent,

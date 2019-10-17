@@ -1,4 +1,4 @@
-import {ValueInNumericRangeField} from '../value_in_numeric_range';
+import {ValueInNumericRangeField} from '../value_in_numeric_range/field';
 
 
 // A field representing the user's current energy level

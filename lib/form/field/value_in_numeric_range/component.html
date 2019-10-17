@@ -1,0 +1,24 @@
+<div class="slider-container">
+  <span>{{field.config.label}}&nbsp;</span>
+  <mat-slider
+      color="primary"
+      [required]="field.config.required"
+      [name]="field.config.propertyName"
+      [ngModel]="field.getModelProperty(model, field.config.propertyName)"
+      (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); change.emit()"
+      [max]="field.config.maxValue"
+      [min]="field.config.minValue"
+      [step]="field.config.step"
+      [cyberUiAutofocus]="field.config.autofocus">
+  </mat-slider>
+  <span>{{field.getModelProperty(model, field.config.propertyName)|number:field.config.digitsinfo}}</span>
+  <button
+      mat-icon-button
+      *ngIf="field.getModelProperty(model, field.config.propertyName) !== undefined"
+      (click)="field.setModelProperty(model, field.config.propertyName, undefined)">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)">
+    <mat-icon>help</mat-icon>
+  </button>
+</div>

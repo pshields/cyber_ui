@@ -1,6 +1,6 @@
-import {FormField} from '../form_field';
-import {FormFieldElement} from '../form_field_element.enum';
-import {FormFieldOptions, FormFieldConfig} from '../form_field_config';
+import {FormField} from '../../form_field';
+import {FormFieldElement} from '../../form_field_element.enum';
+import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
 
 
 export interface ValueInNumericRangeFieldOptions extends FormFieldOptions {
@@ -37,7 +37,7 @@ export class ValueInNumericRangeFieldConfig extends FormFieldConfig {
 }
 
 
-export class ValueInNumericRangeField<MODEL_T> extends FormField<MODEL_T, ValueInNumericRangeFieldOptions, ValueInNumericRangeFieldConfig> {
+export class ValueInNumericRangeField<MODEL_T = {}> extends FormField<MODEL_T, ValueInNumericRangeFieldOptions, ValueInNumericRangeFieldConfig> {
   constructor(options: ValueInNumericRangeFieldOptions) {
     super(options, ValueInNumericRangeFieldConfig);
   }

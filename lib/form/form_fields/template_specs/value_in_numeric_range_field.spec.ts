@@ -2,7 +2,7 @@ import {NgModel} from '@angular/forms';
 import {async} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 
-import {ValueInNumericRangeField} from '../../field/value_in_numeric_range';
+import {ValueInNumericRangeField} from '../../field/value_in_numeric_range/field';
 
 import {configureTestingModuleAndSetupContext, TestContext, TestDialogComponent} from '../component.spec';
 
