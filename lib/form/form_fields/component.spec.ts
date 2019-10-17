@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {fakeAsync, tick, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
@@ -22,11 +22,8 @@ export function configureTestingModuleAndSetupContext(ctx: TestContext) {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
-        FormsModule,
-        CyberUiFormFieldsModule
-      ],
-      declarations: [FormFieldsTestHarnessComponent],
+        FormFieldsTestModule
+      ]
     }).compileComponents();
     tick();
 
@@ -68,3 +65,19 @@ export class FormFieldsTestHarnessComponent {
     test: 0,
   };
 }
+
+
+// This module exists to quiet warnings from the Angular language service
+// See https://github.com/angular/angular/issues/13726#issuecomment-408788152
+@NgModule({
+  imports: [
+    NoopAnimationsModule,
+    FormsModule,
+    CyberUiFormFieldsModule,
+  ],
+  declarations: [
+    TestDialogComponent,
+    FormFieldsTestHarnessComponent,
+  ],
+})
+export class FormFieldsTestModule {}
