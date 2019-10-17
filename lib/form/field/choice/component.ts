@@ -16,9 +16,4 @@ export class CyberUiChoiceFieldComponent {
   @Output() change = new EventEmitter();
 
   @Output() save = new EventEmitter();
-
-  emitSaveAndReturnFalse() {
-    this.save.emit();
-    return false;
-  }
 }
