@@ -3,10 +3,9 @@ import {Component, EventEmitter, Input, Output, ChangeDetectionStrategy} from '@
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 
-import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
-
 import {CyberUiFormFieldEvent} from '../field/defs/form_field_event';
+
+import {CyberUiFormModel} from '../defs/form_model';
 
 import {CyberUiFormFieldService} from '../field/service';
 
@@ -19,7 +18,7 @@ import {FormField} from '../form_field';
   styleUrls: ['component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> {
+export class CyberUiFormFieldsComponent<MODEL_T extends CyberUiFormModel> {
 
   constructor(
     readonly service: CyberUiFormFieldService,

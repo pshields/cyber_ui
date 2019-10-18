@@ -1,5 +1,4 @@
-import {CyberUiInteractiveModel} from '../../../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../../../model/interfaces/literal_model';
+import {CyberUiFormModel} from '../../defs/form_model';
 
 import {FormField} from '../../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
@@ -36,7 +35,7 @@ export class TextFieldConfig extends FormFieldConfig {
 // This field type is for various text such as labels or notes
 // Other fields may subclass this field and provide alternate representations on the data model
 // e.g. CommaSeparatedListField subclasses TextField and stores itself as a string[] on the model
-export class TextField<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel) = {}> extends FormField<MODEL_T, TextFieldOptions, TextFieldConfig> {
+export class TextField<MODEL_T extends CyberUiFormModel = {}> extends FormField<MODEL_T, TextFieldOptions, TextFieldConfig> {
 
   constructor(options: TextFieldOptions) {
     super(options, TextFieldConfig);

@@ -1,5 +1,6 @@
 import {CyberUiInteractiveModel} from '../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../model/interfaces/literal_model';
+
+import {CyberUiFormModel} from './defs/form_model';
 
 import {FormFieldConfig, FormFieldOptions} from './form_field_config';
 
@@ -10,7 +11,7 @@ import {FormFieldConfig, FormFieldOptions} from './form_field_config';
 // For a list of subclasses, see the `field` subdirectory (most `field` subpackages are custom fields
 // that define their own field subclass.)
 export class FormField<
-    MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel) = {},
+    MODEL_T extends CyberUiFormModel = {},
     OPTIONS_T extends FormFieldOptions = FormFieldOptions,
     CONFIG_T extends FormFieldConfig = FormFieldConfig,
   > {

@@ -1,5 +1,4 @@
-import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
+import {CyberUiFormModel} from '../defs/form_model';
 
 import {TextField} from './text/field';
 
@@ -7,7 +6,7 @@ import {TextField} from './text/field';
 // Represents a list of string values
 // Shown in the UI as a comma-separated, user-editable list
 // Note: on the data model, this field is stored as a string[]
-export class CommaSeparatedListField<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> extends TextField<MODEL_T> {
+export class CommaSeparatedListField<MODEL_T extends CyberUiFormModel> extends TextField<MODEL_T> {
 
   // Since this field is stored on the model as a string[], we need to provide a custom
   // getNgModelBoundValue implementation which serializes the field value to a string
