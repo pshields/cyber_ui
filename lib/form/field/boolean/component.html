@@ -4,7 +4,7 @@
       [required]="field.config.required"
       [name]="field.config.propertyName"
       [ngModel]="field.getModelProperty(model, field.config.propertyName)"
-      (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); change.emit()"
+      (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); event.emit({type: 'change'})"
       [cyberUiAutofocus]="field.config.autofocus">
     {{field.config.label}}
   </mat-checkbox>
@@ -17,7 +17,7 @@
       [required]="field.config.required"
       [name]="field.config.propertyName"
       [ngModel]="field.getModelProperty(model, field.config.propertyName)"
-      (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); change.emit()"
+      (ngModelChange)="field.setModelProperty(model, field.config.propertyName, $event); event.emit({type: 'change'})"
       [cyberUiAutofocus]="field.config.autofocus">
   </mat-slide-toggle>
   <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>

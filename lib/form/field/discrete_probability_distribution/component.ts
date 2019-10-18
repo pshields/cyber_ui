@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldService} from '../service';
 
@@ -18,9 +19,11 @@ export class CyberUiDiscreteProbabilityDistributionFieldComponent implements Cyb
     readonly service: CyberUiFormFieldService,
   ) {}
 
+  // Because field is sometimes set dynamically, such as when this field is
+  // instantiated dynamically by a cyber-ui-form-field, rather than via template
+  // change detection, a setter is used to handle changes to this field.
   _field: DiscreteProbabilityDistributionField;
   get field() {
-    console.log('getting _field', this._field);
     return this._field;
   }
   @Input() set field(field: DiscreteProbabilityDistributionField) {
@@ -30,9 +33,7 @@ export class CyberUiDiscreteProbabilityDistributionFieldComponent implements Cyb
 
   @Input() model: {};
 
-  @Output() change = new EventEmitter();
-
-  @Output() save = new EventEmitter();
+  @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
   handleFieldChange() {
     // Initialize undefined discrete probability distributions with the outcome presets

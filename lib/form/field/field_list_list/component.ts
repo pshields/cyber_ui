@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldService} from '../service';
 
@@ -23,8 +24,14 @@ export class CyberUiFieldListListFieldComponent implements CyberUiFormFieldCompo
 
   @Input() model: {};
 
-  @Output() change = new EventEmitter();
+  @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
-  @Output() save = new EventEmitter();
+  addRecord() {
+    const records = this.field.getModelProperty(this.model, this.field.config.propertyName) || [];
+    records.push({});
+    this.field.setModelProperty(this.model, this.field.config.propertyName, records);
+    this.changeDetectorRef.detectChanges();
+    this.event.emit({type: 'change'});
+  }
 
 }

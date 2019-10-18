@@ -5,13 +5,14 @@ import {CyberUiInteractiveModel} from '../../../model/interfaces/interactive_mod
 
 import {FormField} from '../../form_field';
 
+import {CyberUiFormFieldEvent} from './form_field_event';
+
 
 export interface CyberUiFormFieldComponentInterface<
-    FORM_FIELD_T extends FormField = FormField,
-    MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel) = {},
+  FORM_FIELD_T extends FormField = FormField,
+  MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel) = {},
 > {
   field: FORM_FIELD_T;
   model: MODEL_T;
-  change: EventEmitter<void|{}>;
-  save: EventEmitter<void|{}>;
+  event: EventEmitter<CyberUiFormFieldEvent>;
 }

@@ -6,6 +6,7 @@ import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 import {CyberUiFormFieldService} from '../field/service';
 
 import {FormField} from '../form_field';
+import {CyberUiFormFieldEvent} from '../field/defs/form_field_event';
 
 
 @Component({
@@ -29,11 +30,8 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
   // If only a single field is to be used.
   @Input() field: FormField<MODEL_T>;
 
-  // Stream of change actions. An event will be emitted when any field's value changes.
-  @Output() change: EventEmitter<void> = new EventEmitter();
-
-  // Stream of save actions. If the model should be saved, an event will be emitted.
-  @Output() save: EventEmitter<void> = new EventEmitter();
+  // Stream of events from the fields in this form
+  @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
   getFields() {
     return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);

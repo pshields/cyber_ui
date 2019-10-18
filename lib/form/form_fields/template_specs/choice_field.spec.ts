@@ -21,10 +21,10 @@ describe('ChoiceField template', () => {
   };
 
   describe('when the user initiates a change', () => {
-    let numChangeEmissions = 0;
+    let eventEmissions = [];
 
     beforeEach(async(() => {
-      numChangeEmissions = 0;
+      eventEmissions = [];
       ctx.harnessComponent.fields = [
         new ChoiceField(defaultOptions)
       ];
@@ -32,14 +32,15 @@ describe('ChoiceField template', () => {
     }));
 
     beforeEach(async(() => {
-      ctx.component.change.subscribe(() => numChangeEmissions += 1);
+      ctx.component.event.subscribe(event => eventEmissions.push(event));
       // Simulate the user changing their choice
       const inputDebugEl = ctx.fixture.debugElement.query(By.directive(NgModel));
       inputDebugEl.injector.get(NgModel).control.setValue('b');
     }));
 
     it('emits a change event', () => {
-      expect(numChangeEmissions).toEqual(1);
+      expect(eventEmissions.length).toEqual(1);
+      expect(eventEmissions[0].type).toEqual('change');
     });
   });
 

@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldService} from '../service';
 
@@ -22,12 +23,12 @@ export class CyberUiTextFieldComponent implements CyberUiFormFieldComponentInter
 
   @Input() model: {};
 
-  @Output() change = new EventEmitter();
-
-  @Output() save = new EventEmitter();
+  @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
   emitSaveAndReturnFalse() {
-    this.save.emit();
+    this.event.emit({
+      type: 'save'
+    });
     return false;
   }
 }

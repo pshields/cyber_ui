@@ -1,5 +1,8 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
+import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+import {CyberUiFormFieldEvent} from '../defs/form_field_event';
+
 import {CyberUiFormFieldService} from '../service';
 
 import {ValueInNumericRangeField} from './field';
@@ -10,7 +13,7 @@ import {ValueInNumericRangeField} from './field';
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiValueInNumericRangeFieldComponent {
+export class CyberUiValueInNumericRangeFieldComponent implements CyberUiFormFieldComponentInterface {
 
   constructor(
     readonly service: CyberUiFormFieldService
@@ -20,8 +23,6 @@ export class CyberUiValueInNumericRangeFieldComponent {
 
   @Input() model: {};
 
-  @Output() change = new EventEmitter();
-
-  @Output() save = new EventEmitter();
+  @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
 }

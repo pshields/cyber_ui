@@ -7,7 +7,7 @@
     [cyberUiAutofocus]="field.config.autofocus"
     [ngModel]="field.getNgModelBoundValue(model)"
     (ngModelChange)="field.boundValueChangeHandler(model, $event)"
-    (ngModelChange)="change.emit()"
+    (ngModelChange)="event.emit({type: 'change'})"
     (keydown.enter)="field.config.saveOnEnter ? emitSaveAndReturnFalse() : null">
   </textarea>
 </mat-form-field>

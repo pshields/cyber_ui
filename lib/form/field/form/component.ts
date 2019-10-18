@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs';
 import {FormField} from '../../form_field';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldComponentResolver} from './resolver.service';
 
@@ -19,9 +20,8 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
 
   // The ref to the current field component
   componentRef: ComponentRef<CyberUiFormFieldComponentInterface>;
-  // The current component output subscriptions
-  changeSubscription: Subscription;
-  saveSubscription: Subscription;
+  // The current component output subscription
+  eventsSubscription: Subscription;
 
   constructor(
     readonly componentFactoryResolver: ComponentFactoryResolver,
@@ -33,9 +33,7 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
 
   @Input() model: {};
 
-  @Output() change: EventEmitter<void> = new EventEmitter();
-
-  @Output() save: EventEmitter<void> = new EventEmitter();
+  @Output() event: EventEmitter<CyberUiFormFieldEvent> = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field) {
@@ -52,22 +50,18 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
       // field-specific initialization
       this.componentRef.instance.model = this.model;
       this.componentRef.instance.field = this.field;
-      this.unsubscribeFromSubscriptionsIfApplicable();
-      this.componentRef.instance.change.subscribe(() => this.change.emit());
-      this.componentRef.instance.save.subscribe(() => this.save.emit());
+      this.unsubscribeFromOldSubscriptionIfApplicable();
+      this.componentRef.instance.event.subscribe(event => this.event.emit(event));
     }
   }
 
-  unsubscribeFromSubscriptionsIfApplicable() {
-    if (this.changeSubscription && !this.changeSubscription.closed) {
-      this.changeSubscription.unsubscribe();
-    }
-    if (this.saveSubscription && !this.saveSubscription.closed) {
-      this.saveSubscription.unsubscribe();
+  unsubscribeFromOldSubscriptionIfApplicable() {
+    if (this.eventsSubscription && !this.eventsSubscription.closed) {
+      this.eventsSubscription.unsubscribe();
     }
   }
 
   ngOnDestroy() {
-    this.unsubscribeFromSubscriptionsIfApplicable();
+    this.unsubscribeFromOldSubscriptionIfApplicable();
   }
 }

@@ -1,9 +1,6 @@
-<!-- Fields may either be passed in via the 'fields' input, or defined on the model instance, or defined statically on the model's constructor -->
-<ng-container *ngFor="let field of getFields()">
-  <cyber-ui-form-field
-    [field]="field"
-    [model]="model"
-    (change)="change.emit()"
-    (save)="save.emit()">
-  </cyber-ui-form-field>
-</ng-container>
+<cyber-ui-form-field
+  *ngFor="let field of getFields()"
+  [field]="field"
+  [model]="model"
+  (event)="event.emit($event)">
+</cyber-ui-form-field>

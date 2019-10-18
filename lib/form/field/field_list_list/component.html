@@ -13,8 +13,7 @@
     <cyber-ui-form-fields
         [fields]="field.config.fields"
         [model]="item"
-        (change)="change.emit()"
-        (save)="save.emit()">
+        (change)="event.emit($event)">
     </cyber-ui-form-fields>
   </div>
 </div>
@@ -22,4 +21,6 @@
     type="button"
     color="primary"
     mat-stroked-button
-    (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>
+    (click)="addRecord()">
+  ADD {{field.config.contentTypeLabel}}
+</button>
