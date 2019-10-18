@@ -60,8 +60,9 @@ export {CyberUiDiscreteProbabilityDistributionFieldModule} from './form/field/di
 export {CyberUiFieldListListFieldModule} from './form/field/field_list_list/module';
 export {CyberUiFormFieldComponentInterface} from './form/field/defs/form_field_component';
 export {CyberUiFormFieldChangeEvent} from './form/field/defs/form_field_event';
-export {CyberUiFormFieldSaveEvent} from './form/field/defs/form_field_event';
 export {CyberUiFormFieldEvent} from './form/field/defs/form_field_event';
+export {CyberUiFormFieldModule} from './form/field/form/module';
+export {CyberUiFormFieldSaveEvent} from './form/field/defs/form_field_event';
 export {CyberUiFormFieldsComponent} from './form/form_fields/component';
 export {CyberUiFormFieldsModule} from './form/form_fields/module';
 export {CyberUiTextFieldModule} from './form/field/text/module';

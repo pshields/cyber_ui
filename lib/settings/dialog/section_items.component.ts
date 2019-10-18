@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
-import {SettingsSectionConfig} from '../interfaces/section_config';
+import {SettingsSectionConfigItem} from '../interfaces/section_config';
 
 
 @Component({
@@ -9,7 +9,7 @@ import {SettingsSectionConfig} from '../interfaces/section_config';
 })
 export class CyberUiSettingsSectionItemsComponent<SETTINGS_T = {}> {
   @Input() label?: string;
-  @Input() items?: SettingsSectionConfig[];
+  @Input() items?: SettingsSectionConfigItem[];
   @Input() model: SETTINGS_T;
   @Output() changes = new EventEmitter<void>();
 

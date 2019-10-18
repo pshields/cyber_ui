@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
 
-import {CyberUiFormFieldsModule} from '../../form/form_fields/module';
+import {CyberUiFormFieldModule} from '../../form/field/form/module';
 
 import {CyberUiSettingsDialogComponent} from './component';
 import {CyberUiSettingsDialogService} from './service';
@@ -18,7 +18,7 @@ import {CyberUiSettingsSectionItemsComponent} from './section_items.component';
     MatButtonModule,
     MatDialogModule,
     MatListModule,
-    CyberUiFormFieldsModule,
+    CyberUiFormFieldModule,
   ],
   declarations: [
     CyberUiSettingsDialogComponent,

@@ -14,12 +14,12 @@
           [model]="model"
           (changes)="onChange()">
       </cyber-ui-settings-section-items>
-      <cyber-ui-form-fields
+      <cyber-ui-form-field
           *ngIf="item.config"
           [field]="item"
           [model]="model"
           (change)="onChange()">
-      </cyber-ui-form-fields>
+      </cyber-ui-form-field>
     </ng-container>
   </ng-container>
 </ng-template>

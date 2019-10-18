@@ -1,5 +1,5 @@
 <cyber-ui-form-field
-  *ngFor="let field of (fieldsObs | async ) || getFields()"
+  *ngFor="let field of fields"
   [field]="field"
   [model]="model"
   (event)="event.emit($event)">

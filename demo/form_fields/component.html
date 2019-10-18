@@ -16,7 +16,9 @@
 <p><button color="primary" mat-stroked-button (click)="showEditDialog()">EDIT IN A DIALOG</button></p>
 
 <form autocomplete=off>
-  <cyber-ui-form-fields [model]="exampleFormModel">
+  <cyber-ui-form-fields
+    [model]="exampleFormModel"
+    [fields]="exampleFormModel.fields">
   </cyber-ui-form-fields>
 </form>
 

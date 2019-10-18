@@ -8,6 +8,7 @@ import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
 import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldComponentResolver} from './resolver.service';
+import {filter} from 'rxjs/operators';
 
 
 // A generic component that dynamically instantiates the appropriate form field component based on the field's config
@@ -34,6 +35,9 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
   @Input() model: {};
 
   @Output() event: EventEmitter<CyberUiFormFieldEvent> = new EventEmitter();
+  // Convenience methods for easy responding to events from templates
+  @Output() change = this.event.pipe(filter(event => event.type === 'change'));
+  @Output() save = this.event.pipe(filter(event => event.type === 'save'));
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field) {

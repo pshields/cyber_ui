@@ -72,7 +72,7 @@ new FieldListListField({
 
 
 export class DemoAppExampleFormModel extends FakeModel {
-  static readonly fields = DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS;
+  fields = DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS;
 
   // Properties' initial values
   // Note that most fields do not need to be initialized - doing so is optional
