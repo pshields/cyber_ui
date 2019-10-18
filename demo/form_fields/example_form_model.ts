@@ -4,7 +4,6 @@ import {CommaSeparatedListField} from 'lib/public_api';
 import {DiscreteProbabilityDistributionField} from 'lib/public_api';
 import {FormField} from 'lib/public_api';
 import {FieldListListField} from 'lib/public_api';
-import {FormFieldElement} from 'lib/public_api';
 import {TextField} from 'lib/public_api';
 import {ValueInNumericRangeField} from 'lib/public_api';
 
@@ -25,7 +24,7 @@ export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS: FormField[] = [
   new BooleanField({
     label: 'Active?',
     propertyName: 'slideToggleExample',
-    element: FormFieldElement.MAT_SLIDE_TOGGLE,
+    element: 'mat-slide-toggle',
   }),
   new CommaSeparatedListField({
     label: 'Tags',

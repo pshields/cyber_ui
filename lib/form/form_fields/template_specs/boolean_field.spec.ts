@@ -10,7 +10,7 @@ import {BooleanField} from '../../field/boolean/field';
 import {configureTestingModuleAndSetupContext, TestContext, TestDialogComponent} from '../component.spec';
 
 
-// This test uses the default element for boolean fields (FormFieldElement.MAT_CHECKBOX)
+// This test uses the default element for boolean fields ('mat-checkbox')
 // For the version of the tests using the slide toggle, see boolean_field_slide_toggle.spec.ts.
 describe('BooleanField template', () => {
   const ctx: TestContext = {};

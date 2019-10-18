@@ -6,7 +6,6 @@ import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
 import {CyberUiFormFieldService} from '../field/service';
 
 import {FormField} from '../form_field';
-import {FormFieldElement} from '../form_field_element.enum';
 
 
 @Component({
@@ -35,9 +34,6 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
 
   // Stream of save actions. If the model should be saved, an event will be emitted.
   @Output() save: EventEmitter<void> = new EventEmitter();
-
-  // Expose the FormFieldElement enum to the template for use in comparisons
-  readonly elements = FormFieldElement;
 
   getFields() {
     return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);

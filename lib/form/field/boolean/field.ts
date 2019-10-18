@@ -1,19 +1,21 @@
 import {FormField} from '../../form_field';
 import {FormFieldConfig, FormFieldOptions} from '../../form_field_config';
-import {FormFieldElement} from '../../form_field_element.enum';
 
 
-const DEFAULT_ELEMENT = FormFieldElement.MAT_CHECKBOX;
+type BooleanFieldElement = 'mat-checkbox' | 'mat-slide-toggle';
+
+
+const DEFAULT_ELEMENT: BooleanFieldElement = 'mat-checkbox';
 
 
 export interface BooleanFieldOptions extends FormFieldOptions {
   // Which element type to use to render this field
-  element?: FormFieldElement;
+  element?: BooleanFieldElement;
 }
 
 
 export class BooleanFieldConfig extends FormFieldConfig {
-  readonly element: FormFieldElement;
+  readonly element: BooleanFieldElement;
 
   constructor(options: BooleanFieldOptions) {
     super(options);

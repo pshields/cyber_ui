@@ -1,4 +1,4 @@
-<div class="checkbox-container" *ngIf="field.config.element === elements.MAT_CHECKBOX">
+<div class="checkbox-container" *ngIf="field.config.element === 'mat-checkbox'">
   <mat-checkbox
       color="primary"
       [required]="field.config.required"
@@ -10,7 +10,7 @@
   </mat-checkbox>
   <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)"><mat-icon>help</mat-icon></button>
 </div>
-<div class="slide-toggle-container" *ngIf="field.config.element === elements.MAT_SLIDE_TOGGLE">
+<div class="slide-toggle-container" *ngIf="field.config.element === 'mat-slide-toggle'">
   <span>{{field.config.label}}&nbsp;</span>
   <mat-slide-toggle
       color="primary"

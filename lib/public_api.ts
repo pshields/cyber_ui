@@ -68,9 +68,6 @@ export {FormField} from './form/form_field';
 // These types are also needed since FormField is parameterized by them
 export {FormFieldOptions, FormFieldConfig} from './form/form_field_config';
 
-// Consumers will want to express an element preference using FormFieldElement
-export {FormFieldElement} from './form/form_field_element.enum';
-
 // Export the various fields
 export {BooleanField} from './form/field/boolean/field';
 export {ChoiceField, Option} from './form/field/choice/field';
