@@ -60,6 +60,27 @@ a {
   color: var(--primary-link-color);
 }
 
+// Configure buttons to use CSS custom properties
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+  color: var(--primary-link-color);
+}
+
+// Configure mat-checkbox to use CSS custom properties
+.mat-checkbox-indeterminate, .mat-checkbox-checked {
+  &.mat-primary .mat-checkbox-background {
+    background-color: var(--primary-link-color);
+  }
+}
+
+// Configure slider to use CSS custom properties
+.mat-primary .mat-slider-track-fill,
+.mat-primary .mat-slider-thumb,
+.mat-primary .mat-slider-thumb-label {
+  background-color: var(--primary-link-color);
+}
+
 mat-expansion-panel-header.mat-expansion-panel-header {
   // Because Cyber UI does not hard-code fixed expansion panel header heights,
   // this padding is added to provide a reasonable default.
