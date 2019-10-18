@@ -1,6 +1,5 @@
 import {FormField} from '../../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
-import {FormFieldElement} from '../../form_field_element.enum';
 
 
 // Class for representing an option in the list of options for ChoiceField
@@ -25,13 +24,7 @@ export class ChoiceFieldConfig<OPTION_VALUE_T> extends FormFieldConfig {
   multiple: boolean;
 
   constructor(options: ChoiceFieldOptions<OPTION_VALUE_T>) {
-    super(
-      options,
-      // Supported elements for this field type are SELECT
-      [FormFieldElement.SELECT],
-      // The default UI element for this field type is SELECT
-      FormFieldElement.SELECT
-    );
+    super(options);
     this.options = options.options;
     this.multiple = this.getMultiple(options.multiple);
   }

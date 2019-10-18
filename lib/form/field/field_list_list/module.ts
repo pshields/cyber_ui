@@ -4,11 +4,11 @@ import {FormsModule} from '@angular/forms';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
 
 import {CyberUiAutofocusModule} from '../../autofocus/module';
+import {CyberUiFormFieldsModule} from '../../form_fields/module';
 
-import {CyberUiTextFieldComponent} from './component';
+import {CyberUiFieldListListFieldComponent} from './component';
 
 
 @NgModule({
@@ -17,17 +17,17 @@ import {CyberUiTextFieldComponent} from './component';
     CommonModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule,
     CyberUiAutofocusModule,
+    CyberUiFormFieldsModule,
   ],
   declarations: [
-    CyberUiTextFieldComponent,
+    CyberUiFieldListListFieldComponent,
   ],
   exports: [
-    CyberUiTextFieldComponent,
+    CyberUiFieldListListFieldComponent,
   ],
   entryComponents: [
-    CyberUiTextFieldComponent,
-  ]
+    CyberUiFieldListListFieldComponent,
+  ],
 })
-export class CyberUiTextFieldModule {}
+export class CyberUiFieldListListFieldModule {}

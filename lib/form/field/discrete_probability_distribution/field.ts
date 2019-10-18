@@ -1,6 +1,6 @@
 import {FormField} from '../../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
-import {FormFieldElement} from '../../form_field_element.enum';
+
 import {Outcome} from '../../../probability/interfaces/outcome';
 
 
@@ -16,13 +16,7 @@ export class DiscreteProbabilityDistributionFieldConfig extends FormFieldConfig 
   outcomePresets: Outcome[];
 
   constructor(options: DiscreteProbabilityDistributionFieldOptions) {
-    super(
-      options,
-      // Supported elements for this field type are DISCRETE_PROBABILITY_DISTRIBUTION
-      [FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION],
-      // The default UI element for this field type is DISCRETE_PROBABILITY_DISTRIBUTION
-      FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION,
-    );
+    super(options);
     this.outcomePresets = this.getOutcomePresets(options.outcomePresets);
   }
 
@@ -34,7 +28,7 @@ export class DiscreteProbabilityDistributionFieldConfig extends FormFieldConfig 
 
 
 // This field serializes on the model as a OutcomeProbabilityAssignment[]
-export class DiscreteProbabilityDistributionField<MODEL_T = {}> extends FormField<MODEL_T, FormFieldOptions, FormFieldConfig> {
+export class DiscreteProbabilityDistributionField<MODEL_T = {}> extends FormField<MODEL_T, DiscreteProbabilityDistributionFieldOptions, DiscreteProbabilityDistributionFieldConfig> {
 
   constructor(options: DiscreteProbabilityDistributionFieldOptions) {
     super(options, DiscreteProbabilityDistributionFieldConfig);

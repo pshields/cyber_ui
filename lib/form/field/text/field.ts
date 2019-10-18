@@ -3,7 +3,6 @@ import {CyberUiLiteralModel} from '../../../model/interfaces/literal_model';
 
 import {FormField} from '../../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
-import {FormFieldElement} from '../../form_field_element.enum';
 
 
 export interface TextFieldOptions extends FormFieldOptions {
@@ -20,13 +19,7 @@ export class TextFieldConfig extends FormFieldConfig {
   saveOnEnter: boolean;
 
   constructor(options: TextFieldOptions) {
-    super(
-      options,
-      // Supported elements for this field type are TEXTAREA
-      [FormFieldElement.TEXTAREA],
-      // The default UI element for this field type is TEXTAREA
-      FormFieldElement.TEXTAREA
-    );
+    super(options);
     this.saveOnEnter = this.getSaveOnEnter(options.saveOnEnter);
   }
 

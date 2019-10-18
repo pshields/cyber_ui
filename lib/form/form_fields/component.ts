@@ -1,11 +1,12 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
+import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
+import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
+
+import {CyberUiFormFieldService} from '../field/service';
 
 import {FormField} from '../form_field';
 import {FormFieldElement} from '../form_field_element.enum';
-import {DiscreteProbabilityDistributionFieldConfig} from '../field/discrete_probability_distribution/field';
-import {CyberUiInteractiveModel} from '../../model/interfaces/interactive_model';
-import {CyberUiLiteralModel} from '../../model/interfaces/literal_model';
-import {CyberUiFormFieldService} from '../field/service';
 
 
 @Component({
@@ -13,10 +14,9 @@ import {CyberUiFormFieldService} from '../field/service';
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> implements OnChanges {
+export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel|CyberUiLiteralModel)> {
 
   constructor(
-    readonly changeDetectorRef: ChangeDetectorRef,
     readonly service: CyberUiFormFieldService,
   ) {}
 
@@ -41,21 +41,6 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
 
   getFields() {
     return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if ((changes.model && this.getFields() !== undefined) || (changes.fields !== undefined && changes.fields.currentValue !== undefined)) {
-      // Initialize undefined model fields where necessary
-      (this.getFields() || changes.fields.currentValue).forEach(field => {
-        // Initialize discrete probability distributions
-        // TODO This logic should live elsewhere, not here in cyber-ui-form-fields component
-        if (field.config.element === FormFieldElement.DISCRETE_PROBABILITY_DISTRIBUTION) {
-          if (field.getModelProperty(this.model, field.config.propertyName) === undefined) {
-            field.setModelProperty(this.model, field.config.propertyName, (field.config as DiscreteProbabilityDistributionFieldConfig).outcomePresets.map(outcome => ({outcome: outcome, probability: {value: ''}})));
-          }
-        }
-      });
-    }
   }
 
 }

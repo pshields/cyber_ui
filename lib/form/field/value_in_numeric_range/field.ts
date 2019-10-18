@@ -1,5 +1,5 @@
 import {FormField} from '../../form_field';
-import {FormFieldElement} from '../../form_field_element.enum';
+
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
 
 
@@ -22,13 +22,7 @@ export class ValueInNumericRangeFieldConfig extends FormFieldConfig {
   digitsinfo: string|undefined;
 
   constructor(options: ValueInNumericRangeFieldOptions) {
-    super(
-      options,
-      // Currently, MAT_SLIDER is the only supported UI element for this field type
-      [FormFieldElement.MAT_SLIDER],
-      // Therefore, it is also the default UI element for this field type
-      FormFieldElement.MAT_SLIDER
-    );
+    super(options);
     this.minValue = options.minValue;
     this.maxValue = options.maxValue;
     this.step = options.step;

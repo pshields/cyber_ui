@@ -49,13 +49,19 @@ export {delegationMenuActivationHandler} from './delegation/delegation_menu/util
 export {CyberUiTimeSinceLastEngagementService} from './engagement/time_since_last_engagement/service';
 export {CyberUiTimeSinceLastEngagementModule} from './engagement/time_since_last_engagement/module';
 
-// =====
-// FORMS
-// =====
+// ====
+// FORM
+// ====
 
 export {CyberUiAutofocusModule} from './form/autofocus/module';
+export {CyberUiBooleanFieldModule} from './form/field/boolean/module';
+export {CyberUiChoiceFieldModule} from './form/field/choice/module';
+export {CyberUiDiscreteProbabilityDistributionFieldModule} from './form/field/discrete_probability_distribution/module';
+export {CyberUiFieldListListFieldModule} from './form/field/field_list_list/module';
 export {CyberUiFormFieldsComponent} from './form/form_fields/component';
 export {CyberUiFormFieldsModule} from './form/form_fields/module';
+export {CyberUiTextFieldModule} from './form/field/text/module';
+export {CyberUiValueInNumericRangeFieldModule} from './form/field/value_in_numeric_range/module';
 
 // Although abstract, it's import to at least export the type since consumers may want to use it
 export {FormField} from './form/form_field';
@@ -70,7 +76,7 @@ export {BooleanField} from './form/field/boolean/field';
 export {ChoiceField, Option} from './form/field/choice/field';
 export {CommaSeparatedListField} from './form/field/comma_separated_list';
 export {DiscreteProbabilityDistributionField} from './form/field/discrete_probability_distribution/field';
-export {FieldListListField} from './form/field/field_list_list';
+export {FieldListListField} from './form/field/field_list_list/field';
 export {TextField} from './form/field/text/field';
 export {ValueInNumericRangeField} from './form/field/value_in_numeric_range/field';
 

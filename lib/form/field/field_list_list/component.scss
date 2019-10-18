@@ -1,0 +1,9 @@
+.field-list-list-field-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 18px;
+
+  cyber-ui-form-fields {
+    flex-grow: 1;
+  }
+}

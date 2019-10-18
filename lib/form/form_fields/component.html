@@ -1,55 +1,9 @@
 <!-- Fields may either be passed in via the 'fields' input, or defined on the model instance, or defined statically on the model's constructor -->
 <ng-container *ngFor="let field of getFields()">
-  <cyber-ui-text-field
-    *ngIf="field.config.element === elements.TEXTAREA"
-    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
-  </cyber-ui-text-field>
-  <cyber-ui-choice-field
-    *ngIf="field.config.element === elements.SELECT"
-    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
-  </cyber-ui-choice-field>
-  <cyber-ui-boolean-field
-    *ngIf="field.config.element === elements.MAT_CHECKBOX || field.config.element === elements.MAT_SLIDE_TOGGLE"
-    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
-  </cyber-ui-boolean-field>
-  <cyber-ui-value-in-numeric-range-field
-    *ngIf="field.config.element === elements.MAT_SLIDER"
-    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
-  </cyber-ui-value-in-numeric-range-field>
-  <cyber-ui-discrete-probability-distribution-field
-    *ngIf="field.config.element === elements.DISCRETE_PROBABILITY_DISTRIBUTION"
-    [field]="field" [model]="model" (change)="change.emit()" (save)="save.emit()">
-  </cyber-ui-discrete-probability-distribution-field>
-  <!-- FieldListListField template -->
-  <!-- TODO Consider moving this to its own component at some point -->
-  <div
-      *ngIf="field.config.element === elements.CYBER_UI_FORM_FIELDS_LIST"
-      class="field-list-list-field">
-    <p>{{field.config.label}}</p>
-    <div *ngIf="field.getModelProperty(model, field.config.propertyName) !== undefined">
-      <div
-          *ngFor="let item of field.getModelProperty(model, field.config.propertyName); let i = index"
-          class="field-list-list-field-item">
-        <!-- button needs type="button" to avoid being interpreted as a submit button: https://stackoverflow.com/a/47186021/860525 -->
-        <button
-            type="button"
-            mat-icon-button
-            color="primary"
-            (click)="field.getModelProperty(model, field.config.propertyName).splice(i, 1)">
-          <mat-icon aria-label="Remove item">close</mat-icon>
-        </button>
-        <cyber-ui-form-fields
-            [fields]="field.config.fields"
-            [model]="item"
-            (change)="change.emit()"
-            (save)="save.emit()">
-        </cyber-ui-form-fields>
-      </div>
-    </div>
-    <button
-        type="button"
-        color="primary"
-        mat-stroked-button
-        (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>
-  </div>
+  <cyber-ui-form-field
+    [field]="field"
+    [model]="model"
+    (change)="change.emit()"
+    (save)="save.emit()">
+  </cyber-ui-form-field>
 </ng-container>

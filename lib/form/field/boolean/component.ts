@@ -2,6 +2,8 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {FormFieldElement} from '../../form_field_element.enum';
 
+import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
+
 import {CyberUiFormFieldService} from '../service';
 
 import {BooleanField} from './field';
@@ -12,12 +14,12 @@ import {BooleanField} from './field';
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiBooleanFieldComponent {
+export class CyberUiBooleanFieldComponent implements CyberUiFormFieldComponentInterface {
 
   readonly elements = FormFieldElement;
 
   constructor(
-    readonly service: CyberUiFormFieldService
+    readonly service: CyberUiFormFieldService,
   ) {}
 
   @Input() field: BooleanField;

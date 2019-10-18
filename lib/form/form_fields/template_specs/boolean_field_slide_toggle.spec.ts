@@ -5,8 +5,7 @@ import {By} from '@angular/platform-browser';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
 
-import {BooleanField} from '../../field/boolean/field';
-import {FormFieldOptions} from '../../form_field_config';
+import {BooleanFieldOptions, BooleanField} from '../../field/boolean/field';
 import {FormFieldElement} from '../../form_field_element.enum';
 
 import {configureTestingModuleAndSetupContext, TestContext, TestDialogComponent} from '../component.spec';
@@ -16,7 +15,7 @@ describe('BooleanField slide toggle template', () => {
   const ctx: TestContext = {};
   configureTestingModuleAndSetupContext(ctx);
 
-  const defaultOptions: FormFieldOptions = {
+  const defaultOptions: BooleanFieldOptions = {
     label: 'Test',
     propertyName: 'test',
     element: FormFieldElement.MAT_SLIDE_TOGGLE,

@@ -2,16 +2,17 @@ import {BooleanField} from 'lib/public_api';
 import {ChoiceField, Option} from 'lib/public_api';
 import {CommaSeparatedListField} from 'lib/public_api';
 import {DiscreteProbabilityDistributionField} from 'lib/public_api';
+import {FormField} from 'lib/public_api';
 import {FieldListListField} from 'lib/public_api';
 import {FormFieldElement} from 'lib/public_api';
 import {TextField} from 'lib/public_api';
 import {ValueInNumericRangeField} from 'lib/public_api';
 
 import {FakeModel} from 'lib/backends/fake/model';
-import {CyberUiDemoExamplHelpDialogComponent} from './example_help_dialog.component';
+import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.component';
 
 
-export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS = [
+export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS: FormField[] = [
   new TextField({
     label: 'Name',
     propertyName: 'name',
@@ -46,7 +47,7 @@ export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS = [
       new Option('C', 'c'),
       new Option('D', 'd')
     ],
-    helpDialog: CyberUiDemoExamplHelpDialogComponent,
+    helpDialog: CyberUiDemoExampleHelpDialogComponent,
   }),
   new DiscreteProbabilityDistributionField({
     label: 'Which S&P 500 company will become the first to achieve a market capitalization of ≥ $2T?',

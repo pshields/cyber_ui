@@ -27,6 +27,9 @@ import {CyberUiBooleanFieldComponent} from './component';
   ],
   exports: [
     CyberUiBooleanFieldComponent,
-  ]
+  ],
+  entryComponents: [
+    CyberUiBooleanFieldComponent,
+  ],
 })
 export class CyberUiBooleanFieldModule {}

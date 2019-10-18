@@ -1,24 +1,25 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
 
 import {CyberUiFormFieldService} from '../service';
 
-import {TextField} from './field';
+import {FieldListListField} from './field';
 
 
 @Component({
-  selector: 'cyber-ui-text-field',
+  selector: 'cyber-ui-field-list-list-field',
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiTextFieldComponent implements CyberUiFormFieldComponentInterface {
+export class CyberUiFieldListListFieldComponent implements CyberUiFormFieldComponentInterface {
 
   constructor(
+    readonly changeDetectorRef: ChangeDetectorRef,
     readonly service: CyberUiFormFieldService,
   ) {}
 
-  @Input() field: TextField;
+  @Input() field: FieldListListField;
 
   @Input() model: {};
 
@@ -26,8 +27,4 @@ export class CyberUiTextFieldComponent implements CyberUiFormFieldComponentInter
 
   @Output() save = new EventEmitter();
 
-  emitSaveAndReturnFalse() {
-    this.save.emit();
-    return false;
-  }
 }

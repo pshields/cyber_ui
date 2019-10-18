@@ -22,6 +22,9 @@ import {CyberUiChoiceFieldComponent} from './component';
   ],
   exports: [
     CyberUiChoiceFieldComponent,
-  ]
+  ],
+  entryComponents: [
+    CyberUiChoiceFieldComponent,
+  ],
 })
 export class CyberUiChoiceFieldModule {}

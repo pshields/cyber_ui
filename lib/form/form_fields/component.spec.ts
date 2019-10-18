@@ -4,11 +4,19 @@ import {fakeAsync, tick, ComponentFixture, TestBed} from '@angular/core/testing'
 import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
-import {CyberUiFormFieldsModule} from './module';
+import {CyberUiFormFieldModule} from '../field/form/module';
+import {CyberUiBooleanFieldModule} from '../field/boolean/module';
+import {CyberUiChoiceFieldModule} from '../field/choice/module';
+import {CyberUiDiscreteProbabilityDistributionFieldModule} from '../field/discrete_probability_distribution/module';
+import {CyberUiTextFieldModule} from '../field/text/module';
+import {CyberUiUnimplementedFieldModule} from '../field/unimplemented/module';
+import {CyberUiValueInNumericRangeFieldModule} from '../field/value_in_numeric_range/module';
+
 import {FormField} from '../form_field';
 import {FormFieldConfig, FormFieldOptions} from '../form_field_config';
 
 import {CyberUiFormFieldsComponent} from './component';
+import {CyberUiFormFieldsModule} from './module';
 
 
 // Shared code used in each field template spec
@@ -22,7 +30,7 @@ export function configureTestingModuleAndSetupContext(ctx: TestContext) {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormFieldsTestModule
+        FormFieldsTestModule,
       ]
     }).compileComponents();
     tick();
@@ -73,7 +81,14 @@ export class FormFieldsTestHarnessComponent {
   imports: [
     NoopAnimationsModule,
     FormsModule,
+    CyberUiBooleanFieldModule,
+    CyberUiChoiceFieldModule,
+    CyberUiDiscreteProbabilityDistributionFieldModule,
+    CyberUiFormFieldModule,
     CyberUiFormFieldsModule,
+    CyberUiTextFieldModule,
+    CyberUiUnimplementedFieldModule,
+    CyberUiValueInNumericRangeFieldModule,
   ],
   declarations: [
     TestDialogComponent,

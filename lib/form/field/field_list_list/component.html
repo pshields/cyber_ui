@@ -1,0 +1,25 @@
+<p>{{field.config.label}}</p>
+<div *ngIf="field.getModelProperty(model, field.config.propertyName) !== undefined">
+  <div
+      *ngFor="let item of field.getModelProperty(model, field.config.propertyName); let i = index"
+      class="field-list-list-field-item">
+    <button
+        type="button"
+        mat-icon-button
+        color="primary"
+        (click)="field.getModelProperty(model, field.config.propertyName).splice(i, 1)">
+      <mat-icon aria-label="Remove item">close</mat-icon>
+    </button>
+    <cyber-ui-form-fields
+        [fields]="field.config.fields"
+        [model]="item"
+        (change)="change.emit()"
+        (save)="save.emit()">
+    </cyber-ui-form-fields>
+  </div>
+</div>
+<button
+    type="button"
+    color="primary"
+    mat-stroked-button
+    (click)="(field.getModelProperty(model, field.config.propertyName) === undefined && field.setModelProperty(model, field.config.propertyName, []) && false) || field.getModelProperty(model, field.config.propertyName).push({}) && changeDetectorRef.detectChanges()">ADD {{field.config.contentTypeLabel}}</button>

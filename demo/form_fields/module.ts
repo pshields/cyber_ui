@@ -4,9 +4,15 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {CyberUiEditDialogModule} from 'lib/public_api';
 import {CyberUiFormFieldsModule} from 'lib/public_api';
+import {CyberUiBooleanFieldModule} from 'lib/public_api';
+import {CyberUiChoiceFieldModule} from 'lib/public_api';
+import {CyberUiDiscreteProbabilityDistributionFieldModule} from 'lib/public_api';
+import {CyberUiFieldListListFieldModule} from 'lib/public_api';
+import {CyberUiTextFieldModule} from 'lib/public_api';
+import {CyberUiValueInNumericRangeFieldModule} from 'lib/public_api';
 
 import {FormFieldsDemoComponent} from './component';
-import {CyberUiDemoExamplHelpDialogComponent} from './example_help_dialog.component';
+import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.component';
 
 
 @NgModule({
@@ -14,14 +20,20 @@ import {CyberUiDemoExamplHelpDialogComponent} from './example_help_dialog.compon
     CommonModule,
     CyberUiEditDialogModule,
     CyberUiFormFieldsModule,
-    MatButtonModule
+    CyberUiBooleanFieldModule,
+    CyberUiChoiceFieldModule,
+    CyberUiDiscreteProbabilityDistributionFieldModule,
+    CyberUiFieldListListFieldModule,
+    CyberUiTextFieldModule,
+    CyberUiValueInNumericRangeFieldModule,
+    MatButtonModule,
   ],
   declarations: [
-    CyberUiDemoExamplHelpDialogComponent,
+    CyberUiDemoExampleHelpDialogComponent,
     FormFieldsDemoComponent,
   ],
   entryComponents: [
-    CyberUiDemoExamplHelpDialogComponent,
+    CyberUiDemoExampleHelpDialogComponent,
   ],
 })
 export class FormFieldsDemoModule {}

@@ -1,5 +1,4 @@
 import {FormFieldConfig} from './form_field_config';
-import {FormFieldElement} from './form_field_element.enum';
 
 
 // Utility function to create a FormFieldConfig with defaults for all required options
@@ -10,14 +9,9 @@ function createConfig(options: any): FormFieldConfig {
   if (options.propertyName === undefined) {
     options.propertyName = 'Bogus property name';
   }
-  return new FormFieldConfig(
-    options,
-    // Mock up the list of supported elements
-    [FormFieldElement.TEXTAREA],
-    // Default to a reasonable element
-    FormFieldElement.TEXTAREA
-  );
+  return new FormFieldConfig(options);
 }
+
 
 // TODO Test this out on a concrete subclass
 describe('FormFieldConfig', () => {

@@ -25,6 +25,9 @@ import {CyberUiDiscreteProbabilityDistributionFieldComponent} from './component'
   ],
   exports: [
     CyberUiDiscreteProbabilityDistributionFieldComponent,
-  ]
+  ],
+  entryComponents: [
+    CyberUiDiscreteProbabilityDistributionFieldComponent,
+  ],
 })
 export class CyberUiDiscreteProbabilityDistributionFieldModule {}
