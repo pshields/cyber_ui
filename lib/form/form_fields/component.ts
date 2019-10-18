@@ -7,6 +7,7 @@ import {CyberUiFormFieldService} from '../field/service';
 
 import {FormField} from '../form_field';
 import {CyberUiFormFieldEvent} from '../field/defs/form_field_event';
+import {filter} from 'rxjs/operators';
 
 
 @Component({
@@ -32,6 +33,10 @@ export class CyberUiFormFieldsComponent<MODEL_T extends (CyberUiInteractiveModel
 
   // Stream of events from the fields in this form
   @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
+
+  // For convenience, expose filtered event streams for 'save' and 'change' events
+  @Output() change = this.event.pipe(filter(event => event.type === 'change'));
+  @Output() save = this.event.pipe(filter(event => event.type === 'save'));
 
   getFields() {
     return (this.fields || (this.field && [this.field]) || (this.model as any).fields || (this.model.constructor as any).fields);
