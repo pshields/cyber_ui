@@ -1,8 +1,9 @@
 import {CyberUiSavableModel} from '../interfaces/savable_model';
+import {CyberUiSerializableModel} from '../interfaces/serializable_model';
 
 
 // A non-persistent fake model to use in tests and demos
-export class FakeModel implements CyberUiSavableModel {
+export class FakeModel implements CyberUiSavableModel, CyberUiSerializableModel {
 
   data = {};  // the data object in which the model's data will be stored
 

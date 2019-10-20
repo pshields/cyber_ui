@@ -10,7 +10,7 @@ export class CyberUiAddThingWorkflowService {
   // Stream of exit events indicating when the workflow is finished
   exits = new EventEmitter<CyberUiAddThingWorkflowExitEvent>();
 
-  exitWorkflow(options = {}) {
+  exitWorkflow(options: CyberUiAddThingWorkflowExitEvent = {}) {
     this.exits.emit(options);
   }
 }

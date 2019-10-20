@@ -1,5 +1,8 @@
 import {CyberUiFirestoreBackedModelData} from './data.interface';
 
+import {CyberUiSavableModel} from '../interfaces/savable_model';
+import {CyberUiSerializableModel} from '../interfaces/serializable_model';
+
 import {CyberUiFirestoreBackedModelService} from './service';
 import {CyberUiFirestoreBackedModelDeleteOptions} from './options';
 import {CyberUiFirestoreBackedModelSaveOptions} from './options';
@@ -14,7 +17,7 @@ import {CyberUiFirestoreBackedModelSaveOptions} from './options';
 //    OR should consumers have to pass in a data object to use as the state?
 // A. For now, let's have consumers pass in a data object to use as the state
 //    There hasn't been a strong enough argument yet for making a separate state copy
-export class CyberUiFirestoreBackedModel {
+export class CyberUiFirestoreBackedModel implements CyberUiSavableModel, CyberUiSerializableModel {
 
   // The Firestore collection this document resides in
   collectionId?: string;

@@ -6,6 +6,7 @@ import {CyberUiFormFieldsComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowService} from 'lib/public_api';
 import {CyberUiAddThingWorkflowComponent} from 'lib/public_api';
 import {CyberUiAddThingWorkflowExitEvent} from 'lib/public_api';
+import {DemoAppExampleFormModel} from '../form_fields/example_form_model';
 
 
 // TODO Use a demo-wide snackbar config instead of defining something here
@@ -29,7 +30,7 @@ export class AddThingWorkflowDemoComponent {
   ) {}
 
   ngAfterViewInit() {
-    this.workflowService.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent) => {
+    this.workflowService.exits.subscribe((e: CyberUiAddThingWorkflowExitEvent<DemoAppExampleFormModel>) => {
       if (e.model) {
         this.snackbar.open('add-thing-workflow saved model: ' + JSON.stringify(e.model.toJson()), undefined, snackbarConfig);
         console.info('add-thing-workflow saved model', e.model);
