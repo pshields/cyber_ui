@@ -1,12 +1,14 @@
 import {Observable} from 'rxjs';
 
-import {CyberUiSavableModel} from '../../backends/interfaces/savable_model';
 import {Action} from '../../task/interfaces/action';
 
 import {FormField} from '../form_field';
+import {CyberUiFormModel} from '../defs/form_model';
 
 
-export interface CyberUiEditDialogParams<MODEL_T extends CyberUiSavableModel = CyberUiSavableModel> {
+// MODEL_T must extend CyberUiFormModel because cyber-ui-form-fields requires something that
+// at minimum conforms to CyberUiFormModel
+export interface CyberUiEditDialogParams<MODEL_T extends CyberUiFormModel = CyberUiFormModel> {
   // the (lower-case) label of the kind of thing being edited
   // this is used in the dialog title
   // e.g. if editing a task, contentTypeLabel should be 'task',
