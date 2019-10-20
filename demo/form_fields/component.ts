@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
 
-import {CyberUiEditDialogComponent} from 'lib/public_api';
+import {of} from 'rxjs';
+
+import {CyberUiEditDialogService} from 'lib/public_api';
 
 import {DemoAppExampleFormModel} from './example_form_model';
 
@@ -14,14 +15,15 @@ import {DemoAppExampleFormModel} from './example_form_model';
 export class FormFieldsDemoComponent {
   exampleFormModel = new DemoAppExampleFormModel();
 
-  constructor(readonly dialog: MatDialog) {}
+  constructor(
+    readonly editDialogService: CyberUiEditDialogService
+  ) {}
 
   showEditDialog() {
-    this.dialog.open(CyberUiEditDialogComponent, {
-      data: {
-        contentTypeLabel: 'model form',
-        model: this.exampleFormModel,
-      }
-    });
+    this.editDialogService.showEditDialog({
+      contentTypeLabel: 'model form',
+      fields: of(this.exampleFormModel.fields),
+      model: this.exampleFormModel,
+    })
   }
 }

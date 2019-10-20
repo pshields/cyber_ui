@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <cyber-ui-form-fields
       [model]="params.model"
-      [fields]="params.fields"
+      [fields]="params.fields | async"
       (save)="saveAndClose()">
   </cyber-ui-form-fields>
 </mat-dialog-content>
