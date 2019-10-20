@@ -1,9 +1,6 @@
 export interface CyberUiSavableModelSaveOptions {
-  // Whether to set the 'added' property on the model client-side before saving, if it's not already set
-  // When present, the 'added' property is intended represents the creation time of the model
-  // This interface might change over time to reflect the needs of consuming applications
-  // (default: true)
-  setAddedIfUndefined?: boolean;
+  // In an effort to minimize the amount of work downstream consumers
+  // must take to comply with this interface, it is currently empty
 }
 
 

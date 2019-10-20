@@ -7,6 +7,11 @@ export interface CyberUiFirestoreBackedModelSaveOptions extends CyberUiSavableMo
   // The collection to save this model in
   // If specified here, overrides the model's `collectionId` property
   collectionId?: string;
+  // Whether to set the 'added' property on the model client-side before saving, if it's not already set
+  // When present, the 'added' property is intended represents the creation time of the model
+  // This interface might change over time to reflect the needs of consuming applications
+  // (default: true)
+  setAddedIfUndefined?: boolean;
 }
 
 
