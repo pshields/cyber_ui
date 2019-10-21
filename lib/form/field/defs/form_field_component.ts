@@ -1,4 +1,4 @@
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, SimpleChanges} from '@angular/core';
 
 import {CyberUiFormModel} from '../../defs/form_model';
 
@@ -14,4 +14,6 @@ export interface CyberUiFormFieldComponentInterface<
   field: FORM_FIELD_T;
   model: MODEL_T;
   event: EventEmitter<CyberUiFormFieldEvent>;
+  // Components may choose to implement the ngOnChanges lifecycle hook
+  ngOnChanges?: (changes: SimpleChanges) => void;
 }

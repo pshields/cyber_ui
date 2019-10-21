@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewContainerRef, ComponentRef, ChangeDetectionStrategy, OnDestroy, ComponentFactoryResolver} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewContainerRef, ComponentRef, ChangeDetectionStrategy, OnDestroy, ComponentFactoryResolver, SimpleChange} from '@angular/core';
 
 import {Subscription} from 'rxjs';
 
@@ -54,6 +54,14 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
       // field-specific initialization
       this.componentRef.instance.model = this.model;
       this.componentRef.instance.field = this.field;
+      // Manually run the created component's ngOnChanges lifecycle hook if present,
+      // since it doesn't get called automatically on dynamically-created components
+      if (this.componentRef.instance.ngOnChanges) {
+        this.componentRef.instance.ngOnChanges({
+          model: new SimpleChange(undefined, this.componentRef.instance.model, true),
+          field: new SimpleChange(undefined, this.componentRef.instance.field, true),
+        });
+      }
       this.unsubscribeFromOldSubscriptionIfApplicable();
       this.componentRef.instance.event.subscribe(event => this.event.emit(event));
     }
