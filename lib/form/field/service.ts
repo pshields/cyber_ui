@@ -9,6 +9,8 @@ import {ComponentType} from '@angular/cdk/portal';
 export class CyberUiFormFieldService {
 
   constructor(
+    // TODO Decouple MatDialog here; any service that provides a dialog should be allowed
+    // In general, Cyber UI should not be tightly coupled to Angular Material
     readonly dialog: MatDialog,
   ) {}
 

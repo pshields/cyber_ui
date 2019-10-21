@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, SimpleChanges, OnChanges} from '@angular/core';
 
 import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
 import {CyberUiFormFieldEvent} from '../defs/form_field_event';
@@ -13,27 +13,23 @@ import {DiscreteProbabilityDistributionField} from './field';
   templateUrl: 'component.html',
   styleUrls: ['component.scss'],
 })
-export class CyberUiDiscreteProbabilityDistributionFieldComponent implements CyberUiFormFieldComponentInterface {
+export class CyberUiDiscreteProbabilityDistributionFieldComponent implements CyberUiFormFieldComponentInterface, OnChanges {
 
   constructor(
     readonly service: CyberUiFormFieldService,
   ) {}
 
-  // Because field is sometimes set dynamically, such as when this field is
-  // instantiated dynamically by a cyber-ui-form-field, rather than via template
-  // change detection, a setter is used to handle changes to this field.
-  _field: DiscreteProbabilityDistributionField;
-  get field() {
-    return this._field;
-  }
-  @Input() set field(field: DiscreteProbabilityDistributionField) {
-    this._field = field;
-    this.handleFieldChange();
-  };
+  @Input() field: DiscreteProbabilityDistributionField;
 
   @Input() model: {};
 
   @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.field) {
+      this.handleFieldChange();
+    }
+  }
 
   handleFieldChange() {
     // Initialize undefined discrete probability distributions with the outcome presets
