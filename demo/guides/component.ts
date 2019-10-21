@@ -21,14 +21,14 @@ export class Guide {
   // The guide's name (used in the navigation)
   label: string;
   // The Markdown data to render, if the guide is a Markdown document
-  data?: string|any;
+  data?: string;
   // Note: if the guide is its own component, it should be given its own route
   // rather than using this component
 }
 
 
 // The list of guides that Cyber UI has documentation about
-export const GUIDES = [
+export const GUIDES: Guide[] = [
   {
     id: 'attention-management',
     label: 'Attention management'
@@ -36,32 +36,32 @@ export const GUIDES = [
   {
     id: 'style-guide',
     label: 'Style guide',
-    data: styleGuideData,
+    data: styleGuideData.default,
   },
   {
     id: 'systemization',
     label: 'Systemization',
-    data: systemizationData,
+    data: systemizationData.default,
   },
   {
     id: 'task-representation',
     label: 'Task representation',
-    data: taskRepresentationData,
+    data: taskRepresentationData.default,
   },
   {
     id: 'task-suggestions',
     label: 'Task suggestions',
-    data: taskSuggestionsData,
+    data: taskSuggestionsData.default,
   },
   {
     id: 'task-suggestion-services',
     label: 'Task suggestion services',
-    data: taskSuggestionServicesData,
+    data: taskSuggestionServicesData.default,
   },
   {
     id: 'task-templates',
     label: 'Task templates',
-    data: taskTemplatesData,
+    data: taskTemplatesData.default,
   },
   {
     id: 'timeboxing',
@@ -70,17 +70,17 @@ export const GUIDES = [
   {
     id: 'theming',
     label: 'Theming',
-    data: themingData,
+    data: themingData.default,
   },
   {
     id: 'uncertainty-reduction',
     label: 'Uncertainty reduction',
-    data: uncertaintyReductionData,
+    data: uncertaintyReductionData.default,
   },
   {
     id: 'working-with-angular-material',
     label: 'Working with Angular Material',
-    data: workingWithAngularMaterialData,
+    data: workingWithAngularMaterialData.default,
   }
 ];
 
