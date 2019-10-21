@@ -25,7 +25,7 @@ Run `ng test cyber_ui` or `ng test demo` to execute the respective tests via [Ka
 
 ### What visual design guidelines does Cyber UI follow?
 
-Cyber UI generally attempts to conform to the [Material Design](https://material.io/) aesthetic and principles.
+Cyber UI generally attempts to conform to the [Material Design](https://material.io/) aesthetic and principles by default. Many of the Cyber UI components and services have been designed to allow for use of custom display components, if different styling is desired.
 
 ### How does Cyber UI relate to Angular Material?
 
