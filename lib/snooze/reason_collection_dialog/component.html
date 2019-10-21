@@ -1,6 +1,11 @@
 <div mat-dialog-title>{{title}}</div>
 <mat-dialog-content>
-  <mat-nav-list role="list">
+  <mat-nav-list role="list" *ngIf="reasons">
     <a mat-list-item *ngFor="let reason of reasons" (click)="dialogRef.close(reason)">{{reason}}</a>
   </mat-nav-list>
+  <cyber-ui-form-field
+    [field]="customReasonField"
+    [model]="self"
+    (save)="dialogRef.close(customReason)">
+  </cyber-ui-form-field>
 </mat-dialog-content>

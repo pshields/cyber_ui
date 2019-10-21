@@ -7,6 +7,7 @@ import {MatListModule} from '@angular/material/list';
 
 import {CyberUiSnoozeReasonCollectionDialogComponent} from './component';
 import {CyberUiSnoozeReasonCollectionDialogService} from './service';
+import {CyberUiFormFieldModule} from '../../form/field/form/module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {CyberUiSnoozeReasonCollectionDialogService} from './service';
     MatButtonModule,
     MatDialogModule,
     MatListModule,
+    CyberUiFormFieldModule,
   ],
   declarations: [
     CyberUiSnoozeReasonCollectionDialogComponent,

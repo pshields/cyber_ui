@@ -1,0 +1,13 @@
+::ng-deep mat-nav-list.mat-list-base {
+  // Remove some of the excessive padding below the dialog title
+  margin-top: -8px;
+  // There's already sufficient padding below the dialog title
+  padding-top: 0;
+  // Some padding is nice between the preset reasons and the custom reason field
+  padding-bottom: 8px;
+
+  & a.mat-list-item .mat-list-item-content {
+    // Keep the preset reasons aligned with the dialog title and the custom reason field
+    padding-left: 0;
+  }
+}

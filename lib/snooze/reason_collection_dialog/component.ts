@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {TextField} from '../../form/field/text/field';
 
 
 @Component({
@@ -9,11 +10,26 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./component.scss'],
 })
 export class CyberUiSnoozeReasonCollectionDialogComponent {
+  // Allow referencing the component from the template in order to achieve
+  // the model binding for the custom snooze reason
+  self = this;
+
   // The dialog title to show
   title: string;
 
   // TODO: Should Reason be a class/interface?
   reasons: string[];
+
+  // The field to use if the user wishes to provide a custom snooze reason
+  customReasonField = new TextField({
+    label: 'Custom reason',
+    propertyName: 'customReason',
+    autofocus: true,
+    saveOnEnter: true,
+  });
+
+  // The custom reason field will be bound to this property
+  customReason: string;
 
   constructor(
     readonly dialogRef: MatDialogRef<CyberUiSnoozeReasonCollectionDialogComponent, string|undefined>,
