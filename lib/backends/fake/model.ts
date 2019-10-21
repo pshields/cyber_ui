@@ -5,7 +5,7 @@ import {CyberUiSerializableModel} from '../interfaces/serializable_model';
 // A non-persistent fake model to use in tests and demos
 export class FakeModel implements CyberUiSavableModel, CyberUiSerializableModel {
 
-  data = {};  // the data object in which the model's data will be stored
+  protected data = {};  // the data object in which the model's data will be stored
 
   getProperty(propertyName: string) {
     return this.data[propertyName];
@@ -27,7 +27,8 @@ export class FakeModel implements CyberUiSavableModel, CyberUiSerializableModel 
     }
   }
 
+  // Returns a copy so as to avoid accidental mutation further down the line
   toJson() {
-    return this.data;
+    return JSON.parse(JSON.stringify(this.data));
   }
 }
