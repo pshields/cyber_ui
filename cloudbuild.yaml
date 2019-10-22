@@ -10,13 +10,7 @@ steps:
   #  args: ['test', '--', '--no-watch']
   - name: circleci/node:10-browsers
     entrypoint: yarn
-    args: ['install']
-    volumes:
-    - name: 'builder'
-      path: '/builder/home'
+    args: ['install', '--prefix', '/workspace']
   - name: circleci/node:10-browsers
     entrypoint: yarn
-    args: ['test', '--no-watch']
-    volumes:
-    - name: 'builder'
-      path: '/builder/home'
+    args: ['test', '--no-watch', '--prefix', '/workspace']
