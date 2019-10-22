@@ -1,33 +1,28 @@
 # Based on https://angular.io/guide/testing#set-up-continuous-integration
 steps:
   - name: node:10.16.3
-    entrypoint: whoami
+    entrypoint: chmod
+    args: ['a+w', '.']
   - name: node:10.16.3
     entrypoint: ls
-    args: ['-la']
-  #- name: node:10.16.3
-  #  entrypoint: find
-  #  args: ['.']
+    args: ['-la']   
   - name: circleci/node:10-browsers
     entrypoint: whoami
   - name: circleci/node:10-browsers
-    entrypoint: sudo
-    args: ['yarn', cache', 'dir']
+    entrypoint: yarn
+    args: [cache', 'dir']
     env:
     - 'HOME=/workspace'
-    - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
-    entrypoint: sudo
-    args: ['yarn', 'config', '--prefix', '/workspace', 'set', 'cache-folder', '/workspace/yarn-cache']
+    entrypoint: yarn
+    args: ['config', '--prefix', '/workspace', 'set', 'cache-folder', '/workspace/yarn-cache']
     env:
     - 'HOME=/workspace'
-    - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['cache', 'dir']
     env:
     - 'HOME=/workspace'
-    - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['install', '--prefix', '/workspace']
@@ -36,7 +31,7 @@ steps:
     - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
     entrypoint: yarn
-    args: ['test', '--no-watch', '--prefix', '/workspace']
+    args: ['test', '--no-watch', '--prefix', '/workspace/yarn']
     env:
     - 'HOME=/workspace'
     - 'PREFIX=/workspace'
