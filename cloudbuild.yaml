@@ -1,6 +1,9 @@
 # Based on https://angular.io/guide/testing#set-up-continuous-integration
 steps:
   - name: circleci/node:10-browsers
+    entrypoint: bash
+    args: ['find', '.']
+  - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['cache', 'dir']
     env:
