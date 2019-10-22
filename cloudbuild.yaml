@@ -1,8 +1,8 @@
 # Based on https://angular.io/guide/testing#set-up-continuous-integration
 steps:
-  - name: node:10.16.3
-    entrypoint: yarn
-    args: ['install']
+  #- name: node:10.16.3
+  #  entrypoint: yarn
+  #  args: ['install']
   #- name: selenium/standalone-chrome:3.141.59
   #  timeout: 60s
   #- name: node:10.16.3
@@ -10,4 +10,13 @@ steps:
   #  args: ['test', '--', '--no-watch']
   - name: circleci/node:10-browsers
     entrypoint: yarn
-    args: ['test', '--', '--no-watch']
+    args: ['install']
+    volumes:
+    - name: 'builder'
+      path: '/builder/home'
+  - name: circleci/node:10-browsers
+    entrypoint: yarn
+    args: ['test', '--no-watch']
+    volumes:
+    - name: 'builder'
+      path: '/builder/home'
