@@ -1,8 +1,9 @@
 # Based on https://angular.io/guide/testing#set-up-continuous-integration
 steps:
-  - name: circleci/node:10-browsers
+  - name: node:10.16.3
     entrypoint: npm
     args: ['install']
-  - name: circleci/node:10-browsers
+  - name: selenium/standalone-chrome:3.141.59
+  - name: node:10.16.3
     entrypoint: npm
     args: ['test', '--', '--no-watch']
