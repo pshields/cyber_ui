@@ -5,9 +5,11 @@ steps:
   - name: node:10.16.3
     entrypoint: ls
     args: ['-la']
-  - name: node:10.16.3
-    entrypoint: find
-    args: ['.']
+  #- name: node:10.16.3
+  #  entrypoint: find
+  #  args: ['.']
+  - name: circleci/node:10-browsers
+    entrypoint: whoami
   - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['cache', 'dir']
