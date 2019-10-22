@@ -25,3 +25,5 @@ steps:
   - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['test', '--no-watch']
+    env:
+    - 'PREFIX=/workspace'
