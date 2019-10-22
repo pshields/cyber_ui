@@ -3,8 +3,11 @@ steps:
   - name: node:10.16.3
     entrypoint: yarn
     args: ['install']
-  - name: selenium/standalone-chrome:3.141.59
-    timeout: 60s
-  - name: node:10.16.3
+  #- name: selenium/standalone-chrome:3.141.59
+  #  timeout: 60s
+  #- name: node:10.16.3
+  #  entrypoint: yarn
+  #  args: ['test', '--', '--no-watch']
+  - name: circleci/node:10-browsers
     entrypoint: yarn
     args: ['test', '--', '--no-watch']
