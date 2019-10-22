@@ -2,6 +2,15 @@
 steps:
   - name: circleci/node:10-browsers
     entrypoint: yarn
+    args: ['cache', 'dir']
+  - name: circleci/node:10-browsers
+    entrypoint: yarn
+    args: ['config', 'set', 'cache-folder', '/workspace/yarn-cache']
+  - name: circleci/node:10-browsers
+    entrypoint: yarn
+    args: ['cache', 'dir']
+  - name: circleci/node:10-browsers
+    entrypoint: yarn
     args: ['install', '--prefix', '/workspace']
     env:
     - 'PREFIX=/workspace'
