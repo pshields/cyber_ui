@@ -11,14 +11,14 @@ steps:
   - name: circleci/node:10-browsers
     entrypoint: whoami
   - name: circleci/node:10-browsers
-    entrypoint: yarn
-    args: ['cache', 'dir']
+    entrypoint: sudo
+    args: ['yarn', cache', 'dir']
     env:
     - 'HOME=/workspace'
     - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
-    entrypoint: yarn
-    args: ['config', '--prefix', '/workspace', 'set', 'cache-folder', '/workspace/yarn-cache']
+    entrypoint: sudo
+    args: ['yarn', 'config', '--prefix', '/workspace', 'set', 'cache-folder', '/workspace/yarn-cache']
     env:
     - 'HOME=/workspace'
     - 'PREFIX=/workspace'
