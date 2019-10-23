@@ -11,7 +11,7 @@ steps:
     - 'PREFIX=/workspace'
   - name: circleci/node:10-browsers
     entrypoint: yarn
-    args: ['test', '--no-watch', '--browsers=ChromeHeadlessCI']
+    args: ['test', '--no-watch', '--no-progress', '--browsers=ChromeHeadlessCI']
     env:
     - 'HOME=/workspace'
     - 'PREFIX=/workspace'
