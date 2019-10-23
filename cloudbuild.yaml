@@ -2,6 +2,9 @@
 steps:
   - name: node:10.16.3
     entrypoint: chmod
+    # The circleci images run as the 'circleci' user, but /workspace is owned by root
+    # This chmod command enables the circleci user to write to the /workspace directory,
+    # which is necessary for the subsequent steps to work
     args: ['-R', 'a+w', '.']
   - name: circleci/node:10-browsers
     entrypoint: yarn
