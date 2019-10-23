@@ -32,6 +32,10 @@ export class CyberUiAttentionalAgendaService {
     this.items.splice(this.items.indexOf(item), 1);
     // Emit a new state for consumers
     this.emitNewState();
+    // Call the item's onClear() handler, if one was provided
+    if (item.onClear) {
+      item.onClear();
+    }
   }
 
   private emitNewState() {

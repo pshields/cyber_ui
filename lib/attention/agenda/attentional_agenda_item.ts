@@ -21,6 +21,8 @@ export class CyberUiAttentionalAgendaItem {
   timeboxId?: TimeboxId;
   // Any custom actions to show for this agenda item
   actions?: Observable<Action[]>;
+  // A function to call when this item is cleared from the agenda
+  onClear?: () => void;
 
   constructor(
     options: CyberUiAttentionalAgendaItemOptions,
@@ -28,6 +30,7 @@ export class CyberUiAttentionalAgendaItem {
   ) {
     this.label = options.label;
     this.labelRouterLink = options.labelRouterLink;
+    this.onClear = options.onClear;
     this.added = this.getAdded(options);
     this.timeboxId = this.getTimeboxId(options);
     this.actions = this.getActions(options);

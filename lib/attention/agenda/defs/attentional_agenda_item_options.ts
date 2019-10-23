@@ -23,4 +23,6 @@ export interface CyberUiAttentionalAgendaItemOptions {
   // An optional observable of custom actions for this agenda item
   // It's an observable so that the actions can change dynamically after creation
   actions?: Observable<Action[]>;
+  // An optional function to call when this item is cleared from the agenda
+  onClear?: () => void;
 }
