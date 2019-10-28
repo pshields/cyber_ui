@@ -81,4 +81,5 @@ export class DemoAppExampleFormModel extends FakeModel {
     this.data['tags'] =  ['tag 1', 'tag 2'];
     this.data['slideToggleExample'] = true;
   }
+
 }

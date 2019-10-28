@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 
 import {CyberUiEditDialogModule} from 'lib/public_api';
+import {CyberUiFormFieldModule} from 'lib/public_api';
 import {CyberUiFormFieldsModule} from 'lib/public_api';
 import {CyberUiBooleanFieldModule} from 'lib/public_api';
 import {CyberUiChoiceFieldModule} from 'lib/public_api';
@@ -19,6 +20,7 @@ import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.compo
   imports: [
     CommonModule,
     CyberUiEditDialogModule,
+    CyberUiFormFieldModule,
     CyberUiFormFieldsModule,
     CyberUiBooleanFieldModule,
     CyberUiChoiceFieldModule,
