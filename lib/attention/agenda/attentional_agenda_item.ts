@@ -4,6 +4,7 @@ import {TimeboxId} from '../../util/timebox/defs/timebox_id';
 
 import {Action} from '../../task/interfaces/action';
 
+import {AttentionalAgendaItemId} from './defs/item_id';
 import {CyberUiAttentionalAgendaItemOptions} from './defs/attentional_agenda_item_options';
 
 import {CyberUiAttentionalAgendaService} from './service';
@@ -25,6 +26,8 @@ export class CyberUiAttentionalAgendaItem {
   onClear?: () => void;
 
   constructor(
+    // The id for this agenda item (currently unique only locally within an application instance)
+    readonly id: AttentionalAgendaItemId,
     options: CyberUiAttentionalAgendaItemOptions,
     readonly service: CyberUiAttentionalAgendaService,
   ) {

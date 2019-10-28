@@ -4,10 +4,12 @@
 // ATTENTION
 // =========
 
+export {AttentionalAgendaItemId} from './attention/agenda/defs/item_id';
 export {CyberUiAttentionalAgendaDisplayModule} from './attention/agenda/display/module';
 export {CyberUiAttentionalAgendaItemOptions} from './attention/agenda/defs/attentional_agenda_item_options';
 export {CyberUiAttentionalAgendaService} from './attention/agenda/service';
 export {CyberUiAttentionalAgendaSnapshot} from './attention/agenda/attentional_agenda_snapshot';
+export {TimerExpirationEvent} from './attention/agenda/defs/timer_expiration_event';
 
 // ========
 // BACKENDS

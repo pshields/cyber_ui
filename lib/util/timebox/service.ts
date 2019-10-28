@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {ReplaySubject, Observable, timer} from 'rxjs';
+import {ReplaySubject, Observable, timer, Subject, empty} from 'rxjs';
 import {map, take} from 'rxjs/operators';
 
 import {ActiveTimeboxesSnapshot} from './defs/active_timeboxes_snapshot';
@@ -22,15 +22,15 @@ import {AddTimeToTimeboxOptions} from './defs/add_time_to_timebox_options';
 })
 export class CyberUiTimeboxService {
 
-  // Counter used to generate time box ids
+  // Counter used to generate timebox ids
   // Note: starts at 1 instead of 0 to avoid bugs around 0 being falsy
   private idCounter = 1;
 
   // The currently active time boxes
   private readonly boxes: Timebox[] = [];
 
-  // Time box event stream. Used internally for recordkeeping.
-  private stream = new ReplaySubject<TimeboxEvent>(1);
+  // Timebox event stream. Used internally for recordkeeping.
+  readonly events = new Subject<TimeboxEvent>();
 
   private activeTimeboxes = new ReplaySubject<ActiveTimeboxesSnapshot>(1);
 
@@ -48,7 +48,7 @@ export class CyberUiTimeboxService {
     // Remove this time box from the boxes list
     this.boxes.splice(this.boxes.indexOf(timebox), 1);
     // Emit an end event to the stream
-    this.stream.next({
+    this.events.next({
       timeboxId: timebox.id,
       type: 'end',
     });
@@ -56,7 +56,7 @@ export class CyberUiTimeboxService {
 
   constructor() {
     // Hook into the event stream to power the active time boxes replay subject
-    this.stream.subscribe(event => {
+    this.events.subscribe(event => {
       this.activeTimeboxes.next({boxes: this.boxes});
     });
   }
@@ -69,24 +69,31 @@ export class CyberUiTimeboxService {
 
   // Returns an observable counting down to 0 at the desired level of granularity
   // The observed quantity will be a duration in milliseconds
+  // If the timebox lookup fails, an empty observable will be returned
   getCountdown(options: GetCountdownOptions): Observable<number> {
     // Get the time box with the given id
     const timebox = this.getTimeboxById(options.timeboxId);
-    // Initialize time remaining
-    const timeRemaining = timebox.end - Date.now();
-    // Determine the period to use
-    const period = options.period || 1000;
-    // Calculate how many updates will need to be made
-    const numUpdates = Math.ceil(timeRemaining / period);
-    return timer(0, period)
-      // Return the number of ms remaining
-      // The final emitted value might be < 0, so we take the max with 0
-      // in order to return a final value of 0
-      .pipe(map((i: number) => Math.max(timeRemaining - period * i, 0)))
-      .pipe(take(numUpdates));
+    if (timebox) {
+      // Initialize time remaining
+      const timeRemaining = timebox.end - Date.now();
+      // Determine the period to use
+      const period = options.period || 1000;
+      // Calculate how many updates will need to be made
+      const numUpdates = Math.ceil(timeRemaining / period);
+      return timer(0, period)
+        // Return the number of ms remaining
+        // The final emitted value might be < 0, so we take the max with 0
+        // in order to return a final value of 0
+        .pipe(map((i: number) => Math.max(timeRemaining - period * i, 0)))
+        .pipe(take(numUpdates));
+    } else {
+      return empty();
+    }
+
   }
 
-  getTimeboxById(id: TimeboxId): Timebox {
+  // Returns the timebox with the given id, or undefined if not found
+  getTimeboxById(id: TimeboxId): Timebox|undefined {
     return this.boxes.find(timebox => timebox.id === id);
   }
 
@@ -101,7 +108,7 @@ export class CyberUiTimeboxService {
     // Add this time box to the internal list of active time boxes
     this.addTimebox(timebox);
     // Emit a time box start event to the stream
-    this.stream.next({
+    this.events.next({
       timeboxId: timebox.id,
       type: 'start',
     });
@@ -122,7 +129,7 @@ export class CyberUiTimeboxService {
       // Remove the time box from the list of active boxes
       this.boxes.splice(this.boxes.indexOf(timebox), 1);
       // Emit a cancel event to the stream
-      this.stream.next({
+      this.events.next({
         type: 'cancel',
         timeboxId: timebox.id
       });
@@ -144,7 +151,7 @@ export class CyberUiTimeboxService {
       // Set the new end trigger
       timebox.timeoutId = window.setTimeout(() => this.onTimeboxComplete(timebox), timebox.end - Date.now());
       // Emit a modify event to the stream
-      this.stream.next({
+      this.events.next({
         type: 'modify',
         timeboxId: timebox.id
       });

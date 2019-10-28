@@ -2,8 +2,9 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 import {Observable} from 'rxjs';
 
-import {CyberUiTimeboxService} from '../service';
 import {TimeboxId} from '../defs/timebox_id';
+
+import {CyberUiTimeboxService} from '../service';
 
 
 // An opinionated timebox countdown display component
@@ -16,6 +17,7 @@ export class CyberUiTimeboxCountdownDisplayComponent implements OnChanges {
 
   // The id of the timebox to show a countdown for
   @Input() timeboxId: TimeboxId;
+
   // The countdown
   countdown: Observable<number> | undefined;
 

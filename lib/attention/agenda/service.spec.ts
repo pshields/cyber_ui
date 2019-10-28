@@ -20,7 +20,7 @@ describe('CyberUiAttentionalAgendaService', () => {
       ]
     }).compileComponents();
     service = TestBed.get(CyberUiAttentionalAgendaService);
-    service.getState().subscribe(snapshot => agenda = snapshot);
+    service.state.subscribe(snapshot => agenda = snapshot);
   });
 
   it('instantiates', () => {

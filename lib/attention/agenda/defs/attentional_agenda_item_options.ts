@@ -1,8 +1,7 @@
 import {Observable} from 'rxjs';
 
-import {TimeboxId} from '../../../util/timebox/defs/timebox_id';
-
 import {Action} from '../../../task/interfaces/action';
+import {TimeboxId} from '../../../util/timebox/defs/timebox_id';
 
 
 export interface CyberUiAttentionalAgendaItemOptions {

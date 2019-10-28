@@ -1,8 +1,13 @@
 import {Component} from '@angular/core';
 
+import {MatSnackBar} from '@angular/material';
+
+import {Subscription} from 'rxjs';
+import {filter} from 'rxjs/operators';
+
 import {CyberUiAttentionalAgendaService} from 'lib/public_api';
-import {CyberUiAttentionalAgendaSnapshot} from 'lib/public_api';
 import {CyberUiAttentionalAgendaItemOptions} from 'lib/public_api';
+import {TimerExpirationEvent} from 'lib/public_api';
 
 
 @Component({
@@ -12,8 +17,7 @@ import {CyberUiAttentionalAgendaItemOptions} from 'lib/public_api';
 })
 export class AttentionManagementGuideComponent {
 
-  // The current composition of the attentional agenda
-  agenda: CyberUiAttentionalAgendaSnapshot;
+  agendaEventsSubscription: Subscription;
 
   demoItemsAdded = 0;
   // The contents of the 'Item label' input field for new items
@@ -23,17 +27,22 @@ export class AttentionManagementGuideComponent {
 
   constructor(
     readonly attentionalAgendaService: CyberUiAttentionalAgendaService,
+    readonly snackbar: MatSnackBar
   ) {
-    attentionalAgendaService.getState().subscribe(snapshot => {
-      this.agenda = snapshot;
-    });
+    this.agendaEventsSubscription = attentionalAgendaService
+      .events
+      .pipe(filter(e => e.type === 'timer-expiration'))
+      .subscribe((event: TimerExpirationEvent) => {
+        const item = attentionalAgendaService.getItemById(event.itemId);
+        this.snackbar.open(`The timer associated with item "${item.label}" has expired`);
+      });
   }
 
   addItemToAgenda() {
     const options: CyberUiAttentionalAgendaItemOptions = {
       label: this.demoAgendaItemInput,
     };
-    const minutes = parseInt(this.demoAgendaItemTimeboxDuration);
+    const minutes = parseFloat(this.demoAgendaItemTimeboxDuration);
     if (this.demoAgendaItemTimeboxDuration && !isNaN(minutes)) {
       options.timeboxDuration = minutes * 60 * 1000;
     }
@@ -46,6 +55,12 @@ export class AttentionManagementGuideComponent {
 
   getNextPlaceholder() {
     return `Example item ${++this.demoItemsAdded}`;
+  }
+
+  ngOnDestroy() {
+    if (this.agendaEventsSubscription && !this.agendaEventsSubscription.closed) {
+      this.agendaEventsSubscription.unsubscribe();
+    }
   }
 
 }

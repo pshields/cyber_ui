@@ -1,30 +1,69 @@
 import {Injectable} from '@angular/core';
 
-import {Observable, ReplaySubject} from 'rxjs';
+import {ReplaySubject, Subject} from 'rxjs';
 
 import {CyberUiTimeboxService} from '../../util/timebox/service';
 
+import {AttentionalAgendaEvent} from './defs/event';
 import {CyberUiAttentionalAgendaItemOptions} from './defs/attentional_agenda_item_options';
+import {AttentionalAgendaItemId} from './defs/item_id';
 
 import {CyberUiAttentionalAgendaItem} from './attentional_agenda_item';
 import {CyberUiAttentionalAgendaSnapshot} from './attentional_agenda_snapshot';
+import {filter} from 'rxjs/operators';
 
 
 // A service for managing subjects of the user's attention
 @Injectable({providedIn: 'root'})
 export class CyberUiAttentionalAgendaService {
-  private readonly state = new ReplaySubject<CyberUiAttentionalAgendaSnapshot>(1);
+
+  // Observable of the current attentional agenda state
+  readonly state = new ReplaySubject<CyberUiAttentionalAgendaSnapshot>(1);
+
+  // The current attentional agenda items (private)
   private items: CyberUiAttentionalAgendaItem[] = [];
+
+  // Events stream that consumers may listen to
+  readonly events = new Subject<AttentionalAgendaEvent>();
+
+  // Counter used to generate agenda item ids
+  // Note: starts at 1 instead of 0 to avoid bugs around 0 being falsy
+  private idCounter = 1;
 
   constructor(
     readonly timeboxService: CyberUiTimeboxService,
-  ) {}
+  ) {
+    // When a timebox corresponding to an agenda item expires, emit a timer expiration event
+    timeboxService
+      .events
+      .pipe(filter(e => e.type === 'end'))
+      .subscribe(e => {
+        // Find the agenda item corresponding to this timebox, if applicable
+        const item = this.items.find(item => item.timeboxId === e.timeboxId);
+        if (item) {
+          this.events.next({
+            type: 'timer-expiration',
+            itemId: item.id,
+          });
+        }
+      });
+  }
 
-  addItemToAttentionalAgenda(options: CyberUiAttentionalAgendaItemOptions) {
-    const newItem = new CyberUiAttentionalAgendaItem(options, this);
+  // Adds an item with the given options to the user's attentional agenda
+  addItemToAttentionalAgenda(
+    options: CyberUiAttentionalAgendaItemOptions
+  ): AttentionalAgendaItemId {
+    const id = this.getNewAgendaItemId();
+    const newItem = new CyberUiAttentionalAgendaItem(id, options, this);
     this.items.push(newItem);
     // Emit a new state for consumers
     this.emitNewState();
+    return id;
+  }
+
+  // Returns the attentional agenda item with the given id, or undefined if no match was found
+  getItemById(itemId: AttentionalAgendaItemId): CyberUiAttentionalAgendaItem|undefined {
+    return this.items.find(item => item.id === itemId);
   }
 
   clearItem(item: CyberUiAttentionalAgendaItem) {
@@ -45,7 +84,8 @@ export class CyberUiAttentionalAgendaService {
     this.state.next(newState);
   }
 
-  getState(): Observable<CyberUiAttentionalAgendaSnapshot> {
-    return this.state;
+  private getNewAgendaItemId(): number {
+    return this.idCounter++;
   }
+
 }

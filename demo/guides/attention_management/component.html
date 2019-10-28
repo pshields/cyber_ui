@@ -6,18 +6,22 @@
 
 <h3>Attentional agenda</h3>
 
-<p *ngIf="!agenda || !agenda.items || agenda.items.length === 0">Agenda is empty</p>
+<ng-container *ngIf="attentionalAgendaService.state | async as agenda">
 
-<ol *ngIf="agenda && agenda.items && agenda.items.length > 0">
-  <li *ngFor="let item of agenda.items">
-    <cyber-ui-timebox-countdown-display
-      *ngIf="item.timeboxId"
-      [timeboxId]="item.timeboxId">
-    </cyber-ui-timebox-countdown-display>
-    {{item.label}}
-    <button mat-button (click)="item.clear()">CLEAR</button>
-  </li>
-</ol>
+  <p *ngIf="!agenda || !agenda.items || agenda.items.length === 0">Agenda is empty</p>
+
+  <ol *ngIf="agenda && agenda.items && agenda.items.length > 0">
+    <li *ngFor="let item of agenda.items">
+      <cyber-ui-timebox-countdown-display
+        *ngIf="item.timeboxId"
+        [timeboxId]="item.timeboxId">
+      </cyber-ui-timebox-countdown-display>
+      {{item.label}}
+      <button mat-button (click)="item.clear()">CLEAR</button>
+    </li>
+  </ol>
+
+</ng-container>
 
 <div class="stacked-form-fields">
 
@@ -41,5 +45,5 @@
 
 <h3>Attentional agenda using <code>cyber-ui-attentional-agenda-display-component</code></h3>
 
-<cyber-ui-attentional-agenda-display [agenda]="agenda">
+<cyber-ui-attentional-agenda-display [agenda]="attentionalAgendaService.state | async">
 </cyber-ui-attentional-agenda-display>
