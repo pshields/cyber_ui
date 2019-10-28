@@ -24,6 +24,7 @@
     "@angular/router": "8.2.8",
     "core-js": "2.6.9",
     "firebase": "7.0.0",
+    "firebase-key": "^2.0.2",
     "ngx-markdown": "8.2.1",
     "randexp": "0.5.3",
     "rxjs": "6.5.3",
