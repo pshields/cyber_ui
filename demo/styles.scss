@@ -67,6 +67,12 @@ a {
   color: var(--primary-link-color);
 }
 
+// Configure tabs to use CSS custom properties
+.mat-tab-label,
+.mat-tab-link {
+  color: var(--primary-link-color);
+}
+
 // Configure mat-checkbox to use CSS custom properties
 .mat-checkbox-indeterminate, .mat-checkbox-checked {
   &.mat-primary .mat-checkbox-background {
@@ -86,11 +92,6 @@ mat-expansion-panel-header.mat-expansion-panel-header {
   // this padding is added to provide a reasonable default.
   padding-top: 12px;
   padding-bottom: 12px;
-}
-
-// TODO Fix this upstream in Angular Material
-.mat-expansion-panel-body:empty {
-  padding-bottom: 0;
 }
 
 mat-sidenav.mat-drawer {
