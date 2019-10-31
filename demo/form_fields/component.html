@@ -15,13 +15,35 @@
 
 <p><button color="primary" mat-stroked-button (click)="showEditDialog()">EDIT IN A DIALOG</button></p>
 
-<form autocomplete=off>
-  <cyber-ui-form-fields
-    [model]="exampleFormModel"
-    [fields]="exampleFormModel.fields">
-  </cyber-ui-form-fields>
-</form>
+<mat-tab-group>
 
-<p>Data model:</p>
+  <mat-tab label="Form (default background)">
+    <ng-container *ngTemplateOutlet="formTemplate"></ng-container>
+  </mat-tab>
 
-<pre>{{exampleFormModel.asyncStream | async | json}}</pre>
+  <!-- This version exists to test and demonstrate the case where the form fields are
+       rendered on an inverted background compared to what the CyberUiThemeService
+       thinks the app background currently is -->
+  <mat-tab label="Form (inverted background)">
+
+    <mat-card class="cyber-ui-inverted-background">
+      <ng-container *ngTemplateOutlet="formTemplate"></ng-container>
+    </mat-card>
+
+  </mat-tab>
+
+  <mat-tab label="Data model">
+    <pre>{{exampleFormModel.asyncStream | async | json}}</pre>
+  </mat-tab>
+
+</mat-tab-group>
+
+
+<ng-template #formTemplate>
+  <form autocomplete=off>
+    <cyber-ui-form-fields
+      [model]="exampleFormModel"
+      [fields]="exampleFormModel.fields">
+    </cyber-ui-form-fields>
+  </form>
+</ng-template>

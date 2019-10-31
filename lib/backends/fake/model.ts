@@ -15,6 +15,8 @@ export class FakeModel implements CyberUiSavableModel, CyberUiSerializableModel 
   get stream(): Observable<{}> {
     if (this._stream === undefined) {
       this._stream = new ReplaySubject<{}>(1);
+      // Send an initial state to consumers
+      this._stream.next(this.toJson());
     }
     return this._stream;
   }

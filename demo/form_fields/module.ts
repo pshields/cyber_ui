@@ -1,6 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import {CyberUiEditDialogModule} from 'lib/public_api';
 import {CyberUiFormFieldModule} from 'lib/public_api';
@@ -16,6 +19,7 @@ import {FormFieldsDemoComponent} from './component';
 import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +33,8 @@ import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.compo
     CyberUiTextFieldModule,
     CyberUiValueInNumericRangeFieldModule,
     MatButtonModule,
+    MatCardModule,
+    MatTabsModule,
   ],
   declarations: [
     CyberUiDemoExampleHelpDialogComponent,

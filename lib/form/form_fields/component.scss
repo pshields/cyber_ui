@@ -4,6 +4,8 @@
   flex-direction: column;
 }
 
+// TODO Move field-specific CSS to the field-specific components
+
 // Material overrides used conjunction with Cyber UI theme service
 ::ng-deep {
 
@@ -22,8 +24,15 @@
   }
 }
 
-// Handle theming in overlays
-:host-context(.cdk-overlay-container) ::ng-deep {
+// Handle theming in contexts where the background is inverted from the app default
+:host-context(
+  // The current assumption is that all overlays have light backgrounds,
+  // but we shouldn't make this assumption long-term. TODO Fix this.
+  // The way to fix this is to add the .cyber-ui-inverted-background class
+  // to all overlays with a light background, and rely exclusively on that
+  .cdk-overlay-container,
+  .cyber-ui-inverted-background
+) ::ng-deep {
 
   .mat-select-value,
   .mat-select-arrow {
