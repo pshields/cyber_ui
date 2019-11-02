@@ -1,8 +1,28 @@
 :host {
   display: flex;
   flex-direction: row;
+
+  ::ng-deep .mat-select-value,
+  ::ng-deep .mat-select-arrow {
+    // Get the text color from app-wide CSS custom property
+    color: var(--text-color);
+  }
 }
+
 
 mat-form-field {
   flex-grow: 1;
+}
+
+
+// The styling is slightly different than the app defaults
+// when in a .cyber-ui-inverted-background descendant
+:host-context(.cyber-ui-inverted-background) {
+
+  ::ng-deep .mat-select-value,
+  ::ng-deep .mat-select-arrow {
+    // Get the text color from app-wide CSS custom property
+    color: var(--light-background-text-color);
+  }
+
 }

@@ -15,3 +15,9 @@ export const CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG = new MatDialogConfig();
 // when it is available.
 CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG.width = '1024px';
 // Note: maxWidth is already defaulted to 80vw by Angular Material
+
+
+// Under the assumption that all dialogs will show up on a light theme,
+// and that cyber-ui-inverted-background always refers to a light theme
+// (the semantics of that class need to be improved)
+CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG.panelClass = 'cyber-ui-inverted-background';
