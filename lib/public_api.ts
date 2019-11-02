@@ -68,6 +68,7 @@ export {CyberUiFormFieldModule} from './form/field/form/module';
 export {CyberUiFormFieldSaveEvent} from './form/field/defs/form_field_event';
 export {CyberUiFormFieldsComponent} from './form/form_fields/component';
 export {CyberUiFormFieldsModule} from './form/form_fields/module';
+export {CyberUiFormModel} from './form/defs/form_model';
 export {CyberUiTextFieldModule} from './form/field/text/module';
 export {CyberUiValueInNumericRangeFieldModule} from './form/field/value_in_numeric_range/module';
 
