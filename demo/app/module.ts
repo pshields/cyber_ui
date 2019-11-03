@@ -55,7 +55,7 @@ import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/compon
 import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
-import {AppSidenavComponent} from './sidenav.component';
+import {AppSidenavComponent} from './sidenav/component';
 import {CyberUiDemoViewConceptsWorkflowModule} from '../concept/workflows/view/module';
 
 
