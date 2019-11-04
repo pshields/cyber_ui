@@ -44,11 +44,11 @@ node_repositories(package_json = ["//:package.json"])
 # Protocol Buffers support
 http_archive(
     name = "rules_proto",
-    sha256 = "8ae279185b2c0961ae2fea38cb62a1da395eaadc855edc6b5e6ec780fa9cffbe",
-    strip_prefix = "rules_proto-c43f40541d1f6cd791a9ac3fa5a37c00f56195c1",
+    sha256 = "7994a4587e00b9049fed87390fc0d5ff62e0077c1ae8a0761d618e4dce2c525c",
+    strip_prefix = "rules_proto-33549b80b8097502de2a966d764c8d23c59f4d08",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/c43f40541d1f6cd791a9ac3fa5a37c00f56195c1.tar.gz",
-        "https://github.com/bazelbuild/rules_proto/archive/c43f40541d1f6cd791a9ac3fa5a37c00f56195c1.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/33549b80b8097502de2a966d764c8d23c59f4d08.tar.gz",
+        "https://github.com/bazelbuild/rules_proto/archive/33549b80b8097502de2a966d764c8d23c59f4d08.tar.gz",
     ],
 )
 
