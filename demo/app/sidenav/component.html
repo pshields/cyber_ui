@@ -1,7 +1,9 @@
 <!-- TODO Move the subheadings and child items to a service so this can be shared with the demo
      components for other themes. Right now this same list is hard-coded in minimal_demo_theme -->
 <mat-nav-list>
+  <div matSubheader [style.color]="matListSubheaderColor">DOCUMENTATION</div>
   <a mat-list-item routerLink="/workflows/view-concepts">Concepts</a>
+  <a mat-list-item routerLink="/docs/releases">Releases</a>
   <div matSubheader [style.color]="matListSubheaderColor">CAPABILITY AREAS</div>
   <a *ngFor="let area of CAPABILITY_AREAS" mat-list-item routerLink="/capability-areas/{{area.id}}">{{area.label}}</a>
   <div matSubheader [style.color]="matListSubheaderColor">GUIDES</div>

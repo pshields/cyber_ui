@@ -50,16 +50,19 @@ import {TaskProvidersDocumentationModule} from '../docs/task_providers/module';
 import {TimeboxingGuideComponent} from '../guides/timeboxing/component';
 import {TimeboxingGuideModule} from '../guides/timeboxing/module';
 
+import {CyberUiDemoViewConceptsWorkflowModule} from '../concept/workflows/view/module';
+import {CyberUiDemoReleasesComponent} from '../docs/releases/component';
+import {CyberUiDemoReleasesDocumentationModule} from '../docs/releases/module';
 import {SplashPageModule} from '../splash_page/module';
 import {WorkOnTasksWorkflowDemoComponent} from '../work_on_tasks_workflow/component';
 import {WorkOnTasksWorkflowDemoModule} from '../work_on_tasks_workflow/module';
 
 import {AppComponent} from './component';
 import {AppSidenavComponent} from './sidenav/component';
-import {CyberUiDemoViewConceptsWorkflowModule} from '../concept/workflows/view/module';
 
 
 export const routes: Routes = [
+  {path: 'docs/releases', component: CyberUiDemoReleasesComponent},
   {path: 'guides/attention-management', component: AttentionManagementGuideComponent},
   {path: 'guides/timeboxing', component: TimeboxingGuideComponent},
   {path: 'guides/:id', component: GuidesComponent},
@@ -110,6 +113,7 @@ export const routes: Routes = [
     WorkOnTasksWorkflowDemoModule,
     // Cyber UI modules that don't have a corresponding demo module
     CyberUiDelegationMenuModule,
+    CyberUiDemoReleasesDocumentationModule,
     CyberUiMindfullyAttendToTopicTaskProviderModule,
     CyberUiSettingsDialogModule,
     CyberUiSnoozeReasonCollectionDialogModule,
