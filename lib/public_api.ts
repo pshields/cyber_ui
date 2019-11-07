@@ -1,5 +1,12 @@
 // Public API surface of cyber_ui
 
+// ======
+// ACTION
+// ======
+
+export {CyberUiMatActionButtonsComponent} from './action/ui/mat_action_buttons/component';
+export {CyberUiMatActionButtonsModule} from './action/ui/mat_action_buttons/module';
+
 // =========
 // ATTENTION
 // =========

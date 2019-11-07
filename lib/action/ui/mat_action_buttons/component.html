@@ -1,0 +1,10 @@
+<ng-container *ngIf="actions">
+  <button
+      mat-button
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
+      *ngFor="let action of actions"
+      (click)="action.handler(actionContext.getContext())">
+    {{action.label}}
+  </button>
+</ng-container>
