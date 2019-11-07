@@ -11,8 +11,8 @@
   padding: 16px;
 }
 
-// When shown in a cyber-ui-minimal-task-card, use appropriate text color
-:host-context(cyber-ui-minimal-task-card) mat-chip-list .mat-chip.mat-standard-chip {
+// When shown on an inverted background, use appropriate text color
+:host-context(.cyber-ui-inverted-background) mat-chip-list .mat-chip.mat-standard-chip {
   color: var(--light-background-text-color);
   border-color: var(--light-background-low-opacity-color);
 }
