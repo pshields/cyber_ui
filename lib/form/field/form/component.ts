@@ -41,9 +41,8 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field) {
-      // TODO Consider if there's a more efficient way to do this
-      // Does the view really need to be cleared and repopulated on *every* field change?
-      // It's definitely simpler to do that, though
+      // TODO Only clear the view and instantiate a new component if the component has actually changed
+      // Otherwise, just update the existing component instance's inputs and its ngOnChanges method
       this.viewContainerRef.clear();
       this.componentRef = this.viewContainerRef.createComponent(
         this.componentFactoryResolver.resolveComponentFactory(
