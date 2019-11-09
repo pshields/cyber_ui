@@ -2,7 +2,10 @@ import {ComponentFactoryResolver, Directive, Optional, ViewContainerRef} from '@
 
 import {MatDialogRef} from '@angular/material/dialog';
 
+import {Action} from '../defs/action';
 import {CyberUiActionContext} from '../defs/action_context';
+
+import {CyberUiActionService} from '../service';
 
 
 @Directive({
@@ -10,17 +13,28 @@ import {CyberUiActionContext} from '../defs/action_context';
   exportAs: 'cyberUiActionContext',
 })
 export class CyberUiActionContextDirective {
+
   constructor(
     private readonly componentFactoryResolver: ComponentFactoryResolver,
     @Optional() private readonly dialogRef: MatDialogRef<{}>,
+    @Optional() private readonly service: CyberUiActionService,
     private readonly viewContainer: ViewContainerRef,
   ) {}
 
-  getContext(): CyberUiActionContext {
+  // Dispatches the given action
+  dispatch(action: Action) {
+    action.handler(this.getContext());
+    if (this.service) {
+      this.service.logActionTaken(action);
+    }
+  }
+
+  private getContext(): CyberUiActionContext {
     return {
       componentFactoryResolver: this.componentFactoryResolver,
       dialogRef: this.dialogRef,
       viewContainer: this.viewContainer
     };
   }
+
 }

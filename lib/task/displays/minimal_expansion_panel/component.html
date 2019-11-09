@@ -11,7 +11,7 @@
       cyberUiActionContext
       #actionContext="cyberUiActionContext"
       *ngFor="let action of task.actions"
-      (click)="action.handler(actionContext.getContext())"
+      (click)="actionContext.dispatch(action)"
       >{{action.label}}</button>
   </mat-action-row>
 </mat-expansion-panel>

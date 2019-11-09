@@ -4,7 +4,7 @@
     cyberUiActionContext
     #actionContext="cyberUiActionContext"
     *ngFor="let action of actions"
-    (click)="action.handler(actionContext.getContext())"
+    (click)="actionContext.dispatch(action)"
     >
       <mat-icon
         *ngFor="let iconName of action.iconNames"

@@ -4,7 +4,7 @@
     cyberUiActionContext
     #actionContext="cyberUiActionContext"
     *ngFor="let action of actions | slice:0:3"
-    (click)="action.handler(actionContext.getContext())"
+    (click)="actionContext.dispatch(action)"
     [style.backgroundColor]="action.color"
     [style.color]="'#fff'"
     [style.flexGrow]="action.prominence || 1"
@@ -28,7 +28,7 @@
             *ngFor="let action of actions | slice:3"
             cyberUiActionContext
             #actionContext="cyberUiActionContext"
-            (click)="action.handler(actionContext.getContext())"
+            (click)="actionContext.dispatch(action)"
             [ngStyle]="action._tmpNgStyle"
             (mouseover)="action._tmpNgStyle = getHoverStyle(action)"
             (mouseout)="action._tmpNgStyle = undefined">

@@ -4,8 +4,13 @@
 // ACTION
 // ======
 
+export {Action} from './action/defs/action';
 export {CyberUiMatActionButtonsComponent} from './action/ui/mat_action_buttons/component';
 export {CyberUiMatActionButtonsModule} from './action/ui/mat_action_buttons/module';
+export {CyberUiActionContext} from './action/defs/action_context';
+export {CyberUiActionContextModule} from './action/context/module';
+export {CyberUiActionModule} from './action/module';
+export {CyberUiActionService} from './action/service';
 
 // =========
 // ATTENTION
@@ -119,8 +124,7 @@ export {TaskProviderGetTasksOptions} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksResponse} from './task/interfaces/task_provider';
 export {TaskProviderRegistryGetTasksResponse} from './task/interfaces/task_provider_registry';
 export {Task} from './task/interfaces/task';
-export {Action} from './action/defs/action';
-export {CyberUiActionContext} from './action/defs/action_context';
+
 export {TaskSuggestion} from './task/interfaces/task_suggestion';
 export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
@@ -139,7 +143,6 @@ export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_s
 export {TaskProviderRegistryService} from './task/provider_registry/service';
 
 // Components and modules
-export {CyberUiActionContextModule} from './action/context/module';
 export {CyberUiMinimalTaskCardListComponent} from './task/displays/minimal_card_list/component';
 export {CyberUiMinimalTaskCardListModule} from './task/displays/minimal_card_list/module';
 export {CyberUiTasksModule} from './task/module';

@@ -12,7 +12,7 @@
       *ngFor="let action of item.actions | async"
       cyberUiActionContext
       #actionContext="cyberUiActionContext"
-      (click)="action.handler(actionContext.getContext())">
+      (click)="actionContext.dispatch(action)">
     {{action.label}}
   </button>
   <button mat-button (click)="item.clear()">CLEAR</button>
