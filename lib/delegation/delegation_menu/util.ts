@@ -1,6 +1,6 @@
 import {ComponentFactory} from '@angular/core';
 
-import {CyberUiActionContext} from '../../task/interfaces/action_context';
+import {CyberUiActionContext} from '../../action/defs/action_context';
 
 import {DelegatableThing} from '../interfaces/delegatable_thing';
 

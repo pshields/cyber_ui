@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs';
 
-import {Action} from '../../../task/interfaces/action';
+import {Action} from '../../../action/defs/action';
 import {TimeboxId} from '../../../util/timebox/defs/timebox_id';
 
 

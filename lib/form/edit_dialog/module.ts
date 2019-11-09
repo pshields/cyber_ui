@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-import {CyberUiActionContextModule} from '../../task/action_context/module';
+import {CyberUiActionContextModule} from '../../action/context/module';
 
 import {CyberUiFormFieldsModule} from '../form_fields/module';
 

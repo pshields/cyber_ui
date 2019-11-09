@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 
-import {Action} from '../../../task/interfaces/action';
+import {Action} from '../../defs/action';
 
 
 // Renders the given actions as a sequence of Material buttons

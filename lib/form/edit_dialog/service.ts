@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-import {CyberUiActionContext} from '../../task/interfaces/action_context';
+import {CyberUiActionContext} from '../../action/defs/action_context';
 
 import {CyberUiEditDialogComponent} from './component';
 import {CyberUiEditDialogParams} from './params';

@@ -119,8 +119,8 @@ export {TaskProviderGetTasksOptions} from './task/interfaces/task_provider';
 export {TaskProviderGetTasksResponse} from './task/interfaces/task_provider';
 export {TaskProviderRegistryGetTasksResponse} from './task/interfaces/task_provider_registry';
 export {Task} from './task/interfaces/task';
-export {Action} from './task/interfaces/action';
-export {CyberUiActionContext} from './task/interfaces/action_context';
+export {Action} from './action/defs/action';
+export {CyberUiActionContext} from './action/defs/action_context';
 export {TaskSuggestion} from './task/interfaces/task_suggestion';
 export {TaskSuggestionService} from './task/interfaces/task_suggestion_service';
 export {TaskSuggestionServiceGetSuggestionsBaseOptions} from './task/interfaces/task_suggestion_service';
@@ -139,7 +139,7 @@ export {TASK_SUGGESTION_SERVICE} from './task/injection_tokens/task_suggestion_s
 export {TaskProviderRegistryService} from './task/provider_registry/service';
 
 // Components and modules
-export {CyberUiActionContextModule} from './task/action_context/module';
+export {CyberUiActionContextModule} from './action/context/module';
 export {CyberUiMinimalTaskCardListComponent} from './task/displays/minimal_card_list/component';
 export {CyberUiMinimalTaskCardListModule} from './task/displays/minimal_card_list/module';
 export {CyberUiTasksModule} from './task/module';

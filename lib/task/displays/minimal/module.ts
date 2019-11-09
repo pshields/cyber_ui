@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatChipsModule} from '@angular/material';
 
-import {CyberUiActionContextModule} from '../../action_context/module';
+import {CyberUiActionContextModule} from '../../../action/context/module';
 
 import {CyberUiMinimalTaskComponent} from './component';
 

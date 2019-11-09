@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 
-import {Action} from '../../interfaces/action';
+import {Action} from '../../../action/defs/action';
 
 
 @Component({

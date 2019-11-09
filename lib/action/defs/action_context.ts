@@ -19,4 +19,5 @@ export interface CyberUiActionContext {
   // TODO clear up *which* view container is referred to here
   // Is it one created specifically for the CyberUiActionContext directive? Does it correspond to the button element? The nearest ancestor component?
   viewContainer?: ViewContainerRef;
+
 }

@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 
-import {CyberUiActionContextModule} from '../../action_context/module';
+import {CyberUiActionContextModule} from '../../../action/context/module';
 
 import {CyberUiActionsPanelComponent} from './component';
 

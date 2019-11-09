@@ -1,4 +1,4 @@
-import {Action} from './action';
+import {Action} from '../../action/defs/action';
 
 
 // A task to be shown to a user
