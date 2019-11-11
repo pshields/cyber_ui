@@ -4,6 +4,7 @@
   ],
   "enabledManagers": [
     "bazel",
+    "gomod",
     "npm"
   ],
   "packageRules": [
