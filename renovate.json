@@ -2,6 +2,10 @@
   "extends": [
     "config:base"
   ],
+  "enabledManagers": [
+    "bazel",
+    "npm"
+  ],
   "packageRules": [
     {
       "packageNames": ["@angular-devkit/build-angular", "@angular-devkit/build-ng-packagr"],
