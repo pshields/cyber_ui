@@ -23,9 +23,10 @@ export class CyberUiActionContextDirective {
 
   // Dispatches the given action
   dispatch(action: Action) {
-    action.handler(this.getContext());
+    const context = this.getContext();
+    action.handler(context);
     if (this.service) {
-      this.service.logActionTaken(action);
+      this.service.logActionTaken(action, context);
     }
   }
 
@@ -33,7 +34,7 @@ export class CyberUiActionContextDirective {
     return {
       componentFactoryResolver: this.componentFactoryResolver,
       dialogRef: this.dialogRef,
-      viewContainer: this.viewContainer
+      viewContainer: this.viewContainer,
     };
   }
 
