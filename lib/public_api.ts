@@ -5,6 +5,7 @@
 // ======
 
 export {Action} from './action/defs/action';
+export {ActionTaken} from './action/defs/action_taken';
 export {CyberUiMatActionButtonsComponent} from './action/ui/mat_action_buttons/component';
 export {CyberUiMatActionButtonsModule} from './action/ui/mat_action_buttons/module';
 export {CyberUiActionContext} from './action/defs/action_context';
