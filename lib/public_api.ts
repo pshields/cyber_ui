@@ -6,8 +6,8 @@
 
 export {Action} from './action/defs/action';
 export {ActionTaken} from './action/defs/action_taken';
-export {CyberUiMatActionButtonsComponent} from './action/ui/mat_action_buttons/component';
-export {CyberUiMatActionButtonsModule} from './action/ui/mat_action_buttons/module';
+export {CyberUiMatActionButtonsComponent} from './action/ui/mat_buttons/component';
+export {CyberUiMatActionButtonsModule} from './action/ui/mat_buttons/module';
 export {CyberUiActionContext} from './action/defs/action_context';
 export {CyberUiActionContextModule} from './action/context/module';
 export {CyberUiActionModule} from './action/module';
