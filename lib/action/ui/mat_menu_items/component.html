@@ -1,0 +1,11 @@
+<ng-container *ngIf="actions">
+  <button
+      *ngFor="let action of actions"
+      mat-menu-item
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
+      (click)="actionContext.dispatch(action)">
+    <mat-icon *ngIf="action.iconNames && action.iconNames.length > 0">{{action.iconNames[0]}}</mat-icon>
+    <span>{{action.label}}</span>
+  </button>
+</ng-container>

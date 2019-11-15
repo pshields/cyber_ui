@@ -10,6 +10,8 @@ export {CyberUiMatActionButtonsComponent} from './action/ui/mat_buttons/componen
 export {CyberUiMatActionButtonsModule} from './action/ui/mat_buttons/module';
 export {CyberUiMatActionIconButtonsComponent} from './action/ui/mat_icon_buttons/component';
 export {CyberUiMatActionIconButtonsModule} from './action/ui/mat_icon_buttons/module';
+export {CyberUiMatActionMenuItemsComponent} from './action/ui/mat_menu_items/component';
+export {CyberUiMatActionMenuItemsModule} from './action/ui/mat_menu_items/module';
 export {CyberUiActionContext} from './action/defs/action_context';
 export {CyberUiActionContextModule} from './action/context/module';
 export {CyberUiActionModule} from './action/module';
