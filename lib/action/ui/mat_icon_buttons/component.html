@@ -1,0 +1,11 @@
+<ng-container *ngIf="actions">
+  <button
+      *ngFor="let action of actions"
+      mat-icon-button
+      cyberUiActionContext
+      #actionContext="cyberUiActionContext"
+      (click)="actionContext.dispatch(action)"
+      [matTooltip]="action.label">
+    <mat-icon>{{action.iconNames[0]}}</mat-icon>
+  </button>
+</ng-container>
