@@ -52,4 +52,8 @@ describe('FormFieldConfig', () => {
     config = createConfig({});
     expect(config.helpText).toBeUndefined();
   });
+
+  describe('#override', () => {
+    // TODO
+  });
 });

@@ -41,15 +41,15 @@ export class FormFieldConfig {
   readonly component: ComponentType<CyberUiFormFieldComponentInterface>|undefined;
 
   constructor(
-    options: FormFieldOptions,
+    private readonly fieldOptions: FormFieldOptions,
   ) {
-    this.label = options.label;
-    this.propertyName = options.propertyName;
-    this.required = this.getRequired(options.required);
-    this.autofocus = this.getAutofocus(options.autofocus);
-    this.helpText = options.helpText;
-    this.helpDialog = options.helpDialog;
-    this.component = options.component;
+    this.label = fieldOptions.label;
+    this.propertyName = fieldOptions.propertyName;
+    this.required = this.getRequired(fieldOptions.required);
+    this.autofocus = this.getAutofocus(fieldOptions.autofocus);
+    this.helpText = fieldOptions.helpText;
+    this.helpDialog = fieldOptions.helpDialog;
+    this.component = fieldOptions.component;
   }
 
   private getRequired(required: boolean|undefined) {
@@ -66,6 +66,12 @@ export class FormFieldConfig {
     } else {
       return false;
     }
+  }
+
+  // Returns a new form field config with the given options overrides in place
+  // TODO Fix the constructor typings here
+  override<OPTIONS_T extends FormFieldOptions>(overrides: Partial<OPTIONS_T>) {
+    return new (this.constructor as any)(Object.assign({}, this.fieldOptions, overrides));
   }
 
 }

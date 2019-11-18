@@ -56,4 +56,10 @@ export class FormField<
       model[propertyName] = value;
     }
   }
+
+  // Returns a new form field with the given config overrides
+  // TODO Fix the constructor typing
+  overrideConfig(overrides: Partial<OPTIONS_T>) {
+    return new (this.constructor as any)(this.config.override(overrides));
+  }
 }
