@@ -7,6 +7,7 @@ import {Action} from '../../defs/action';
 @Component({
   selector: 'cyber-ui-mat-action-buttons',
   templateUrl: 'component.html',
+  styleUrls: ['component.scss'],
 })
 export class CyberUiMatActionButtonsComponent {
 
