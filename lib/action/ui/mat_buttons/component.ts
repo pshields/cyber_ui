@@ -13,4 +13,7 @@ export class CyberUiMatActionButtonsComponent {
 
   @Input() actions: Action[];
 
+  // Optional. Whether to display icons in the buttons if provided (default: true.)
+  @Input() useIcons: boolean = true;
+
 }

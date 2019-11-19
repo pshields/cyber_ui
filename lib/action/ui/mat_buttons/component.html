@@ -5,11 +5,11 @@
       #actionContext="cyberUiActionContext"
       *ngFor="let action of actions"
       (click)="actionContext.dispatch(action)">
-    <ng-container *ngIf="action.iconNames !== undefined && action.iconNames.length > 0">
+    <ng-container *ngIf="useIcons && action.iconNames !== undefined && action.iconNames.length > 0">
       <mat-icon *ngFor="let iconName of action.iconNames">{{iconName}}</mat-icon>
     </ng-container>
     <!-- If there were any icons, add a single space between the icons and the label-->
-    <ng-container ngPreserveWhitespaces *ngIf="action.iconNames !== undefined && action.iconNames.length > 0"> </ng-container>
+    <ng-container ngPreserveWhitespaces *ngIf="useIcons && action.iconNames !== undefined && action.iconNames.length > 0"> </ng-container>
     {{action.label}}
   </button>
 </ng-container>
