@@ -2,11 +2,11 @@ import {FormField} from '../../form_field';
 import {FormFieldOptions, FormFieldConfig} from '../../form_field_config';
 
 
-// Class for representing an option in the list of options for ChoiceField
-export class Option<VALUE_T = {}> {
+// ChoiceField option constructor
+export class Option<VALUE_T = unknown> {
   constructor(
-      public label: string,
-      public value: VALUE_T
+      readonly label: string,
+      readonly value: VALUE_T,
   ) {}
 }
 
@@ -16,22 +16,37 @@ export interface ChoiceFieldOptions<OPTION_VALUE_T> extends FormFieldOptions {
     options: Option<OPTION_VALUE_T>[];
     // Whether this field is a multiple-select field (default: false)
     multiple?: boolean;
+    // Whether to unroll this field from a 'select'-style menu into an
+    // immediate sequence of options (one less click required to view)
+    // (default: false)
+    // Note: non-standard display components might not use this option
+    unroll?: boolean;
 }
 
 
 export class ChoiceFieldConfig<OPTION_VALUE_T> extends FormFieldConfig {
   options: Option<OPTION_VALUE_T>[];
   multiple: boolean;
+  unroll: boolean;
 
   constructor(options: ChoiceFieldOptions<OPTION_VALUE_T>) {
     super(options);
     this.options = options.options;
     this.multiple = this.getMultiple(options.multiple);
+    this.unroll = this.getUnroll(options.unroll);
   }
 
-  getMultiple(multiple: boolean | undefined): boolean {
+  protected getMultiple(multiple: boolean | undefined): boolean {
     if (multiple !== undefined) {
       return multiple;
+    } else {
+      return false;
+    }
+  }
+
+  protected getUnroll(unroll: boolean | undefined): boolean {
+    if (unroll !== undefined) {
+      return unroll;
     } else {
       return false;
     }

@@ -9,6 +9,15 @@
   }
 }
 
+.unrolled-multiple-container {
+  margin-bottom: 1.25em;  // to mirror mat-form-field
+
+  .heading {
+    color: var(--mat-list-subheader-color);
+    margin-bottom: 4px; // to further differntiate it as a heading
+  }
+}
+
 
 mat-form-field {
   flex-grow: 1;
@@ -23,6 +32,10 @@ mat-form-field {
   ::ng-deep .mat-select-arrow {
     // Get the text color from app-wide CSS custom property
     color: var(--light-background-text-color);
+  }
+
+  ::ng-deep .unrolled-multiple-container .heading {
+    color: var(--light-background-subheader-color);
   }
 
 }

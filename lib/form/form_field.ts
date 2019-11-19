@@ -47,7 +47,7 @@ export class FormField<
     }
   }
 
-  setModelProperty(model: MODEL_T, propertyName: string, value: {}) {
+  setModelProperty<VALUE_T = unknown>(model: MODEL_T, propertyName: string, value: VALUE_T) {
     if ('setProperty' in model) {
       // If the model implements setProperty(), use that
       return (model as CyberUiInteractiveModel).setProperty(propertyName, value);

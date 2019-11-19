@@ -48,6 +48,17 @@ export const DEMO_APP_EXAMPLE_FORM_MODEL_FIELDS: FormField[] = [
     ],
     helpDialog: CyberUiDemoExampleHelpDialogComponent,
   }),
+  new ChoiceField({
+    label: 'Activity suggestion providers',
+    propertyName: 'activitySuggestionProviders',
+    multiple: true,
+    unroll: true,
+    options: [
+      new Option('Mindful attention to topics', 'cyber-ui-mindful-attention-to-topic-provider'),
+      new Option('Data entry', 'cyber-ui-data-entry-provider'),
+      new Option('Next step solicitation', 'cyber-ui-next-step-solicitation-provider'),
+    ],
+  }),
   new DiscreteProbabilityDistributionField({
     label: 'Which S&P 500 company will become the first to achieve a market capitalization of ≥ $2T?',
     propertyName: 'sp500MarketCapPrediction',

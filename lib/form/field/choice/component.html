@@ -1,4 +1,4 @@
-<mat-form-field>
+<mat-form-field *ngIf="!field.config.unroll">
   <mat-select
       [placeholder]="field.config.label"
       [required]="field.config.required"
@@ -11,6 +11,13 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+<div *ngIf="field.config.unroll && field.config.multiple" class="unrolled-multiple-container">
+  <div class="heading">{{field.config.label}}</div>
+  <div *ngFor="let option of field.config.options" class="checkbox-container">
+    <mat-checkbox [checked]="unrolledMultipleIsChecked(option)" (change)="unrolledMultipleToggle(option)">{{option.label}}</mat-checkbox>
+  </div>
+</div>
+<!-- TODO Support unroll=true, multiple=false scenario -->
 <button type="button" *ngIf="field.config.helpDialog" mat-icon-button (click)="service.openHelpDialog(field.config.helpDialog)">
   <mat-icon>help</mat-icon>
 </button>
