@@ -49,7 +49,7 @@ export class CyberUiThemeService {
     // Keep currentThemeId up to date
     this.currentThemeIds.subscribe(id => this.currentThemeId = id);
     // Subscribe to settings updates
-    settingsService.listen('theme').subscribe(themeId => {
+    settingsService.listen('theme').subscribe((themeId: string) => {
       if (themeId !== this.currentThemeId) {
         this.currentThemeIds.next(themeId);
       }

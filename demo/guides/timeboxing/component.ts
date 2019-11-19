@@ -34,7 +34,7 @@ export class TimeboxingGuideComponent {
       this.snapshot = snapshot;
     });
     // Keep a reference to the current settings
-    settingsService.listen().subscribe(settings => this.settings = settings);
+    settingsService.listen<DemoSettings>().subscribe(settings => this.settings = settings);
     // Update the text color based on the current theme settings
     themeService.textColor.subscribe(color => {
       this.color = color;

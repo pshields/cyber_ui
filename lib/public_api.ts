@@ -137,6 +137,7 @@ export {TaskSuggestionServiceGetSuggestionsBaseResponse} from './task/interfaces
 export {CyberUiMindfullyAttendToTopicUserResponseEvent} from './task/providers/mindfully_attend_to_topic/defs/user_response_event';
 export {CyberUiMindfullyAttendToTopicTask} from './task/providers/mindfully_attend_to_topic/defs/task';
 export {CyberUiTopicRegistration} from './task/providers/mindfully_attend_to_topic/topic_registration';
+export {TopicRegistrationOptions} from './task/providers/mindfully_attend_to_topic/defs/topic_registration_options';
 
 // Identifiers
 export {CYBER_UI_MINDFULLY_ATTEND_TO_TOPIC_TASK_PROVIDER_ID} from './task/providers/mindfully_attend_to_topic/provider';
