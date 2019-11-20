@@ -39,5 +39,6 @@ export class CyberUiChoiceFieldComponent implements CyberUiFormFieldComponentInt
       fieldValue.push(option.value);
     }
     this.field.setModelProperty(this.model, this.field.config.propertyName, fieldValue);
+    this.event.emit({type: 'change'});
   }
 }
