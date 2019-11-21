@@ -9,7 +9,8 @@
       [max]="field.config.maxValue"
       [min]="field.config.minValue"
       [step]="field.config.step"
-      [cyberUiAutofocus]="field.config.autofocus">
+      [cyberUiAutofocus]="field.config.autofocus"
+      (keydown.enter)="field.config.saveOnEnter ? emitSaveAndReturnFalse() : null">
   </mat-slider>
   <span>{{field.getModelProperty(model, field.config.propertyName)|number:field.config.digitsinfo}}</span>
   <button

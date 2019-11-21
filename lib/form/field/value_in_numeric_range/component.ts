@@ -25,4 +25,10 @@ export class CyberUiValueInNumericRangeFieldComponent implements CyberUiFormFiel
 
   @Output() event = new EventEmitter<CyberUiFormFieldEvent>();
 
+  emitSaveAndReturnFalse() {
+    this.event.emit({
+      type: 'save'
+    });
+    return false;
+  }
 }

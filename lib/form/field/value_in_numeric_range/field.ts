@@ -10,6 +10,7 @@ export interface ValueInNumericRangeFieldOptions extends FormFieldOptions {
   // The rest of the options are optional and have reasonable defaults defined in ValueInNumericRangeConfig
   step?: number;
   digitsinfo?: string;
+  saveOnEnter?: boolean;
 }
 
 
@@ -20,6 +21,7 @@ export class ValueInNumericRangeFieldConfig extends FormFieldConfig {
   step: number|undefined;
   // Format string to pass to Angular's DecimalPipe (https://angular.io/api/common/DecimalPipe#parameters)
   digitsinfo: string|undefined;
+  saveOnEnter: boolean;
 
   constructor(options: ValueInNumericRangeFieldOptions) {
     super(options);
@@ -27,6 +29,15 @@ export class ValueInNumericRangeFieldConfig extends FormFieldConfig {
     this.maxValue = options.maxValue;
     this.step = options.step;
     this.digitsinfo = options.digitsinfo;
+    this.saveOnEnter = this.getSaveOnEnter(options.saveOnEnter);
+  }
+
+  getSaveOnEnter(saveOnEnter: boolean|undefined): boolean {
+    if (saveOnEnter !== undefined) {
+      return saveOnEnter;
+    } else {
+      return false;
+    }
   }
 }
 
