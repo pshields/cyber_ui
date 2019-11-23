@@ -33,13 +33,13 @@ const TASK_LABEL_GENERATOR_REGEX = /(Start|Spend) a( DURATION_TOKEN)? hard focus
 // Example task statement:
 // Start a 50-minute hard focus session with the intention to mindfully attend to systemization, and log follow-ups as appropriate
 @Injectable({providedIn: 'root'})
-export class CyberUiMindfullyAttendToTopicTaskProvider {
-  responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent>();
+export class CyberUiMindfullyAttendToTopicTaskProvider<TOPIC_DATA_T = unknown> {
+  responses = new EventEmitter<CyberUiMindfullyAttendToTopicUserResponseEvent<TOPIC_DATA_T>>();
 
-  private topicRegistrations: CyberUiTopicRegistration[] = [];
+  private topicRegistrations: CyberUiTopicRegistration<TOPIC_DATA_T>[] = [];
   // A copy of the list of topic registrations for external consumers
-  private topicRegistrationsSubject = new ReplaySubject<CyberUiTopicRegistration[]>(1);
-  private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask[]>(1);
+  private topicRegistrationsSubject = new ReplaySubject<CyberUiTopicRegistration<TOPIC_DATA_T>[]>(1);
+  private tasks = new ReplaySubject<CyberUiMindfullyAttendToTopicTask<TOPIC_DATA_T>[]>(1);
   private primaryActionLabelRandExp = new RandExp(PRIMARY_ACTION_LABEL_GENERATOR_REGEX);
   private skipActionLabelRandExp = new RandExp(SKIP_ACTION_LABEL_GENERATOR_REGEX);
   private taskLabelRandExp = new RandExp(TASK_LABEL_GENERATOR_REGEX);
@@ -54,12 +54,12 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   }
 
   // Registers topics with the provider
-  registerTopics(options: RegisterTopicsOptions): RegisterTopicsResponse {
+  registerTopics(options: RegisterTopicsOptions<TOPIC_DATA_T>): RegisterTopicsResponse {
     if (options.clearExisting) {
       this.topicRegistrations = [];
     }
     for (let topicOptions of options.topics) {
-      const topicRegistration = new CyberUiTopicRegistration(topicOptions);
+      const topicRegistration = new CyberUiTopicRegistration<TOPIC_DATA_T>(topicOptions);
       this.topicRegistrations.push(topicRegistration);
     }
     // Update the list of topic registrations that consumers might be listening to
@@ -76,12 +76,12 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
   }
 
   // Returns the topic registration matching the given slug
-  getTopicRegistrationFromSlug(slug: string): CyberUiTopicRegistration {
+  getTopicRegistrationFromSlug(slug: string): CyberUiTopicRegistration<TOPIC_DATA_T> {
     return this.topicRegistrations.find(registration => registration.slug === slug);
   }
 
   // Returns an observable of the current list of topic registrations
-  getTopicRegistrations(): Observable<CyberUiTopicRegistration[]> {
+  getTopicRegistrations(): Observable<CyberUiTopicRegistration<TOPIC_DATA_T>[]> {
     return this.topicRegistrationsSubject;
   }
 
@@ -95,7 +95,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
 
   // Updates the list of tasks produced by this provider, in response to a change in topic registrations
   private updateTasks() {
-    const tasks: CyberUiMindfullyAttendToTopicTask[] = [];
+    const tasks: CyberUiMindfullyAttendToTopicTask<TOPIC_DATA_T>[] = [];
     this.topicRegistrations.forEach(topicRegistration => {
       const label = this.getTaskLabelForTopic(topicRegistration);
       tasks.push({
@@ -107,7 +107,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     this.tasks.next(tasks);
   }
 
-  private getActions(taskLabel: string, topicRegistration: CyberUiTopicRegistration) {
+  private getActions(taskLabel: string, topicRegistration: CyberUiTopicRegistration<TOPIC_DATA_T>) {
     const actions = [];
     const primaryAction = {
       label: this.getPrimaryActionLabel(),
@@ -136,7 +136,7 @@ export class CyberUiMindfullyAttendToTopicTaskProvider {
     return actions;
   }
 
-  private getTaskLabelForTopic(topic: CyberUiTopicRegistration) {
+  private getTaskLabelForTopic(topic: CyberUiTopicRegistration<TOPIC_DATA_T>) {
     return this.taskLabelRandExp.gen()
       .replace('TOPIC_LABEL_TOKEN', topic.labelWhenUsedInASentence)
       .replace('DURATION_TOKEN', `${topic.timeboxDuration}-minute`);

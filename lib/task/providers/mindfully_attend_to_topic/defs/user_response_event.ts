@@ -4,7 +4,7 @@ import {CyberUiTopicRegistration} from '../topic_registration';
 // Representation of a user selecting a response for a task provided by this provider
 // TODO Generalize this across multiple providers
 // DATA_T is the type of the user-defined data payload optionally present on topic registrations
-export interface CyberUiMindfullyAttendToTopicUserResponseEvent<DATA_T = {}> {
+export interface CyberUiMindfullyAttendToTopicUserResponseEvent<DATA_T = never> {
   // The task label for the task being responded to
   taskLabel: string;
   // The action label selected by the user
