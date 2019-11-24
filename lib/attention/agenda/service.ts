@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 
-import {ReplaySubject, Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {filter} from 'rxjs/operators';
 
 import {CyberUiTimeboxService} from '../../util/timebox/service';
 
@@ -10,7 +11,6 @@ import {AttentionalAgendaItemId} from './defs/item_id';
 
 import {CyberUiAttentionalAgendaItem} from './attentional_agenda_item';
 import {CyberUiAttentionalAgendaSnapshot} from './attentional_agenda_snapshot';
-import {filter} from 'rxjs/operators';
 
 
 // A service for managing subjects of the user's attention
@@ -18,7 +18,7 @@ import {filter} from 'rxjs/operators';
 export class CyberUiAttentionalAgendaService {
 
   // Observable of the current attentional agenda state
-  readonly state = new ReplaySubject<CyberUiAttentionalAgendaSnapshot>(1);
+  readonly state = new BehaviorSubject(new CyberUiAttentionalAgendaSnapshot({items: []}));
 
   // The current attentional agenda items (private)
   private items: CyberUiAttentionalAgendaItem[] = [];
