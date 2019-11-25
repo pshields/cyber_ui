@@ -22,7 +22,7 @@
     "@angular/platform-browser": "8.2.8",
     "@angular/platform-browser-dynamic": "8.2.8",
     "@angular/router": "8.2.8",
-    "core-js": "2.6.9",
+    "core-js": "2.6.10",
     "firebase": "7.0.0",
     "firebase-key": "2.0.2",
     "ngx-markdown": "8.2.1",
