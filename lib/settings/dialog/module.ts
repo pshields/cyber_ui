@@ -26,9 +26,11 @@ import {CyberUiSettingsSectionItemsComponent} from './section_items.component';
   ],
   exports: [
     CyberUiSettingsDialogComponent,
+    CyberUiSettingsSectionItemsComponent,
   ],
   entryComponents: [
     CyberUiSettingsDialogComponent,
+    CyberUiSettingsSectionItemsComponent,
   ],
   providers: [
     CyberUiSettingsDialogService,
