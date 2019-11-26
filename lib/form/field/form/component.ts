@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewContainerRef, ComponentRef, ChangeDetectionStrategy, OnDestroy, ComponentFactoryResolver, SimpleChange} from '@angular/core';
 
 import {Subscription} from 'rxjs';
+import {filter} from 'rxjs/operators';
 
 import {FormField} from '../../form_field';
 
@@ -8,7 +9,6 @@ import {CyberUiFormFieldComponentInterface} from '../defs/form_field_component';
 import {CyberUiFormFieldEvent} from '../defs/form_field_event';
 
 import {CyberUiFormFieldComponentResolver} from './resolver.service';
-import {filter} from 'rxjs/operators';
 
 
 // A generic component that dynamically instantiates the appropriate form field component based on the field's config
@@ -63,6 +63,14 @@ export class CyberUiFormFieldComponent implements CyberUiFormFieldComponentInter
       }
       this.unsubscribeFromOldSubscriptionIfApplicable();
       this.componentRef.instance.event.subscribe(event => this.event.emit(event));
+    } else if (changes.model) {
+      const modelBefore = this.componentRef.instance.model;
+      this.componentRef.instance.model = this.model;
+      if (this.componentRef.instance.ngOnChanges) {
+        this.componentRef.instance.ngOnChanges({
+          model: new SimpleChange(modelBefore, this.componentRef.instance.model, false),
+        });
+      }
     }
   }
 
