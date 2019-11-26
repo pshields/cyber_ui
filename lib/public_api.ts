@@ -200,6 +200,7 @@ export {CyberUiSettingsDialogComponent} from './settings/dialog/component';
 export {CyberUiSettingsDialogService} from './settings/dialog/service';
 export {CyberUiSettingsDialogModule} from './settings/dialog/module';
 export {CyberUiSettingsService} from './settings/service/service';
+export {SettingsSectionConfig} from './settings/interfaces/section_config';
 export {SettingsSectionConfigItem} from './settings/interfaces/section_config';
 
 // ======

@@ -4,7 +4,7 @@ import {FormField} from '../../form/form_field';
 export type SettingsSectionConfigItem = SettingsSectionConfig | FormField;
 
 
-export interface SettingsSectionConfig{
+export interface SettingsSectionConfig {
   // Label for this settings section
   label?: string;
   // List of items corresponding to this section
