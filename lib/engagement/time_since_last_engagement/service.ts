@@ -1,25 +1,105 @@
 import {Injectable} from '@angular/core';
 
-import {encode as firebaseKeyEncode} from 'firebase-key';
+import {AngularFirestore} from '@angular/fire/firestore';
 
-import {CyberUiFirestoreBackend} from '../../backends/firestore/backend';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
+import {firebaseKeyEncode} from '../../util/firebase_key_encode';
+import {CYBER_UI_SETTINGS_COLLECTION_ID} from '../../settings/constants';
+
+import {CYBER_UI_TIME_SINCE_LAST_ENGAGEMENT_SERVICE_DOC_ID} from './constants';
 import {CyberUiItemEngagementRecord} from './defs/engagement_record';
 import {CyberUiGetTimeSinceLastEngagementOptions} from './defs/get_options';
 import {CyberUiGetTimeSinceLastEngagementResponse} from './defs/get_response';
 
 
-// TODO Document in the appropriate places that some backends may impose restrictions on itemId
-// (e.g. max length, prohibited characters, etc.)
-// For example, Firestore disallows '/' from appearing in field paths
-// Consumers may want to normalize or encode their input to avoid these issues
-// And at some point this functionality might be worth adding to Cyber UI
 type CyberUiItemEngagementRecordMapping = {[encodedItemId: string]: CyberUiItemEngagementRecord};
 
 
-// A service for keeping track of when items from various namespaces were last engaged with
+// A Firestore-backed service for keeping track of when items from various namespaces were last engaged with
 @Injectable({providedIn: 'root'})
 export class CyberUiTimeSinceLastEngagementService {
+
+  // Returns an observable which will emit an item engagement record corresponding to the
+  // last engagement with the given thing. If no prior engagement was found, the emitted
+  // item engagement record will not have `timestamp` or `duration` properties present.
+  getTimeSinceLastEngagement(
+    options: CyberUiGetTimeSinceLastEngagementOptions,
+  ): Observable<CyberUiGetTimeSinceLastEngagementResponse> {
+    return this
+      .engagementRecordsCollection
+      .doc<CyberUiItemEngagementRecord>(firebaseKeyEncode(options.namespaceId))
+      .get()
+      .pipe(
+        map(snapshot => {
+          const response: CyberUiGetTimeSinceLastEngagementResponse = {};
+          if (snapshot.exists) {
+            response.timestamp = snapshot.get(`${firebaseKeyEncode(options.itemId)}.timestamp`);
+            if (response.timestamp) {
+              response.duration = Date.now() - response.timestamp;
+            }
+          }
+          return response;
+        }),
+      );
+  }
+
+  // Indicates engagement with the given item in the given namespace
+  //
+  // Note that because of our choice of Firestore as the backend for this service,
+  // the namespaceId and itemId must be no longer than 1,500 bytes UTF-8 encoded
+  // For more information, see https://cloud.google.com/firestore/quotas#collections_documents_and_fields
+  indicateEngagement(
+    // The id of the namespace in which this item exists (max 1,500 bytes UTF-8 encoded)
+    namespaceId: string,
+    // The item's id (max 1,500 bytes UTF-8 encoded)
+    itemId: string,
+  ): Promise<void> {
+    // Update the timestamp at which this item was last engaged with
+    const data = {
+      [firebaseKeyEncode(itemId)]: {timestamp: Date.now()}
+    };
+    return this
+      .engagementRecordsCollection
+      .doc(firebaseKeyEncode(namespaceId))
+      // #set with {merge: true} is used instead of #update because when #update is used,
+      // additional characters such as '*' have special meaning and are disallowed in field path expressions
+      // The library we're using to encode key names (firebase-key) doesn't escape those additional characters
+      .set(data, {merge: true})
+      .catch(error => console.error(error));
+  }
+
+  // DEPRECATED - will be removed in a future release. Switch to the asynchronous version
+  // of this method (getTimeSinceLastEngagement) instead.
+  //
+  // Attempts to synchronously return the duration since the last engagement with the given thing
+  //
+  // In order to keep this method synchronous, engagement records are cached locally
+  // and the lookups are done locally rather than requiring a lookup over the network.
+  //
+  // However, this presents the potential for a race condition: consumers might call
+  // this method before the the records have been cached locally, resulting in incorrect
+  // results.
+  //
+  // If the time since the last engagement with the item is not known, the applicable
+  // property values in the response object will be undefined
+  getTimeSinceLastEngagementUnsafe(options: CyberUiGetTimeSinceLastEngagementOptions): CyberUiGetTimeSinceLastEngagementResponse {
+    const record = this.getEngagementRecordFromLocalCache(options.namespaceId, options.itemId);
+    const timestamp = record && record.timestamp;
+    let duration = undefined;
+    if (timestamp !== undefined) {
+      duration = Date.now() - timestamp;
+    }
+    return {
+      timestamp: timestamp,
+      duration: duration,
+    };
+  }
+
+  // ===========
+  // PRIVATE API
+  // ===========
 
   // A local, cached representation of the last engagements with items
   // The top-level mapping is from namespace ids to the lower-level mapping
@@ -27,15 +107,13 @@ export class CyberUiTimeSinceLastEngagementService {
   private cachedState = new Map<string, CyberUiItemEngagementRecordMapping>();
 
   // The top-level settings document where all of the persisted data lives
-  private engagementRecordsCollection = this.firestoreBackend.firestore
-      .collection('settings')
-      .doc('cyberUiTimeSinceLastEngagementService')
-      .collection('engagementRecords');
+  private engagementRecordsCollection = this
+    .firestore
+    .collection(CYBER_UI_SETTINGS_COLLECTION_ID)
+    .doc(CYBER_UI_TIME_SINCE_LAST_ENGAGEMENT_SERVICE_DOC_ID)
+    .collection('engagementRecords');
 
-  constructor(
-    // TODO Move all necessary functionality to implementation-agnostic CyberUiBackend
-    readonly firestoreBackend: CyberUiFirestoreBackend
-  ) {
+  constructor(private readonly firestore: AngularFirestore) {
     this.engagementRecordsCollection.stateChanges().subscribe(actions => {
       actions.map(action => {
         const namespaceId = action.payload.doc.id;
@@ -57,63 +135,5 @@ export class CyberUiTimeSinceLastEngagementService {
     const mapping = this.cachedState.get(namespaceId);
     const encodedItemId = firebaseKeyEncode(itemId);
     return mapping && mapping[encodedItemId];
-  }
-
-  // Returns the time since the last engagement with the given item
-  //
-  // In order to keep this method synchronous, engagement records are cached locally
-  // and the lookups are done locally rather than requiring a lookup over the network
-  //
-  // If the time since the last engagement with the item is not known, the applicable
-  // property values in the response object will be undefined
-  getTimeSinceLastEngagement(options: CyberUiGetTimeSinceLastEngagementOptions): CyberUiGetTimeSinceLastEngagementResponse {
-    const record = this.getEngagementRecordFromLocalCache(options.namespaceId, options.itemId);
-    const timestamp = record && record.timestamp;
-    let duration = undefined;
-    if (timestamp !== undefined) {
-      duration = Date.now() - timestamp;
-    }
-    return {
-      timestamp: timestamp,
-      duration: duration,
-    };
-  }
-
-  // Updates the engagement record for the given item
-  indicateEngagement(
-    // The identifier of the namespace in which this item exists
-    namespaceId: string,
-    // The identifier for this item
-    itemId: string
-  ): Promise<void> {
-    // Get the previous engagement record for this item, or a suitable default
-    let engagementRecord = this.getEngagementRecordFromLocalCache(namespaceId, itemId);
-    if (!engagementRecord) {
-      engagementRecord = {
-        timestamp: undefined
-      };
-    }
-    // Update the timestamp at which this item was last engaged with
-    engagementRecord.timestamp = Date.now();
-    const docToUpdate = this.engagementRecordsCollection.doc(namespaceId);
-    const encodedItemId = firebaseKeyEncode(itemId);
-    const updates = {
-      [encodedItemId]: engagementRecord
-    };
-    return docToUpdate.set(
-      updates,
-      // #set with {merge: true} is used instead of #update because when #update is used,
-      // additional characters such as '*' have special meaning and are disallowed in field path expressions
-      // The library we're using to encode key names (firebase-key) doesn't escape those additional characters
-      {merge: true}
-    ).catch(error => {
-      // One possible error is that the document doesn't exist yet
-      if (error.code === 'not-found') {
-        // Go ahead and create the document first
-        return docToUpdate.set(updates);
-      } else {
-        console.error(error);
-      }
-    });
   }
 }

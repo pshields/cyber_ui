@@ -5,7 +5,7 @@ import {CyberUiTimeSinceLastEngagementService} from './service';
 
 @NgModule({
   providers: [
-    CyberUiTimeSinceLastEngagementService
-  ]
+    CyberUiTimeSinceLastEngagementService,
+  ],
 })
 export class CyberUiTimeSinceLastEngagementModule {}
