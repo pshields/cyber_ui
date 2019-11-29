@@ -252,6 +252,8 @@ export {CyberUiWorkOnTasksWorkflowModule} from './workflow/work_on_tasks/module'
 
 export {ActiveTimeboxesSnapshot} from './util/timebox/defs/active_timeboxes_snapshot';
 export {CYBER_UI_MAT_DIALOG_DEFAULT_CONFIG} from './util/dialog.config';
+export {CyberUiDurationCountdownModule} from './util/timebox/duration/countdown/module';
+export {CyberUiDurationModule} from './util/timebox/duration/module';
 export {CyberUiTimeboxService} from './util/timebox/service';
 export {CyberUiTimeboxModule} from './util/timebox/module';
 export {Timebox} from './util/timebox/defs/timebox';
