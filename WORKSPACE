@@ -65,7 +65,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 git_repository(
     name = "io_bazel_rules_go",
     remote = "https://github.com/bazelbuild/rules_go.git",
-    commit = "1d299a6bc714fedde8f6b461cd7f97732c7eb1a2",
+    commit = "d8b3dd5209ed73e485e362178a44ffe8147f0060",
 )
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
