@@ -1,3 +1,5 @@
+@import '../../mat_style_overrides_for_theme_service';
+
 :host {
   display: flex;
   flex-direction: row;
@@ -7,6 +9,8 @@
     // Get the text color from app-wide CSS custom property
     color: var(--text-color);
   }
+
+  @include angular-material-overrides-for-cyber-ui-theme-service();
 }
 
 .unrolled-multiple-container {
@@ -18,11 +22,9 @@
   }
 }
 
-
 mat-form-field {
   flex-grow: 1;
 }
-
 
 // The styling is slightly different than the app defaults
 // when in a .cyber-ui-inverted-background descendant

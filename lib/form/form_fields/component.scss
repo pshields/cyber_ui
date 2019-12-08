@@ -1,19 +1,14 @@
+@import '../mat_style_overrides_for_theme_service';
+
 :host {
   display: flex;
   // Vertically stack form fields
   flex-direction: column;
 
-  // Material overrides used conjunction with Cyber UI theme service
-  ::ng-deep {
-
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      color: var(--mat-list-subheader-color);
-    }
-
-    .mat-form-field-appearance-legacy .mat-form-field-underline {
-      background-color: var(--low-opacity-color);
-    }
-  }
+  // This could be removed here once each Material-based field component applies it to themself
+  // For now, this ensure that that overrides apply to all Material-based field components shown
+  // within a cyber-ui-form-fields component
+  @include angular-material-overrides-for-cyber-ui-theme-service();
 }
 
 // Handle theming in contexts where the background is inverted from the app default
