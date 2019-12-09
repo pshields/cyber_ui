@@ -256,6 +256,7 @@ export {CyberUiDurationCountdownModule} from './util/timebox/duration/countdown/
 export {CyberUiDurationModule} from './util/timebox/duration/module';
 export {CyberUiTimeboxService} from './util/timebox/service';
 export {CyberUiTimeboxModule} from './util/timebox/module';
+export {firebaseKeyEncode} from './util/firebase_key_encode';
 export {Timebox} from './util/timebox/defs/timebox';
 export {TimeboxId} from './util/timebox/defs/timebox_id';
 export {CyberUiTimeboxCountdownDisplayModule} from './util/timebox/countdown_display/module';
