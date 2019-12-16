@@ -41,7 +41,7 @@
     "@bazel/bazel": "latest",
     "@bazel/buildifier": "latest",
     "@bazel/ibazel": "latest",
-    "@bazel/typescript": "0.42.1",
+    "@bazel/typescript": "0.42.3",
     "@types/jasmine": "2.8.16",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "8.10.59",
