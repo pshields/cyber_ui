@@ -1,5 +1,7 @@
 @import '../../mat_style_overrides_for_theme_service';
 
+@include angular-material-overrides-for-cyber-ui-theme-service();
+
 :host {
   display: flex;
   flex-direction: row;
@@ -9,8 +11,6 @@
     // Get the text color from app-wide CSS custom property
     color: var(--text-color);
   }
-
-  @include angular-material-overrides-for-cyber-ui-theme-service();
 }
 
 .unrolled-multiple-container {

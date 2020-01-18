@@ -1,20 +1,20 @@
 // Angular Material style overrides for use in conjunction with the Cyber UI theme service
 
-
 // This mixin can be applied to an Angular component host in order to address some issues that arise
 // from using Angular Material components in conjunction with the Cyber UI theme service. Material
 // components which are descendants of the host will receive these patches.
 //
 // TODO Consider turning into a reusuable class to reduce bundle size instead of mixing in the same
 // CSS statements in multiple places
-//
-// NOTE: To avoid having these rules applied indiscriminately throughout the entire document, this
-// mixin should be applied within a :host { ... } selector block in the Angular component's styles
+
 @mixin angular-material-overrides-for-cyber-ui-theme-service {
 
+  // NOTE: To avoid having these rules applied indiscriminately throughout the entire document,
+  // the styles are scoped within a :host { ... } selector block
+  //
   // The ::ng-deep is necessary because the elements these selectors match are usually not in the
   // field components' views, but rather in the interior Angular Material components' views
-  ::ng-deep {
+  :host ::ng-deep {
 
     .mat-form-field-appearance-legacy .mat-form-field-label {
       color: var(--mat-list-subheader-color);
@@ -26,4 +26,15 @@
 
   }
 
+  // Handle theming in contexts where the background is inverted from the app default
+  :host-context(.cyber-ui-inverted-background) ::ng-deep {
+
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+      color: var(--light-background-subheader-color);
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+      background-color: var(--light-background-low-opacity-color);
+    }
+  }
 }
