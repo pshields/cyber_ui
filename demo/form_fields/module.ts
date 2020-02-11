@@ -40,8 +40,5 @@ import {CyberUiDemoExampleHelpDialogComponent} from './example_help_dialog.compo
     CyberUiDemoExampleHelpDialogComponent,
     FormFieldsDemoComponent,
   ],
-  entryComponents: [
-    CyberUiDemoExampleHelpDialogComponent,
-  ],
 })
 export class FormFieldsDemoModule {}

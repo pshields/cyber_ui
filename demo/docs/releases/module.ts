@@ -7,8 +7,5 @@ import {CyberUiDemoReleasesComponent} from './component';
   declarations: [
     CyberUiDemoReleasesComponent,
   ],
-  entryComponents: [
-    CyberUiDemoReleasesComponent,
-  ],
 })
 export class CyberUiDemoReleasesDocumentationModule {}

@@ -20,8 +20,5 @@ import {CyberUiAddThingWorkflowDefaultDisplayComponent, CyberUiAddThingWorkflowD
   exports: [
     CyberUiAddThingWorkflowDefaultDisplayComponent,
   ],
-  entryComponents: [
-    CyberUiAddThingWorkflowDefaultDisplayComponent,
-  ],
 })
 export class CyberUiAddThingWorkflowDefaultDisplayModule {}

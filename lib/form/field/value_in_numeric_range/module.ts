@@ -26,8 +26,5 @@ import {CyberUiValueInNumericRangeFieldComponent} from './component';
   exports: [
     CyberUiValueInNumericRangeFieldComponent,
   ],
-  entryComponents: [
-    CyberUiValueInNumericRangeFieldComponent,
-  ],
 })
 export class CyberUiValueInNumericRangeFieldModule {}

@@ -24,8 +24,5 @@ import {CyberUiActionsPanelComponent} from './component';
   exports: [
     CyberUiActionsPanelComponent,
   ],
-  entryComponents: [
-    CyberUiActionsPanelComponent,
-  ]
 })
 export class CyberUiActionsPanelModule {}

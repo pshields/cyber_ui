@@ -24,9 +24,6 @@ import {CyberUiFormFieldModule} from '../../form/field/form/module';
   exports: [
     CyberUiSnoozeReasonCollectionDialogComponent,
   ],
-  entryComponents: [
-    CyberUiSnoozeReasonCollectionDialogComponent,
-  ],
   providers: [
     CyberUiSnoozeReasonCollectionDialogService,
   ],

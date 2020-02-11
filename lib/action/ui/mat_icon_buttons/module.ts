@@ -25,8 +25,5 @@ import {CyberUiMatActionIconButtonsComponent} from './component';
   exports: [
     CyberUiMatActionIconButtonsComponent,
   ],
-  entryComponents: [
-    CyberUiMatActionIconButtonsComponent,
-  ],
 })
 export class CyberUiMatActionIconButtonsModule {}

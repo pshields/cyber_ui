@@ -1,4 +1,4 @@
-import {Type} from '@angular/core';
+import {Type, Injectable} from '@angular/core';
 
 import {ComponentType} from '@angular/cdk/portal';
 
@@ -13,6 +13,7 @@ import {CYBER_UI_DEFAULT_FORM_FIELD_COMPONENTS_BY_CONFIG_CTOR} from './default_c
 
 // TODO Consider separating into an abstract class and separate impl, like Angular's ComponentFactoryResolver
 // Would this make it easier for consumers to provide their own component resolver impl?
+@Injectable({providedIn: 'root'})
 export class CyberUiFormFieldComponentResolver {
 
   readonly defaultComponentByConfigCtor = new Map<Type<FormFieldConfig>, Type<CyberUiFormFieldComponentInterface>>();

@@ -26,8 +26,5 @@ import {CyberUiTextFieldComponent} from './component';
   exports: [
     CyberUiTextFieldComponent,
   ],
-  entryComponents: [
-    CyberUiTextFieldComponent,
-  ]
 })
 export class CyberUiTextFieldModule {}

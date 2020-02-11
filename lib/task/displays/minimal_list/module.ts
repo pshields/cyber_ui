@@ -20,9 +20,5 @@ import {CyberUiMinimalTaskListComponent} from './component';
   exports: [
     CyberUiMinimalTaskListComponent,
   ],
-  entryComponents: [
-    // This component will often be dynamically generated and provided to cyber-ui-work-on-tasks-workflow
-    CyberUiMinimalTaskListComponent,
-  ]
 })
 export class CyberUiMinimalTaskListModule {}

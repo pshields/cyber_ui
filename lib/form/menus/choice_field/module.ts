@@ -20,8 +20,5 @@ import {CyberUiChoiceFieldMenuComponent} from './component';
   declarations: [
     CyberUiChoiceFieldMenuComponent,
   ],
-  entryComponents: [
-    CyberUiChoiceFieldMenuComponent,
-  ]
 })
 export class CyberUiChoiceFieldMenuModule {}

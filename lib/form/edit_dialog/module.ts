@@ -31,8 +31,5 @@ import {CyberUiEditDialogService} from './service';
   providers: [
     CyberUiEditDialogService,
   ],
-  entryComponents: [
-    CyberUiEditDialogComponent,
-  ]
 })
 export class CyberUiEditDialogModule {}

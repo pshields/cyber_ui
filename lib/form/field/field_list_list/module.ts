@@ -26,8 +26,5 @@ import {CyberUiFieldListListFieldComponent} from './component';
   exports: [
     CyberUiFieldListListFieldComponent,
   ],
-  entryComponents: [
-    CyberUiFieldListListFieldComponent,
-  ],
 })
 export class CyberUiFieldListListFieldModule {}

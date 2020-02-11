@@ -20,9 +20,5 @@ import {CyberUiTaskAccordionComponent} from './component';
   exports: [
     CyberUiTaskAccordionComponent,
   ],
-  entryComponents: [
-    // This component will often be dynamically generated and provided to cyber-ui-work-on-tasks-workflow
-    CyberUiTaskAccordionComponent,
-  ]
 })
 export class CyberUiTaskAccordionModule {}

@@ -4,7 +4,7 @@ import {BooleanFieldConfig} from '../boolean/field';
 import {CyberUiBooleanFieldComponent} from '../boolean/component';
 import {ChoiceFieldConfig} from '../choice/field';
 import {CyberUiChoiceFieldComponent} from '../choice/component';
-import { ValueInNumericRangeFieldConfig} from '../value_in_numeric_range/field';
+import {ValueInNumericRangeFieldConfig} from '../value_in_numeric_range/field';
 import {CyberUiValueInNumericRangeFieldComponent} from '../value_in_numeric_range/component';
 import {DiscreteProbabilityDistributionFieldConfig} from '../discrete_probability_distribution/field';
 import {CyberUiDiscreteProbabilityDistributionFieldComponent} from '../discrete_probability_distribution/component';

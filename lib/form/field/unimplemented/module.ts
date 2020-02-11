@@ -10,8 +10,5 @@ import {CyberUiUnimplementedFieldComponent} from './component';
   exports: [
     CyberUiUnimplementedFieldComponent,
   ],
-  entryComponents: [
-    CyberUiUnimplementedFieldComponent,
-  ]
 })
 export class CyberUiUnimplementedFieldModule {}

@@ -23,8 +23,5 @@ import {CyberUiMatActionMenuItemsComponent} from './component';
   exports: [
     CyberUiMatActionMenuItemsComponent,
   ],
-  entryComponents: [
-    CyberUiMatActionMenuItemsComponent,
-  ],
 })
 export class CyberUiMatActionMenuItemsModule {}

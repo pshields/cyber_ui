@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {MatChipsModule} from '@angular/material';
+import {MatChipsModule} from '@angular/material/chips';
 
 import {CyberUiActionContextModule} from '../../../action/context/module';
 
@@ -20,8 +20,5 @@ import {CyberUiMinimalTaskComponent} from './component';
   exports: [
     CyberUiMinimalTaskComponent,
   ],
-  entryComponents: [
-    CyberUiMinimalTaskComponent,
-  ]
 })
 export class CyberUiMinimalTaskModule {}

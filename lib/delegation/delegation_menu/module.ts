@@ -18,6 +18,5 @@ import {CyberUiDelegationMenuService} from './service';
   declarations: [DelegationMenuComponent],
   exports: [DelegationMenuComponent],
   providers: [CyberUiDelegationMenuService],
-  entryComponents: [DelegationMenuComponent],
 })
 export class CyberUiDelegationMenuModule {}
