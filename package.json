@@ -13,7 +13,7 @@
   "dependencies": {
     "@angular/animations": "9.0.4",
     "@angular/cdk": "9.1.0",
-    "@angular/common": "9.0.4",
+    "@angular/common": "19.2.16",
     "@angular/compiler": "9.0.4",
     "@angular/core": "9.0.4",
     "@angular/fire": "5.4.2",
